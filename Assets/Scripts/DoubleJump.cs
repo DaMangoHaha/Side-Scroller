@@ -17,6 +17,7 @@ public class DoubleJump : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();    
     }
 
     void Update()
