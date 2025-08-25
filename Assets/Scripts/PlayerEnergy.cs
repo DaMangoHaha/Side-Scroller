@@ -1,16 +1,24 @@
 using UnityEngine;
-using UnityEngine.SceneManagement; // for restarting or ending the game
-using UnityEngine.UI; // if I add a UI bar later
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class PlayerEnergy : MonoBehaviour
 {
     [Header("Energy Settings")]
     public float maxEnergy = 100f;
     public float currentEnergy;
-    public float depletionRate = 5f; // how fast energy drains per second
+    public float depletionRate = 5f; // per second
 
     [Header("UI")]
-    public Slider energySlider; // optional Unity UI slider
+    public Slider energySlider;
+
+    [Header("Visual Feedback")]
+    public SpriteRenderer spriteRenderer; // assign your player’s sprite
+    public Color hurtColor = Color.red;
+    public float flashDuration = 0.2f;
+
+    private Color originalColor;
+    private bool isFlashing = false;
 
     void Start()
     {
@@ -18,31 +26,54 @@ public class PlayerEnergy : MonoBehaviour
 
         if (energySlider != null)
             energySlider.maxValue = maxEnergy;
+
+        if (spriteRenderer == null)
+            spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        if (spriteRenderer != null)
+            originalColor = spriteRenderer.color;
     }
 
     void Update()
     {
         // Deplete energy over time
         currentEnergy -= depletionRate * Time.deltaTime;
-
-        // Clamp to 0 so it doesn’t go negative
         currentEnergy = Mathf.Clamp(currentEnergy, 0, maxEnergy);
 
-        // Update UI
         if (energySlider != null)
             energySlider.value = currentEnergy;
 
-        // End game if empty
         if (currentEnergy <= 0)
         {
             GameOver();
         }
     }
 
+    public void TakeDamage(float amount)
+    {
+        currentEnergy = Mathf.Clamp(currentEnergy - amount, 0, maxEnergy);
+
+        if (!isFlashing)
+            StartCoroutine(FlashRed());
+
+        if (currentEnergy <= 0)
+            GameOver();
+    }
+
+    private System.Collections.IEnumerator FlashRed()
+    {
+        isFlashing = true;
+        spriteRenderer.color = hurtColor;
+
+        yield return new WaitForSeconds(flashDuration);
+
+        spriteRenderer.color = originalColor;
+        isFlashing = false;
+    }
+
     void GameOver()
     {
-        Debug.Log("Energy depleted! Game Over.");
-        // Example: Reload current scene
+        Debug.Log("Energy depleted! You suck.");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

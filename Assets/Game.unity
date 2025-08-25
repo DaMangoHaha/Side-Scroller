@@ -1784,8 +1784,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnergy: 100
   currentEnergy: 0
-  depletionRate: 5
+  depletionRate: 3
   energySlider: {fileID: 442750849}
+  spriteRenderer: {fileID: 0}
+  hurtColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.3
 --- !u!114 &739050018
 MonoBehaviour:
   m_ObjectHideFlags: 0
