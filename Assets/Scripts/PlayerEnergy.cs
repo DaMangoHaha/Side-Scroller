@@ -20,6 +20,9 @@ public class PlayerEnergy : MonoBehaviour
     private Color originalColor;
     private bool isFlashing = false;
 
+    public bool hasBitBuff = false; // Is the skill active?
+    public float damageReduction = 0.5f; // 50% damage reduction
+
     void Start()
     {
         currentEnergy = maxEnergy;
@@ -51,6 +54,12 @@ public class PlayerEnergy : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (hasBitBuff)
+        {
+            amount *= damageReduction; // Reduces damage
+            hasBitBuff = false; // Buff is consumed
+            Debug.Log("Bit Buff activated! Damage reduced.");
+        }
         currentEnergy = Mathf.Clamp(currentEnergy - amount, 0, maxEnergy);
 
         if (!isFlashing)
