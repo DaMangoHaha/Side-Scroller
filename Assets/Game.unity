@@ -1578,6 +1578,7 @@ GameObject:
   - component: {fileID: 739050016}
   - component: {fileID: 739050017}
   - component: {fileID: 739050018}
+  - component: {fileID: 739050019}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1789,6 +1790,8 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   hurtColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.3
+  hasBitBuff: 0
+  damageReduction: 0.5
 --- !u!114 &739050018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1803,6 +1806,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: 0
   scoreText: {fileID: 1904057628}
+--- !u!114 &739050019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739050009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d983bedad0c3184589c4461619d6952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buffCooldown: 10
+  warningTime: 3
 --- !u!1 &888027021
 GameObject:
   m_ObjectHideFlags: 0
