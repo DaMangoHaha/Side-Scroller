@@ -56,10 +56,17 @@ public class PlayerEnergy : MonoBehaviour
     {
         if (hasBitBuff)
         {
-            amount *= damageReduction; // Reduces damage
-            hasBitBuff = false; // Buff is consumed
+            amount *= damageReduction;
+            hasBitBuff = false;
+
+            // Reset shield icon
+            BitSkill skill = GetComponent<BitSkill>();
+            if (skill != null)
+                skill.ConsumeBuff();
+
             Debug.Log("Bit Buff activated! Damage reduced.");
         }
+
         currentEnergy = Mathf.Clamp(currentEnergy - amount, 0, maxEnergy);
 
         if (!isFlashing)
@@ -68,6 +75,7 @@ public class PlayerEnergy : MonoBehaviour
         if (currentEnergy <= 0)
             GameOver();
     }
+
 
     private System.Collections.IEnumerator FlashRed()
     {

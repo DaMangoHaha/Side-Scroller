@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BitSkill : MonoBehaviour
 {
@@ -10,17 +11,30 @@ public class BitSkill : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private bool isWarning = false;
 
+    [Header("UI")]
+    public Image shieldIcon; // drag the ShieldIcon here in Inspector
+    private Color inactiveColor;
+    private Color activeColor;
+
     void Start()
     {
         playerEnergy = GetComponent<PlayerEnergy>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+
+        if (shieldIcon != null)
+        {
+            activeColor = shieldIcon.color;
+            inactiveColor = shieldIcon.color;
+            inactiveColor.a = 0.2f; // faded look
+            shieldIcon.color = inactiveColor;
+        }
     }
 
     void Update()
     {
         timer += Time.deltaTime;
 
-        // Start warning 3s before buff activates
+        // Start warning twinkle 3s before buff
         if (!isWarning && timer >= buffCooldown - warningTime)
         {
             isWarning = true;
@@ -40,6 +54,17 @@ public class BitSkill : MonoBehaviour
     {
         playerEnergy.hasBitBuff = true;
         Debug.Log("Bit Buff Ready! Next spike damage is halved.");
+
+        // Show shield icon as active
+        if (shieldIcon != null)
+            shieldIcon.color = activeColor;
+    }
+
+    public void ConsumeBuff()
+    {
+        // Called by PlayerEnergy when the buff is used
+        if (shieldIcon != null)
+            shieldIcon.color = inactiveColor;
     }
 
     private System.Collections.IEnumerator TwinkleYellow()
@@ -48,10 +73,9 @@ public class BitSkill : MonoBehaviour
         Color twinkle = Color.yellow;
 
         float flashInterval = 0.3f;
-        float twinkleTime = warningTime;
         float elapsed = 0f;
 
-        while (elapsed < twinkleTime)
+        while (elapsed < warningTime)
         {
             spriteRenderer.color = twinkle;
             yield return new WaitForSeconds(flashInterval);
@@ -61,8 +85,8 @@ public class BitSkill : MonoBehaviour
             elapsed += flashInterval * 2;
         }
 
-        // restore normal color
         spriteRenderer.color = original;
     }
 }
+
 
