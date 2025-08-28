@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
 
 public class PlayerEnergy : MonoBehaviour
 {
@@ -8,9 +9,11 @@ public class PlayerEnergy : MonoBehaviour
     public float maxEnergy = 100f;
     public float currentEnergy;
     public float depletionRate = 5f; // per second
+    private bool isDepleting = true; // allows potions to pause depletion
 
     [Header("UI")]
     public Slider energySlider;
+    public Image energyFill; // assign Fill Area > Fill image
 
     [Header("Visual Feedback")]
     public SpriteRenderer spriteRenderer; // assign your player’s sprite
@@ -18,8 +21,10 @@ public class PlayerEnergy : MonoBehaviour
     public float flashDuration = 0.2f;
 
     private Color originalColor;
+    private Color originalFillColor;
     private bool isFlashing = false;
 
+    [Header("Bit Buff")]
     public bool hasBitBuff = false; // Is the skill active?
     public float damageReduction = 0.5f; // 50% damage reduction
 
@@ -35,20 +40,23 @@ public class PlayerEnergy : MonoBehaviour
 
         if (spriteRenderer != null)
             originalColor = spriteRenderer.color;
+
+        if (energyFill != null)
+            originalFillColor = energyFill.color;
+
+        UpdateUI();
     }
 
     void Update()
     {
-        // Deplete energy over time
-        currentEnergy -= depletionRate * Time.deltaTime;
-        currentEnergy = Mathf.Clamp(currentEnergy, 0, maxEnergy);
-
-        if (energySlider != null)
-            energySlider.value = currentEnergy;
-
-        if (currentEnergy <= 0)
+        if (isDepleting)
         {
-            GameOver();
+            currentEnergy -= depletionRate * Time.deltaTime;
+            currentEnergy = Mathf.Clamp(currentEnergy, 0, maxEnergy);
+            UpdateUI();
+
+            if (currentEnergy <= 0)
+                GameOver();
         }
     }
 
@@ -59,7 +67,6 @@ public class PlayerEnergy : MonoBehaviour
             amount *= damageReduction;
             hasBitBuff = false;
 
-            // Reset shield icon
             BitSkill skill = GetComponent<BitSkill>();
             if (skill != null)
                 skill.ConsumeBuff();
@@ -68,6 +75,7 @@ public class PlayerEnergy : MonoBehaviour
         }
 
         currentEnergy = Mathf.Clamp(currentEnergy - amount, 0, maxEnergy);
+        UpdateUI();
 
         if (!isFlashing)
             StartCoroutine(FlashRed());
@@ -76,8 +84,14 @@ public class PlayerEnergy : MonoBehaviour
             GameOver();
     }
 
+    public void UpdateUI()
+    {
+        if (energySlider != null)
+            energySlider.value = currentEnergy;
+    }
 
-    private System.Collections.IEnumerator FlashRed()
+
+    private IEnumerator FlashRed()
     {
         isFlashing = true;
         spriteRenderer.color = hurtColor;
@@ -93,5 +107,32 @@ public class PlayerEnergy : MonoBehaviour
         Debug.Log("Energy depleted! You suck.");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
+
+    // --- Potion Support ---
+    public void PauseDepletion(float duration)
+    {
+        StartCoroutine(PauseEnergyCoroutine(duration));
+    }
+
+    private IEnumerator PauseEnergyCoroutine(float duration)
+    {
+        isDepleting = false;
+
+        if (energyFill != null)
+            energyFill.color = Color.green;
+
+        Debug.Log("Energy depletion paused for " + duration + " seconds!");
+        yield return new WaitForSeconds(duration);
+
+        isDepleting = true;
+
+        if (energyFill != null)
+            energyFill.color = originalFillColor;
+
+        Debug.Log("Energy depletion resumed.");
+    }
 }
+
+
+
 

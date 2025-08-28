@@ -1384,6 +1384,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 452682741}
   m_CullTransparentMesh: 1
+--- !u!1 &491479061
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 491479062}
+  - component: {fileID: 491479063}
+  m_Layer: 0
+  m_Name: PotionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &491479062
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491479061}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.8180882, y: 1.4884133, z: -0.039922}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1352737278}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &491479063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 491479061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffbe29a017686ff429047440f531587a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  potionPrefab: {fileID: 1197286419924460492, guid: 6b88f9bd222b4b74d9abd1a0e7392fee, type: 3}
+  spawnX: 12
+  groundY: 0
+  spawnInterval: 15
+  moveSpeed: 5
+  destroyX: -12
 --- !u!1 &526643050
 GameObject:
   m_ObjectHideFlags: 0
@@ -1658,6 +1708,7 @@ GameObject:
   - component: {fileID: 739050017}
   - component: {fileID: 739050018}
   - component: {fileID: 739050019}
+  - component: {fileID: 739050020}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1862,10 +1913,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496d90905e6e2c14799ac42feb8b2c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnergy: 200
+  maxEnergy: 100
   currentEnergy: 0
-  depletionRate: 1
+  depletionRate: 2
   energySlider: {fileID: 442750849}
+  energyFill: {fileID: 1554816392}
   spriteRenderer: {fileID: 0}
   hurtColor: {r: 1, g: 0, b: 0, a: 1}
   flashDuration: 0.3
@@ -1900,6 +1952,27 @@ MonoBehaviour:
   buffCooldown: 20
   warningTime: 2
   shieldIcon: {fileID: 199180355}
+--- !u!114 &739050020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739050009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd4ce6f164791404080711eced9c43ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideDuration: 0.8
+  slideYScale: 0.7
+  slideColliderSize: {x: 1, y: 0.7}
+  slideColliderOffset: {x: 0, y: -0.25}
+  groundCheck: {fileID: 1120026080}
+  groundRadius: 0.15
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!1 &888027021
 GameObject:
   m_ObjectHideFlags: 0
@@ -2271,6 +2344,7 @@ Transform:
   m_Children:
   - {fileID: 1781729733}
   - {fileID: 165939566}
+  - {fileID: 491479062}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1468595482
