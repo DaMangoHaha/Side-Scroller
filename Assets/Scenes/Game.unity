@@ -1949,7 +1949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d983bedad0c3184589c4461619d6952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffCooldown: 20
+  buffCooldown: 30
   warningTime: 2
   shieldIcon: {fileID: 199180355}
 --- !u!114 &739050020
