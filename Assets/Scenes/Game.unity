@@ -1950,7 +1950,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffCooldown: 30
-  warningTime: 2
+  warningTime: 3
   shieldIcon: {fileID: 199180355}
 --- !u!114 &739050020
 MonoBehaviour:
