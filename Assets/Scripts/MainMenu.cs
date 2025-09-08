@@ -6,8 +6,8 @@ public class MainMenu : MonoBehaviour
     // Called by Play Button
     public void PlayGame()
     {
-        // Load the next scene (Game Scene)
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        // Load the next scene (Level Select)
+        SceneManager.LoadScene("LevelSelect");
     }
 
     // Called by Settings Button
