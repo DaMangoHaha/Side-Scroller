@@ -181,3 +181,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   speed: 5
+  hitSoundSFX: {fileID: 8300000, guid: 31018149730edff44bc906af1ae2fbc9, type: 3}

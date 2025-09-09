@@ -8,6 +8,10 @@ public class Spike : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Collider2D spikeCollider;
 
+    [Header("Audio")]
+    public AudioClip hitSoundSFX;  // assign in Inspector
+    private static AudioSource audioSource;
+
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -50,6 +54,15 @@ public class Spike : MonoBehaviour
             {
                 spikeCollider.enabled = false;
             }
+
+            if (audioSource == null)
+            {
+                GameObject audioObj = new GameObject("HitAudioSource");
+                audioSource = audioObj.AddComponent<AudioSource>();
+            }
+
+            if (hitSoundSFX != null && audioSource != null)
+                audioSource.PlayOneShot(hitSoundSFX);
         }
     }
 }
