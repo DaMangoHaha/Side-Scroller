@@ -17,14 +17,14 @@ public class MainMenu : MonoBehaviour
         // Later: open a UI panel
     }
 
-    // Called by Character Select Button
-    public void OpenCharacterSelect()
+    // Called by Gacha Button
+    public void OpenGachaBanners()
     {
-        Debug.Log("Character select not implemented yet!");
-        // Later: load CharacterSelect scene or UI panel
+        Debug.Log("Gacha system not implemented yet!");
+        // Later: load gacha banner scene or UI panel
     }
 
-    // Called by Quit Button (if you add one later)
+    // Called by Quit Button (if added later)
     public void QuitGame()
     {
         Debug.Log("Quit!");

@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinType: 0
+  coinPickupSFX: {fileID: 8300000, guid: 76a55da118e36014fa88f4fcad3d7d58, type: 3}
 --- !u!114 &8977888333702698550
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -522,8 +522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutsceneText: {fileID: 743092924}
   lines:
-  - 'In a world where pixels fracture and corruption spreads, Bit is convinced he''s
-    the last one left. His journey begins here... '
+  - 'Welcome to the Pixelverse. Here, you play as Bit: a brave litle pixel with lots
+    of energy! Take it easy and collect coins, jump over spikes, and get a high score!'
   textSpeed: 0.05
 --- !u!4 &1585773089
 Transform:

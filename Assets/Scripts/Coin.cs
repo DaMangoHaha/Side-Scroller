@@ -7,8 +7,13 @@ public class Coin : MonoBehaviour
 
     private int scoreValue;
 
+    [Header("Audio")]
+    public AudioClip coinPickupSFX;  // assign in Inspector
+    private static AudioSource audioSource;
+
     void Start()
     {
+        // Setup score values
         switch (coinType)
         {
             case CoinType.Bronze:
@@ -21,20 +26,32 @@ public class Coin : MonoBehaviour
                 scoreValue = 5;
                 break;
         }
+
+        // Reuse one AudioSource for all coins
+        if (audioSource == null)
+        {
+            GameObject audioObj = new GameObject("CoinAudioSource");
+            audioSource = audioObj.AddComponent<AudioSource>();
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
+            // Add score
             PlayerScore score = other.GetComponent<PlayerScore>();
             if (score != null)
-            {
                 score.AddScore(scoreValue);
-            }
 
-            Destroy(gameObject); // remove coin after collection
+            // Play sound
+            if (coinPickupSFX != null && audioSource != null)
+                audioSource.PlayOneShot(coinPickupSFX);
+
+            // Destroy coin
+            Destroy(gameObject);
         }
     }
 }
+
 

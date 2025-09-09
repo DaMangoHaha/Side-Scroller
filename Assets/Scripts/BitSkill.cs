@@ -3,6 +3,7 @@ using UnityEngine.UI;
 
 public class BitSkill : MonoBehaviour
 {
+    [Header("Buff Settings")]
     public float buffCooldown = 10f;   // time to fully charge
     public float warningTime = 3f;     // twinkle before buff
     private float timer = 0f;
@@ -16,10 +17,16 @@ public class BitSkill : MonoBehaviour
     private Color inactiveColor;
     private Color activeColor;
 
+    [Header("Audio")]
+    public AudioClip buffActivateSFX;   // SFX when buff activates
+    public AudioClip buffConsumeSFX;    // SFX when buff is consumed
+    private AudioSource audioSource;
+
     void Start()
     {
         playerEnergy = GetComponent<PlayerEnergy>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
 
         if (shieldIcon != null)
         {
@@ -34,14 +41,14 @@ public class BitSkill : MonoBehaviour
     {
         timer += Time.deltaTime;
 
-        // Start warning twinkle 3s before buff
+        // Start warning twinkle before buff activates
         if (!isWarning && timer >= buffCooldown - warningTime)
         {
             isWarning = true;
             StartCoroutine(TwinkleYellow());
         }
 
-        // Activate buff
+        // Activate buff when timer is up
         if (timer >= buffCooldown)
         {
             ActivateBuff();
@@ -58,6 +65,10 @@ public class BitSkill : MonoBehaviour
         // Show shield icon as active
         if (shieldIcon != null)
             shieldIcon.color = activeColor;
+
+        // Play activation sound
+        if (audioSource != null && buffActivateSFX != null)
+            audioSource.PlayOneShot(buffActivateSFX);
     }
 
     public void ConsumeBuff()
@@ -65,6 +76,12 @@ public class BitSkill : MonoBehaviour
         // Called by PlayerEnergy when the buff is used
         if (shieldIcon != null)
             shieldIcon.color = inactiveColor;
+
+        // Play consumption sound
+        if (audioSource != null && buffConsumeSFX != null)
+            audioSource.PlayOneShot(buffConsumeSFX);
+
+        Debug.Log("Bit Buff consumed!");
     }
 
     private System.Collections.IEnumerator TwinkleYellow()
@@ -88,5 +105,3 @@ public class BitSkill : MonoBehaviour
         spriteRenderer.color = original;
     }
 }
-
-
