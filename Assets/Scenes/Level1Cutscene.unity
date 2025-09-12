@@ -155,7 +155,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 192, y: -228}
+  m_AnchoredPosition: {x: 192, y: -10}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &120970420
@@ -522,8 +522,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutsceneText: {fileID: 743092924}
   lines:
-  - 'Welcome to the Pixelverse. Here, you play as Bit: a brave litle pixel with lots
-    of energy! Take it easy and collect coins, jump over spikes, and get a high score!'
+  - 'Welcome to the Pixelverse. Here, you play as Bit: a brave little pixel with
+    lots of energy! Take it easy and collect coins, jump over spikes, and get a high
+    score!'
   textSpeed: 0.05
 --- !u!4 &1585773089
 Transform:

@@ -103,6 +103,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseDuration: 5
+  restoreAmount: 25
+  potionPickupSFX: {fileID: 8300000, guid: 9a561cf8877c18d4dbd3d72c9a1f9a0c, type: 3}
 --- !u!50 &2032869673352049824
 Rigidbody2D:
   serializedVersion: 5

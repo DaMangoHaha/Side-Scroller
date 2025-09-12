@@ -6,21 +6,32 @@ public class EnergyPotionSpawner : MonoBehaviour
     public GameObject potionPrefab;
     public float spawnX = 12f;
     public float groundY = -3f;
-    public float spawnInterval = 15f;
+
+    [Header("Spawn Timing")]
+    public float minSpawnInterval = 12f;
+    public float maxSpawnInterval = 20f;
 
     [Header("Movement")]
     public float moveSpeed = 5f;
     public float destroyX = -12f; // x-position where potions get destroyed
 
     private float timer;
+    private float nextSpawnTime;
+
+    void Start()
+    {
+        // Pick first random interval
+        nextSpawnTime = Random.Range(minSpawnInterval, maxSpawnInterval);
+    }
 
     void Update()
     {
         timer += Time.deltaTime;
-        if (timer >= spawnInterval)
+        if (timer >= nextSpawnTime)
         {
             SpawnPotion();
             timer = 0f;
+            nextSpawnTime = Random.Range(minSpawnInterval, maxSpawnInterval);
         }
     }
 
