@@ -17,11 +17,11 @@ public class MainMenu : MonoBehaviour
         // Later: open a UI panel
     }
 
-    // Called by Gacha Button
-    public void OpenGachaBanners()
+    // Called by Shop Button
+    public void OpenShop()
     {
-        Debug.Log("Gacha system not implemented yet!");
-        // Later: load gacha banner scene or UI panel
+        Debug.Log("Shop not implemented yet!");
+        // Later: shop scene or UI panel
     }
 
     // Called by Quit Button (if added later)
