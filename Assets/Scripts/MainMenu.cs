@@ -18,10 +18,10 @@ public class MainMenu : MonoBehaviour
     }
 
     // Called by Shop Button
-    public void OpenShop()
+    public void OpenPixels()
     {
-        Debug.Log("Shop not implemented yet!");
-        // Later: shop scene or UI panel
+        Debug.Log("Inventory not implemented yet!");
+        // Later: Pixels(characters) scene or UI panel
     }
 
     // Called by Quit Button (if added later)
