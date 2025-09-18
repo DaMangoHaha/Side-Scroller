@@ -1,18 +1,19 @@
 using UnityEngine;
+using TMPro;
 
 public class CoinsManager : MonoBehaviour
 {
     public static CoinsManager Instance;
 
-    public int totalCoins = 0; // persists across scenes
+    public int totalCoins = 0;               // coin count (resets each level)
+    public TextMeshProUGUI coinsText;        // drag your CoinsText (TMP) here
 
     void Awake()
     {
-        // Singleton pattern
+        // Simple singleton (no persistence between scenes)
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // survive scene loads
         }
         else
         {
@@ -24,8 +25,8 @@ public class CoinsManager : MonoBehaviour
     {
         totalCoins += amount;
         Debug.Log("Coins: " + totalCoins);
+
+        if (coinsText != null)
+            coinsText.text = "Coins: " + totalCoins;
     }
 }
-
-
-
