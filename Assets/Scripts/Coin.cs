@@ -5,8 +5,8 @@ public class Coin : MonoBehaviour
     public enum CoinType { Bronze, Silver, Gold }
     public CoinType coinType;
 
-    private int scoreValue;  // per-level score
-    private int coinValue;   // global currency
+    private int coinValue;   // adds to global CoinsManager
+    private int scoreValue;  // adds to in-level score
 
     [Header("Audio")]
     public AudioClip coinPickupSFX;  // assign in Inspector
@@ -14,20 +14,20 @@ public class Coin : MonoBehaviour
 
     void Start()
     {
-        // Setup values for both score and global coins
+        // Assign values
         switch (coinType)
         {
             case CoinType.Bronze:
-                scoreValue = 1;
                 coinValue = 1;
+                scoreValue = 1;
                 break;
             case CoinType.Silver:
-                scoreValue = 3;
                 coinValue = 2;
+                scoreValue = 3;
                 break;
             case CoinType.Gold:
-                scoreValue = 5;
                 coinValue = 3;
+                scoreValue = 5;
                 break;
         }
 
@@ -47,16 +47,16 @@ public class Coin : MonoBehaviour
             if (CoinsManager.Instance != null)
                 CoinsManager.Instance.AddCoins(coinValue);
 
-            // Add to per-level score
+            // Add to score
             PlayerScore score = other.GetComponent<PlayerScore>();
             if (score != null)
                 score.AddScore(scoreValue);
 
-            // Play pickup sound
+            // Play sound
             if (coinPickupSFX != null && audioSource != null)
                 audioSource.PlayOneShot(coinPickupSFX);
 
-            // Destroy the coin after pickup
+            // Destroy coin
             Destroy(gameObject);
         }
     }

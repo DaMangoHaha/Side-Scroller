@@ -3,13 +3,18 @@ using TMPro;
 
 public class CoinsUI : MonoBehaviour
 {
-    public TextMeshProUGUI coinsText;
+    private TextMeshProUGUI coinsText;
+
+    void Start()
+    {
+        coinsText = GetComponent<TextMeshProUGUI>();
+    }
 
     void Update()
     {
-        if (CoinsManager.Instance != null)
-        {
-            coinsText.text = "Coins: " + CoinsManager.Instance.totalCoins;
-        }
+        int amount = (CoinsManager.Instance != null) ? CoinsManager.Instance.totalCoins : -999;
+        coinsText.text = "Coins: " + amount;
+        Debug.Log("CoinsUI updating: " + amount);
     }
 }
+

@@ -1,2 +1,14 @@
 fileFormatVersion: 2
 guid: 1d983bedad0c3184589c4461619d6952
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - shieldIcon: {instanceID: 0}
+  - buffActivateSFX: {fileID: 8300000, guid: b3c1579616d735d44bf9fa9b08b11145, type: 3}
+  - buffConsumeSFX: {fileID: 8300000, guid: a81af90bfdf4cc541bda69bf2e8bb0c7, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
