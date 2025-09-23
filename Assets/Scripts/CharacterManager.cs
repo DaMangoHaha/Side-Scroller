@@ -5,7 +5,7 @@ public class CharacterManager : MonoBehaviour
     public static CharacterManager Instance;
 
     public CharacterData[] characters;
-    public int selectedCharacterIndex = 0;
+    public int selectedCharacterIndex = 0; // Bit is default
 
     void Awake()
     {
@@ -25,22 +25,17 @@ public class CharacterManager : MonoBehaviour
         if (characters[index].isUnlocked)
         {
             selectedCharacterIndex = index;
-            Debug.Log("Selected: " + characters[index].characterName);
+            Debug.Log("Equipped: " + characters[index].characterName);
         }
         else
         {
-            Debug.Log("Character locked!");
+            Debug.Log("Character is locked!");
         }
     }
 
-    public bool PurchaseCharacter(int index)
+    public void UnlockCharacter(int index)
     {
-        if (!characters[index].isUnlocked && CoinsManager.Instance.totalCoins >= characters[index].cost)
-        {
-            CoinsManager.Instance.totalCoins -= characters[index].cost;
-            characters[index].isUnlocked = true;
-            return true;
-        }
-        return false;
+        characters[index].isUnlocked = true;
     }
 }
+
