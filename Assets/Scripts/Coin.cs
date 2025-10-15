@@ -56,6 +56,14 @@ public class Coin : MonoBehaviour
             if (coinPickupSFX != null && audioSource != null)
                 audioSource.PlayOneShot(coinPickupSFX);
 
+            // Reduce cooldown if ThiefSkill is active on the player
+            ThiefSkill thiefSkill = other.GetComponent<ThiefSkill>();
+            if (thiefSkill != null)
+            {
+                thiefSkill.ReduceCooldown(1f); // -1s cooldown per coin collected
+            }
+
+
             // Remove coin
             Destroy(gameObject);
         }
