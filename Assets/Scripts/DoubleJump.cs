@@ -17,7 +17,7 @@ public class DoubleJump : MonoBehaviour
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();    
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -41,8 +41,8 @@ public class DoubleJump : MonoBehaviour
 
         anim.SetBool("isGrounded", isGrounded);
         anim.SetFloat("verticalVelocity", rb.linearVelocity.y);
+        Debug.Log($"isGrounded: {isGrounded}, verticalVelocity: {rb.linearVelocity.y}");
+
 
     }
 }
-
-

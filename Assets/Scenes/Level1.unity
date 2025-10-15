@@ -1897,6 +1897,11 @@ RectTransform:
   m_AnchoredPosition: {x: 5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!212 &927269543 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5831928592119874244, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+  m_PrefabInstance: {fileID: 7813454133628752034}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &994247320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2921,6 +2926,10 @@ PrefabInstance:
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 442750849}
+    - target: {fileID: 3478733736790026891, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      propertyPath: spriteRenderer
+      value: 
+      objectReference: {fileID: 927269543}
     - target: {fileID: 3566108749456092354, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: m_Name
       value: Player
