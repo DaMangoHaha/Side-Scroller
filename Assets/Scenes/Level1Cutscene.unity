@@ -522,9 +522,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cutsceneText: {fileID: 743092924}
   lines:
-  - 'Welcome to the Pixelverse. Here, you play as Bit: a brave little pixel with
-    lots of energy! Take it easy and collect coins, jump over spikes, and get a high
-    score!'
+  - Welcome to the Pixelverse! This level will serve as a tutorial to get you used
+    to BitBound's mechanics for future levels. Have fun!
   textSpeed: 0.05
 --- !u!4 &1585773089
 Transform:

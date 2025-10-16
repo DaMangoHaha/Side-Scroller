@@ -41,7 +41,6 @@ public class DoubleJump : MonoBehaviour
 
         anim.SetBool("isGrounded", isGrounded);
         anim.SetFloat("verticalVelocity", rb.linearVelocity.y);
-        Debug.Log($"isGrounded: {isGrounded}, verticalVelocity: {rb.linearVelocity.y}");
 
 
     }

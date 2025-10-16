@@ -18,10 +18,10 @@ public class MainMenu : MonoBehaviour
     }
 
     // Called by Shop Button
-    public void OpenPixels()
+    public void OpenCredits()
     {
-        SceneManager.LoadScene("Pixels");
-        // Pixels(characters) scene or UI panel
+        SceneManager.LoadScene("Credits");
+        // Credits scene for appropriate acknowledgments for assests used in game
     }
 
     // Called by Quit Button (if added later)
