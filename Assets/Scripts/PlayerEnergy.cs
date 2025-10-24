@@ -105,7 +105,12 @@ public class PlayerEnergy : MonoBehaviour
     void GameOver()
     {
         Debug.Log("Energy depleted! You suck.");
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
+        // Save the current scene name before switching
+        PlayerPrefs.SetString("LastLevel", SceneManager.GetActiveScene().name);
+
+        // Load the Game Over scene
+        SceneManager.LoadScene("GameOver");
     }
 
     // --- Potion Support ---
