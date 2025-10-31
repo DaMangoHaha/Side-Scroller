@@ -40,8 +40,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Sky
+    uniqueID: 2639341719
+    locked: 0
+  - name: BackgroundClouds
+    uniqueID: 1244114355
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 1534783775
     locked: 0
   m_RenderingLayers:
   - Default
