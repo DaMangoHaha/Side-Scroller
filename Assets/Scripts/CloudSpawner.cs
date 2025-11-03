@@ -43,7 +43,9 @@ public class CloudSpawner : MonoBehaviour
             0
         );
 
-        GameObject cloud = Instantiate(layer.cloudPrefab, spawnPos, Quaternion.Euler(0f, 0f, 0f));
+        GameObject cloud = Instantiate(layer.cloudPrefab, spawnPos, Quaternion.identity);
+        cloud.transform.Rotate(0f, 0f, 90f); // force rotate in world space
+
 
         // Ensure clouds render behind coins
         SpriteRenderer sr = cloud.GetComponent<SpriteRenderer>();
