@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public class BulletSpawner : MonoBehaviour
+public class AlienSpawner : MonoBehaviour
 {
-    public GameObject bulletPrefab;
+    public GameObject alienPrefab;
     public float spawnX = 12f;       // X position just off-screen right
     public float groundY = -3f;      // align above the ground
 
@@ -30,13 +30,13 @@ public class BulletSpawner : MonoBehaviour
 
         if (timer >= nextSpawnTime)
         {
-            SpawnBulletCluster();
+            SpawnAlienCluster();
             timer = 0f;
             nextSpawnTime = Random.Range(minSpawnInterval, maxSpawnInterval);
         }
     }
 
-    void SpawnBulletCluster()
+    void SpawnAlienCluster()
     {
         // choose a random cluster size
         int count = Random.Range(minClusterSize, maxClusterSize + 1);
@@ -44,7 +44,7 @@ public class BulletSpawner : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             Vector3 spawnPos = new Vector3(spawnX + (i * clusterSpacing), groundY, 0);
-            Instantiate(bulletPrefab, spawnPos, Quaternion.identity);
+            Instantiate(alienPrefab, spawnPos, Quaternion.identity);
         }
     }
 }

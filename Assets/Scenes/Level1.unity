@@ -240,7 +240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &199180354
 RectTransform:
   m_ObjectHideFlags: 0
@@ -315,7 +315,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &423927167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2240,7 +2240,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3566108749456092354, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: skillIcon
@@ -2250,10 +2250,26 @@ PrefabInstance:
       propertyPath: activateSFX
       value: 
       objectReference: {fileID: 8300000, guid: 69e733031ef3aec4cb9f31a7f5a01bc5, type: 3}
+    - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
+      propertyPath: cooldownTime
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
+      propertyPath: coinPullSpeed
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5967845733545688845, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1904057628}
+    - target: {fileID: 6445765439352345584, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6445765439352345584, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
+      propertyPath: slideYScale
+      value: 0.99
+      objectReference: {fileID: 0}
     - target: {fileID: 7093762297031683349, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -86.91
@@ -2310,7 +2326,7 @@ GameObject:
   - component: {fileID: 1180966584}
   - component: {fileID: 1180966585}
   m_Layer: 0
-  m_Name: BulletSpawner
+  m_Name: AlienSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2343,11 +2359,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70531087c8e84264891bb917410c46eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BulletSpawner
-  bulletPrefab: {fileID: 4023077068769561042, guid: 1ef0e11d66bc6ac4a97f3532d3410495, type: 3}
+  alienPrefab: {fileID: 226048433471827459, guid: 6b46e7c04b8c07b47a43a4c02f6408b5, type: 3}
   spawnX: 12
-  groundY: 2.5
-  minSpawnInterval: 2
-  maxSpawnInterval: 9
+  groundY: 4
+  minSpawnInterval: 4
+  maxSpawnInterval: 14
   clusterSpacing: 1
   minClusterSize: 0
   maxClusterSize: 1
@@ -3201,12 +3217,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3566108749456092354, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5967845733545688845, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1904057628}
+    - target: {fileID: 6445765439352345584, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      propertyPath: slideDuration
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 6457094141527707747, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: shieldIcon
       value: 

@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class Alien : MonoBehaviour
 {
     public float damage = 30f;   // how much energy it removes
     public float speed = 3f;     // scroll speed
     private bool hasHit = false; // prevent multiple hits
     private SpriteRenderer spriteRenderer;
-    private Collider2D bulletCollider;
+    private Collider2D alienCollider;
 
     [Header("Audio")]
     public AudioClip hitSoundSFX;  // assign in Inspector
@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
-        bulletCollider = GetComponent<Collider2D>();
+        alienCollider = GetComponent<Collider2D>();
     }
 
     void Update()
@@ -50,9 +50,9 @@ public class Bullet : MonoBehaviour
                 c.a = 0.3f;
                 spriteRenderer.color = c;
             }
-            if (bulletCollider != null)
+            if (alienCollider != null)
             {
-                bulletCollider.enabled = false;
+                alienCollider.enabled = false;
             }
 
             if (audioSource == null)
