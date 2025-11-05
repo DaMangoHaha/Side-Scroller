@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: 54cf9158af36eff4ca0b37102ae49d3c
+guid: e2bf9d9978a6eae4aacac45e1fc6f208
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -2315895931346060925
-    second: npc-yellow.png_0
+      213: -4969650525585489641
+    second: npc-female-orange_0
   - first:
-      213: -854280064961297292
-    second: npc-yellow.png_1
+      213: -635617000991231336
+    second: npc-female-orange_1
   - first:
-      213: -4258362695586712545
-    second: npc-yellow.png_2
+      213: -5360124202305819483
+    second: npc-female-orange_2
   - first:
-      213: 1578226329604782791
-    second: npc-yellow.png_3
+      213: 2933085128958026972
+    second: npc-female-orange_3
   - first:
-      213: 6205978774877834020
-    second: npc-yellow.png_4
+      213: 6561011500880233056
+    second: npc-female-orange_4
   - first:
-      213: -8328572198298182498
-    second: npc-yellow.png_5
+      213: 3093551309691201096
+    second: npc-female-orange_5
   - first:
-      213: -2063456797179089686
-    second: npc-yellow.png_6
+      213: 4637465220167088253
+    second: npc-female-orange_6
   - first:
-      213: 373842416712084870
-    second: npc-yellow.png_7
+      213: -3124954276557823701
+    second: npc-female-orange_7
   - first:
-      213: -8573545123686146936
-    second: npc-yellow.png_8
+      213: 6361122041538147081
+    second: npc-female-orange_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -163,13 +163,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: npc-yellow.png_0
+      name: npc-female-orange_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 33
-        width: 15
-        height: 17
+        x: 10
+        y: 373
+        width: 145
+        height: 177
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 389785babe84cdfd0800000000000000
-      internalID: -2315895931346060925
+      spriteID: 711c4a46d21480bb0800000000000000
+      internalID: -4969650525585489641
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-yellow.png_1
+      name: npc-female-orange_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 15
-        height: 18
+        x: 197
+        y: 373
+        width: 145
+        height: 167
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 474c84d9eccf424f0800000000000000
-      internalID: -854280064961297292
+      spriteID: 892f7ba84b5dd27f0800000000000000
+      internalID: -635617000991231336
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-yellow.png_2
+      name: npc-female-orange_2
       rect:
         serializedVersion: 2
-        x: 17
-        y: 33
-        width: 15
-        height: 17
+        x: 384
+        y: 373
+        width: 145
+        height: 167
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f1477cca0b147e4c0800000000000000
-      internalID: -4258362695586712545
+      spriteID: 5ac6699ef630d95b0800000000000000
+      internalID: -5360124202305819483
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-yellow.png_3
+      name: npc-female-orange_3
       rect:
         serializedVersion: 2
-        x: 17
-        y: 16
-        width: 15
-        height: 17
+        x: 10
+        y: 186
+        width: 145
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,20 +244,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7caf2472c7cf6e510800000000000000
-      internalID: 1578226329604782791
+      spriteID: cd42687726964b820800000000000000
+      internalID: 2933085128958026972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-yellow.png_4
+      name: npc-female-orange_4
       rect:
         serializedVersion: 2
-        x: 34
-        y: 33
-        width: 15
-        height: 17
+        x: 197
+        y: 186
+        width: 145
+        height: 167
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 42b0538a0d0102650800000000000000
-      internalID: 6205978774877834020
+      spriteID: 0620835c2356d0b50800000000000000
+      internalID: 6561011500880233056
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-yellow.png_5
+      name: npc-female-orange_5
       rect:
         serializedVersion: 2
-        x: 34
-        y: 16
-        width: 15
-        height: 18
+        x: 384
+        y: 186
+        width: 145
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,20 +288,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e9c1e3a56b7fa6c80800000000000000
-      internalID: -8328572198298182498
+      spriteID: 846a69c96808eea20800000000000000
+      internalID: 3093551309691201096
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-yellow.png_6
+      name: npc-female-orange_6
       rect:
         serializedVersion: 2
-        x: 0
+        x: 10
         y: 0
-        width: 15
-        height: 17
+        width: 145
+        height: 177
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,20 +310,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aec66c2c9f02d53e0800000000000000
-      internalID: -2063456797179089686
+      spriteID: d78b9422c069b5040800000000000000
+      internalID: 4637465220167088253
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-yellow.png_7
+      name: npc-female-orange_7
       rect:
         serializedVersion: 2
-        x: 17
+        x: 197
         y: 0
-        width: 15
-        height: 17
+        width: 145
+        height: 177
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,20 +332,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 68de81282b7203500800000000000000
-      internalID: 373842416712084870
+      spriteID: b21ee6664aee1a4d0800000000000000
+      internalID: -3124954276557823701
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-yellow.png_8
+      name: npc-female-orange_8
       rect:
         serializedVersion: 2
-        x: 34
+        x: 384
         y: 0
-        width: 15
-        height: 17
+        width: 145
+        height: 177
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,8 +354,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 88c97e47226a40980800000000000000
-      internalID: -8573545123686146936
+      spriteID: 903f9ca4bce374850800000000000000
+      internalID: 6361122041538147081
       vertices: []
       indices: 
       edges: []
@@ -374,15 +374,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      npc-yellow.png_0: -2315895931346060925
-      npc-yellow.png_1: -854280064961297292
-      npc-yellow.png_2: -4258362695586712545
-      npc-yellow.png_3: 1578226329604782791
-      npc-yellow.png_4: 6205978774877834020
-      npc-yellow.png_5: -8328572198298182498
-      npc-yellow.png_6: -2063456797179089686
-      npc-yellow.png_7: 373842416712084870
-      npc-yellow.png_8: -8573545123686146936
+      npc-female-orange_0: -4969650525585489641
+      npc-female-orange_1: -635617000991231336
+      npc-female-orange_2: -5360124202305819483
+      npc-female-orange_3: 2933085128958026972
+      npc-female-orange_4: 6561011500880233056
+      npc-female-orange_5: 3093551309691201096
+      npc-female-orange_6: 4637465220167088253
+      npc-female-orange_7: -3124954276557823701
+      npc-female-orange_8: 6361122041538147081
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

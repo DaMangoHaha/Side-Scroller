@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: 01e42390a81cbe34a9c55936e1c22755
+guid: 1e0f743bbab92704dbfa4a1267785fb8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7226023337088309338
-    second: npc-lightblue.png_0
+      213: 5252683509716513573
+    second: npc-male-yellow_0
   - first:
-      213: 2825048639573313944
-    second: npc-lightblue.png_1
+      213: 6183620476322267454
+    second: npc-male-yellow_1
   - first:
-      213: 258036917207750286
-    second: npc-lightblue.png_2
+      213: -6868269498054934879
+    second: npc-male-yellow_2
   - first:
-      213: -6775039988002780795
-    second: npc-lightblue.png_3
+      213: -6785245786237843832
+    second: npc-male-yellow_3
   - first:
-      213: -6649216104201128633
-    second: npc-lightblue.png_4
+      213: 1860217197937685389
+    second: npc-male-yellow_4
   - first:
-      213: 8354529260788376264
-    second: npc-lightblue.png_5
+      213: 4244245377545990318
+    second: npc-male-yellow_5
   - first:
-      213: -6985101518493740862
-    second: npc-lightblue.png_6
+      213: 9020008886246810965
+    second: npc-male-yellow_6
   - first:
-      213: 1609246430413300865
-    second: npc-lightblue.png_7
+      213: -6896914894695224524
+    second: npc-male-yellow_7
   - first:
-      213: -5147775375340768895
-    second: npc-lightblue.png_8
+      213: -6394502120098996109
+    second: npc-male-yellow_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -163,13 +163,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: npc-lightblue.png_0
+      name: npc-male-yellow_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 33
-        width: 15
-        height: 17
+        x: 10
+        y: 373
+        width: 145
+        height: 177
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a58d4d1a0fdf74460800000000000000
-      internalID: 7226023337088309338
+      spriteID: 523743a72d745e840800000000000000
+      internalID: 5252683509716513573
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-lightblue.png_1
+      name: npc-male-yellow_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 16
-        width: 15
-        height: 18
+        x: 197
+        y: 373
+        width: 145
+        height: 167
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 899c7fa15c6943720800000000000000
-      internalID: 2825048639573313944
+      spriteID: e31450d9f02a0d550800000000000000
+      internalID: 6183620476322267454
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-lightblue.png_2
+      name: npc-male-yellow_2
       rect:
         serializedVersion: 2
-        x: 17
-        y: 33
-        width: 15
-        height: 17
+        x: 384
+        y: 373
+        width: 145
+        height: 167
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e86da15853bb49300800000000000000
-      internalID: 258036917207750286
+      spriteID: 1aef8caf7410fa0a0800000000000000
+      internalID: -6868269498054934879
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-lightblue.png_3
+      name: npc-male-yellow_3
       rect:
         serializedVersion: 2
-        x: 17
-        y: 16
-        width: 15
-        height: 17
+        x: 10
+        y: 186
+        width: 145
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,20 +244,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5890700d6093af1a0800000000000000
-      internalID: -6775039988002780795
+      spriteID: 886c39d38e6f5d1a0800000000000000
+      internalID: -6785245786237843832
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-lightblue.png_4
+      name: npc-male-yellow_4
       rect:
         serializedVersion: 2
-        x: 34
-        y: 33
-        width: 15
-        height: 17
+        x: 197
+        y: 186
+        width: 145
+        height: 167
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 745f84aae2d39b3a0800000000000000
-      internalID: -6649216104201128633
+      spriteID: d83f5288fa1d0d910800000000000000
+      internalID: 1860217197937685389
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-lightblue.png_5
+      name: npc-male-yellow_5
       rect:
         serializedVersion: 2
-        x: 34
-        y: 16
-        width: 15
-        height: 18
+        x: 384
+        y: 186
+        width: 145
+        height: 178
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,20 +288,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8c2e5e6391041f370800000000000000
-      internalID: 8354529260788376264
+      spriteID: ea0f8341fa696ea30800000000000000
+      internalID: 4244245377545990318
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-lightblue.png_6
+      name: npc-male-yellow_6
       rect:
         serializedVersion: 2
-        x: 0
+        x: 10
         y: 0
-        width: 15
-        height: 17
+        width: 145
+        height: 177
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,20 +310,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c093267d2fef0f90800000000000000
-      internalID: -6985101518493740862
+      spriteID: 555ab9fba428d2d70800000000000000
+      internalID: 9020008886246810965
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-lightblue.png_7
+      name: npc-male-yellow_7
       rect:
         serializedVersion: 2
-        x: 17
+        x: 197
         y: 0
-        width: 15
-        height: 17
+        width: 145
+        height: 177
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,20 +332,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 184a9d03a11355610800000000000000
-      internalID: 1609246430413300865
+      spriteID: 43b2797d17c3940a0800000000000000
+      internalID: -6896914894695224524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: npc-lightblue.png_8
+      name: npc-male-yellow_8
       rect:
         serializedVersion: 2
-        x: 34
+        x: 384
         y: 0
-        width: 15
-        height: 17
+        width: 145
+        height: 177
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,8 +354,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1817f49f19d6f88b0800000000000000
-      internalID: -5147775375340768895
+      spriteID: 3706408833a2247a0800000000000000
+      internalID: -6394502120098996109
       vertices: []
       indices: 
       edges: []
@@ -374,15 +374,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      npc-lightblue.png_0: 7226023337088309338
-      npc-lightblue.png_1: 2825048639573313944
-      npc-lightblue.png_2: 258036917207750286
-      npc-lightblue.png_3: -6775039988002780795
-      npc-lightblue.png_4: -6649216104201128633
-      npc-lightblue.png_5: 8354529260788376264
-      npc-lightblue.png_6: -6985101518493740862
-      npc-lightblue.png_7: 1609246430413300865
-      npc-lightblue.png_8: -5147775375340768895
+      npc-male-yellow_0: 5252683509716513573
+      npc-male-yellow_1: 6183620476322267454
+      npc-male-yellow_2: -6868269498054934879
+      npc-male-yellow_3: -6785245786237843832
+      npc-male-yellow_4: 1860217197937685389
+      npc-male-yellow_5: 4244245377545990318
+      npc-male-yellow_6: 9020008886246810965
+      npc-male-yellow_7: -6896914894695224524
+      npc-male-yellow_8: -6394502120098996109
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -34,27 +34,43 @@ public class Alien : MonoBehaviour
     {
         if (!hasHit && collision.gameObject.CompareTag("Player"))
         {
+            PlayerEnergy energy = collision.gameObject.GetComponent<PlayerEnergy>();
+            if (energy == null) return;
+
+            // Check if player is invulnerable before doing anything
+            var invulnerableField = energy.GetType().GetField("isInvulnerable",
+                System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+
+            bool isInvulnerable = false;
+            if (invulnerableField != null)
+                isInvulnerable = (bool)invulnerableField.GetValue(energy);
+
+            // If player is invulnerable, ignore hit entirely
+            if (isInvulnerable)
+            {
+                Debug.Log("Alien hit ignored — player is invulnerable!");
+                return;
+            }
+
             hasHit = true;
 
             // Damage player
-            PlayerEnergy energy = collision.gameObject.GetComponent<PlayerEnergy>();
-            if (energy != null)
-            {
-                energy.TakeDamage(damage); // calls the flashing + energy loss
-            }
+            energy.TakeDamage(damage);
 
-            // Bullet turns transparent and disables collider
+            // Spike turns transparent and disables collider
             if (spriteRenderer != null)
             {
                 Color c = spriteRenderer.color;
                 c.a = 0.3f;
                 spriteRenderer.color = c;
             }
+
             if (alienCollider != null)
             {
                 alienCollider.enabled = false;
             }
 
+            // Play hit sound
             if (audioSource == null)
             {
                 GameObject audioObj = new GameObject("HitAudioSource");
@@ -66,6 +82,5 @@ public class Alien : MonoBehaviour
         }
     }
 }
-
 
 
