@@ -151,8 +151,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 267894fae22be034e9376c10874f5075, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Alien
-  damage: 10
-  speed: 7
+  damage: 15
+  speed: 9
   hitSoundSFX: {fileID: 8300000, guid: 31018149730edff44bc906af1ae2fbc9, type: 3}
 --- !u!1 &7688279504934624867
 GameObject:

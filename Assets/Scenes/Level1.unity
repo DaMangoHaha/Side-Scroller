@@ -213,11 +213,11 @@ MonoBehaviour:
   spikePrefab: {fileID: 438552862875879893, guid: 6c8a07f23e12fe342be081dc0849486e, type: 3}
   spawnX: 12
   groundY: -1.5
-  minSpawnInterval: 1.5
+  minSpawnInterval: 1
   maxSpawnInterval: 4
   clusterSpacing: 1
   minClusterSize: 1
-  maxClusterSize: 3
+  maxClusterSize: 1
 --- !u!4 &192059267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7093762297031683349, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
@@ -2362,7 +2362,7 @@ MonoBehaviour:
   alienPrefab: {fileID: 226048433471827459, guid: 6b46e7c04b8c07b47a43a4c02f6408b5, type: 3}
   spawnX: 12
   groundY: 4
-  minSpawnInterval: 4
+  minSpawnInterval: 6
   maxSpawnInterval: 14
   clusterSpacing: 1
   minClusterSize: 0

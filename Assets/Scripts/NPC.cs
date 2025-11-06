@@ -2,13 +2,17 @@ using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    public string npcName = "Unnamed NPC";
-    [TextArea] public string dialogue = "Hello there!";
+    [TextArea(2, 4)]
+    public string dialogueText;
+    public Sprite portrait; // optional
 
     public void Interact()
     {
-        Debug.Log($"{npcName}: {dialogue}");
-        // You can later open a dialogue box UI here instead of Debug.Log
+        DialogueUI ui = Object.FindFirstObjectByType<DialogueUI>();
+        if (ui != null)
+        {
+            ui.ShowDialogue(dialogueText, portrait);
+        }
     }
 }
 
