@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Coin
+  - NPC
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - Water
   - UI
   - Ground
-  - 
+  - NPC
   - 
   - 
   - 
@@ -54,6 +55,9 @@ TagManager:
     locked: 0
   - name: NPC
     uniqueID: 1991440283
+    locked: 0
+  - name: Ground
+    uniqueID: 2574899847
     locked: 0
   m_RenderingLayers:
   - Default
