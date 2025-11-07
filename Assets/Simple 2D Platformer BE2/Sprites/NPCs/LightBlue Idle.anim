@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Teal Idle
+  m_Name: LightBlue Idle
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,9 +21,9 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 1233648014105307703, guid: ee8c93e7b800143408ac9fb96af8d38a, type: 3}
+      value: {fileID: 7189019146625116879, guid: c3769a55016802e4b882c7ac74a2a45c, type: 3}
     - time: 0.083333336
-      value: {fileID: -1527108697200446783, guid: ee8c93e7b800143408ac9fb96af8d38a, type: 3}
+      value: {fileID: -1497643915221916702, guid: c3769a55016802e4b882c7ac74a2a45c, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -46,8 +46,8 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 1233648014105307703, guid: ee8c93e7b800143408ac9fb96af8d38a, type: 3}
-    - {fileID: -1527108697200446783, guid: ee8c93e7b800143408ac9fb96af8d38a, type: 3}
+    - {fileID: 7189019146625116879, guid: c3769a55016802e4b882c7ac74a2a45c, type: 3}
+    - {fileID: -1497643915221916702, guid: c3769a55016802e4b882c7ac74a2a45c, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
