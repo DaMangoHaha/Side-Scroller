@@ -3993,7 +3993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ff1c406a44af1458a02b8560f3e746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NPC
-  dialogueText: I'm not sure. I would ask her...
+  dialogueText: I wouldn't do that, if I were you...
   portrait: {fileID: 7189019146625116879, guid: c3769a55016802e4b882c7ac74a2a45c, type: 3}
 --- !u!95 &1347790559
 Animator:
