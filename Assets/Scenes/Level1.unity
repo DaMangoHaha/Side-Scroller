@@ -3223,6 +3223,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4500061898400469775, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      propertyPath: m_GravityScale
+      value: 1.15
+      objectReference: {fileID: 0}
     - target: {fileID: 5967845733545688845, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: scoreText
       value: 
