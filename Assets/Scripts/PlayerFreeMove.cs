@@ -63,18 +63,32 @@ public class PlayerFreeMove : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(origin, direction, interactRange, npcLayer);
         if (hit.collider != null)
         {
-            NPC npc = hit.collider.GetComponent<NPC>();
-            if (npc != null)
+            // Check for normal NPCs first
+            NPC npcDialogue = hit.collider.GetComponent<NPC>();
+            if (npcDialogue != null)
             {
-                npc.Interact();
-                Debug.Log("Interacted with " + npc.name);
+                npcDialogue.StartConversation();
+                Debug.Log("Talked to NPC: " + npcDialogue.name);
+                return;
             }
+
+            // Check for Special NPCs
+            SpecialNPC specialNPC = hit.collider.GetComponent<SpecialNPC>();
+            if (specialNPC != null)
+            {
+                specialNPC.StartSpecialConversation();
+                Debug.Log("Talked to Special NPC: " + specialNPC.name);
+                return;
+            }
+
+            Debug.Log("Hit something without dialogue: " + hit.collider.name);
         }
         else
         {
             Debug.Log("No NPC nearby to interact with.");
         }
     }
+
 
     void OnDrawGizmosSelected()
     {

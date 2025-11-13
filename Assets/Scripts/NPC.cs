@@ -6,7 +6,7 @@ public class NPC : MonoBehaviour
     public string dialogueText;
     public Sprite portrait; // optional
 
-    public void Interact()
+    public void StartConversation()
     {
         DialogueUI ui = Object.FindFirstObjectByType<DialogueUI>();
         if (ui != null)

@@ -248,25 +248,25 @@ Tilemap:
       e33: 1
   m_TileColorArray:
   - m_RefCount: 1
-    m_Data: {r: 0.71681345, g: 0.47533685, b: 0.5506368, a: 1}
+    m_Data: {r: 0.8431419, g: 0.5506729, b: 0.5518711, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.7073931, g: 0.3445553, b: 0.36774546, a: 1}
+    m_Data: {r: 0.88171494, g: 0.53285336, b: 0.6062151, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.8502471, g: 0.5390127, b: 0.6399569, a: 1}
+    m_Data: {r: 0.8287149, g: 0.522796, b: 0.53528434, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.7714065, g: 0.4769924, b: 0.5306995, a: 1}
+    m_Data: {r: 0.7414083, g: 0.34026387, b: 0.42688796, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.8362935, g: 0.37664258, b: 0.41273296, a: 1}
+    m_Data: {r: 0.93267846, g: 0.5802005, b: 0.62628806, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.85845524, g: 0.5482763, b: 0.59622234, a: 1}
+    m_Data: {r: 0.84858096, g: 0.54644716, b: 0.6155134, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.91604584, g: 0.5865913, b: 0.6821399, a: 1}
+    m_Data: {r: 0.90946585, g: 0.5402971, b: 0.6189273, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.95971245, g: 0.38530737, b: 0.44625318, a: 1}
+    m_Data: {r: 0.99184906, g: 0.59904915, b: 0.7012076, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.89638126, g: 0.6160304, b: 0.6504001, a: 1}
+    m_Data: {r: 0.85313785, g: 0.45295912, b: 0.5003699, a: 1}
   - m_RefCount: 1
-    m_Data: {r: 0.9544046, g: 0.6571676, b: 0.7335851, a: 1}
+    m_Data: {r: 0.7215725, g: 0.43932843, b: 0.49886253, a: 1}
   - m_RefCount: 3
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
@@ -313,6 +313,8 @@ TilemapRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -334,6 +336,7 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -390,7 +393,7 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!114 &1004051490913815046
+--- !u!114 &7999275056609907308
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
