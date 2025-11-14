@@ -13,5 +13,10 @@ public class LevelSelect : MonoBehaviour
             {
         SceneManager.LoadScene("Level2");
     }
+
+    public void PlayLevel3()
+    {
+               SceneManager.LoadScene("Level3");
+    }
 }
 

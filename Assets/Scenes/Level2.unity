@@ -3957,8 +3957,8 @@ GameObject:
   - component: {fileID: 695498069}
   - component: {fileID: 695498068}
   - component: {fileID: 695498067}
-  - component: {fileID: 695498066}
   - component: {fileID: 695498071}
+  - component: {fileID: 695498072}
   m_Layer: 7
   m_Name: Girl (Teal)
   m_TagString: NPC
@@ -3966,20 +3966,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &695498066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 695498065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45ff1c406a44af1458a02b8560f3e746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPC
-  dialogueText: Is it safe to leave town yet?
-  portrait: {fileID: 1233648014105307703, guid: ee8c93e7b800143408ac9fb96af8d38a, type: 3}
 --- !u!61 &695498067
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4148,6 +4134,24 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &695498072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 695498065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16ea9402a67f9e4f964ac1d24753db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpecialNPC
+  dialogueLines:
+  - Is it safe to leave town yet?
+  - I need to do some shopping for my family...
+  portrait: {fileID: 1233648014105307703, guid: ee8c93e7b800143408ac9fb96af8d38a, type: 3}
+  triggersEvent: 0
+  eventMessage: 
 --- !u!1 &737644700
 GameObject:
   m_ObjectHideFlags: 0
@@ -4275,7 +4279,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -3708508325519384304, guid: f73dfe034c22cfc41bd7e8799020a5ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -4968,7 +4972,7 @@ GameObject:
   - component: {fileID: 1150039860}
   - component: {fileID: 1150039859}
   - component: {fileID: 1150039858}
-  - component: {fileID: 1150039857}
+  - component: {fileID: 1150039863}
   m_Layer: 7
   m_Name: Girl (Orange)
   m_TagString: NPC
@@ -4976,22 +4980,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1150039857
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1150039856}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45ff1c406a44af1458a02b8560f3e746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPC
-  dialogueText: 'The slimes nearby have been nothing but trouble lately!
-
-'
-  portrait: {fileID: -4969650525585489641, guid: e2bf9d9978a6eae4aacac45e1fc6f208, type: 3}
 --- !u!95 &1150039858
 Animator:
   serializedVersion: 7
@@ -5160,6 +5148,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1150039863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1150039856}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16ea9402a67f9e4f964ac1d24753db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpecialNPC
+  dialogueLines:
+  - I've had it with these slimes!
+  - I haven't been able to leave town for almost a week!
+  portrait: {fileID: -4969650525585489641, guid: e2bf9d9978a6eae4aacac45e1fc6f208, type: 3}
+  triggersEvent: 0
+  eventMessage: 
 --- !u!1 &1347790557
 GameObject:
   m_ObjectHideFlags: 0
@@ -5173,7 +5179,7 @@ GameObject:
   - component: {fileID: 1347790561}
   - component: {fileID: 1347790560}
   - component: {fileID: 1347790559}
-  - component: {fileID: 1347790558}
+  - component: {fileID: 1347790564}
   m_Layer: 7
   m_Name: Guy (LightBlue)
   m_TagString: NPC
@@ -5181,20 +5187,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1347790558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1347790557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45ff1c406a44af1458a02b8560f3e746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPC
-  dialogueText: I wouldn't do that, if I were you...
-  portrait: {fileID: 7189019146625116879, guid: c3769a55016802e4b882c7ac74a2a45c, type: 3}
 --- !u!95 &1347790559
 Animator:
   serializedVersion: 7
@@ -5363,6 +5355,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1347790564
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1347790557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16ea9402a67f9e4f964ac1d24753db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpecialNPC
+  dialogueLines:
+  - I wouldn't do that, if I were you.
+  - The slimes are still hostile! Maybe we could try taming them?
+  portrait: {fileID: 7189019146625116879, guid: c3769a55016802e4b882c7ac74a2a45c, type: 3}
+  triggersEvent: 0
+  eventMessage: 
 --- !u!1 &1421553827
 GameObject:
   m_ObjectHideFlags: 0
@@ -5771,7 +5781,7 @@ GameObject:
   - component: {fileID: 1964424251}
   - component: {fileID: 1964424250}
   - component: {fileID: 1964424249}
-  - component: {fileID: 1964424248}
+  - component: {fileID: 1964424254}
   m_Layer: 7
   m_Name: Girl (Red)
   m_TagString: NPC
@@ -5779,20 +5789,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1964424248
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1964424247}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45ff1c406a44af1458a02b8560f3e746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPC
-  dialogueText: You'd best watch out if you leave town! Those slimes are no joke...
-  portrait: {fileID: -6269700758299973241, guid: a273f5b1d22105f4d853bbce2e8501ec, type: 3}
 --- !u!95 &1964424249
 Animator:
   serializedVersion: 7
@@ -5961,6 +5957,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1964424254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1964424247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16ea9402a67f9e4f964ac1d24753db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpecialNPC
+  dialogueLines:
+  - You'd best watch out if you plan on leaving town.
+  - The forest outside of town is infested with gross slimes!
+  portrait: {fileID: -6269700758299973241, guid: a273f5b1d22105f4d853bbce2e8501ec, type: 3}
+  triggersEvent: 0
+  eventMessage: 
 --- !u!1 &2049400544
 GameObject:
   m_ObjectHideFlags: 0
@@ -5999,9 +6013,10 @@ MonoBehaviour:
   - They've been coming from the forest near town...
   - No one knows how they got here, but we can't leave because of them.
   - Maybe if you're brave enough, you can try doing something about them.
+  - Just... Be careful, will ya? We don't want anyone else getting hurt out there.
   portrait: {fileID: 1136184288765050124, guid: aa8710ef7a9076849874a1f9a7b1f50d, type: 3}
   triggersEvent: 1
-  eventMessage: ...
+  eventMessage: Slime Extermination
 --- !u!95 &2049400546
 Animator:
   serializedVersion: 7

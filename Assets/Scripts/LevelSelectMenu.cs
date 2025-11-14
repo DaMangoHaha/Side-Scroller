@@ -7,6 +7,7 @@ public class LevelSelectMenu : MonoBehaviour
     [Header("Buttons")]
     public Button level1Button;
     public Button level2Button;
+    public Button level3Button;
 
     void Start()
     {
@@ -17,6 +18,9 @@ public class LevelSelectMenu : MonoBehaviour
         if (level2Button != null)
             level2Button.onClick.AddListener(() => LoadLevel("Level2"));
 
+        if (level3Button != null)
+            level3Button.onClick.AddListener(() => LoadLevel("Level3"));
+
         UpdateButtons();
     }
 
@@ -26,6 +30,7 @@ public class LevelSelectMenu : MonoBehaviour
         {
             level1Button.interactable = LevelUnlockManager.Instance.level1Unlocked;
             level2Button.interactable = LevelUnlockManager.Instance.level2Unlocked;
+            level3Button.interactable = LevelUnlockManager.Instance.level3Unlocked;
         }
     }
 

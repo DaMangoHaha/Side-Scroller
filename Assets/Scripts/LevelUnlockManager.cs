@@ -7,6 +7,7 @@ public class LevelUnlockManager : MonoBehaviour
     // 0 = locked, 1 = unlocked
     public bool level1Unlocked = true;
     public bool level2Unlocked = false;
+    public bool level3Unlocked = false;
 
     void Awake()
     {
@@ -24,6 +25,7 @@ public class LevelUnlockManager : MonoBehaviour
     public void UnlockLevel(int levelNumber)
     {
         if (levelNumber == 2) level2Unlocked = true;
+        if (levelNumber == 3) level3Unlocked = true;
         // Later, extend this with more levels
     }
 }
