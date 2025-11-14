@@ -68,8 +68,9 @@ public class SpecialNPC : MonoBehaviour
 
         if (triggersEvent)
         {
+            GameEvents.slimeExterminationActive = true;
             Debug.Log($"Special event triggered: {eventMessage}");
-            // Future quest/cutscene logic here
+            // Quest/cutscene logic here
         }
     }
 }

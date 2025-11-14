@@ -72,16 +72,13 @@ public class PlayerFreeMove : MonoBehaviour
                 return;
             }
 
-            // Check for Special NPCs
-            SpecialNPC specialNPC = hit.collider.GetComponent<SpecialNPC>();
-            if (specialNPC != null)
+            SpecialNPC special = hit.collider.GetComponent<SpecialNPC>();
+            if (special != null)
             {
-                specialNPC.StartSpecialConversation();
-                Debug.Log("Talked to Special NPC: " + specialNPC.name);
+                special.StartSpecialConversation();
+                Debug.Log("Interacted with SPECIAL NPC: " + special.name);
                 return;
             }
-
-            Debug.Log("Hit something without dialogue: " + hit.collider.name);
         }
         else
         {
