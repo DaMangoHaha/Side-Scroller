@@ -1857,6 +1857,7 @@ GameObject:
   - component: {fileID: 1346181730}
   - component: {fileID: 1346181729}
   - component: {fileID: 1346181728}
+  - component: {fileID: 1346181731}
   m_Layer: 0
   m_Name: CoinsManager
   m_TagString: Untagged
@@ -1880,11 +1881,11 @@ MonoBehaviour:
   - {fileID: 9107732101137659391, guid: f1346d8d520aabc44bb9c3d041f28b6a, type: 3}
   - {fileID: 7969706815224808450, guid: 56949c2f02a3b1246b2dc6dc8abd800f, type: 3}
   - {fileID: 2934895409326932256, guid: 1b1ec85f4d6675b4685b4f9bffe80375, type: 3}
-  spawnInterval: 1.2
+  spawnInterval: 1
   spawnX: 12
   spawnYMin: -1
   spawnYMax: 2
-  floatChance: 0.2
+  floatChance: 0.4
 --- !u!114 &1346181729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1914,6 +1915,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1346181731
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1346181727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 781fe58e6dcf45a408ffdc934e2b7511, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinSpawner
+  coinPrefabs:
+  - {fileID: 7325263592899910014, guid: 2fb6421e4a56bd24fb8a81311c38310b, type: 3}
+  - {fileID: 7963133267926960324, guid: db730551c58567a4bbd54ec4414a68f8, type: 3}
+  - {fileID: 8762731169004713053, guid: b3b46b71d773a62449f213c12c45140f, type: 3}
+  spawnInterval: 3
+  spawnX: 12
+  spawnYMin: -1
+  spawnYMax: 2
+  floatChance: 0
 --- !u!1 &1644205437
 GameObject:
   m_ObjectHideFlags: 0
@@ -2140,6 +2162,58 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.8180882, y: 1.4884133, z: -3.039922}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1936703344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1936703346}
+  - component: {fileID: 1936703345}
+  m_Layer: 0
+  m_Name: AlienSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1936703345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936703344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70531087c8e84264891bb917410c46eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BulletSpawner
+  alienPrefab: {fileID: 226048433471827459, guid: 6b46e7c04b8c07b47a43a4c02f6408b5, type: 3}
+  spawnX: 12
+  groundY: 4
+  minSpawnInterval: 6
+  maxSpawnInterval: 14
+  clusterSpacing: 1
+  minClusterSize: 0
+  maxClusterSize: 1
+--- !u!4 &1936703346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1936703344}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2392,3 +2466,4 @@ SceneRoots:
   - {fileID: 1814394787}
   - {fileID: 1346181730}
   - {fileID: 686937157}
+  - {fileID: 1936703346}
