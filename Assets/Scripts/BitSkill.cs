@@ -45,7 +45,7 @@ public class BitSkill : MonoBehaviour
         if (!isWarning && timer >= buffCooldown - warningTime)
         {
             isWarning = true;
-            StartCoroutine(TwinkleYellow());
+            StartCoroutine(TwinkleBlue());
         }
 
         // Activate buff when timer is up
@@ -84,10 +84,10 @@ public class BitSkill : MonoBehaviour
         Debug.Log("Bit Buff consumed!");
     }
 
-    private System.Collections.IEnumerator TwinkleYellow()
+    private System.Collections.IEnumerator TwinkleBlue()
     {
         Color original = spriteRenderer.color;
-        Color twinkle = Color.yellow;
+        Color twinkle = Color.blue;
 
         float flashInterval = 0.3f;
         float elapsed = 0f;

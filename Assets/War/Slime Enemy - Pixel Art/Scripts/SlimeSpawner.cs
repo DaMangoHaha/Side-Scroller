@@ -3,7 +3,7 @@ using UnityEngine;
 public class SlimeSpawner : MonoBehaviour
 {
     [Header("Slime Prefabs")]
-    public GameObject greenSlimePrefab;   // Assign your GreenSlime prefab here  
+    public GameObject slimePrefab;   // Assign your GreenSlime prefab here  
     // Later you can add: public GameObject redSlimePrefab, blueSlimePrefab
 
     [Header("Spawn Settings")]
@@ -31,7 +31,7 @@ public class SlimeSpawner : MonoBehaviour
     void SpawnGreenSlime()
     {
         Vector3 spawnPos = new Vector3(spawnX, groundY, 0);
-        Instantiate(greenSlimePrefab, spawnPos, Quaternion.identity);
+        Instantiate(slimePrefab, spawnPos, Quaternion.identity);
     }
 
     void ScheduleNextSpawn()

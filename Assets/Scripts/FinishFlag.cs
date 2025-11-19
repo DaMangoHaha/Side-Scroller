@@ -5,6 +5,7 @@ public class FinishFlag : MonoBehaviour
 {
     private bool levelComplete = false;
 
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!levelComplete && collision.CompareTag("Player"))
@@ -16,6 +17,16 @@ public class FinishFlag : MonoBehaviour
             if (LevelUnlockManager.Instance != null)
                 LevelUnlockManager.Instance.UnlockLevel(2);
 
+            // Return to Level Select
+            SceneManager.LoadScene("LevelSelect");
+        }
+
+        if (levelComplete && collision.CompareTag("Player"))
+        {
+            Debug.Log("Level 2 already unlocked.");
+            // Unlock Level 3
+            if (LevelUnlockManager.Instance != null)
+                LevelUnlockManager.Instance.UnlockLevel(3);
             // Return to Level Select
             SceneManager.LoadScene("LevelSelect");
         }

@@ -19,6 +19,8 @@ public class SlimeBase : MonoBehaviour
     [Header("Death Settings")]
     public float fadeAfterDeathDelay = 0.5f;
     public float destroyDelay = 1.2f;
+    public AudioClip hitSoundSFX;  // assign in Inspector
+    public static AudioSource audioSource;
 
     protected virtual void Awake()
     {
