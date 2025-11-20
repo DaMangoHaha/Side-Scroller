@@ -27,7 +27,12 @@ public class SlimeBase : MonoBehaviour
         anim = GetComponent<Animator>();
         col = GetComponent<Collider2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+
+        if (rb == null)
+            Debug.LogError($"{name}: No Rigidbody2D found! Add one to the slime prefab.");
     }
+
 
     protected virtual void Update()
     {
@@ -56,8 +61,8 @@ public class SlimeBase : MonoBehaviour
     protected virtual void DoBehavior()
     {
         // Green slime = no behavior
-        // Red slime = jump cycle
-        // Blue slime = random jump / idle
+        // Red slime = faster green slime
+        // Blue slime = spawn from sky (handled in BlueSlime.cs)
     }
 
     // ------------------------------
