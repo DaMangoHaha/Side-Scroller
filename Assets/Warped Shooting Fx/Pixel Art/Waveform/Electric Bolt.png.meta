@@ -1,34 +1,37 @@
 fileFormatVersion: 2
-guid: 500f72fcd9b34894ea6fc359fe580c69
+guid: 453e477e284a04447b42aaeb31859b17
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 61506194941554554
-    second: Ninja_0
+      213: 8703818454454590537
+    second: Electric Bolt_0
   - first:
-      213: -8209850998951266162
-    second: Ninja_1
+      213: -2819024359180715285
+    second: Electric Bolt_1
   - first:
-      213: 2566270302476966300
-    second: Ninja_2
+      213: 5745714354926840169
+    second: Electric Bolt_2
   - first:
-      213: 7442874485470455607
-    second: Ninja_3
+      213: 1242833113792034184
+    second: Electric Bolt_3
   - first:
-      213: 8431761207157932440
-    second: Ninja_4
+      213: -4826825364019759019
+    second: Electric Bolt_4
   - first:
-      213: 3676459327105636435
-    second: Ninja_5
+      213: -8210665454693124727
+    second: Electric Bolt_5
   - first:
-      213: 6280924868380054661
-    second: Ninja_6
+      213: -6402402406256999600
+    second: Electric Bolt_6
   - first:
-      213: 3809377820505043621
-    second: Ninja_7
+      213: -480805491861326525
+    second: Electric Bolt_7
   - first:
-      213: -7573501776091728525
-    second: Ninja_8
+      213: -626860842882178386
+    second: Electric Bolt_8
+  - first:
+      213: -3979887684218596460
+    second: Electric Bolt_9
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -163,13 +166,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Ninja_0
+      name: Electric Bolt_0
       rect:
         serializedVersion: 2
-        x: 10
-        y: 373
-        width: 145
-        height: 177
+        x: 41
+        y: 195
+        width: 132
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +181,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a7f2af4fe838ad000800000000000000
-      internalID: 61506194941554554
+      spriteID: 94c514ff4cc2ac870800000000000000
+      internalID: 8703818454454590537
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ninja_1
+      name: Electric Bolt_1
       rect:
         serializedVersion: 2
-        x: 197
-        y: 373
-        width: 145
-        height: 167
+        x: 23
+        y: 177
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +203,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e88bf9c9300c01e80800000000000000
-      internalID: -8209850998951266162
+      spriteID: bea3cd9f740d0e8d0800000000000000
+      internalID: -2819024359180715285
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ninja_2
+      name: Electric Bolt_2
       rect:
         serializedVersion: 2
-        x: 384
-        y: 373
-        width: 145
-        height: 167
+        x: 31
+        y: 181
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +225,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9916c05e393d9320800000000000000
-      internalID: 2566270302476966300
+      spriteID: 969e64283c0ecbf40800000000000000
+      internalID: 5745714354926840169
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ninja_3
+      name: Electric Bolt_3
       rect:
         serializedVersion: 2
-        x: 10
-        y: 186
-        width: 145
-        height: 178
+        x: 39
+        y: 137
+        width: 136
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,20 +247,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 737e84619e66a4760800000000000000
-      internalID: 7442874485470455607
+      spriteID: 885baa6d12e6f3110800000000000000
+      internalID: 1242833113792034184
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ninja_4
+      name: Electric Bolt_4
       rect:
         serializedVersion: 2
-        x: 197
-        y: 186
-        width: 145
-        height: 167
+        x: 15
+        y: 169
+        width: 6
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +269,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 891419ff422a30570800000000000000
-      internalID: 8431761207157932440
+      spriteID: 558b1c0b7eba30db0800000000000000
+      internalID: -4826825364019759019
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ninja_5
+      name: Electric Bolt_5
       rect:
         serializedVersion: 2
-        x: 384
-        y: 186
-        width: 145
-        height: 178
+        x: 13
+        y: 161
+        width: 28
+        height: 6
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,20 +291,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3589d4f7748650330800000000000000
-      internalID: 3676459327105636435
+      spriteID: 985f17b554bdd0e80800000000000000
+      internalID: -8210665454693124727
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ninja_6
+      name: Electric Bolt_6
       rect:
         serializedVersion: 2
-        x: 10
-        y: 0
-        width: 145
-        height: 177
+        x: 13
+        y: 133
+        width: 46
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,20 +313,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 584d5b8d3e35a2750800000000000000
-      internalID: 6280924868380054661
+      spriteID: 05302f1dee81627a0800000000000000
+      internalID: -6402402406256999600
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ninja_7
+      name: Electric Bolt_7
       rect:
         serializedVersion: 2
-        x: 197
-        y: 0
-        width: 145
-        height: 177
+        x: 23
+        y: 65
+        width: 152
+        height: 56
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,20 +335,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5a2747ed1f0add430800000000000000
-      internalID: 3809377820505043621
+      spriteID: 3457c8bd3f5d359f0800000000000000
+      internalID: -480805491861326525
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ninja_8
+      name: Electric Bolt_8
       rect:
         serializedVersion: 2
-        x: 384
-        y: 0
-        width: 145
-        height: 177
+        x: 11
+        y: 17
+        width: 6
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,8 +357,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3753342c24485e690800000000000000
-      internalID: -7573501776091728525
+      spriteID: ea2e7687261fc47f0800000000000000
+      internalID: -626860842882178386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Electric Bolt_9
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 11
+        width: 162
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 493d230dc3994c8c0800000000000000
+      internalID: -3979887684218596460
       vertices: []
       indices: 
       edges: []
@@ -374,15 +399,16 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Ninja_0: 61506194941554554
-      Ninja_1: -8209850998951266162
-      Ninja_2: 2566270302476966300
-      Ninja_3: 7442874485470455607
-      Ninja_4: 8431761207157932440
-      Ninja_5: 3676459327105636435
-      Ninja_6: 6280924868380054661
-      Ninja_7: 3809377820505043621
-      Ninja_8: -7573501776091728525
+      Electric Bolt_0: 8703818454454590537
+      Electric Bolt_1: -2819024359180715285
+      Electric Bolt_2: 5745714354926840169
+      Electric Bolt_3: 1242833113792034184
+      Electric Bolt_4: -4826825364019759019
+      Electric Bolt_5: -8210665454693124727
+      Electric Bolt_6: -6402402406256999600
+      Electric Bolt_7: -480805491861326525
+      Electric Bolt_8: -626860842882178386
+      Electric Bolt_9: -3979887684218596460
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
