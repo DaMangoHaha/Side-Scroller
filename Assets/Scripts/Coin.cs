@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Coin : MonoBehaviour
 {
-    public enum CoinType { Bronze, Silver, Gold }
+    public enum CoinType { Bronze, Silver, Gold, Platnium, Emerald, Diamond }
     public CoinType coinType;
 
     private int coinValue;   // how many coins to add
@@ -29,6 +29,19 @@ public class Coin : MonoBehaviour
                 coinValue = 3;
                 scoreValue = 5;
                 break;
+            case CoinType.Platnium:
+                coinValue = 5;
+                scoreValue = 10;
+                break;
+                case CoinType.Emerald:
+                coinValue = 8;
+                scoreValue = 15;
+                break;
+                case CoinType.Diamond:
+                coinValue = 10;
+                scoreValue = 20;
+                break;
+
         }
 
         // Shared AudioSource for all coins
