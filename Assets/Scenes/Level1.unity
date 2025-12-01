@@ -2312,7 +2312,7 @@ Transform:
   m_GameObject: {fileID: 1917604487}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -85.20267, y: -494.098, z: 0}
+  m_LocalPosition: {x: -86.91, y: -494.098, z: 0}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2429,7 +2429,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1.15
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -2560,11 +2560,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb812e346ab1de41b46ba0caa8c0c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NinjaSkill_ElectricBolt
-  cooldownTime: 5
+  cooldownTime: 15
   electricBoltPrefab: {fileID: 8134066807548886167, guid: 0610652006ae7c24ca4f3b57f7656382, type: 3}
   boltSpawnPoint: {fileID: 1192188304}
   readyIcon: {fileID: 1647758240}
-  boltActivateSFX: {fileID: 0}
+  boltActivateSFX: {fileID: 8300000, guid: fd85722f54c36e24e956081f09af1f5d, type: 3}
   boltConsumeSFX: {fileID: 0}
 --- !u!1 &1989897193
 GameObject:
