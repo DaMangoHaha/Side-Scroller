@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NinjaSkill_ElectricBolt : MonoBehaviour
 {
@@ -11,12 +12,26 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
     public Transform boltSpawnPoint;      // where Bolt appears
 
     [Header("UI")]
-    public GameObject readyIcon;          // like Bits/Thief indicators
+    public Image readyIcon;          // like Bits/Thief indicators
+    private Color inactiveColor;
+    private Color activeColor;
+
+    [Header("Audio")]
+    public AudioClip boltActivateSFX;   // SFX when bolt is fired
+    public AudioClip boltConsumeSFX;    // SFX when bolt destroys an object/enemy
+    private AudioSource audioSource;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         cooldownRemaining = cooldownTime;
-        if (readyIcon != null) readyIcon.SetActive(false);
+        if (readyIcon != null)
+        {
+            activeColor = readyIcon.color;
+            inactiveColor = readyIcon.color;
+            inactiveColor.a = 0.2f; // faded look
+            readyIcon.color = inactiveColor;
+        }
     }
 
     void Update()
@@ -29,7 +44,8 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
             if (cooldownRemaining <= 0)
             {
                 cooldownRemaining = 0;
-                if (readyIcon != null) readyIcon.SetActive(true);
+                if (readyIcon != null)
+                    readyIcon.color = activeColor;
             }
         }
 
@@ -47,11 +63,14 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
             Debug.LogError("Electric bolt or spawn point missing!");
             return;
         }
+        if (audioSource != null && boltActivateSFX != null)
+            audioSource.PlayOneShot(boltActivateSFX);
 
         Instantiate(electricBoltPrefab, boltSpawnPoint.position, Quaternion.identity);
 
         // reset cooldown
         cooldownRemaining = cooldownTime;
-        if (readyIcon != null) readyIcon.SetActive(false);
+        if (readyIcon != null)
+            readyIcon.color = inactiveColor;
     }
 }

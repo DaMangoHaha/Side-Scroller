@@ -22,5 +22,10 @@ public class PlayerScore : MonoBehaviour
         if (scoreText != null)
             scoreText.text = "Score: " + score;
     }
+
+    public void PointsPerKill()
+    {
+        AddScore(50);
+    }
 }
 
