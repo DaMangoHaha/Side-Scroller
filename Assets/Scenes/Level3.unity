@@ -1885,7 +1885,7 @@ MonoBehaviour:
   - {fileID: 9107732101137659391, guid: f1346d8d520aabc44bb9c3d041f28b6a, type: 3}
   - {fileID: 7969706815224808450, guid: 56949c2f02a3b1246b2dc6dc8abd800f, type: 3}
   - {fileID: 2934895409326932256, guid: 1b1ec85f4d6675b4685b4f9bffe80375, type: 3}
-  spawnInterval: 1
+  spawnInterval: 0
   spawnX: 12
   spawnYMin: -1
   spawnYMax: 2
