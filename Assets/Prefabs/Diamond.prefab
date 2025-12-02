@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec02bdfdf5282b14886b7827f7b3413d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scroller
-  speed: 10
+  speed: 7
 --- !u!95 &5724185921407884713
 Animator:
   serializedVersion: 7

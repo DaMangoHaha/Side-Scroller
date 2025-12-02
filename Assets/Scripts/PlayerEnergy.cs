@@ -9,7 +9,7 @@ public class PlayerEnergy : MonoBehaviour
     public float maxEnergy = 100f;
     public float currentEnergy;
     public float depletionRate = 5f; // per second
-    private bool isDepleting = true; // allows potions to pause depletion
+    public bool isDepleting = true; // allows potions to pause depletion
 
     [Header("UI")]
     public Slider energySlider;
@@ -132,7 +132,7 @@ public class PlayerEnergy : MonoBehaviour
     }
 
 
-    void GameOver()
+    public void GameOver()
     {
         Debug.Log("Energy depleted! You suck.");
 
