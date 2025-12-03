@@ -1427,9 +1427,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level1Unlocked: 1
-  level2Unlocked: 0
-  level3Unlocked: 0
-  level4Unlocked: 0
+  level2Unlocked: 1
+  level3Unlocked: 1
+  level4Unlocked: 1
 --- !u!4 &1838213871
 Transform:
   m_ObjectHideFlags: 0

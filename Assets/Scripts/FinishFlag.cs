@@ -30,6 +30,15 @@ public class FinishFlag : MonoBehaviour
             // Return to Level Select
             SceneManager.LoadScene("LevelSelect");
         }
+        if (levelComplete && collision.CompareTag("Player"))
+        {
+            Debug.Log("Level 2 already unlocked.");
+            // Unlock Level 4
+            if (LevelUnlockManager.Instance != null)
+                LevelUnlockManager.Instance.UnlockLevel(4);
+            // Return to Level Select
+            SceneManager.LoadScene("LevelSelect");
+        }
     }
 }
 
