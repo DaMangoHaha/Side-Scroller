@@ -56,7 +56,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7093762297031683349
 Transform:
   m_ObjectHideFlags: 0
@@ -93,6 +93,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -114,6 +116,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -211,7 +214,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.15
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -254,16 +257,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496d90905e6e2c14799ac42feb8b2c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxEnergy: 100
+  maxEnergy: 90
   currentEnergy: 0
-  depletionRate: 2
+  depletionRate: 1
+  isDepleting: 1
   energySlider: {fileID: 0}
   energyFill: {fileID: 0}
   spriteRenderer: {fileID: 5831928592119874244}
-  hurtColor: {r: 1, g: 0, b: 0, a: 1}
-  flashDuration: 0.3
   hasBitBuff: 0
   damageReduction: 0.5
+  invulnerabilityDuration: 2
 --- !u!114 &5967845733545688845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -285,15 +288,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3566108749456092354}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd4ce6f164791404080711eced9c43ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slideDuration: 0.8
-  slideYScale: 0.7
-  slideColliderSize: {x: 1, y: 0.7}
-  slideColliderOffset: {x: 0, y: -0.25}
+  slideYScale: 8
+  slideColliderSize: {x: 0.1, y: 0.1}
+  slideColliderOffset: {x: 0, y: 0}
   groundCheck: {fileID: 7892862831352484671}
   groundRadius: 0.15
   groundLayer:
@@ -408,9 +411,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a845b969a55c44abb3b7c109a0954b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldownTime: 45
+  cooldownTime: 30
   activeDuration: 5
   coinPullRadius: 5
-  coinPullSpeed: 6
+  coinPullSpeed: 8
   skillIcon: {fileID: 0}
-  activateSFX: {fileID: 0}
+  activateSFX: {fileID: 8300000, guid: 69e733031ef3aec4cb9f31a7f5a01bc5, type: 3}

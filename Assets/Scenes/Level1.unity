@@ -228,17 +228,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7093762297031683349, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
   m_PrefabInstance: {fileID: 1040046781}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &199180355 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6729640556164774580, guid: 7c81a6b8aa9fa5a4784ae3d6993faf1f, type: 3}
-  m_PrefabInstance: {fileID: 5743736725730226804}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &423927167 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7261377391182604549, guid: 7c81a6b8aa9fa5a4784ae3d6993faf1f, type: 3}
@@ -1545,11 +1534,6 @@ Transform:
   - {fileID: 670268577}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &927269543 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5831928592119874244, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-  m_PrefabInstance: {fileID: 7813454133628752034}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1033405687
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,10 +1631,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 2124040954}
     m_Modifications:
     - target: {fileID: 3478733736790026891, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: maxEnergy
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 3478733736790026891, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: energyFill
       value: 
       objectReference: {fileID: 1554816392}
@@ -1658,62 +1638,18 @@ PrefabInstance:
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 442750849}
-    - target: {fileID: 3478733736790026891, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: depletionRate
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3566108749456092354, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: m_Name
       value: Thief
-      objectReference: {fileID: 0}
-    - target: {fileID: 3566108749456092354, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4500061898400469775, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: m_GravityScale
-      value: 1.15
       objectReference: {fileID: 0}
     - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: skillIcon
       value: 
       objectReference: {fileID: 423927167}
-    - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: activateSFX
-      value: 
-      objectReference: {fileID: 8300000, guid: 69e733031ef3aec4cb9f31a7f5a01bc5, type: 3}
-    - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: cooldownTime
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: coinPullSpeed
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 5967845733545688845, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1904057628}
-    - target: {fileID: 6445765439352345584, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6445765439352345584, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: slideYScale
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6445765439352345584, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: slideColliderSize.x
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6445765439352345584, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: slideColliderSize.y
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6445765439352345584, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: slideColliderOffset.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7093762297031683349, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -86.91
@@ -2387,18 +2323,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ninja
       objectReference: {fileID: 0}
-    - target: {fileID: 1844672861058412674, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3545611507391418815, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: readyIcon
       value: 
       objectReference: {fileID: 1647758240}
-    - target: {fileID: 6345193165560762942, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
-      propertyPath: maxEnergy
-      value: 110
-      objectReference: {fileID: 0}
     - target: {fileID: 6345193165560762942, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: energyFill
       value: 
@@ -2568,73 +2496,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2124040954}
     m_Modifications:
-    - target: {fileID: 3091335463352084533, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: f4d8af1512375444ca0cd9e1ec405b95, type: 2}
-    - target: {fileID: 3151982963095453169, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: maxJumps
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3151982963095453169, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: jumpForce
-      value: 6.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 3478733736790026891, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: energyFill
-      value: 
-      objectReference: {fileID: 1554816392}
-    - target: {fileID: 3478733736790026891, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: hasBitBuff
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3478733736790026891, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: energySlider
-      value: 
-      objectReference: {fileID: 442750849}
-    - target: {fileID: 3478733736790026891, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: depletionRate
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3478733736790026891, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: spriteRenderer
-      value: 
-      objectReference: {fileID: 927269543}
     - target: {fileID: 3566108749456092354, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3566108749456092354, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4500061898400469775, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: m_GravityScale
-      value: 1.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5967845733545688845, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: scoreText
-      value: 
-      objectReference: {fileID: 1904057628}
-    - target: {fileID: 6445765439352345584, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6445765439352345584, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: slideDuration
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 6457094141527707747, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: shieldIcon
-      value: 
-      objectReference: {fileID: 199180355}
-    - target: {fileID: 6457094141527707747, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: warningTime
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6457094141527707747, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: buffCooldown
-      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7093762297031683349, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: m_LocalPosition.x

@@ -56,7 +56,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7093762297031683349
 Transform:
   m_ObjectHideFlags: 0
@@ -93,6 +93,8 @@ SpriteRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -114,6 +116,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -138,7 +141,7 @@ Animator:
   m_GameObject: {fileID: 3566108749456092354}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: e6ede3aa04a5981479a0dd2161f67c5e, type: 2}
+  m_Controller: {fileID: 9100000, guid: f4d8af1512375444ca0cd9e1ec405b95, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -211,7 +214,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.15
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -235,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bbfc44652157c4fad2e897e07802a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 7
+  jumpForce: 6.7
   maxJumps: 1
   groundCheck: {fileID: 7892862831352484671}
   groundRadius: 0.15
@@ -256,14 +259,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnergy: 100
   currentEnergy: 0
-  depletionRate: 2
+  depletionRate: 1
+  isDepleting: 1
   energySlider: {fileID: 0}
   energyFill: {fileID: 0}
-  spriteRenderer: {fileID: 0}
-  hurtColor: {r: 1, g: 0, b: 0, a: 1}
-  flashDuration: 0.3
+  spriteRenderer: {fileID: 5831928592119874244}
   hasBitBuff: 0
   damageReduction: 0.5
+  invulnerabilityDuration: 2
 --- !u!114 &5967845733545688845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,8 +293,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d983bedad0c3184589c4461619d6952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffCooldown: 30
-  warningTime: 3
+  buffCooldown: 25
+  warningTime: 2
   shieldIcon: {fileID: 0}
   buffActivateSFX: {fileID: 8300000, guid: b3c1579616d735d44bf9fa9b08b11145, type: 3}
   buffConsumeSFX: {fileID: 8300000, guid: a81af90bfdf4cc541bda69bf2e8bb0c7, type: 3}
