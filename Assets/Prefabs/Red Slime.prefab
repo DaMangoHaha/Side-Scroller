@@ -128,7 +128,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d35b3910b52174784042bce87f9ca9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RedSlime
-  moveSpeed: 9
+  moveSpeed: 9.5
   damage: 20
   fadeAfterDeathDelay: 0.3
   destroyDelay: 0.5

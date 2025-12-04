@@ -1,0 +1,1729 @@
+fileFormatVersion: 2
+guid: 39ee6418f1334bc44a0e64506ffef40f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -3703021868036401985
+    second: King Slime-3.png_0
+  - first:
+      213: -8565843528125051914
+    second: King Slime-3.png_1
+  - first:
+      213: -8135285114428061121
+    second: King Slime-3.png_2
+  - first:
+      213: -6084042180740663341
+    second: King Slime-3.png_3
+  - first:
+      213: -7534859475862308109
+    second: King Slime-3.png_4
+  - first:
+      213: 693736574186344534
+    second: King Slime-3.png_5
+  - first:
+      213: -8920883398686880523
+    second: King Slime-3.png_6
+  - first:
+      213: 8234322505387785431
+    second: King Slime-3.png_7
+  - first:
+      213: 3634751713717523553
+    second: King Slime-3.png_8
+  - first:
+      213: 5250423161524275066
+    second: King Slime-3.png_9
+  - first:
+      213: 2294452719235631456
+    second: King Slime-3.png_10
+  - first:
+      213: 3223421050877489343
+    second: King Slime-3.png_11
+  - first:
+      213: 6238169180474357991
+    second: King Slime-3.png_12
+  - first:
+      213: 1385715657395473793
+    second: King Slime-3.png_13
+  - first:
+      213: 1572022354696243116
+    second: King Slime-3.png_14
+  - first:
+      213: -8178741525551219272
+    second: King Slime-3.png_15
+  - first:
+      213: -1367901995153266927
+    second: King Slime-3.png_16
+  - first:
+      213: 5315975591318266187
+    second: King Slime-3.png_17
+  - first:
+      213: 1859407316902145202
+    second: King Slime-3.png_18
+  - first:
+      213: -7995243821498585224
+    second: King Slime-3.png_19
+  - first:
+      213: 5107975082583071747
+    second: King Slime-3.png_20
+  - first:
+      213: 6182613481344165246
+    second: King Slime-3.png_21
+  - first:
+      213: -4344840395262628933
+    second: King Slime-3.png_22
+  - first:
+      213: 534784466646854359
+    second: King Slime-3.png_23
+  - first:
+      213: -6174964887490177052
+    second: King Slime-3.png_24
+  - first:
+      213: -1609571433603248438
+    second: King Slime-3.png_25
+  - first:
+      213: -3060512453605660841
+    second: King Slime-3.png_26
+  - first:
+      213: -1642951058338753611
+    second: King Slime-3.png_27
+  - first:
+      213: 1788907317415497715
+    second: King Slime-3.png_28
+  - first:
+      213: 8302475676185453782
+    second: King Slime-3.png_29
+  - first:
+      213: -7675090514494845088
+    second: King Slime-3.png_30
+  - first:
+      213: 5337737568095585704
+    second: King Slime-3.png_31
+  - first:
+      213: 2857360243865509679
+    second: King Slime-3.png_32
+  - first:
+      213: 4310761991360960489
+    second: King Slime-3.png_33
+  - first:
+      213: 4205375868221522512
+    second: King Slime-3.png_34
+  - first:
+      213: -7134319076339604734
+    second: King Slime-3.png_35
+  - first:
+      213: -248373921988662040
+    second: King Slime-3.png_36
+  - first:
+      213: -7934082375276567892
+    second: King Slime-3.png_37
+  - first:
+      213: 8560467360522517871
+    second: King Slime-3.png_38
+  - first:
+      213: 9031950071959472556
+    second: King Slime-3.png_39
+  - first:
+      213: 6686159986910235194
+    second: King Slime-3.png_40
+  - first:
+      213: 8039316294018689967
+    second: King Slime-3.png_41
+  - first:
+      213: 9117300592139566690
+    second: King Slime-3.png_42
+  - first:
+      213: -33858220031255905
+    second: King Slime-3.png_43
+  - first:
+      213: -1071262670184650434
+    second: King Slime-3.png_44
+  - first:
+      213: 3935849838393535804
+    second: King Slime-3.png_45
+  - first:
+      213: 1623158932714296682
+    second: King Slime-3.png_46
+  - first:
+      213: -3825503629581767930
+    second: King Slime-3.png_47
+  - first:
+      213: -4599834722517755664
+    second: King Slime-3.png_48
+  - first:
+      213: -1898705095772216621
+    second: King Slime-3.png_49
+  - first:
+      213: -5243573055444609072
+    second: King Slime-3.png_50
+  - first:
+      213: 7164578758300116072
+    second: King Slime-3.png_51
+  - first:
+      213: 2903161453217483232
+    second: King Slime-3.png_52
+  - first:
+      213: 5863925794944180576
+    second: King Slime-3.png_53
+  - first:
+      213: 6137813570066043113
+    second: King Slime-3.png_54
+  - first:
+      213: 2331952379354164730
+    second: King Slime-3.png_55
+  - first:
+      213: -5896014469041650011
+    second: King Slime-3.png_56
+  - first:
+      213: -491333960504133701
+    second: King Slime-3.png_57
+  - first:
+      213: 5359897247702081174
+    second: King Slime-3.png_58
+  - first:
+      213: 2646717408265028482
+    second: King Slime-3.png_59
+  - first:
+      213: -3414870006606062664
+    second: King Slime-3.png_60
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: King Slime-3.png_0
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 0
+        width: 222
+        height: 136
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb4df200b393c9cc0800000000000000
+      internalID: -3703021868036401985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_1
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 0
+        width: 167
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6fb0788e1b2002980800000000000000
+      internalID: -8565843528125051914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_2
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 104
+        width: 102
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3a0eff7a49a91f80800000000000000
+      internalID: -8135285114428061121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_3
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 84
+        width: 87
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d7b57a0fd3219ba0800000000000000
+      internalID: -6084042180740663341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_4
+      rect:
+        serializedVersion: 2
+        x: 1219
+        y: 94
+        width: 92
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3fabdb46a3dce6790800000000000000
+      internalID: -7534859475862308109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_5
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 74
+        width: 92
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 650d2181db5a0a900800000000000000
+      internalID: 693736574186344534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_6
+      rect:
+        serializedVersion: 2
+        x: 1729
+        y: 74
+        width: 72
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5fcc69250d7a23480800000000000000
+      internalID: -8920883398686880523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_7
+      rect:
+        serializedVersion: 2
+        x: 1014
+        y: 0
+        width: 187
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dcb4abf0b0364270800000000000000
+      internalID: 8234322505387785431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_8
+      rect:
+        serializedVersion: 2
+        x: 1114
+        y: 74
+        width: 27
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16410e60d6b317230800000000000000
+      internalID: 3634751713717523553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_9
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 49
+        width: 82
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7743272c004dd840800000000000000
+      internalID: 5250423161524275066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_10
+      rect:
+        serializedVersion: 2
+        x: 2254
+        y: 44
+        width: 37
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06908f3779887df10800000000000000
+      internalID: 2294452719235631456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_11
+      rect:
+        serializedVersion: 2
+        x: 1484
+        y: 0
+        width: 187
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb0b11b0e54ebbc20800000000000000
+      internalID: 3223421050877489343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_12
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 59
+        width: 17
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e8b6f281dd629650800000000000000
+      internalID: 6238169180474357991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_13
+      rect:
+        serializedVersion: 2
+        x: 1954
+        y: 0
+        width: 187
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 18d01ce6c0d0b3310800000000000000
+      internalID: 1385715657395473793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_14
+      rect:
+        serializedVersion: 2
+        x: 2404
+        y: 0
+        width: 52
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca784aea002f0d510800000000000000
+      internalID: 1572022354696243116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_15
+      rect:
+        serializedVersion: 2
+        x: 2429
+        y: 0
+        width: 182
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bd78c35ae54f7e80800000000000000
+      internalID: -8178741525551219272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_16
+      rect:
+        serializedVersion: 2
+        x: 2754
+        y: 4
+        width: 17
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1176753026c340de0800000000000000
+      internalID: -1367901995153266927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_17
+      rect:
+        serializedVersion: 2
+        x: 2879
+        y: 0
+        width: 202
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b412c2392a326c940800000000000000
+      internalID: 5315975591318266187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_18
+      rect:
+        serializedVersion: 2
+        x: 3224
+        y: 0
+        width: 42
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bce6b86a11fdc910800000000000000
+      internalID: 1859407316902145202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_19
+      rect:
+        serializedVersion: 2
+        x: 3359
+        y: 0
+        width: 92
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87fa0feda103b0190800000000000000
+      internalID: -7995243821498585224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_20
+      rect:
+        serializedVersion: 2
+        x: 3454
+        y: 0
+        width: 52
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30c19ee364c23e640800000000000000
+      internalID: 5107975082583071747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_21
+      rect:
+        serializedVersion: 2
+        x: 3514
+        y: 0
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e756f03543e0dc550800000000000000
+      internalID: 6182613481344165246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_22
+      rect:
+        serializedVersion: 2
+        x: 3714
+        y: 0
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbb6a923ea604b3c0800000000000000
+      internalID: -4344840395262628933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_23
+      rect:
+        serializedVersion: 2
+        x: 3839
+        y: 0
+        width: 52
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dae1e593afeb6700800000000000000
+      internalID: 534784466646854359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_24
+      rect:
+        serializedVersion: 2
+        x: 3894
+        y: 0
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e753a4b62e1e4aa0800000000000000
+      internalID: -6174964887490177052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_25
+      rect:
+        serializedVersion: 2
+        x: 3929
+        y: 0
+        width: 17
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ace467b1f47a9a9e0800000000000000
+      internalID: -1609571433603248438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_26
+      rect:
+        serializedVersion: 2
+        x: 3949
+        y: 0
+        width: 37
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 757ec248320e685d0800000000000000
+      internalID: -3060512453605660841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_27
+      rect:
+        serializedVersion: 2
+        x: 3989
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b3dd5897b01339e0800000000000000
+      internalID: -1642951058338753611
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_28
+      rect:
+        serializedVersion: 2
+        x: 4004
+        y: 0
+        width: 32
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3ffc5a62ab973d810800000000000000
+      internalID: 1788907317415497715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_29
+      rect:
+        serializedVersion: 2
+        x: 4209
+        y: 0
+        width: 37
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d4ea5b93a1583370800000000000000
+      internalID: 8302475676185453782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_30
+      rect:
+        serializedVersion: 2
+        x: 4319
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06f809867d99c7590800000000000000
+      internalID: -7675090514494845088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_31
+      rect:
+        serializedVersion: 2
+        x: 4329
+        y: 0
+        width: 42
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a54892a904731a40800000000000000
+      internalID: 5337737568095585704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_32
+      rect:
+        serializedVersion: 2
+        x: 4374
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f2f5deab00267a720800000000000000
+      internalID: 2857360243865509679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_33
+      rect:
+        serializedVersion: 2
+        x: 4389
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e753561137e2db30800000000000000
+      internalID: 4310761991360960489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_34
+      rect:
+        serializedVersion: 2
+        x: 4404
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0520854321f7c5a30800000000000000
+      internalID: 4205375868221522512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_35
+      rect:
+        serializedVersion: 2
+        x: 4414
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2032c7c699ecdfc90800000000000000
+      internalID: -7134319076339604734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_36
+      rect:
+        serializedVersion: 2
+        x: 4424
+        y: 0
+        width: 37
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ec2560eb399d8cf0800000000000000
+      internalID: -248373921988662040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_37
+      rect:
+        serializedVersion: 2
+        x: 4464
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca2e3f2cd1a74e190800000000000000
+      internalID: -7934082375276567892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_38
+      rect:
+        serializedVersion: 2
+        x: 4494
+        y: 0
+        width: 27
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6d354785b3ecc670800000000000000
+      internalID: 8560467360522517871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_39
+      rect:
+        serializedVersion: 2
+        x: 4694
+        y: 0
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca94534bcbee75d70800000000000000
+      internalID: 9031950071959472556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_40
+      rect:
+        serializedVersion: 2
+        x: 4714
+        y: 0
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3a073355130acc50800000000000000
+      internalID: 6686159986910235194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_41
+      rect:
+        serializedVersion: 2
+        x: 4724
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fab6ef54393619f60800000000000000
+      internalID: 8039316294018689967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_42
+      rect:
+        serializedVersion: 2
+        x: 4809
+        y: 0
+        width: 22
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26effe04598278e70800000000000000
+      internalID: 9117300592139566690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_43
+      rect:
+        serializedVersion: 2
+        x: 4834
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9a5f46d026b78ff0800000000000000
+      internalID: -33858220031255905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_44
+      rect:
+        serializedVersion: 2
+        x: 4864
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e39e18af64c1221f0800000000000000
+      internalID: -1071262670184650434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_45
+      rect:
+        serializedVersion: 2
+        x: 4879
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3da9b23392fe9630800000000000000
+      internalID: 3935849838393535804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_46
+      rect:
+        serializedVersion: 2
+        x: 4899
+        y: 0
+        width: 37
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a65107e037e968610800000000000000
+      internalID: 1623158932714296682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_47
+      rect:
+        serializedVersion: 2
+        x: 4984
+        y: 0
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60bafcf97b419eac0800000000000000
+      internalID: -3825503629581767930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_48
+      rect:
+        serializedVersion: 2
+        x: 5184
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f852dad0ba1a20c0800000000000000
+      internalID: -4599834722517755664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_49
+      rect:
+        serializedVersion: 2
+        x: 5199
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d2e54176c176a5e0800000000000000
+      internalID: -1898705095772216621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_50
+      rect:
+        serializedVersion: 2
+        x: 5299
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0d71a6476161b37b0800000000000000
+      internalID: -5243573055444609072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_51
+      rect:
+        serializedVersion: 2
+        x: 5369
+        y: 0
+        width: 22
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 864a9cdcb62bd6360800000000000000
+      internalID: 7164578758300116072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_52
+      rect:
+        serializedVersion: 2
+        x: 5394
+        y: 0
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e982a8c5f91a4820800000000000000
+      internalID: 2903161453217483232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_53
+      rect:
+        serializedVersion: 2
+        x: 5474
+        y: 0
+        width: 17
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 061e5ec2179d06150800000000000000
+      internalID: 5863925794944180576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_54
+      rect:
+        serializedVersion: 2
+        x: 5684
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e0db552ce4ed2550800000000000000
+      internalID: 6137813570066043113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_55
+      rect:
+        serializedVersion: 2
+        x: 5844
+        y: 0
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afd28847552cc5020800000000000000
+      internalID: 2331952379354164730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_56
+      rect:
+        serializedVersion: 2
+        x: 5859
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a6853e24162d2ea0800000000000000
+      internalID: -5896014469041650011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_57
+      rect:
+        serializedVersion: 2
+        x: 5869
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb7b01abd5e6e29f0800000000000000
+      internalID: -491333960504133701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_58
+      rect:
+        serializedVersion: 2
+        x: 5964
+        y: 0
+        width: 12
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69e50e9162e226a40800000000000000
+      internalID: 5359897247702081174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_59
+      rect:
+        serializedVersion: 2
+        x: 6319
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 283ca7cb5770bb420800000000000000
+      internalID: 2646717408265028482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: King Slime-3.png_60
+      rect:
+        serializedVersion: 2
+        x: 6454
+        y: 0
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bb1c1e52d1fb90d0800000000000000
+      internalID: -3414870006606062664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      King Slime-3.png_0: -3703021868036401985
+      King Slime-3.png_1: -8565843528125051914
+      King Slime-3.png_10: 2294452719235631456
+      King Slime-3.png_11: 3223421050877489343
+      King Slime-3.png_12: 6238169180474357991
+      King Slime-3.png_13: 1385715657395473793
+      King Slime-3.png_14: 1572022354696243116
+      King Slime-3.png_15: -8178741525551219272
+      King Slime-3.png_16: -1367901995153266927
+      King Slime-3.png_17: 5315975591318266187
+      King Slime-3.png_18: 1859407316902145202
+      King Slime-3.png_19: -7995243821498585224
+      King Slime-3.png_2: -8135285114428061121
+      King Slime-3.png_20: 5107975082583071747
+      King Slime-3.png_21: 6182613481344165246
+      King Slime-3.png_22: -4344840395262628933
+      King Slime-3.png_23: 534784466646854359
+      King Slime-3.png_24: -6174964887490177052
+      King Slime-3.png_25: -1609571433603248438
+      King Slime-3.png_26: -3060512453605660841
+      King Slime-3.png_27: -1642951058338753611
+      King Slime-3.png_28: 1788907317415497715
+      King Slime-3.png_29: 8302475676185453782
+      King Slime-3.png_3: -6084042180740663341
+      King Slime-3.png_30: -7675090514494845088
+      King Slime-3.png_31: 5337737568095585704
+      King Slime-3.png_32: 2857360243865509679
+      King Slime-3.png_33: 4310761991360960489
+      King Slime-3.png_34: 4205375868221522512
+      King Slime-3.png_35: -7134319076339604734
+      King Slime-3.png_36: -248373921988662040
+      King Slime-3.png_37: -7934082375276567892
+      King Slime-3.png_38: 8560467360522517871
+      King Slime-3.png_39: 9031950071959472556
+      King Slime-3.png_4: -7534859475862308109
+      King Slime-3.png_40: 6686159986910235194
+      King Slime-3.png_41: 8039316294018689967
+      King Slime-3.png_42: 9117300592139566690
+      King Slime-3.png_43: -33858220031255905
+      King Slime-3.png_44: -1071262670184650434
+      King Slime-3.png_45: 3935849838393535804
+      King Slime-3.png_46: 1623158932714296682
+      King Slime-3.png_47: -3825503629581767930
+      King Slime-3.png_48: -4599834722517755664
+      King Slime-3.png_49: -1898705095772216621
+      King Slime-3.png_5: 693736574186344534
+      King Slime-3.png_50: -5243573055444609072
+      King Slime-3.png_51: 7164578758300116072
+      King Slime-3.png_52: 2903161453217483232
+      King Slime-3.png_53: 5863925794944180576
+      King Slime-3.png_54: 6137813570066043113
+      King Slime-3.png_55: 2331952379354164730
+      King Slime-3.png_56: -5896014469041650011
+      King Slime-3.png_57: -491333960504133701
+      King Slime-3.png_58: 5359897247702081174
+      King Slime-3.png_59: 2646717408265028482
+      King Slime-3.png_6: -8920883398686880523
+      King Slime-3.png_60: -3414870006606062664
+      King Slime-3.png_7: 8234322505387785431
+      King Slime-3.png_8: 3634751713717523553
+      King Slime-3.png_9: 5250423161524275066
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
