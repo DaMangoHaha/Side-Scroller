@@ -25,7 +25,7 @@ public class SpecialNPC : MonoBehaviour
         if (dialogueUI == null || dialogueLines.Length == 0)
             return;
 
-        dialogueUI.SetContinuePromptVisible(true);   // 👈 enable "Press S"
+        dialogueUI.SetContinuePromptVisible(true);   // enable "Press Space"
         currentLineIndex = 0;
         conversationActive = true;
         dialogueUI.ShowDialogue(dialogueLines[currentLineIndex], portrait);

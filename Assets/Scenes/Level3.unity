@@ -1824,8 +1824,8 @@ MonoBehaviour:
   greenSlimePrefab: {fileID: 207611155190719905, guid: a353de726ac58ce40afe1bea62ec2ff3, type: 3}
   redSlimePrefab: {fileID: 7489278483794375548, guid: 4bb03ba4b90c92a438c412aa17411c56, type: 3}
   blueSlimePrefab: {fileID: 7591317660510697918, guid: c2d12f24d1064ec40a3ff2a29cb5e25f, type: 3}
-  minSpawnTime: 1
-  maxSpawnTime: 7
+  minSpawnTime: 0
+  maxSpawnTime: 6
   spawnX: 10
   groundY: -1.7
   blueMinY: 2
