@@ -1,0 +1,754 @@
+fileFormatVersion: 2
+guid: 5429be42d2953824bb8c479735f3c8bd
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8704457868807145928
+    second: Wiz Kid-2.png_0
+  - first:
+      213: -6688097531812867660
+    second: Wiz Kid-2.png_1
+  - first:
+      213: -3581701714152368543
+    second: Wiz Kid-2.png_2
+  - first:
+      213: 1101188612492957482
+    second: Wiz Kid-2.png_3
+  - first:
+      213: 2470382422747429080
+    second: Wiz Kid-2.png_4
+  - first:
+      213: 2415342447961186975
+    second: Wiz Kid-2.png_5
+  - first:
+      213: -4330818761305193296
+    second: Wiz Kid-2.png_6
+  - first:
+      213: -1157281981676958714
+    second: Wiz Kid-2.png_7
+  - first:
+      213: -5939673668467279595
+    second: Wiz Kid-2.png_8
+  - first:
+      213: -5017563094645274157
+    second: Wiz Kid-2.png_9
+  - first:
+      213: -8836050103937450822
+    second: Wiz Kid-2.png_10
+  - first:
+      213: 8900096962019790651
+    second: Wiz Kid-2.png_11
+  - first:
+      213: 7281941388233671142
+    second: Wiz Kid-2.png_12
+  - first:
+      213: -2826721655236528124
+    second: Wiz Kid-2.png_13
+  - first:
+      213: 8164144949987120306
+    second: Wiz Kid-2.png_14
+  - first:
+      213: -7185487093859895284
+    second: Wiz Kid-2.png_15
+  - first:
+      213: -8928173049761416651
+    second: Wiz Kid-2.png_16
+  - first:
+      213: 4265753411113659424
+    second: Wiz Kid-2.png_17
+  - first:
+      213: -4079221280087127036
+    second: Wiz Kid-2.png_18
+  - first:
+      213: 1717875518837986877
+    second: Wiz Kid-2.png_19
+  - first:
+      213: 4536429622787194254
+    second: Wiz Kid-2.png_20
+  - first:
+      213: -1165976538273784686
+    second: Wiz Kid-2.png_21
+  - first:
+      213: 4722714388586422585
+    second: Wiz Kid-2.png_22
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WindowsStoreApps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_0
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 519
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 836756fbfad833780800000000000000
+      internalID: -8704457868807145928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_1
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 519
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b19029daba1f23a0800000000000000
+      internalID: -6688097531812867660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_2
+      rect:
+        serializedVersion: 2
+        x: 359
+        y: 539
+        width: 82
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1665a84844d3b4ec0800000000000000
+      internalID: -3581701714152368543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_3
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 509
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a27195e6535384f00800000000000000
+      internalID: 1101188612492957482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_4
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 529
+        width: 12
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8ba3f89bf884220800000000000000
+      internalID: 2470382422747429080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_5
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 509
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9226adc825058120800000000000000
+      internalID: 2415342447961186975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_6
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 459
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b48ec14847d5e3c0800000000000000
+      internalID: -4330818761305193296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_7
+      rect:
+        serializedVersion: 2
+        x: 279
+        y: 459
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60c4f215b2280ffe0800000000000000
+      internalID: -1157281981676958714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_8
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 309
+        width: 132
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 519344da44a029da0800000000000000
+      internalID: -5939673668467279595
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_9
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 449
+        width: 22
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d90f8913f80e5ab0800000000000000
+      internalID: -5017563094645274157
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_10
+      rect:
+        serializedVersion: 2
+        x: 559
+        y: 449
+        width: 22
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abc3141fe3b006580800000000000000
+      internalID: -8836050103937450822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_11
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 399
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b3f09bf380f738b70800000000000000
+      internalID: 8900096962019790651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_12
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 399
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e102e87c17ae0560800000000000000
+      internalID: 7281941388233671142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_13
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 379
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 408f8b491a775c8d0800000000000000
+      internalID: -2826721655236528124
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_14
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 389
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b418c6939edc4170800000000000000
+      internalID: 8164144949987120306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_15
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 399
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c08b358fe85084c90800000000000000
+      internalID: -7185487093859895284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_16
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 339
+        width: 22
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53a31cb2ae1c81480800000000000000
+      internalID: -8928173049761416651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_17
+      rect:
+        serializedVersion: 2
+        x: 289
+        y: 349
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02c27d06020033b30800000000000000
+      internalID: 4265753411113659424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_18
+      rect:
+        serializedVersion: 2
+        x: 529
+        y: 359
+        width: 32
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40c4130cbd1b367c0800000000000000
+      internalID: -4079221280087127036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_19
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 329
+        width: 22
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d369da4ceae17d710800000000000000
+      internalID: 1717875518837986877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_20
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 339
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e8d3ac6f4b2a4fe30800000000000000
+      internalID: 4536429622787194254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_21
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 329
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29c50cb148e91dfe0800000000000000
+      internalID: -1165976538273784686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wiz Kid-2.png_22
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 319
+        width: 42
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 931e153e6b37a8140800000000000000
+      internalID: 4722714388586422585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Wiz Kid-2.png_0: -8704457868807145928
+      Wiz Kid-2.png_1: -6688097531812867660
+      Wiz Kid-2.png_10: -8836050103937450822
+      Wiz Kid-2.png_11: 8900096962019790651
+      Wiz Kid-2.png_12: 7281941388233671142
+      Wiz Kid-2.png_13: -2826721655236528124
+      Wiz Kid-2.png_14: 8164144949987120306
+      Wiz Kid-2.png_15: -7185487093859895284
+      Wiz Kid-2.png_16: -8928173049761416651
+      Wiz Kid-2.png_17: 4265753411113659424
+      Wiz Kid-2.png_18: -4079221280087127036
+      Wiz Kid-2.png_19: 1717875518837986877
+      Wiz Kid-2.png_2: -3581701714152368543
+      Wiz Kid-2.png_20: 4536429622787194254
+      Wiz Kid-2.png_21: -1165976538273784686
+      Wiz Kid-2.png_22: 4722714388586422585
+      Wiz Kid-2.png_3: 1101188612492957482
+      Wiz Kid-2.png_4: 2470382422747429080
+      Wiz Kid-2.png_5: 2415342447961186975
+      Wiz Kid-2.png_6: -4330818761305193296
+      Wiz Kid-2.png_7: -1157281981676958714
+      Wiz Kid-2.png_8: -5939673668467279595
+      Wiz Kid-2.png_9: -5017563094645274157
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

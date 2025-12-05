@@ -166,4 +166,11 @@ public class PlayerEnergy : MonoBehaviour
 
         Debug.Log("Energy depletion resumed.");
     }
+
+    public void RestoreEnergy(float amount)
+    {
+        currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, maxEnergy);
+        UpdateUI();
+    }
+
 }

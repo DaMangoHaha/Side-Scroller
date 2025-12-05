@@ -2039,7 +2039,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1844672861058412674, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3545611507391418815, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: readyIcon
@@ -2713,7 +2713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3566108749456092354, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: skillIcon
@@ -4016,7 +4016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1922207195891543796, guid: 7c81a6b8aa9fa5a4784ae3d6993faf1f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2287128322421900015, guid: 7c81a6b8aa9fa5a4784ae3d6993faf1f, type: 3}
       propertyPath: m_IsActive
@@ -4144,7 +4144,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9005407038755502004, guid: 7c81a6b8aa9fa5a4784ae3d6993faf1f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
