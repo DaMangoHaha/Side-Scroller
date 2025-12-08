@@ -56,7 +56,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7093762297031683349
 Transform:
   m_ObjectHideFlags: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bbfc44652157c4fad2e897e07802a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 6.7
+  jumpForce: 7
   maxJumps: 1
   groundCheck: {fileID: 7892862831352484671}
   groundRadius: 0.15

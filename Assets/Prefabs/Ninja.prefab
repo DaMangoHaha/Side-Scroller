@@ -207,10 +207,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bbfc44652157c4fad2e897e07802a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoubleJump
-  jumpForce: 6.7
+  jumpForce: 7
   maxJumps: 2
   groundCheck: {fileID: 8995899065987984133}
-  groundRadius: 0.1
+  groundRadius: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -288,7 +288,7 @@ MonoBehaviour:
   boltSpawnPoint: {fileID: 8310439251337273947}
   readyIcon: {fileID: 0}
   boltActivateSFX: {fileID: 8300000, guid: fd85722f54c36e24e956081f09af1f5d, type: 3}
-  boltConsumeSFX: {fileID: 0}
+  boltConsumeSFX: {fileID: 8300000, guid: fd85722f54c36e24e956081f09af1f5d, type: 3}
 --- !u!1 &5864338631574227806
 GameObject:
   m_ObjectHideFlags: 0

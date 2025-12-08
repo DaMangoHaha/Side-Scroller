@@ -1,5 +1,6 @@
+﻿using System.Collections;
 using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
 
 public class WizKidSkill : MonoBehaviour
 {
@@ -17,8 +18,19 @@ public class WizKidSkill : MonoBehaviour
     public float mediumDuration = 5f;
     public float largeDuration = 7f;
 
+    [Header("UI")]
+    public Image wizIcon;
+    private Color inactiveColor;
+    private Color activeColor;
+
     [Header("Effects")]
     public GameObject confettiPrefab;
+
+    [Header("Audio")]
+    public AudioClip smallBurstSFX;   // SFX when small healing activates
+    public AudioClip mediumBurstSFX;  // SFX when medium healing burst activates
+    public AudioClip largeBurstSFX;   // SFX when large healing burst activates
+    private AudioSource audioSource;
 
     private PlayerEnergy playerEnergy;
     private float timer = 0f;
@@ -28,6 +40,16 @@ public class WizKidSkill : MonoBehaviour
     {
         playerEnergy = GetComponent<PlayerEnergy>();
         timer = cooldown;
+        if (wizIcon != null)
+        {
+            activeColor = wizIcon.color;
+            inactiveColor = wizIcon.color;
+            inactiveColor.a = 0.2f; // faded look
+            wizIcon.color = inactiveColor;
+        }
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.loop = false;   // each burst plays once
+
     }
 
     void Update()
@@ -38,6 +60,8 @@ public class WizKidSkill : MonoBehaviour
         {
             StartCoroutine(ActivateSproutingSorcery());
             timer = cooldown;
+            if (wizIcon != null)
+                wizIcon.color = activeColor;
         }
     }
 
@@ -49,12 +73,28 @@ public class WizKidSkill : MonoBehaviour
         float duration;
         float healAmount;
 
+        // Assign duration and healAmount based on choice
         switch (choice)
         {
+            case 0:
+                duration = smallDuration;
+                healAmount = smallHeal;
+                if (smallBurstSFX != null) audioSource.PlayOneShot(smallBurstSFX);
+                break;
+            case 1:
+                duration = mediumDuration;
+                healAmount = mediumHeal;
+                if (mediumBurstSFX != null) audioSource.PlayOneShot(mediumBurstSFX);
+                break;
+            case 2:
+                duration = largeDuration;
+                healAmount = largeHeal;
+                if (largeBurstSFX != null) audioSource.PlayOneShot(largeBurstSFX);
+                break;
             default:
-            case 0: duration = smallDuration; healAmount = smallHeal; break;
-            case 1: duration = mediumDuration; healAmount = mediumHeal; break;
-            case 2: duration = largeDuration; healAmount = largeHeal; break;
+                duration = smallDuration;
+                healAmount = smallHeal;
+                break;
         }
 
         // Spawn the confetti
@@ -68,6 +108,8 @@ public class WizKidSkill : MonoBehaviour
             timePassed += tickInterval;
             yield return new WaitForSeconds(tickInterval);
         }
+        if (wizIcon != null)
+            wizIcon.color = inactiveColor;
     }
 
     private IEnumerator SpawnConfetti(float duration)

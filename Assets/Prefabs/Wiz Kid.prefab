@@ -210,9 +210,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 496d90905e6e2c14799ac42feb8b2c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerEnergy
-  maxEnergy: 60
+  maxEnergy: 70
   currentEnergy: 0
-  depletionRate: 1
+  depletionRate: 1.5
   isDepleting: 1
   energySlider: {fileID: 0}
   energyFill: {fileID: 0}
@@ -267,15 +267,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8705f100b90254947ba36e73815427d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WizKidSkill
-  cooldown: 10
+  cooldown: 20
   tickInterval: 0.5
   smallHeal: 3
-  mediumHeal: 6
+  mediumHeal: 7
   largeHeal: 9
   smallDuration: 3
   mediumDuration: 5
   largeDuration: 7
+  wizIcon: {fileID: 0}
   confettiPrefab: {fileID: 4264061607123971477, guid: b6c9629cab8b9554bac9c820a817c81b, type: 3}
+  smallBurstSFX: {fileID: 8300000, guid: 532a6368dc227174eae9a4c435089327, type: 3}
+  mediumBurstSFX: {fileID: 8300000, guid: f34671ee54aa90d47820d21a7efa0878, type: 3}
+  largeBurstSFX: {fileID: 8300000, guid: 181454fe675a1f244afb6791348686c2, type: 3}
 --- !u!60 &6266124163216811890
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -330,7 +334,9 @@ PolygonCollider2D:
       - {x: 0.48, y: 0.47}
       - {x: 0.38, y: 0.48999998}
       - {x: 0.37, y: 0.65}
-      - {x: 0.28, y: 0.77}
+      - {x: 0.26109675, y: 0.7537975}
+      - {x: 0.20892859, y: 0.81136715}
+      - {x: 0.107723236, y: 0.89532316}
       - {x: 0.089999996, y: 0.96}
       - {x: -0.089999996, y: 0.96}
       - {x: -0.16, y: 0.89}

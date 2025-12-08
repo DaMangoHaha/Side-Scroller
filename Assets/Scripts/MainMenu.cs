@@ -14,8 +14,7 @@ public class MainMenu : MonoBehaviour
     // Called by Settings Button
     public void OpenSettings()
     {
-        Debug.Log("Settings menu not implemented yet!");
-        // Later: open a UI panel
+        SceneManager.LoadScene("Settings");
     }
 
     // Called by Shop Button
