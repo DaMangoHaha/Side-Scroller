@@ -11,17 +11,20 @@ public class LevelSelect : MonoBehaviour
     }
 
     public void PlayLevel2()
-            {
+    {
+        MusicManager.Instance.PlayMusic("Level 2");
         SceneManager.LoadScene("Level2");
     }
 
     public void PlayLevel3()
     {
-               SceneManager.LoadScene("Level3");
+        MusicManager.Instance.PlayMusic("Level 3");
+        SceneManager.LoadScene("Level3");
     }
 
     public void PlayLevel4()
     {
+        MusicManager.Instance.PlayMusic("Level 4");
         SceneManager.LoadScene("Level4");
     }
 }

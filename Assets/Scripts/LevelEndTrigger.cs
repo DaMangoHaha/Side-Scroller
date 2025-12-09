@@ -12,6 +12,7 @@ public class LevelEndTrigger : MonoBehaviour
             if (GameEvents.slimeExterminationActive)
             {
                 Debug.Log("Event complete — loading next level.");
+                MusicManager.Instance.PlayMusic("Level 3");
                 SceneManager.LoadScene(nextSceneName);
             }
             else

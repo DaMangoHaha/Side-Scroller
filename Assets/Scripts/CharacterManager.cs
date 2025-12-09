@@ -4,8 +4,8 @@ public class CharacterManager : MonoBehaviour
 {
     public static CharacterManager Instance;
 
-    public CharacterData[] characters;
-    public int selectedCharacterIndex = 0; // Bit is default
+    // The currently selected character name
+    public string selectedCharacter = "Bits"; // default
 
     void Awake()
     {
@@ -13,6 +13,9 @@ public class CharacterManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+
+            // Load saved preference (if exists)
+            selectedCharacter = PlayerPrefs.GetString("SelectedCharacter", "Bits");
         }
         else
         {
@@ -20,22 +23,10 @@ public class CharacterManager : MonoBehaviour
         }
     }
 
-    public void SelectCharacter(int index)
+    public void SetCharacter(string characterName)
     {
-        if (characters[index].isUnlocked)
-        {
-            selectedCharacterIndex = index;
-            Debug.Log("Equipped: " + characters[index].characterName);
-        }
-        else
-        {
-            Debug.Log("Character is locked!");
-        }
-    }
-
-    public void UnlockCharacter(int index)
-    {
-        characters[index].isUnlocked = true;
+        selectedCharacter = characterName;
+        PlayerPrefs.SetString("SelectedCharacter", characterName);
+        PlayerPrefs.Save();
     }
 }
-

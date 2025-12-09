@@ -17,6 +17,7 @@ public class FinishFlag : MonoBehaviour
             if (LevelUnlockManager.Instance != null)
                 LevelUnlockManager.Instance.UnlockLevel(2);
 
+            MusicManager.Instance.PlayMusic("Main Menu");
             // Return to Level Select
             SceneManager.LoadScene("LevelSelect");
         }
