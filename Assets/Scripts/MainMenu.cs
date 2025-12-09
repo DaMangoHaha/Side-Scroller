@@ -4,6 +4,11 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
+
+    private void Start()
+    {
+        MusicManager.Instance.PlayMusic("Main Menu");
+    }
     // Called by Play Button
     public void PlayGame()
     {
