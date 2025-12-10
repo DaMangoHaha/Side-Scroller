@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7425064091283954376}
   - component: {fileID: 3207296418027149015}
   - component: {fileID: 6616538407673417800}
+  - component: {fileID: -6194117758631724632}
   m_Layer: 0
   m_Name: Green Slime
   m_TagString: Enemy
@@ -206,3 +207,17 @@ MonoBehaviour:
   fadeAfterDeathDelay: 0.3
   destroyDelay: 0.5
   hitSoundSFX: {fileID: 8300000, guid: 31018149730edff44bc906af1ae2fbc9, type: 3}
+--- !u!114 &-6194117758631724632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207611155190719905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1c3d9f7f076644caad09fa21cdcea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChillTarget
+  chilledSprite: {fileID: 21300000, guid: afdee7b977e3276439e786a2714d529d, type: 3}
+  chilled: 0

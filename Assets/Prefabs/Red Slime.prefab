@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5149318329679876678}
   - component: {fileID: -3955751883886698431}
   - component: {fileID: -5709913088494545458}
+  - component: {fileID: 6455026257471543073}
   m_Layer: 0
   m_Name: Red Slime
   m_TagString: Enemy
@@ -307,3 +308,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6455026257471543073
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7489278483794375548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1c3d9f7f076644caad09fa21cdcea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChillTarget
+  chilledSprite: {fileID: 21300000, guid: afdee7b977e3276439e786a2714d529d, type: 3}
+  chilled: 0

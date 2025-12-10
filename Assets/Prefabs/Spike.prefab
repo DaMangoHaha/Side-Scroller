@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3450740545066466267}
   - component: {fileID: 8819196128148496487}
   - component: {fileID: 3186873726094937045}
+  - component: {fileID: -5245519037436460843}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Obstacle
@@ -185,3 +186,17 @@ MonoBehaviour:
   damage: 20
   speed: 5
   hitSoundSFX: {fileID: 8300000, guid: 31018149730edff44bc906af1ae2fbc9, type: 3}
+--- !u!114 &-5245519037436460843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438552862875879893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1c3d9f7f076644caad09fa21cdcea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChillTarget
+  chilledSprite: {fileID: 21300000, guid: c758ca25806dc41468a58026c59957c2, type: 3}
+  chilled: 0
