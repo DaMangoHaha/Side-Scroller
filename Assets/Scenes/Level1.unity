@@ -304,6 +304,10 @@ PrefabInstance:
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 442750849}
+    - target: {fileID: 4775767470271842072, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
+      propertyPath: slideDuration
+      value: 0.8
+      objectReference: {fileID: 0}
     - target: {fileID: 5247978891995680957, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.524
