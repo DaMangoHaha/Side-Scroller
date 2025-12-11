@@ -37,6 +37,7 @@ public class CharacterSpawner : MonoBehaviour
         thiefIcon.SetActive(selected == "Thief");
         ninjaIcon.SetActive(selected == "Ninja");
         wizKidIcon.SetActive(selected == "Wiz Kid");
+        crystalIcon.SetActive(selected == "Crystal");
     }
 }
 

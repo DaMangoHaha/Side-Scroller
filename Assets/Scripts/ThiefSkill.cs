@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -15,33 +15,37 @@ public class ThiefSkill : MonoBehaviour
     private float cooldownTimer;
 
     [Header("UI")]
-    public Image skillIcon;               // Assign icon in Inspector
+    public Image skillIcon;
     private Color activeColor;
     private Color inactiveColor;
 
+    public float flickerSpeed = 6f;   // how fast icon flickers
+
     private AudioSource audioSource;
-    public AudioClip activateSFX;         // Optional activation sound
+    public AudioClip activateSFX;
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
 
-        cooldownTimer = cooldownTime; // starts on cooldown
+        cooldownTimer = cooldownTime;
+
         if (skillIcon != null)
         {
             activeColor = skillIcon.color;
-            inactiveColor = skillIcon.color;
+            inactiveColor = activeColor;
             inactiveColor.a = 0.3f;
-            skillIcon.color = inactiveColor;
+            skillIcon.color = inactiveColor;  // starts faded
         }
     }
 
     void Update()
     {
-        // Cooldown timer
+        // Cooldown counting
         if (isOnCooldown)
         {
             cooldownTimer -= Time.deltaTime;
+
             if (cooldownTimer <= 0)
             {
                 isOnCooldown = false;
@@ -50,17 +54,15 @@ public class ThiefSkill : MonoBehaviour
             }
         }
 
-        // Activation input
+        // Activation
         if (!isOnCooldown && Input.GetKeyDown(KeyCode.LeftShift))
         {
             StartCoroutine(ActivateSkill());
         }
 
-        // Active effect: pull coins
+        // Active coin pulling effect
         if (isActive)
-        {
             AttractNearbyCoins();
-        }
     }
 
     private IEnumerator ActivateSkill()
@@ -69,18 +71,49 @@ public class ThiefSkill : MonoBehaviour
         isOnCooldown = true;
         cooldownTimer = cooldownTime;
 
+        // Icon fades at activation
         if (skillIcon != null)
             skillIcon.color = inactiveColor;
 
+        // Play SFX
         if (activateSFX != null && audioSource != null)
             audioSource.PlayOneShot(activateSFX);
 
         Debug.Log("Sticky Fingers Activated!");
 
+        // Start flicker coroutine
+        if (skillIcon != null)
+            StartCoroutine(FlickerIcon());
+
         yield return new WaitForSeconds(activeDuration);
 
+        // Skill ends
         isActive = false;
         Debug.Log("Sticky Fingers ended.");
+
+        // Return icon to faded look
+        if (skillIcon != null)
+            skillIcon.color = inactiveColor;
+    }
+
+    private IEnumerator FlickerIcon()
+    {
+        float t = 0f;
+
+        while (isActive)
+        {
+            t += Time.deltaTime * flickerSpeed;
+
+            float alpha = Mathf.Abs(Mathf.Sin(t)); // pulsing 0→1→0 loop
+
+            Color c = activeColor;
+            c.a = alpha;
+
+            if (skillIcon != null)
+                skillIcon.color = c;
+
+            yield return null;
+        }
     }
 
     private void AttractNearbyCoins()
@@ -100,7 +133,7 @@ public class ThiefSkill : MonoBehaviour
         }
     }
 
-    // Called by Coin.cs when Thief collects a coin
+    // Called from Coin.cs
     public void ReduceCooldown(float amount)
     {
         if (isOnCooldown && cooldownTimer > 0)

@@ -201,7 +201,7 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 0
   m_Sprite: {fileID: 950407724401328605, guid: ad90941f2e2de8e4291e9e7bf289c835, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -400,3 +400,7 @@ MonoBehaviour:
   abilityReady: 0
   glaciateDuration: 5
   glaciateEffectPrefab: {fileID: 915709137756361412, guid: 40ec1c83fefc0c541a873335144d39b9, type: 3}
+  skillIcon: {fileID: 0}
+  fadedColor: {r: 0, g: 0, b: 0, a: 0}
+  readyColor: {r: 0, g: 0, b: 0, a: 0}
+  flickerSpeed: 6

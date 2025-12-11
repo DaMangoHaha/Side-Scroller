@@ -1,5 +1,7 @@
-using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.UI;
 
 public class CrystalAbility : MonoBehaviour
 {
@@ -10,7 +12,28 @@ public class CrystalAbility : MonoBehaviour
     public float glaciateDuration = 5f;
     public GameObject glaciateEffectPrefab;
 
+    [Header("Skill Icon")]
+    public Image skillIcon;
+    public Color fadedColor;
+    public Color readyColor;
+    public float flickerSpeed = 6f; // how fast icon flickers
+
+
     private bool abilityActive = false;
+    private PlayerEnergy playerEnergy;
+
+    void Start()
+    {
+        playerEnergy = GetComponent<PlayerEnergy>();
+
+        if (skillIcon != null)
+        {
+            readyColor = skillIcon.color;     // normal visible sprite
+            fadedColor = skillIcon.color;
+            fadedColor.a = 0.2f;              // faded power-down
+            skillIcon.color = fadedColor;
+        }
+    }
 
     void Update()
     {
@@ -30,9 +53,12 @@ public class CrystalAbility : MonoBehaviour
         if (currentSnowflakes >= snowflakesNeeded)
         {
             abilityReady = true;
-            // TODO: Change skill icon to READY state
+
+            if (skillIcon != null)
+                skillIcon.color = readyColor;
         }
     }
+
 
     private IEnumerator ActivateGlaciate()
     {
@@ -40,10 +66,13 @@ public class CrystalAbility : MonoBehaviour
         abilityReady = false;
         currentSnowflakes = 0;
 
-        // Spawn mist visual
+        // Start flicker
+        if (skillIcon != null)
+            StartCoroutine(FlickerIcon());
+
+        // Spawn mist effect
         GameObject effect = Instantiate(glaciateEffectPrefab, transform.position, Quaternion.identity, transform);
 
-        // Turn on hitbox
         GlaciateArea glaciate = GetComponentInChildren<GlaciateArea>();
         glaciate.EnableRadius(true);
 
@@ -51,7 +80,31 @@ public class CrystalAbility : MonoBehaviour
 
         glaciate.EnableRadius(false);
         Destroy(effect);
+
         abilityActive = false;
+
+        // End flicker ? return to faded
+        if (skillIcon != null)
+            skillIcon.color = fadedColor;
+    }
+
+    private IEnumerator FlickerIcon()
+    {
+        float t = 0;
+
+        while (abilityActive)
+        {
+            t += Time.deltaTime * flickerSpeed;
+
+            float alpha = Mathf.Abs(Mathf.Sin(t));   // goes 0 ? 1 ? 0 smoothly
+            Color c = readyColor;
+            c.a = alpha;
+
+            if (skillIcon != null)
+                skillIcon.color = c;
+
+            yield return null;
+        }
     }
 }
 
