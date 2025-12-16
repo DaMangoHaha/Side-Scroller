@@ -3060,8 +3060,8 @@ MonoBehaviour:
   spawnInterval: 2
   spawnX: 12
   spawnYMin: 0
-  spawnYMax: 4
-  floatChance: 0.1
+  spawnYMax: 3.7
+  floatChance: 0
 --- !u!1001 &1381084134
 PrefabInstance:
   m_ObjectHideFlags: 0

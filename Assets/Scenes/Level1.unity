@@ -299,6 +299,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1727925245}
     - target: {fileID: 3501100754619741129, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
+      propertyPath: cooldown
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3501100754619741129, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
       propertyPath: tickInterval
       value: 0.5
       objectReference: {fileID: 0}
@@ -1697,6 +1701,10 @@ PrefabInstance:
       propertyPath: shieldIcon
       value: 
       objectReference: {fileID: 2031230428}
+    - target: {fileID: 6457094141527707747, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      propertyPath: buffCooldown
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 7093762297031683349, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.57
@@ -2531,7 +2539,7 @@ MonoBehaviour:
   spawnInterval: 2
   spawnX: 12
   spawnYMin: 0
-  spawnYMax: 4
+  spawnYMax: 3.7
   floatChance: 0
 --- !u!114 &1410099512
 MonoBehaviour:
@@ -2930,6 +2938,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 508860342}
     m_Modifications:
+    - target: {fileID: 133769400952916230, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
+      propertyPath: groundRadius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 1718776510595873893, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: energyFill
       value: 
@@ -2990,10 +3002,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crystal
       objectReference: {fileID: 0}
+    - target: {fileID: 6677320169776199481, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
+      propertyPath: groundRadius
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: skillIcon
       value: 
       objectReference: {fileID: 550373293}
+    - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
+      propertyPath: snowflakesNeeded
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

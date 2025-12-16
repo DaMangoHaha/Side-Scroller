@@ -3689,8 +3689,8 @@ MonoBehaviour:
   spawnInterval: 2
   spawnX: 12
   spawnYMin: 0
-  spawnYMax: 4
-  floatChance: 0.1
+  spawnYMax: 3.7
+  floatChance: 0
 --- !u!114 &1858794465
 MonoBehaviour:
   m_ObjectHideFlags: 0
