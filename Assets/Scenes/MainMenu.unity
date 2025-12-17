@@ -1487,7 +1487,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: When crystal is on the field, snowflakes spawn. collecting 3 snowflakes
     causes glaciate to be activated with shift. on use, any obstacles/enemies around
-    her will be chilled, freezing them completely. glaciate lasts for 5 seconds.
+    her will be chilled, freezing them completely. glaciate lasts for 7 seconds.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}

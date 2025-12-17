@@ -2942,6 +2942,14 @@ PrefabInstance:
       propertyPath: groundRadius
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 1029666397019496821, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
+      propertyPath: m_Radius
+      value: 3.0143464
+      objectReference: {fileID: 0}
+    - target: {fileID: 1029666397019496821, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.51434636
+      objectReference: {fileID: 0}
     - target: {fileID: 1718776510595873893, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: energyFill
       value: 
@@ -3002,6 +3010,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crystal
       objectReference: {fileID: 0}
+    - target: {fileID: 5780869232013711128, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.38
+      objectReference: {fileID: 0}
     - target: {fileID: 6677320169776199481, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: groundRadius
       value: 0.5
@@ -3010,6 +3022,10 @@ PrefabInstance:
       propertyPath: skillIcon
       value: 
       objectReference: {fileID: 550373293}
+    - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
+      propertyPath: glaciateDuration
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: snowflakesNeeded
       value: 3
