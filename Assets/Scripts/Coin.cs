@@ -67,7 +67,7 @@ public class Coin : MonoBehaviour
 
             // Play pickup sound
             if (coinPickupSFX != null && audioSource != null)
-                audioSource.PlayOneShot(coinPickupSFX);
+                SoundManager.Instance.PlaySound2D("Coin", transform.position);
 
             // Reduce cooldown if ThiefSkill is active on the player
             ThiefSkill thiefSkill = other.GetComponent<ThiefSkill>();
