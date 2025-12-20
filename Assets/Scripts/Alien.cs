@@ -8,10 +8,6 @@ public class Alien : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Collider2D alienCollider;
 
-    [Header("Audio")]
-    public AudioClip hitSoundSFX;  // assign in Inspector
-    private static AudioSource audioSource;
-
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -69,16 +65,7 @@ public class Alien : MonoBehaviour
             {
                 alienCollider.enabled = false;
             }
-
-            // Play hit sound
-            if (audioSource == null)
-            {
-                GameObject audioObj = new GameObject("HitAudioSource");
-                audioSource = audioObj.AddComponent<AudioSource>();
-            }
-
-            if (hitSoundSFX != null && audioSource != null)
-                audioSource.PlayOneShot(hitSoundSFX);
+            SoundManager.Instance.PlaySound2D("Damage");
         }
     }
 }

@@ -20,17 +20,8 @@ public class GreenSlime : SlimeBase
 
     protected override void OnHitPlayer()
     {
-        // Green slimes die instantly when hitting player
-        // Play hit sound
-        if (audioSource == null)
-        {
-            GameObject audioObj = new GameObject("HitAudioSource");
-            audioSource = audioObj.AddComponent<AudioSource>();
-        }
-
-        if (hitSoundSFX != null && audioSource != null)
-            audioSource.PlayOneShot(hitSoundSFX);
         Die();
+        SoundManager.Instance.PlaySound2D("Damage");
     }
 }
 

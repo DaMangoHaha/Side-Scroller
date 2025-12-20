@@ -8,9 +8,6 @@ public class Coin : MonoBehaviour
     private int coinValue;   // how many coins to add
     private int scoreValue;  // how many score points to add
 
-    [Header("Audio")]
-    public AudioClip coinPickupSFX;  // assign in Inspector
-    private static AudioSource audioSource;
 
     void Start()
     {
@@ -33,23 +30,18 @@ public class Coin : MonoBehaviour
                 coinValue = 4;
                 scoreValue = 10;
                 break;
-                case CoinType.Emerald:
+            case CoinType.Emerald:
                 coinValue = 5;
                 scoreValue = 15;
                 break;
-                case CoinType.Diamond:
+            case CoinType.Diamond:
                 coinValue = 6;
                 scoreValue = 20;
                 break;
 
         }
 
-        // Shared AudioSource for all coins
-        if (audioSource == null)
-        {
-            GameObject audioObj = new GameObject("CoinAudioSource");
-            audioSource = audioObj.AddComponent<AudioSource>();
-        }
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -59,15 +51,13 @@ public class Coin : MonoBehaviour
             // Add coins to counter
             if (CoinsManager.Instance != null)
                 CoinsManager.Instance.AddCoins(coinValue);
+            SoundManager.Instance.PlaySound2D("Coin");
 
             // Add to per-level score
             PlayerScore score = other.GetComponent<PlayerScore>();
             if (score != null)
                 score.AddScore(scoreValue);
-
-            // Play pickup sound
-            if (coinPickupSFX != null && audioSource != null)
-                SoundManager.Instance.PlaySound2D("Coin", transform.position);
+;
 
             // Reduce cooldown if ThiefSkill is active on the player
             ThiefSkill thiefSkill = other.GetComponent<ThiefSkill>();

@@ -34,6 +34,7 @@ public class Snowflake : MonoBehaviour
             CrystalAbility ability = other.GetComponent<CrystalAbility>();
             if (ability != null)
                 ability.CollectSnowflake();
+            SoundManager.Instance.PlaySound2D("Snowflake");
 
             Destroy(gameObject);
         }

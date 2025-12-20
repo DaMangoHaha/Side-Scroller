@@ -21,12 +21,8 @@ public class ThiefSkill : MonoBehaviour
 
     public float flickerSpeed = 6f;   // how fast icon flickers
 
-    private AudioSource audioSource;
-    public AudioClip activateSFX;
-
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
 
         cooldownTimer = cooldownTime;
 
@@ -58,6 +54,7 @@ public class ThiefSkill : MonoBehaviour
         if (!isOnCooldown && Input.GetKeyDown(KeyCode.LeftShift))
         {
             StartCoroutine(ActivateSkill());
+            SoundManager.Instance.PlaySound2D("StickyFingers");
         }
 
         // Active coin pulling effect
@@ -75,9 +72,6 @@ public class ThiefSkill : MonoBehaviour
         if (skillIcon != null)
             skillIcon.color = inactiveColor;
 
-        // Play SFX
-        if (activateSFX != null && audioSource != null)
-            audioSource.PlayOneShot(activateSFX);
 
         Debug.Log("Sticky Fingers Activated!");
 

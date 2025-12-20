@@ -26,12 +26,6 @@ public class WizKidSkill : MonoBehaviour
     [Header("Effects")]
     public GameObject confettiPrefab;
 
-    [Header("Audio")]
-    public AudioClip smallBurstSFX;   // SFX when small healing activates
-    public AudioClip mediumBurstSFX;  // SFX when medium healing burst activates
-    public AudioClip largeBurstSFX;   // SFX when large healing burst activates
-    private AudioSource audioSource;
-
     private PlayerEnergy playerEnergy;
     private float timer = 0f;
 
@@ -46,8 +40,6 @@ public class WizKidSkill : MonoBehaviour
             inactiveColor.a = 0.2f; // faded look
             wizIcon.color = inactiveColor;
         }
-        audioSource = gameObject.AddComponent<AudioSource>();
-        audioSource.loop = false;   // each burst plays once
 
     }
 
@@ -78,17 +70,17 @@ public class WizKidSkill : MonoBehaviour
             case 0:
                 duration = smallDuration;
                 healAmount = smallHeal;
-                if (smallBurstSFX != null) audioSource.PlayOneShot(smallBurstSFX);
+                SoundManager.Instance.PlaySound2D("SmallBurst");
                 break;
             case 1:
                 duration = mediumDuration;
                 healAmount = mediumHeal;
-                if (mediumBurstSFX != null) audioSource.PlayOneShot(mediumBurstSFX);
+                SoundManager.Instance.PlaySound2D("MediumBurst");
                 break;
             case 2:
                 duration = largeDuration;
                 healAmount = largeHeal;
-                if (largeBurstSFX != null) audioSource.PlayOneShot(largeBurstSFX);
+                SoundManager.Instance.PlaySound2D("LargeBurst");
                 break;
             default:
                 duration = smallDuration;

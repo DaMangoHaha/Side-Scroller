@@ -57,6 +57,7 @@ public class BlueSlime : SlimeBase
 
     protected override void OnHitPlayer()
     {
-        Die(); // dies when hitting player
+        Die();
+        SoundManager.Instance.PlaySound2D("Damage");
     }
 }

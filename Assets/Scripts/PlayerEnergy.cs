@@ -78,6 +78,7 @@ public class PlayerEnergy : MonoBehaviour
 
             BitSkill skill = GetComponent<BitSkill>();
             if (skill != null)
+                SoundManager.Instance.PlaySound2D("BitBuffDamage");
                 skill.ConsumeBuff();
 
             Debug.Log("Bit Buff activated! Damage reduced.");

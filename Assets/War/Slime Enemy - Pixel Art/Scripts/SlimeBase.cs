@@ -20,7 +20,6 @@ public class SlimeBase : MonoBehaviour
     public float fadeAfterDeathDelay = 0.5f;
     public float destroyDelay = 1.2f;
     public AudioClip hitSoundSFX;  // assign in Inspector
-    public static AudioSource audioSource;
 
     protected virtual void Awake()
     {
@@ -89,6 +88,7 @@ public class SlimeBase : MonoBehaviour
     {
         // Default: stun/die animation
         Die();
+        SoundManager.Instance.PlaySound2D("Damage");
     }
 
     // ------------------------------

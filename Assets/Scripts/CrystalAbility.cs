@@ -37,10 +37,11 @@ public class CrystalAbility : MonoBehaviour
 
     void Update()
     {
-        // Activate ability with SHIFT
+        // Activate ability with shift
         if (abilityReady && Input.GetKeyDown(KeyCode.LeftShift))
         {
             StartCoroutine(ActivateGlaciate());
+            SoundManager.Instance.PlaySound2D("Glaciate");
         }
     }
 

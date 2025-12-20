@@ -16,14 +16,8 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
     private Color inactiveColor;
     private Color activeColor;
 
-    [Header("Audio")]
-    public AudioClip boltActivateSFX;   // SFX when bolt is fired
-    public AudioClip boltConsumeSFX;    // SFX when bolt destroys an object/enemy
-    private AudioSource audioSource;
-
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
         cooldownRemaining = cooldownTime;
         if (readyIcon != null)
         {
@@ -53,6 +47,7 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) && cooldownRemaining == 0)
         {
             FireElectricBolt();
+            SoundManager.Instance.PlaySound2D("ElectricBolt");
         }
     }
 
@@ -63,8 +58,6 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
             Debug.LogError("Electric bolt or spawn point missing!");
             return;
         }
-        if (audioSource != null && boltActivateSFX != null)
-            audioSource.PlayOneShot(boltActivateSFX);
 
         Instantiate(electricBoltPrefab, boltSpawnPoint.position, Quaternion.identity);
 
