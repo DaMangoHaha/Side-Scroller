@@ -30,15 +30,15 @@ public class Coin : MonoBehaviour
                 scoreValue = 5;
                 break;
             case CoinType.Platnium:
-                coinValue = 5;
+                coinValue = 4;
                 scoreValue = 10;
                 break;
                 case CoinType.Emerald:
-                coinValue = 8;
+                coinValue = 5;
                 scoreValue = 15;
                 break;
                 case CoinType.Diamond:
-                coinValue = 10;
+                coinValue = 6;
                 scoreValue = 20;
                 break;
 

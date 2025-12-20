@@ -34,7 +34,6 @@ public class WizKidSkill : MonoBehaviour
 
     private PlayerEnergy playerEnergy;
     private float timer = 0f;
-    private bool abilityReady = false;
 
     void Start()
     {
