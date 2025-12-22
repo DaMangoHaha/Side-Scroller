@@ -971,17 +971,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &537109949 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4243444462584322900, guid: 7c81a6b8aa9fa5a4784ae3d6993faf1f, type: 3}
-  m_PrefabInstance: {fileID: 1486818430}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &604378060
 GameObject:
   m_ObjectHideFlags: 0
@@ -3643,7 +3632,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1858794463}
-  - component: {fileID: 1858794465}
   - component: {fileID: 1858794464}
   m_Layer: 0
   m_Name: CoinsManager
@@ -3691,20 +3679,6 @@ MonoBehaviour:
   spawnYMin: 0
   spawnYMax: 3.7
   floatChance: 0
---- !u!114 &1858794465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1858794462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c5149c850af814cab0e9ed105cb173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalCoins: 0
-  coinsText: {fileID: 537109949}
 --- !u!1 &1903213392
 GameObject:
   m_ObjectHideFlags: 0

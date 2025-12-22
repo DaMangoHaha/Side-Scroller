@@ -1,32 +1,54 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CoinsManager : MonoBehaviour
 {
     public static CoinsManager Instance;
 
-    public int totalCoins = 0;               // coin count (resets each level)
-    public TextMeshProUGUI coinsText;        // drag your CoinsText (TMP) here
+    public int totalCoins;
+
+    private const string COINS_KEY = "TotalCoins";
 
     void Awake()
     {
-        // Simple singleton (no persistence between scenes)
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
+            return;
         }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        LoadCoins();
     }
 
+    // --------------------
+    // Coin Logic
+    // --------------------
     public void AddCoins(int amount)
     {
         totalCoins += amount;
-        Debug.Log("Coins: " + totalCoins);
+        SaveCoins();
+    }
 
-        if (coinsText != null)
-            coinsText.text = "Coins: " + totalCoins;
+    public int GetCoins()
+    {
+        return totalCoins;
+    }
+
+    // --------------------
+    // Save / Load
+    // --------------------
+    private void SaveCoins()
+    {
+        PlayerPrefs.SetInt(COINS_KEY, totalCoins);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadCoins()
+    {
+        totalCoins = PlayerPrefs.GetInt(COINS_KEY, 0);
     }
 }

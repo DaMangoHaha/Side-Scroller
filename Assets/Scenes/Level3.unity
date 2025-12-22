@@ -2863,17 +2863,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3566108749456092354, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
   m_PrefabInstance: {fileID: 1228121489}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1246030639 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4243444462584322900, guid: 7c81a6b8aa9fa5a4784ae3d6993faf1f, type: 3}
-  m_PrefabInstance: {fileID: 2133707482}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1317594930
 GameObject:
   m_ObjectHideFlags: 0
@@ -3020,7 +3009,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1346181730}
-  - component: {fileID: 1346181729}
   - component: {fileID: 1346181731}
   m_Layer: 0
   m_Name: CoinsManager
@@ -3029,20 +3017,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1346181729
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1346181727}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97c5149c850af814cab0e9ed105cb173, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalCoins: 0
-  coinsText: {fileID: 1246030639}
 --- !u!4 &1346181730
 Transform:
   m_ObjectHideFlags: 0
