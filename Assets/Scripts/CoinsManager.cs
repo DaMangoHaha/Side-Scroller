@@ -1,6 +1,5 @@
 using UnityEngine;
-using TMPro;
-using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class CoinsManager : MonoBehaviour
 {
@@ -9,6 +8,9 @@ public class CoinsManager : MonoBehaviour
     public int totalCoins;
 
     private const string COINS_KEY = "TotalCoins";
+
+    // Add this field to fix CS0103
+    [SerializeField] private Text coinsText;
 
     void Awake()
     {
@@ -50,5 +52,13 @@ public class CoinsManager : MonoBehaviour
     private void LoadCoins()
     {
         totalCoins = PlayerPrefs.GetInt(COINS_KEY, 0);
+    }
+
+    public void SetCoins(int amount)
+    {
+        totalCoins = amount;
+
+        if (coinsText != null)
+            coinsText.text = "Coins: " + totalCoins;
     }
 }

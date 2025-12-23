@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CharacterSelected: MonoBehaviour
+public class CharacterSelected : MonoBehaviour
 {
     public string characterName;             // e.g. "Bits", "Thief", etc.
     public Sprite normalSprite;              // black sprite
@@ -21,7 +21,7 @@ public class CharacterSelected: MonoBehaviour
         PlayerPrefs.Save();
 
         // Refresh ALL buttons in the scene
-        CharacterSelected[] allButtons = FindObjectsOfType<CharacterSelected>();
+        CharacterSelected[] allButtons = Object.FindObjectsByType<CharacterSelected>(FindObjectsSortMode.None);
         foreach (var btn in allButtons)
             btn.UpdateVisualState();
     }
