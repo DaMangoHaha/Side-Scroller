@@ -119,6 +119,23 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &2015256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 472187294537110992, guid: 7c81a6b8aa9fa5a4784ae3d6993faf1f, type: 3}
+  m_PrefabInstance: {fileID: 5743736725730226804}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2015257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2015256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 242a4c1a2d817e4488708aac5574c845, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinsUI
 --- !u!1 &15912611
 GameObject:
   m_ObjectHideFlags: 0
@@ -3151,7 +3168,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3602001593602642667, guid: 7c81a6b8aa9fa5a4784ae3d6993faf1f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 550373295}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 472187294537110992, guid: 7c81a6b8aa9fa5a4784ae3d6993faf1f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2015257}
   m_SourcePrefab: {fileID: 100100000, guid: 7c81a6b8aa9fa5a4784ae3d6993faf1f, type: 3}
 --- !u!224 &5743736725730226805 stripped
 RectTransform:
