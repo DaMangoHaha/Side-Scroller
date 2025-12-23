@@ -5,7 +5,7 @@ public class CharacterManager : MonoBehaviour
     public static CharacterManager Instance;
 
     // The currently selected character name
-    public string selectedCharacter = "Bits"; // default
+    public string equippedCharacter = "Bits"; // default
 
     void Awake()
     {
@@ -15,7 +15,7 @@ public class CharacterManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
             // Load saved preference (if exists)
-            selectedCharacter = PlayerPrefs.GetString("SelectedCharacter", "Bits");
+            equippedCharacter = PlayerPrefs.GetString("EquippedCharacter", "Bits");
         }
         else
         {
@@ -25,8 +25,8 @@ public class CharacterManager : MonoBehaviour
 
     public void SetCharacter(string characterName)
     {
-        selectedCharacter = characterName;
-        PlayerPrefs.SetString("SelectedCharacter", characterName);
+        equippedCharacter = characterName;
+        PlayerPrefs.SetString("EquippedCharacter", characterName);
         PlayerPrefs.Save();
     }
 }

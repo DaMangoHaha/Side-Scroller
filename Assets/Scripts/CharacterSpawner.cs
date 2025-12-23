@@ -23,21 +23,22 @@ public class CharacterSpawner : MonoBehaviour
 
     void ApplySelection()
     {
-        string selected = CharacterManager.Instance.selectedCharacter;
+        string equipped = CharacterEquipManager.Instance.GetEquippedCharacter();
+
 
         // --- PLAYER GAMEOBJECTS ---
-        bits.SetActive(selected == "Bits");
-        thief.SetActive(selected == "Thief");
-        ninja.SetActive(selected == "Ninja");
-        wizKid.SetActive(selected == "Wiz Kid");
-        crystal.SetActive(selected == "Crystal");
+        bits.SetActive(equipped == "Bits");
+        thief.SetActive(equipped == "Thief");
+        ninja.SetActive(equipped == "Ninja");
+        wizKid.SetActive(equipped == "WizKid");
+        crystal.SetActive(equipped == "Crystal");
 
         // --- SKILL ICONS ---
-        bitsIcon.SetActive(selected == "Bits");
-        thiefIcon.SetActive(selected == "Thief");
-        ninjaIcon.SetActive(selected == "Ninja");
-        wizKidIcon.SetActive(selected == "Wiz Kid");
-        crystalIcon.SetActive(selected == "Crystal");
+        bitsIcon.SetActive(equipped == "Bits");
+        thiefIcon.SetActive(equipped == "Thief");
+        ninjaIcon.SetActive(equipped == "Ninja");
+        wizKidIcon.SetActive(equipped == "WizKid");
+        crystalIcon.SetActive(equipped == "Crystal");
     }
 }
 
