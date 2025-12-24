@@ -20,18 +20,15 @@ public class SaveManager : MonoBehaviour
 
     public void ClearAllData()
     {
-        Debug.Log("CLEARING ALL PLAYER DATA");
+        Time.timeScale = 1f;
 
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
 
-        // Optional: Reset runtime systems immediately
         if (CoinsManager.Instance != null)
             CoinsManager.Instance.SetCoins(0);
 
-        if (CharacterEquipManager.Instance != null)
-            CharacterEquipManager.Instance.EquipCharacter("Bits");
-
-        Debug.Log("Data reset complete.");
+        Debug.Log("ALL DATA CLEARED");
     }
+
 }
