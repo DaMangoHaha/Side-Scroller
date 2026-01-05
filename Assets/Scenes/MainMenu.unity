@@ -17528,12 +17528,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- concepts for skill chips have been made, but no implementation has been
-    started
+  m_text: '- bits'' skill chip is undergoing development! Here''s what to expect!
 
-    - New pickup ideas
+    When
+    purchasing bits'' skill chip, bit buff gets -5 cooldown. inside a level, you
+    can open a panel to upgrade to tiers 2 and 3, which cost 300 coins each.
 
-    - New character'
+    Tier
+    2 grants 70% dmg reduction, and tier 3 lets bit buffs stack!
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -17560,8 +17564,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 50
-  m_fontSizeBase: 50
+  m_fontSize: 42
+  m_fontSizeBase: 42
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
