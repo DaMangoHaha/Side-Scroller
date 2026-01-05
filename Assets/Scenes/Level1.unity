@@ -2856,8 +2856,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 508860342}
     m_Modifications:
     - target: {fileID: 285942465202752752, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
+      propertyPath: jumpForce
+      value: 6.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 285942465202752752, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: groundRadius
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1626509325967240140, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2911,6 +2915,10 @@ PrefabInstance:
       propertyPath: readyIcon
       value: 
       objectReference: {fileID: 1588560743}
+    - target: {fileID: 4144516064091159477, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
+      propertyPath: m_Mass
+      value: 1.15
+      objectReference: {fileID: 0}
     - target: {fileID: 6345193165560762942, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: energyFill
       value: 

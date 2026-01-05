@@ -33,6 +33,7 @@ public class ElectricBolt : MonoBehaviour
 
             // Destroy the enemy/obstacle
             Destroy(collision.gameObject);
+            Destroy(gameObject);
         }
     }
 }

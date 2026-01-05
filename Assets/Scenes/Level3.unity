@@ -2133,8 +2133,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 131462263}
     m_Modifications:
     - target: {fileID: 285942465202752752, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
+      propertyPath: jumpForce
+      value: 6.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 285942465202752752, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: groundRadius
-      value: 0.2
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 1418188758721588606, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: m_SortingOrder
@@ -2192,6 +2196,10 @@ PrefabInstance:
       propertyPath: readyIcon
       value: 
       objectReference: {fileID: 1824985168}
+    - target: {fileID: 4144516064091159477, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
+      propertyPath: m_Mass
+      value: 1.15
+      objectReference: {fileID: 0}
     - target: {fileID: 6345193165560762942, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: energyFill
       value: 
@@ -2200,6 +2208,10 @@ PrefabInstance:
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 2133707486}
+    - target: {fileID: 6345193165560762942, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
+      propertyPath: depletionRate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7300291592058614611, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: scoreText
       value: 
@@ -2660,6 +2672,10 @@ PrefabInstance:
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 2133707486}
+    - target: {fileID: 4227063540521223218, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
+      propertyPath: depletionRate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5247978891995680957, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.993
@@ -2755,6 +2771,10 @@ PrefabInstance:
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 2133707486}
+    - target: {fileID: 3478733736790026891, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      propertyPath: depletionRate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3478733736790026891, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: spriteRenderer
       value: 
@@ -3076,6 +3096,10 @@ PrefabInstance:
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 2133707486}
+    - target: {fileID: 3478733736790026891, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
+      propertyPath: depletionRate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3566108749456092354, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: m_Name
       value: Thief
@@ -4763,6 +4787,10 @@ PrefabInstance:
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 2133707486}
+    - target: {fileID: 1718776510595873893, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
+      propertyPath: depletionRate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2701867738006799269, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: m_SortingOrder
       value: 3
