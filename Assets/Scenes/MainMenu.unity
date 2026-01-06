@@ -2060,6 +2060,9 @@ MonoBehaviour:
   cost: 1500
   button: {fileID: 106519920}
   buttonText: {fileID: 1216267715}
+  normalSprite: {fileID: -4802492265496317460, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
+  equippedSprite: {fileID: -6226665981680759704, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
+  buttonImage: {fileID: 106519921}
 --- !u!114 &106519920
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3992,6 +3995,9 @@ MonoBehaviour:
   cost: 0
   button: {fileID: 256283966}
   buttonText: {fileID: 582720418}
+  normalSprite: {fileID: -4802492265496317460, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
+  equippedSprite: {fileID: -6226665981680759704, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
+  buttonImage: {fileID: 256283967}
 --- !u!114 &256283966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16691,6 +16697,9 @@ MonoBehaviour:
   cost: 1000
   button: {fileID: 1592731061}
   buttonText: {fileID: 23540794}
+  normalSprite: {fileID: -4802492265496317460, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
+  equippedSprite: {fileID: -6226665981680759704, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
+  buttonImage: {fileID: 1592731062}
 --- !u!114 &1592731061
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18511,6 +18520,9 @@ MonoBehaviour:
   cost: 600
   button: {fileID: 1711080876}
   buttonText: {fileID: 100066793}
+  normalSprite: {fileID: -4802492265496317460, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
+  equippedSprite: {fileID: -6226665981680759704, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
+  buttonImage: {fileID: 1711080877}
 --- !u!114 &1711080876
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20697,6 +20709,9 @@ MonoBehaviour:
   cost: 300
   button: {fileID: 1863069595}
   buttonText: {fileID: 285060244}
+  normalSprite: {fileID: -4802492265496317460, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
+  equippedSprite: {fileID: -6226665981680759704, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
+  buttonImage: {fileID: 1863069596}
 --- !u!114 &1863069595
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21878,6 +21893,56 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 833.6377, y: 517.1781, z: 3.4859831}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1984190276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1984190278}
+  - component: {fileID: 1984190277}
+  m_Layer: 0
+  m_Name: CharacterShopManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1984190277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984190276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ff9337812d45b4488022b3d5597c099, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharacterShopManager
+  characterButtons:
+  - {fileID: 256283965}
+  - {fileID: 1863069594}
+  - {fileID: 1711080875}
+  - {fileID: 1592731060}
+  - {fileID: 106519919}
+--- !u!4 &1984190278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1984190276}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1112.822, y: 613.12225, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24304,3 +24369,4 @@ SceneRoots:
   - {fileID: 1400176731}
   - {fileID: 1303945262}
   - {fileID: 640637411}
+  - {fileID: 1984190278}

@@ -1,6 +1,6 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class CharacterShopButton : MonoBehaviour
 {
@@ -10,9 +10,14 @@ public class CharacterShopButton : MonoBehaviour
     public Button button;
     public TextMeshProUGUI buttonText;
 
+    public Sprite normalSprite;
+    public Sprite equippedSprite;
+    public Image buttonImage;
+
     void Start()
     {
-        Refresh();
+        RefreshUI();
+        CharacterShopManager.Instance.RefreshAllButtons();
     }
 
     public void OnButtonPressed()
@@ -25,30 +30,31 @@ public class CharacterShopButton : MonoBehaviour
         {
             CharacterEquipManager.Instance.EquipCharacter(characterID);
         }
+        PlayerPrefs.SetString("SelectedCharacter", characterID);
+        PlayerPrefs.Save();
 
-        Refresh();
+        RefreshUI();
+        CharacterShopManager.Instance.RefreshAllButtons();
     }
 
-    void Refresh()
-    {
-        bool owned = CharacterPurchaseManager.Instance.IsCharacterOwned(characterID);
-        string equipped = CharacterEquipManager.Instance.GetEquippedCharacter();
 
-        if (!owned)
-        {
-            buttonText.text = cost + " Coins";
-            button.interactable = CoinsManager.Instance.GetCoins() >= cost;
-        }
-        else if (equipped == characterID)
+
+
+    public void RefreshUI()
+    {
+        string equipped = PlayerPrefs.GetString("SelectedCharacter", "Bits");
+
+        if (equipped == characterID)
         {
             buttonText.text = "Equipped";
-            button.interactable = true;
+            buttonImage.sprite = equippedSprite;
         }
         else
         {
             buttonText.text = "Equip";
-            button.interactable = true;
+            buttonImage.sprite = normalSprite;
         }
     }
+
 }
 

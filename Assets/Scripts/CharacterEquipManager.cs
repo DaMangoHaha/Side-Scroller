@@ -28,6 +28,7 @@ public class CharacterEquipManager : MonoBehaviour
 
         PlayerPrefs.SetString(EQUIPPED_KEY, characterID);
         PlayerPrefs.Save();
+        CharacterShopManager.Instance.RefreshAllButtons();
 
         Debug.Log(characterID + " equipped!");
     }

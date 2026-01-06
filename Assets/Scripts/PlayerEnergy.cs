@@ -98,10 +98,6 @@ public class PlayerEnergy : MonoBehaviour
     {
         if (energySlider != null)
             energySlider.value = currentEnergy;
-
-        // Prevent "damaged" look when player starts below max energy, like when playing as Wiz Kid
-        if (energyFill != null)
-            energyFill.color = originalFillColor;
     }
 
 
