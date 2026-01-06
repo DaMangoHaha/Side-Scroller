@@ -42,7 +42,7 @@ public class CharacterShopButton : MonoBehaviour
         else if (equipped == characterID)
         {
             buttonText.text = "Equipped";
-            button.interactable = false;
+            button.interactable = true;
         }
         else
         {
