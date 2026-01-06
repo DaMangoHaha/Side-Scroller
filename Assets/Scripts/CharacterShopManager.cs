@@ -8,6 +8,7 @@ public class CharacterShopManager : MonoBehaviour
     void Awake()
     {
         Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void RefreshAllButtons()
