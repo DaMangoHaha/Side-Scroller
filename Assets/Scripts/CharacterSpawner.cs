@@ -16,6 +16,14 @@ public class CharacterSpawner : MonoBehaviour
     public GameObject wizKidIcon;
     public GameObject crystalIcon;
 
+    [Header("Energy Bars")]
+    public GameObject bitsEnergyBar;
+    public GameObject thiefEnergyBar;
+    public GameObject ninjaEnergyBar;
+    public GameObject wizKidEnergyBar;
+    public GameObject crystalEnergyBar;
+
+
     void Start()
     {
         ApplySelection();
@@ -39,6 +47,12 @@ public class CharacterSpawner : MonoBehaviour
         ninjaIcon.SetActive(equipped == "Ninja");
         wizKidIcon.SetActive(equipped == "WizKid");
         crystalIcon.SetActive(equipped == "Crystal");
+
+        bitsEnergyBar.SetActive(equipped == "Bits");
+        thiefEnergyBar.SetActive(equipped == "Thief");
+        ninjaEnergyBar.SetActive(equipped == "Ninja");
+        wizKidEnergyBar.SetActive(equipped == "WizKid");
+        crystalEnergyBar.SetActive(equipped == "Crystal");
     }
 }
 
