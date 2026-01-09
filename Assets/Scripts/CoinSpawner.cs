@@ -53,7 +53,7 @@ public class CoinSpawner : MonoBehaviour
     {
         int steps = Random.Range(4, 7); // 4–6 coins
         float stepHeight = 0.5f;
-        float stepSpacing = 1f;
+        float stepSpacing = .9f;
 
         int index = Random.Range(0, coinPrefabs.Length);
         float startY = Random.Range(spawnYMin, spawnYMax - steps * stepHeight);

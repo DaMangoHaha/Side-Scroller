@@ -35,4 +35,5 @@ public class CharacterSelected : MonoBehaviour
         else
             buttonImage.sprite = normalSprite;
     }
+
 }

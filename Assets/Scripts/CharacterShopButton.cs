@@ -1,4 +1,6 @@
 using TMPro;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -37,24 +39,53 @@ public class CharacterShopButton : MonoBehaviour
         CharacterShopManager.Instance.RefreshAllButtons();
     }
 
-
-
-
     public void RefreshUI()
     {
-        string equipped = PlayerPrefs.GetString("SelectedCharacter", "Bits");
+        if (button == null || buttonText == null || buttonImage == null)
+            return;
 
+        string equipped = PlayerPrefs.GetString("SelectedCharacter", "Bits");
+        bool owned = CharacterPurchaseManager.Instance.IsCharacterOwned(characterID);
+        int coins = (CoinsManager.Instance != null) ? CoinsManager.Instance.GetCoins() : 0;
+
+        // Equipped state
         if (equipped == characterID)
         {
             buttonText.text = "Equipped";
             buttonImage.sprite = equippedSprite;
+            button.interactable = true;
+            return;
         }
-        else
+
+        // Not owned -> show purchase text and disable if not enough coins
+        if (!owned)
         {
-            buttonText.text = "Equip";
+            buttonText.text = $"Purchase";
             buttonImage.sprite = normalSprite;
+            button.interactable = coins >= cost;
+            return;
         }
+
+        // Owned but not equipped -> can equip
+        buttonText.text = "Equip";
+        buttonImage.sprite = normalSprite;
+        button.interactable = true;
     }
 
+    public void OnMouseEnter()
+    {
+        // Prefer not to destroy/hide the button GameObject; use interactable state instead.
+        // Keep behavior consistent with RefreshUI:
+        if (button == null)
+            return;
+
+        bool owned = CharacterPurchaseManager.Instance.IsCharacterOwned(characterID);
+        int coins = (CoinsManager.Instance != null) ? CoinsManager.Instance.GetCoins() : 0;
+
+        if (!owned)
+            button.interactable = coins >= cost;
+        else
+            button.interactable = true;
+    }
 }
 

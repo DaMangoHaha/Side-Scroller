@@ -27,6 +27,8 @@ public class SaveManager : MonoBehaviour
 
         if (CoinsManager.Instance != null)
             CoinsManager.Instance.SetCoins(0);
+        CharacterShopManager.Instance.RefreshAllButtons();
+        SceneManager.LoadScene("MainMenu");
 
         Debug.Log("ALL DATA CLEARED");
     }

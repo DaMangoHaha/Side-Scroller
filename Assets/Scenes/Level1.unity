@@ -3658,7 +3658,7 @@ GameObject:
   - component: {fileID: 1410099509}
   - component: {fileID: 1410099511}
   m_Layer: 0
-  m_Name: CoinsManager
+  m_Name: CoinsSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3700,8 +3700,8 @@ MonoBehaviour:
   - {fileID: 2306659110317527429, guid: 82e1c3521ca09264a8b664e94a0762ec, type: 3}
   spawnInterval: 2
   spawnX: 12
-  spawnYMin: 0
-  spawnYMax: 3.7
+  spawnYMin: 1
+  spawnYMax: 3.5
   floatChance: 0
 --- !u!1 &1415340433
 GameObject:
