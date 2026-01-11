@@ -1606,7 +1606,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.2.8
+  m_text: Version 1.2.9
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -9040,7 +9040,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.2.8
+  m_text: Version 1.2.9
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -9467,15 +9467,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Adjusted Energy Bar colors for every character
+  m_text: '- Fixed bugs in the shop where after you clear your data, the shop doesn''t
+    reset
 
-    - Fixed UI bugs
-    with the Shop''s character buttons causing them to not update when switching
-    characters
+    - If you do not have enough coins to buy a character in the shop,
+    the button is disabled
 
-    - Added a green selector when you have a character equipped
-
-    (1.2.8)'
+    (1.2.9)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -10115,7 +10113,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.2.8
+  m_text: Version 1.2.9
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -15266,7 +15264,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.2.8
+  m_text: Version 1.2.9
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -17710,7 +17708,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 4976740327309414745, guid: 236587ec711348a4792e0060efb1bf73, type: 3}
     m_PressedSprite: {fileID: 592499411758618351, guid: 236587ec711348a4792e0060efb1bf73, type: 3}
     m_SelectedSprite: {fileID: 592499411758618351, guid: 236587ec711348a4792e0060efb1bf73, type: 3}
     m_DisabledSprite: {fileID: -8814168926154692215, guid: 236587ec711348a4792e0060efb1bf73, type: 3}
