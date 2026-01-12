@@ -140,7 +140,7 @@ public class ThiefSkill : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        Gizmos.color = Color.yellow;
+        Gizmos.color = Color.grey;
         Gizmos.DrawWireSphere(transform.position, coinPullRadius);
     }
 }
