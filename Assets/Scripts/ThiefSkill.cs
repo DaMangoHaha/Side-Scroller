@@ -138,7 +138,7 @@ public class ThiefSkill : MonoBehaviour
         }
     }
 
-    void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected() //This gizmo shows the coin pull radius
     {
         Gizmos.color = Color.grey;
         Gizmos.DrawWireSphere(transform.position, coinPullRadius);
