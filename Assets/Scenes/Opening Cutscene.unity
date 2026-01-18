@@ -773,7 +773,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::OpeningCutsceneTextSkip
   dialogueLines:
-  - This text doesn't show so it doesn't actually matter, n00b
+  - Welcome to the world of Spritz.
   - Deeper into this planet, there reside five major cities.
   - Pixelville. Ninja Valley. Frostpeak. Greenwood. And Wizardspeak.
   - These five places, each home to communities of Sprites, once lived in harmony.
