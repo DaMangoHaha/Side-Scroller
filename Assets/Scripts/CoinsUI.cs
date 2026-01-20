@@ -1,5 +1,5 @@
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class CoinsUI : MonoBehaviour
 {
@@ -14,7 +14,6 @@ public class CoinsUI : MonoBehaviour
     {
         int amount = (CoinsManager.Instance != null) ? CoinsManager.Instance.totalCoins : -999;
         coinsText.text = "Coins: " + amount;
-        Debug.Log("CoinsUI updating: " + amount);
     }
 }
 
