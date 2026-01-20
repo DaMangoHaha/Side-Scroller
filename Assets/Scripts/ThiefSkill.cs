@@ -21,6 +21,12 @@ public class ThiefSkill : MonoBehaviour
 
     public float flickerSpeed = 6f;   // how fast icon flickers
 
+    [Header("Skill Dialogue")]
+    public SkillDialogueUI skillDialogueUI;
+    [TextArea]
+    public string stickyFingersDialogue = "I'll be taking these...";
+    public Sprite thiefPortrait;
+
     void Start()
     {
 
@@ -78,6 +84,11 @@ public class ThiefSkill : MonoBehaviour
         // Start flicker coroutine
         if (skillIcon != null)
             StartCoroutine(FlickerIcon());
+
+        if (skillDialogueUI != null)
+        {
+            skillDialogueUI.ShowSkillDialogue(stickyFingersDialogue, thiefPortrait);
+        }
 
         yield return new WaitForSeconds(activeDuration);
 

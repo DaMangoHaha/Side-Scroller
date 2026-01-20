@@ -4459,6 +4459,14 @@ PrefabInstance:
       propertyPath: cooldownTime
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
+      propertyPath: thiefPortrait
+      value: 
+      objectReference: {fileID: 1136184288765050124, guid: aa8710ef7a9076849874a1f9a7b1f50d, type: 3}
+    - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
+      propertyPath: skillDialogueUI
+      value: 
+      objectReference: {fileID: 515716359}
     - target: {fileID: 5831928592119874244, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: m_SortingOrder
       value: 3
