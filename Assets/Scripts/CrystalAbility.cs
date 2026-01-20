@@ -18,6 +18,12 @@ public class CrystalAbility : MonoBehaviour
     public Color readyColor;
     public float flickerSpeed = 6f; // how fast icon flickers
 
+    [Header("Skill Dialogue")]
+    public SkillDialogueUI skillDialogueUI;
+    [TextArea]
+    public string glaciateDialogue = "The cold will take care of you.";
+    public Sprite crystalPortrait;
+
 
     private bool abilityActive = false;
     private PlayerEnergy playerEnergy;
@@ -66,6 +72,11 @@ public class CrystalAbility : MonoBehaviour
         abilityActive = true;
         abilityReady = false;
         currentSnowflakes = 0;
+
+        if (skillDialogueUI != null)
+        {
+            skillDialogueUI.ShowSkillDialogue(glaciateDialogue, crystalPortrait);
+        }
 
         // Start flicker
         if (skillIcon != null)
