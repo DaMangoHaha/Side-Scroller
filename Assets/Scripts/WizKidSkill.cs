@@ -23,6 +23,12 @@ public class WizKidSkill : MonoBehaviour
     private Color inactiveColor;
     private Color activeColor;
 
+    [Header("Skill Dialogue")]
+    public SkillDialogueUI skillDialogueUI;
+    [TextArea]
+    public string sproutingSorceryDialogue = "My spellbook taught me this one!";
+    public Sprite wizKidPortrait;
+
     [Header("Effects")]
     public GameObject confettiPrefab;
 
@@ -86,6 +92,11 @@ public class WizKidSkill : MonoBehaviour
                 duration = smallDuration;
                 healAmount = smallHeal;
                 break;
+        }
+
+        if (skillDialogueUI != null)
+        {
+            skillDialogueUI.ShowSkillDialogue(sproutingSorceryDialogue, wizKidPortrait);
         }
 
         // Spawn the confetti
