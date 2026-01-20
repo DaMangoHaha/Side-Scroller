@@ -38,6 +38,12 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
         if (!conversationActive || openingCutscene == null)
             return;
 
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            SkipCutscene();
+            return;
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (!openingCutscene.IsTyping)
@@ -68,5 +74,19 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
             openingCutscene.HideDialogue();
             openingCutscene.SetContinuePromptVisible(false);
         }
+    }
+
+    void SkipCutscene()
+    {
+        Debug.Log("Opening Cutscene skipped.");
+        conversationActive = false;
+
+        if (openingCutscene != null)
+        {
+            openingCutscene.HideDialogue();
+            openingCutscene.SetContinuePromptVisible(false);
+            openingCutscene.FinishTyping();
+        }
+
     }
 }

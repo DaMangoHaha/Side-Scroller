@@ -17,8 +17,11 @@ public class OpeningCutscene : MonoBehaviour
 
     [Header("Continue Prompt")]
     public TextMeshProUGUI continueText;
+    public TextMeshProUGUI skipText;
     public float continueFadeSpeed = 2f;
+    public float skipFadeSpeed = 2f;
     private bool showContinuePrompt = false;
+    private bool showSkipPrompt = false;
 
     [Header("Start Settings")]
     public bool showOnStart = true;
@@ -42,6 +45,13 @@ public class OpeningCutscene : MonoBehaviour
             continueText.alpha = 0; // hide when not used
     }
 
+    public void SetSkipPromptVisible(bool visible)
+    {
+        showSkipPrompt = visible;
+        if (!visible && skipText != null)
+            skipText.alpha = 0;
+    }
+
 
     void Start()
     {
@@ -56,6 +66,9 @@ public class OpeningCutscene : MonoBehaviour
 
         if (continueText != null)
             continueText.alpha = 0; // hide at start
+
+        if (skipText != null)
+            skipText.alpha = 0;
 
         // Show dialogue on start if requested. Use startingText if provided,
         // otherwise use the existing dialogueText.text (if any).
@@ -121,6 +134,9 @@ public class OpeningCutscene : MonoBehaviour
         if (continueText != null)
             continueText.alpha = 0;
 
+        if (skipText != null)
+            skipText.alpha = 0;
+
         if (dialogueText != null)
         {
             foreach (char c in text)
@@ -140,6 +156,9 @@ public class OpeningCutscene : MonoBehaviour
         // Only fade in if this dialogue is allowed to show the prompt
         if (showContinuePrompt && continueText != null)
             StartCoroutine(FadeInContinueText());
+
+        if (showSkipPrompt && skipText != null)
+            StartCoroutine(FadeInSkipText());
     }
 
 
@@ -148,6 +167,15 @@ public class OpeningCutscene : MonoBehaviour
         while (continueText != null && continueText.alpha < 1)
         {
             continueText.alpha += Time.deltaTime * continueFadeSpeed;
+            yield return null;
+        }
+    }
+
+    IEnumerator FadeInSkipText()
+    {
+        while (skipText != null && skipText.alpha < 1)
+        {
+            skipText.alpha += Time.deltaTime * continueFadeSpeed;
             yield return null;
         }
     }
@@ -164,6 +192,9 @@ public class OpeningCutscene : MonoBehaviour
         // Only show immediately if allowed
         if (showContinuePrompt && continueText != null)
             continueText.alpha = 1;
+
+        if (showSkipPrompt && skipText != null)
+            skipText.alpha = 1;
     }
 
 
@@ -181,6 +212,9 @@ public class OpeningCutscene : MonoBehaviour
 
         if (continueText != null)
             continueText.alpha = 0; // Hide prompt
+
+        if (skipText != null)
+            skipText.alpha = 0;
     }
 
     private IEnumerator FadeOutAndDisable()
