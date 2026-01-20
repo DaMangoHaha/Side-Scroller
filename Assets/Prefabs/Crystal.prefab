@@ -131,6 +131,7 @@ GameObject:
   - component: {fileID: 3559529769385931293}
   - component: {fileID: 1718776510595873893}
   - component: {fileID: 6686437094569612098}
+  - component: {fileID: 6231816489603061774}
   m_Layer: 0
   m_Name: Crystal
   m_TagString: Player
@@ -327,6 +328,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  jumpActionRef: {fileID: 0}
 --- !u!114 &133769400952916230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,6 +345,7 @@ MonoBehaviour:
   slideYScale: 0.5
   slideColliderSize: {x: 1, y: 0.5}
   slideColliderOffset: {x: 0, y: -0.25}
+  slideActionRef: {fileID: 0}
   groundCheck: {fileID: 2831813589863879644}
   groundRadius: 0.15
   groundLayer:
@@ -404,3 +407,36 @@ MonoBehaviour:
   fadedColor: {r: 0, g: 0, b: 0, a: 0}
   readyColor: {r: 0, g: 0, b: 0, a: 0}
   flickerSpeed: 6
+  skillDialogueUI: {fileID: 0}
+  glaciateDialogue: The cold will take care of you.
+  crystalPortrait: {fileID: 0}
+--- !u!114 &6231816489603061774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5022524820393484414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: c78e32015028c97408ad596d94115340, type: 3}
+  m_NotificationBehavior: 1
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

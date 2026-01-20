@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 7300291592058614611}
   - component: {fileID: 1221497261706771659}
   - component: {fileID: 3545611507391418815}
+  - component: {fileID: -5422530364633338121}
   m_Layer: 0
   m_Name: Ninja
   m_TagString: Player
@@ -214,6 +215,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  jumpActionRef: {fileID: 0}
 --- !u!114 &6345193165560762942
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,6 +268,7 @@ MonoBehaviour:
   slideYScale: 0.7
   slideColliderSize: {x: 1, y: 0.7}
   slideColliderOffset: {x: 0, y: -0.25}
+  slideActionRef: {fileID: 0}
   groundCheck: {fileID: 8995899065987984133}
   groundRadius: 0.15
   groundLayer:
@@ -287,8 +290,39 @@ MonoBehaviour:
   electricBoltPrefab: {fileID: 8134066807548886167, guid: 0610652006ae7c24ca4f3b57f7656382, type: 3}
   boltSpawnPoint: {fileID: 8310439251337273947}
   readyIcon: {fileID: 0}
-  boltActivateSFX: {fileID: 8300000, guid: fd85722f54c36e24e956081f09af1f5d, type: 3}
-  boltConsumeSFX: {fileID: 8300000, guid: fd85722f54c36e24e956081f09af1f5d, type: 3}
+  skillDialogueUI: {fileID: 0}
+  electricBoltDialogue: Too slow.
+  ninjaPortrait: {fileID: 0}
+--- !u!114 &-5422530364633338121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844672861058412674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: c78e32015028c97408ad596d94115340, type: 3}
+  m_NotificationBehavior: 1
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &5864338631574227806
 GameObject:
   m_ObjectHideFlags: 0

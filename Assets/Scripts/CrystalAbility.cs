@@ -2,6 +2,7 @@ using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class CrystalAbility : MonoBehaviour
 {
@@ -24,6 +25,10 @@ public class CrystalAbility : MonoBehaviour
     public string glaciateDialogue = "The cold will take care of you.";
     public Sprite crystalPortrait;
 
+    [Header("Input (New Input System)")]
+    public InputActionReference activateAbilityActionRef; // optional: assign from an Input Actions asset
+    private InputAction activateAbilityAction;
+    private bool createdLocalAction = false;
 
     private bool abilityActive = false;
     private PlayerEnergy playerEnergy;
@@ -41,13 +46,65 @@ public class CrystalAbility : MonoBehaviour
         }
     }
 
-    void Update()
+    void OnEnable()
     {
-        // Activate ability with shift
-        if (abilityReady && Input.GetKeyDown(KeyCode.LeftShift))
+        // prefer an assigned InputActionReference, otherwise create a simple fallback action
+        if (activateAbilityActionRef != null && activateAbilityActionRef.action != null)
+        {
+            activateAbilityAction = activateAbilityActionRef.action;
+        }
+        else
+        {
+            activateAbilityAction = new InputAction("ActivateGlaciate", InputActionType.Button);    
+            activateAbilityAction.AddBinding("<Keyboard>/leftShift");
+            activateAbilityAction.AddBinding("<Gamepad>/leftShoulder");
+            createdLocalAction = true;
+        }
+
+        if (activateAbilityAction != null)
+        {
+            activateAbilityAction.performed += OnActivatePerformed;
+            activateAbilityAction.Enable();
+        }
+    }
+
+    void OnDisable()
+    {
+        if (activateAbilityAction != null)
+        {
+            activateAbilityAction.performed -= OnActivatePerformed;
+            activateAbilityAction.Disable();
+        }
+
+        if (createdLocalAction && activateAbilityAction != null)
+        {
+            activateAbilityAction.Dispose();
+            activateAbilityAction = null;
+            createdLocalAction = false;
+        }
+    }
+
+    private void OnActivatePerformed(InputAction.CallbackContext ctx)
+    {
+        if (abilityReady && !abilityActive)
         {
             StartCoroutine(ActivateGlaciate());
-            SoundManager.Instance.PlaySound2D("Glaciate");
+            if (SoundManager.Instance != null)
+                SoundManager.Instance.PlaySound2D("Glaciate");
+        }
+    }
+
+    void Update()
+    {
+        // Legacy fallback if the InputAction isn't assigned/enabled (optional)
+        if ((activateAbilityAction == null || !activateAbilityAction.enabled) && Keyboard.current != null)
+        {
+            if (abilityReady && Keyboard.current.leftShiftKey.wasPressedThisFrame && !abilityActive)
+            {
+                StartCoroutine(ActivateGlaciate());
+                if (SoundManager.Instance != null)
+                    SoundManager.Instance.PlaySound2D("Glaciate");
+            }
         }
     }
 

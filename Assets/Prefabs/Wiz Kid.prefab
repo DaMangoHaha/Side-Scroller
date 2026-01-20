@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 4775767470271842072}
   - component: {fileID: 3501100754619741129}
   - component: {fileID: 6266124163216811890}
+  - component: {fileID: 1388625356552347577}
   m_Layer: 0
   m_Name: Wiz Kid
   m_TagString: Player
@@ -198,6 +199,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  jumpActionRef: {fileID: 0}
 --- !u!114 &4227063540521223218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +252,7 @@ MonoBehaviour:
   slideYScale: 0.5
   slideColliderSize: {x: 1, y: 0.5}
   slideColliderOffset: {x: 0, y: -0.25}
+  slideActionRef: {fileID: 0}
   groundCheck: {fileID: 1652681902379204608}
   groundRadius: 0.1
   groundLayer:
@@ -276,10 +279,10 @@ MonoBehaviour:
   mediumDuration: 5
   largeDuration: 7
   wizIcon: {fileID: 0}
+  skillDialogueUI: {fileID: 0}
+  sproutingSorceryDialogue: My spellbook taught me this one!
+  wizKidPortrait: {fileID: 0}
   confettiPrefab: {fileID: 4264061607123971477, guid: b6c9629cab8b9554bac9c820a817c81b, type: 3}
-  smallBurstSFX: {fileID: 8300000, guid: 532a6368dc227174eae9a4c435089327, type: 3}
-  mediumBurstSFX: {fileID: 8300000, guid: f34671ee54aa90d47820d21a7efa0878, type: 3}
-  largeBurstSFX: {fileID: 8300000, guid: 181454fe675a1f244afb6791348686c2, type: 3}
 --- !u!60 &6266124163216811890
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -354,3 +357,33 @@ PolygonCollider2D:
       - {x: 0.59, y: -0.85999995}
       - {x: 0.59, y: -0.64}
   m_UseDelaunayMesh: 0
+--- !u!114 &1388625356552347577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8922940431773350140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: c78e32015028c97408ad596d94115340, type: 3}
+  m_NotificationBehavior: 1
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

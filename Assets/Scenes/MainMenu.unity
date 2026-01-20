@@ -9467,7 +9467,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Added the ability to skip the opening cutscene at the start of the gmae.
+  m_text: '- Added the ability to skip the opening cutscene at the start of the game.
 
     -
     Added Skill Callouts when characters use their skills

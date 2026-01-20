@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: 5967845733545688845}
   - component: {fileID: 6445765439352345584}
   - component: {fileID: 5026143633479990479}
+  - component: {fileID: -5184333995924163736}
   m_Layer: 0
   m_Name: Thief
   m_TagString: Player
@@ -244,6 +245,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  jumpActionRef: {fileID: 0}
 --- !u!114 &3478733736790026891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,6 +298,7 @@ MonoBehaviour:
   slideYScale: 8
   slideColliderSize: {x: 0.1, y: 0.1}
   slideColliderOffset: {x: 0, y: 0}
+  slideActionRef: {fileID: 0}
   groundCheck: {fileID: 7892862831352484671}
   groundRadius: 0.15
   groundLayer:
@@ -319,3 +322,36 @@ MonoBehaviour:
   coinPullSpeed: 8
   skillIcon: {fileID: 0}
   flickerSpeed: 6
+  skillDialogueUI: {fileID: 0}
+  stickyFingersDialogue: I'll be taking these...
+  thiefPortrait: {fileID: 0}
+--- !u!114 &-5184333995924163736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3566108749456092354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: c78e32015028c97408ad596d94115340, type: 3}
+  m_NotificationBehavior: 1
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: Keyboard&Mouse
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}

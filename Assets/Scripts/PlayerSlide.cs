@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerSlide : MonoBehaviour
 {
@@ -7,6 +9,12 @@ public class PlayerSlide : MonoBehaviour
     public float slideYScale = 0.5f; // how "short" the player looks
     public Vector2 slideColliderSize = new Vector2(1f, 0.5f);
     public Vector2 slideColliderOffset = new Vector2(0f, -0.25f);
+
+    [Header("Input (New Input System)")]
+    public InputActionReference slideActionRef; // optional: assign an action from an Input Actions asset
+
+    private InputAction slideAction;
+    private bool createdLocalAction = false;
 
     private bool isSliding = false;
     private float originalYScale;
@@ -36,19 +44,71 @@ public class PlayerSlide : MonoBehaviour
         originalYScale = playerTransform.localScale.y;
     }
 
-    void Update()
+    void OnEnable()
     {
-        // check if grounded
-        isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+        // Use provided InputActionReference if available, otherwise create a simple fallback action
+        if (slideActionRef != null && slideActionRef.action != null)
+        {
+            slideAction = slideActionRef.action;
+        }
+        else
+        {
+            slideAction = new InputAction("Slide", InputActionType.Button);
+            slideAction.AddBinding("<Keyboard>/leftCtrl");
+            slideAction.AddBinding("<Keyboard>/s");
+            slideAction.AddBinding("<Gamepad>/buttonSouth");
+            createdLocalAction = true;
+        }
 
-        // slide input
-        if (Input.GetKeyDown(KeyCode.LeftControl) && isGrounded && !isSliding)
+        if (slideAction != null)
+        {
+            slideAction.performed += OnSlidePerformed;
+            slideAction.Enable();
+        }
+    }
+
+    void OnDisable()
+    {
+        if (slideAction != null)
+        {
+            slideAction.performed -= OnSlidePerformed;
+            slideAction.Disable();
+        }
+
+        if (createdLocalAction && slideAction != null)
+        {
+            slideAction.Dispose();
+            slideAction = null;
+            createdLocalAction = false;
+        }
+    }
+
+    private void OnSlidePerformed(InputAction.CallbackContext ctx)
+    {
+        // Only start slide on performed if grounded and not already sliding
+        if (isGrounded && !isSliding)
         {
             StartCoroutine(Slide());
         }
     }
 
-    private System.Collections.IEnumerator Slide()
+    void Update()
+    {
+        // check if grounded (guard null)
+        if (groundCheck != null)
+            isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
+        else
+            isGrounded = false;
+
+        // legacy input fallback (kept for convenience if new system isn't wired in the editor)
+        // This can be removed once all builds use the new input system.
+        if (Keyboard.current != null && Keyboard.current.leftCtrlKey.wasPressedThisFrame && isGrounded && !isSliding)
+        {
+            StartCoroutine(Slide());
+        }
+    }
+
+    private IEnumerator Slide()
     {
         isSliding = true;
 
