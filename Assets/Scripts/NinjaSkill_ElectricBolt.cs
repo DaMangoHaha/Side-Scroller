@@ -16,6 +16,12 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
     private Color inactiveColor;
     private Color activeColor;
 
+    [Header("Skill Dialogue")]
+    public SkillDialogueUI skillDialogueUI;
+    [TextArea]
+    public string electricBoltDialogue = "Too slow.";
+    public Sprite ninjaPortrait;
+
     void Start()
     {
         cooldownRemaining = cooldownTime;
@@ -57,6 +63,10 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
         {
             Debug.LogError("Electric bolt or spawn point missing!");
             return;
+        }
+        if (skillDialogueUI != null)
+        {
+            skillDialogueUI.ShowSkillDialogue(electricBoltDialogue, ninjaPortrait);
         }
 
         Instantiate(electricBoltPrefab, boltSpawnPoint.position, Quaternion.identity);
