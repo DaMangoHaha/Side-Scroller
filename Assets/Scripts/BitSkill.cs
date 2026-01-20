@@ -8,6 +8,12 @@ public class BitSkill : MonoBehaviour
     public float warningTime = 3f;     // twinkle before buff
     private float timer = 0f;
 
+    [Header("Skill Dialogue")]
+    public SkillDialogueUI skillDialogueUI;
+    [TextArea]
+    public string bitBuffDialogue = "Try and hit me!";
+    public Sprite bitPortrait;
+
     private PlayerEnergy playerEnergy;
     private SpriteRenderer spriteRenderer;
     private bool isWarning = false;
@@ -65,6 +71,11 @@ public class BitSkill : MonoBehaviour
         // Show shield icon as active
         if (shieldIcon != null)
             shieldIcon.color = activeColor;
+
+        if (skillDialogueUI != null)
+        {
+            skillDialogueUI.ShowSkillDialogue(bitBuffDialogue, bitPortrait);
+        }
 
         // Play activation sound
         if (audioSource != null && buffActivateSFX != null)
