@@ -19,7 +19,7 @@ TagManager:
   - UI
   - Ground
   - NPC
-  - 
+  - Stompable
   - 
   - 
   - 
@@ -61,6 +61,9 @@ TagManager:
     locked: 0
   - name: Ground
     uniqueID: 2574899847
+    locked: 0
+  - name: Stompable
+    uniqueID: 143218669
     locked: 0
   m_RenderingLayers:
   - Default
