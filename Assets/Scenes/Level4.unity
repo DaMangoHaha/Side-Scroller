@@ -652,6 +652,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crystal
       objectReference: {fileID: 0}
+    - target: {fileID: 5022524820393484414, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: skillIcon
       value: 
@@ -1237,7 +1241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8922940431773350140, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2777,7 +2781,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1844672861058412674, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3545611507391418815, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: readyIcon
@@ -2893,7 +2897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3566108749456092354, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4500061898400469775, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: m_GravityScale
@@ -3125,6 +3129,10 @@ PrefabInstance:
     - target: {fileID: 8790798162235754875, guid: 7c81a6b8aa9fa5a4784ae3d6993faf1f, type: 3}
       propertyPath: m_Name
       value: -- UI --
+      objectReference: {fileID: 0}
+    - target: {fileID: 8790798162235754875, guid: 7c81a6b8aa9fa5a4784ae3d6993faf1f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9005407038755502004, guid: 7c81a6b8aa9fa5a4784ae3d6993faf1f, type: 3}
       propertyPath: m_IsActive
@@ -3579,7 +3587,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3566108749456092354, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: skillIcon

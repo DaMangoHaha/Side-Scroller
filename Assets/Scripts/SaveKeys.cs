@@ -9,6 +9,7 @@ public static class SaveKeys
     public const string OwnsNinja = "Owns_Ninja";
     public const string OwnsWizKid = "Owns_WizKid";
     public const string OwnsCrystal = "Owns_Crystal";
+    public const string OwnsCubit = "Owns_Cubit";
 
     // Audio
     public const string MusicVolume = "MusicVolume";
