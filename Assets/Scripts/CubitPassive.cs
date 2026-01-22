@@ -1,37 +1,34 @@
-using System.Collections;
 using UnityEngine;
+using System.Collections;
 
 public class CubitPassive : MonoBehaviour
 {
     [Header("Override: Delete Settings")]
     public float cooldown = 15f;
-    public LayerMask stompableLayers;
-    public float minFallSpeed = -1f;
+    public float fallVelocityThreshold = -2f;
+
     private bool abilityReady = true;
     private Rigidbody2D rb;
 
-    private void Awake()
+    void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (!abilityReady)
             return;
 
-        // Check if Cubit is falling
-        if (rb.linearVelocity.y > minFallSpeed)
+        // Must be falling downward fast enough
+        if (rb.linearVelocity.y > fallVelocityThreshold)
             return;
 
-        //Check if collision came from above
-        foreach (ContactPoint2D contact in collision.contacts)
+        // Tag check instead of layers
+        if (collision.gameObject.CompareTag("Enemy") ||
+            collision.gameObject.CompareTag("Obstacle"))
         {
-            if (contact.normal.y > 0.5f)
-            {
-                ExecuteOverride(collision.gameObject);
-                break;
-            }
+            ExecuteOverride(collision.gameObject);
         }
     }
 
@@ -39,14 +36,11 @@ public class CubitPassive : MonoBehaviour
     {
         abilityReady = false;
 
-        //Kill enemy / obstacle
         Destroy(target);
 
-        //Skill Dialogue
-        // *Put code here*
-        
         StartCoroutine(CooldownRoutine());
     }
+
 
     IEnumerator CooldownRoutine()
     {
@@ -54,4 +48,3 @@ public class CubitPassive : MonoBehaviour
         abilityReady = true;
     }
 }
-
