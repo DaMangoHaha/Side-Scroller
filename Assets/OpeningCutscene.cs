@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class OpeningCutscene : MonoBehaviour
 {
@@ -25,6 +26,11 @@ public class OpeningCutscene : MonoBehaviour
     [TextArea] public string startingText;
     public Sprite startingPortrait;
 
+    [Header("Input (New Input System)")]
+    public InputActionReference advanceActionRef; // optional: assign an action in the Inspector
+    private InputAction advanceAction;
+    private bool createdLocalAction = false;
+
     private bool dialogueActive = false;
     private bool isTyping = false;
     private Coroutine typingCoroutine;
@@ -42,6 +48,55 @@ public class OpeningCutscene : MonoBehaviour
             continueText.alpha = 0; // hide when not used
     }
 
+    void OnEnable()
+    {
+        // Prefer assigned InputActionReference, otherwise create a small fallback action
+        if (advanceActionRef != null && advanceActionRef.action != null)
+        {
+            advanceAction = advanceActionRef.action;
+        }
+        else
+        {
+            advanceAction = new InputAction("AdvanceDialogue", InputActionType.Button);
+            advanceAction.AddBinding("<Keyboard>/space");
+            advanceAction.AddBinding("<Gamepad>/buttonSouth");
+            createdLocalAction = true;
+        }
+
+        if (advanceAction != null)
+        {
+            advanceAction.performed += OnAdvancePerformed;
+            advanceAction.Enable();
+        }
+    }
+
+    void OnDisable()
+    {
+        if (advanceAction != null)
+        {
+            advanceAction.performed -= OnAdvancePerformed;
+            advanceAction.Disable();
+        }
+
+        if (createdLocalAction && advanceAction != null)
+        {
+            advanceAction.Dispose();
+            advanceAction = null;
+            createdLocalAction = false;
+        }
+    }
+
+    // Public helper to temporarily enable/disable the internal advance input.
+    // Other systems (like OpeningCutsceneTextSkip) can call this to avoid duplicate handling.
+    public void SetAdvanceInputEnabled(bool enabled)
+    {
+        if (advanceAction == null) return;
+
+        if (enabled && !advanceAction.enabled)
+            advanceAction.Enable();
+        else if (!enabled && advanceAction.enabled)
+            advanceAction.Disable();
+    }
 
     void Start()
     {
@@ -55,9 +110,7 @@ public class OpeningCutscene : MonoBehaviour
             dialogueCanvasGroup.alpha = 0;
 
         if (continueText != null)
-            continueText.alpha = 255; // hide at start
-
-
+            continueText.alpha = 255; // keep original value as in file
 
         // Show dialogue on start if requested. Use startingText if provided,
         // otherwise use the existing dialogueText.text (if any).
@@ -79,8 +132,34 @@ public class OpeningCutscene : MonoBehaviour
         if (!mainMenuLoaded && dialogueBox != null && !dialogueBox.activeInHierarchy)
         {
             mainMenuLoaded = true;
-            // Make sure "MainMenu" is added to Build Settings -> Scenes In Build
             SceneManager.LoadScene("MainMenu");
+        }
+
+        // Legacy fallback when InputAction is not assigned or enabled
+        if ((advanceAction == null || !advanceAction.enabled) && Keyboard.current != null)
+        {
+            if (Keyboard.current.spaceKey.wasPressedThisFrame)
+                HandleAdvanceInput();
+        }
+    }
+
+    private void OnAdvancePerformed(InputAction.CallbackContext ctx)
+    {
+        HandleAdvanceInput();
+    }
+
+    private void HandleAdvanceInput()
+    {
+        if (!dialogueActive)
+            return;
+
+        if (isTyping)
+            FinishTyping();
+        else
+        {
+            // close the dialogue box (same behavior as previous skip)
+            HideDialogue();
+            SetContinuePromptVisible(false);
         }
     }
 
@@ -123,7 +202,6 @@ public class OpeningCutscene : MonoBehaviour
         if (continueText != null)
             continueText.alpha = 0;
 
-
         if (dialogueText != null)
         {
             foreach (char c in text)
@@ -143,10 +221,7 @@ public class OpeningCutscene : MonoBehaviour
         // Only fade in if this dialogue is allowed to show the prompt
         if (showContinuePrompt && continueText != null)
             StartCoroutine(FadeInContinueText());
-
-
     }
-
 
     IEnumerator FadeInContinueText()
     {
@@ -156,8 +231,6 @@ public class OpeningCutscene : MonoBehaviour
             yield return null;
         }
     }
-
-
 
     public void FinishTyping()
     {
@@ -171,10 +244,7 @@ public class OpeningCutscene : MonoBehaviour
         // Only show immediately if allowed
         if (showContinuePrompt && continueText != null)
             continueText.alpha = 1;
-
-
     }
-
 
     public void HideDialogue()
     {
@@ -216,5 +286,4 @@ public class OpeningCutscene : MonoBehaviour
 
         cg.alpha = end;
     }
-
 }

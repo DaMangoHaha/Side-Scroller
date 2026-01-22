@@ -650,6 +650,7 @@ MonoBehaviour:
   showOnStart: 1
   startingText: Welcome to the world of Spritz.
   startingPortrait: {fileID: 0}
+  advanceActionRef: {fileID: 7130840277970935728, guid: c78e32015028c97408ad596d94115340, type: 3}
 --- !u!225 &1306361276
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -797,6 +798,8 @@ MonoBehaviour:
   - "From that moment on\u2026 the world of Spritz would never be the same."
   portrait: {fileID: 0}
   autoStart: 1
+  advanceActionRef: {fileID: 7130840277970935728, guid: c78e32015028c97408ad596d94115340, type: 3}
+  skipActionRef: {fileID: 1568524168846622860, guid: c78e32015028c97408ad596d94115340, type: 3}
 --- !u!4 &1640353151
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class OpeningCutsceneTextSkip : MonoBehaviour
 {
@@ -7,6 +8,14 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
     public string[] dialogueLines;
     public Sprite portrait;
     public bool autoStart = false;
+
+    [Header("Input (New Input System)")]
+    public InputActionReference advanceActionRef; // left click / gamepad confirm
+    public InputActionReference skipActionRef;    // right click / gamepad skip
+    private InputAction advanceAction;
+    private InputAction skipAction;
+    private bool createdLocalAdvance = false;
+    private bool createdLocalSkip = false;
 
     private OpeningCutscene openingCutscene;
     private int currentLineIndex = 0;
@@ -22,10 +31,78 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
             StartConversation();
     }
 
+    void OnEnable()
+    {
+        // Advance action (Left Click)
+        if (advanceActionRef != null && advanceActionRef.action != null)
+            advanceAction = advanceActionRef.action;
+        else
+        {
+            advanceAction = new InputAction("AdvanceDialogue", InputActionType.Button);
+            advanceAction.AddBinding("<Mouse>/leftButton");
+            advanceAction.AddBinding("<Gamepad>/buttonSouth");
+            createdLocalAdvance = true;
+        }
+
+        if (advanceAction != null)
+        {
+            advanceAction.performed += OnAdvancePerformed;
+            advanceAction.Enable();
+        }
+
+        // Skip action (Right Click)
+        if (skipActionRef != null && skipActionRef.action != null)
+            skipAction = skipActionRef.action;
+        else
+        {
+            skipAction = new InputAction("SkipCutscene", InputActionType.Button);
+            skipAction.AddBinding("<Mouse>/rightButton");
+            skipAction.AddBinding("<Gamepad>/buttonNorth");
+            createdLocalSkip = true;
+        }
+
+        if (skipAction != null)
+        {
+            skipAction.performed += OnSkipPerformed;
+            skipAction.Enable();
+        }
+    }
+
+    void OnDisable()
+    {
+        if (advanceAction != null)
+        {
+            advanceAction.performed -= OnAdvancePerformed;
+            advanceAction.Disable();
+        }
+        if (skipAction != null)
+        {
+            skipAction.performed -= OnSkipPerformed;
+            skipAction.Disable();
+        }
+
+        if (createdLocalAdvance && advanceAction != null)
+        {
+            advanceAction.Dispose();
+            advanceAction = null;
+            createdLocalAdvance = false;
+        }
+
+        if (createdLocalSkip && skipAction != null)
+        {
+            skipAction.Dispose();
+            skipAction = null;
+            createdLocalSkip = false;
+        }
+    }
+
     public void StartConversation()
     {
         if (openingCutscene == null || dialogueLines == null || dialogueLines.Length == 0)
             return;
+
+        // Disable OpeningCutscene's own advance input so this controller has exclusive control
+        openingCutscene.SetAdvanceInputEnabled(false);
 
         openingCutscene.SetContinuePromptVisible(true);
         currentLineIndex = 0;
@@ -38,31 +115,56 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
         if (!conversationActive || openingCutscene == null)
             return;
 
-        if (Input.GetKeyDown(KeyCode.E))
+        // Legacy fallback if new Input System actions are not assigned/enabled
+        // Use Mouse.current for left/right click fallback
+        if ((skipAction == null || !skipAction.enabled) && Mouse.current != null)
         {
-            SkipCutscene();
-            return;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (!openingCutscene.IsTyping)
+            if (Mouse.current.rightButton.wasPressedThisFrame)
             {
-                currentLineIndex++;
+                SkipCutscene();
+                return;
+            }
+        }
+        if ((advanceAction == null || !advanceAction.enabled) && Mouse.current != null)
+        {
+            if (Mouse.current.leftButton.wasPressedThisFrame)
+            {
+                HandleAdvance();
+            }
+        }
+    }
 
-                if (currentLineIndex < dialogueLines.Length)
-                {
-                    openingCutscene.ShowDialogue(dialogueLines[currentLineIndex], portrait);
-                }
-                else
-                {
-                    EndConversation();
-                }
+    private void OnAdvancePerformed(InputAction.CallbackContext ctx)
+    {
+        HandleAdvance();
+    }
+
+    private void OnSkipPerformed(InputAction.CallbackContext ctx)
+    {
+        SkipCutscene();
+    }
+
+    private void HandleAdvance()
+    {
+        if (!conversationActive || openingCutscene == null)
+            return;
+
+        if (!openingCutscene.IsTyping)
+        {
+            currentLineIndex++;
+
+            if (currentLineIndex < dialogueLines.Length)
+            {
+                openingCutscene.ShowDialogue(dialogueLines[currentLineIndex], portrait);
             }
             else
             {
-                openingCutscene.FinishTyping();
+                EndConversation();
             }
+        }
+        else
+        {
+            openingCutscene.FinishTyping();
         }
     }
 
@@ -73,6 +175,8 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
         {
             openingCutscene.HideDialogue();
             openingCutscene.SetContinuePromptVisible(false);
+            // re-enable OpeningCutscene input now that this controller is done
+            openingCutscene.SetAdvanceInputEnabled(true);
         }
     }
 
@@ -83,10 +187,11 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
 
         if (openingCutscene != null)
         {
+            openingCutscene.FinishTyping();
             openingCutscene.HideDialogue();
             openingCutscene.SetContinuePromptVisible(false);
-            openingCutscene.FinishTyping();
+            // re-enable OpeningCutscene input
+            openingCutscene.SetAdvanceInputEnabled(true);
         }
-
     }
 }
