@@ -10,6 +10,12 @@ public class CubitPassive : MonoBehaviour
     private bool abilityReady = true;
     private Rigidbody2D rb;
 
+    [Header("Skill Dialogue")]
+    public SkillDialogueUI skillDialogueUI;
+    [TextArea]
+    public string overrideDeleteDialogue = "Threat neutralized.";
+    public Sprite cubitPortrait;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -46,6 +52,10 @@ public class CubitPassive : MonoBehaviour
         // *Put code here*
         
         StartCoroutine(CooldownRoutine());
+        if (skillDialogueUI != null)
+        {
+            skillDialogueUI.ShowSkillDialogue(overrideDeleteDialogue, cubitPortrait);
+        }
     }
 
     IEnumerator CooldownRoutine()
