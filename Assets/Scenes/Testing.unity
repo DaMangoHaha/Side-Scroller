@@ -7857,6 +7857,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4218087242874653720, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6893222532360068997, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
       propertyPath: m_Name
       value: Cubit
@@ -7865,7 +7869,8 @@ PrefabInstance:
       propertyPath: groundCheck
       value: 
       objectReference: {fileID: 253072291}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3468627674533329448, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
