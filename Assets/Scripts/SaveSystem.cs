@@ -17,7 +17,7 @@ public static class SaveSystem
             {
                 string json = File.ReadAllText(SavePath);
                 cachedData = JsonUtility.FromJson<SaveData>(json);
-                Debug.Log("Game data loaded from: " + SavePath);
+                //Debug.Log("Game data loaded from: " + SavePath);
                 return cachedData;
             }
             catch (System.Exception e)
@@ -39,7 +39,7 @@ public static class SaveSystem
         {
             string json = JsonUtility.ToJson(data, true);
             File.WriteAllText(SavePath, json);
-            Debug.Log("Game data saved to: " + SavePath);
+            //Debug.Log("Game data saved to: " + SavePath);
         }
         catch (System.Exception e)
         {
