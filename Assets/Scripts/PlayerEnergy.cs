@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using System.Collections;
+using UnityEngine.UI;
 
 public class PlayerEnergy : MonoBehaviour
 {
@@ -16,7 +16,7 @@ public class PlayerEnergy : MonoBehaviour
     public Image energyFill; // assign Fill Area > Fill image
 
     [Header("Visual Feedback")]
-    public SpriteRenderer spriteRenderer; // assign your player’s sprite
+    public SpriteRenderer spriteRenderer; // assign your player's sprite
 
     private Color originalColor;
     private Color originalFillColor;
@@ -29,6 +29,9 @@ public class PlayerEnergy : MonoBehaviour
     [Header("Invulnerability Settings")]
     public float invulnerabilityDuration = 2f;
     private bool isInvulnerable = false;
+
+    // Cubit Passive Reference
+    private CubitPassive cubitPassive;
 
     void Start()
     {
@@ -45,6 +48,9 @@ public class PlayerEnergy : MonoBehaviour
 
         if (energyFill != null)
             originalFillColor = energyFill.color;
+
+        // Check if Cubit passive exists
+        cubitPassive = GetComponent<CubitPassive>();
 
         UpdateUI();
     }
@@ -67,10 +73,17 @@ public class PlayerEnergy : MonoBehaviour
         // Prevent damage if currently invulnerable
         if (isInvulnerable)
         {
-            Debug.Log("Damage ignored — player is invulnerable!");
+            Debug.Log("Damage ignored – player is invulnerable!");
             return;
         }
 
+        // Check Cubit's Protection Protocol
+        if (cubitPassive != null && cubitPassive.IsProtectionActive())
+        {
+            amount = cubitPassive.ProcessDamage(amount);
+        }
+
+        // Check Bit Buff
         if (hasBitBuff)
         {
             amount *= damageReduction;
@@ -78,8 +91,10 @@ public class PlayerEnergy : MonoBehaviour
 
             BitSkill skill = GetComponent<BitSkill>();
             if (skill != null)
+            {
                 SoundManager.Instance.PlaySound2D("BitBuffDamage");
                 skill.ConsumeBuff();
+            }
 
             Debug.Log("Bit Buff activated! Damage reduced.");
         }
@@ -99,7 +114,6 @@ public class PlayerEnergy : MonoBehaviour
         if (energySlider != null)
             energySlider.value = currentEnergy;
     }
-
 
     // Invulnerability Coroutine
     private IEnumerator TemporaryInvulnerability()
@@ -132,7 +146,6 @@ public class PlayerEnergy : MonoBehaviour
 
         Debug.Log("Invulnerability ended.");
     }
-
 
     public void GameOver()
     {
@@ -174,5 +187,4 @@ public class PlayerEnergy : MonoBehaviour
         currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, maxEnergy);
         UpdateUI();
     }
-
 }
