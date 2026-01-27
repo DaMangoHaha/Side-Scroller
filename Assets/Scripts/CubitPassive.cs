@@ -17,8 +17,13 @@ public class CubitPassive : MonoBehaviour
     private Color inactiveColor;
     private Color activeColor;
 
+    [Header("Skill Dialogue")]
+    public SkillDialogueUI skillDialogueUI;
+    [TextArea]
+    public string protectionProtocolDialogue = "I am stronger than I look.";
+    public Sprite cubitPortrait;
+
     [Header("Visual Feedback")]
-    public GameObject protectionEffectPrefab;     // Optional shield VFX
     
     private PlayerEnergy playerEnergy;
     private bool isProtectionReady = true;
@@ -74,9 +79,10 @@ public class CubitPassive : MonoBehaviour
         if (cubitIcon != null)
             cubitIcon.color = activeColor;
 
-        // Spawn protection effect
-        if (protectionEffectPrefab != null)
-            activeEffect = Instantiate(protectionEffectPrefab, transform.position, Quaternion.identity, transform);
+        if (skillDialogueUI != null)
+        {
+            skillDialogueUI.ShowSkillDialogue(protectionProtocolDialogue, cubitPortrait);
+        }
 
         // Play sound effect if available
         if (SoundManager.Instance != null)

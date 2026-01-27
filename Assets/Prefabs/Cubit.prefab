@@ -48,8 +48,8 @@ GameObject:
   - component: {fileID: 3177173832279804204}
   - component: {fileID: 1902686624627076636}
   - component: {fileID: 7780450041561907053}
-  - component: {fileID: 3468627674533329448}
   - component: {fileID: 4218087242874653720}
+  - component: {fileID: 961829212677669086}
   m_Layer: 0
   m_Name: Cubit
   m_TagString: Player
@@ -65,7 +65,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6893222532360068997}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.515, y: -0.05400002, z: 0}
   m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -304,23 +304,6 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
---- !u!114 &3468627674533329448
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6893222532360068997}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a8400dbc58d48842a2e66ff75bd4603, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CubitPassive
-  cooldown: 15
-  stompableLayers:
-    serializedVersion: 2
-    m_Bits: 256
-  minFallSpeed: -1
 --- !u!82 &4218087242874653720
 AudioSource:
   m_ObjectHideFlags: 0
@@ -418,3 +401,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &961829212677669086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6893222532360068997}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 908310cfd64974943ad573f5fd85379e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CubitPassive
+  energyThreshold: 30
+  protectionDuration: 5
+  protectionCooldown: 45
+  damageReduction: 0.25
+  damageStorage: 0.75
+  energyConversionRate: 1
+  cubitIcon: {fileID: 0}
+  skillDialogueUI: {fileID: 0}
+  protectionProtocolDialogue: I am stronger than I look.
+  cubitPortrait: {fileID: 377528032064278403, guid: 058659ad0ffe58248a063b9eb665c510, type: 3}

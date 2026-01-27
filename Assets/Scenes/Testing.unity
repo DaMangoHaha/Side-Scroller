@@ -548,11 +548,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 49579471}
   m_CullTransparentMesh: 1
---- !u!1 &131351224 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6893222532360068997, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
-  m_PrefabInstance: {fileID: 6326882376080681295}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &165939565
 GameObject:
   m_ObjectHideFlags: 0
@@ -5093,26 +5088,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3761418259795023778, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
   m_PrefabInstance: {fileID: 6326882376080681295}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1318520776
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 131351224}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 908310cfd64974943ad573f5fd85379e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CubitPassive
-  energyThreshold: 30
-  protectionDuration: 5
-  protectionCooldown: 45
-  damageReduction: 0.25
-  damageStorage: 0.75
-  energyConversionRate: 1
-  cubitIcon: {fileID: 425081929}
-  protectionEffectPrefab: {fileID: 0}
 --- !u!1 &1321082300
 GameObject:
   m_ObjectHideFlags: 0
@@ -7896,6 +7871,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 508860342}
     m_Modifications:
+    - target: {fileID: 961829212677669086, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+      propertyPath: cubitIcon
+      value: 
+      objectReference: {fileID: 425081929}
+    - target: {fileID: 961829212677669086, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+      propertyPath: skillDialogueUI
+      value: 
+      objectReference: {fileID: 652540262}
     - target: {fileID: 1902686624627076636, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
       propertyPath: scoreText
       value: 
@@ -7908,18 +7891,6 @@ PrefabInstance:
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 514834147}
-    - target: {fileID: 3468627674533329448, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
-      propertyPath: cooldown
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468627674533329448, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
-      propertyPath: minFallSpeed
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3468627674533329448, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
-      propertyPath: fallVelocityThreshold
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3761418259795023778, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.515
@@ -7960,10 +7931,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4218087242874653720, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6893222532360068997, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
       propertyPath: m_Name
       value: Cubit
@@ -7972,14 +7939,10 @@ PrefabInstance:
       propertyPath: groundCheck
       value: 
       objectReference: {fileID: 253072291}
-    m_RemovedComponents:
-    - {fileID: 3468627674533329448, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6893222532360068997, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1318520776}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
