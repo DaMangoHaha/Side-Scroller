@@ -22,15 +22,20 @@ public class SaveManager : MonoBehaviour
     {
         Time.timeScale = 1f;
 
-        PlayerPrefs.DeleteAll();
-        PlayerPrefs.Save();
+        // Delete the JSON save file
+        SaveSystem.DeleteSave();
 
+        // Reset CoinsManager if it exists
         if (CoinsManager.Instance != null)
             CoinsManager.Instance.SetCoins(0);
-        CharacterShopManager.Instance.RefreshAllButtons();
+
+        // Refresh UI
+        if (CharacterShopManager.Instance != null)
+            CharacterShopManager.Instance.RefreshAllButtons();
+
+        // Load main menu
         SceneManager.LoadScene("MainMenu");
 
-        Debug.Log("ALL DATA CLEARED");
+        Debug.Log("ALL DATA CLEARED - JSON save file deleted");
     }
-
 }

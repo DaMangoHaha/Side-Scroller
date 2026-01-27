@@ -15,7 +15,8 @@ public class CharacterManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
 
             // Load saved preference (if exists)
-            equippedCharacter = PlayerPrefs.GetString("EquippedCharacter", "Bits");
+            SaveData data = SaveSystem.LoadData();
+            equippedCharacter = data.equippedCharacter;
         }
         else
         {
@@ -26,7 +27,9 @@ public class CharacterManager : MonoBehaviour
     public void SetCharacter(string characterName)
     {
         equippedCharacter = characterName;
-        PlayerPrefs.SetString("EquippedCharacter", characterName);
-        PlayerPrefs.Save();
+        
+        SaveData data = SaveSystem.LoadData();
+        data.equippedCharacter = characterName;
+        SaveSystem.SaveData(data);
     }
 }

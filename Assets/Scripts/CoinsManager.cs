@@ -9,8 +9,6 @@ public class CoinsManager : MonoBehaviour
     public int totalCoins;
     public TextMeshProUGUI coinsText;
 
-    private const string COINS_KEY = "TotalCoins";
-
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -46,13 +44,15 @@ public class CoinsManager : MonoBehaviour
     // --------------------
     private void SaveCoins()
     {
-        PlayerPrefs.SetInt(SaveKeys.Coins, totalCoins);
-        PlayerPrefs.Save();
+        SaveData data = SaveSystem.LoadData();
+        data.totalCoins = totalCoins;
+        SaveSystem.SaveData(data);
     }
 
     private void LoadCoins()
     {
-        totalCoins = PlayerPrefs.GetInt(SaveKeys.Coins, 0);
+        SaveData data = SaveSystem.LoadData();
+        totalCoins = data.totalCoins;
     }
 
     public void SetCoins(int amount)
@@ -62,6 +62,7 @@ public class CoinsManager : MonoBehaviour
         if (coinsText != null)
             coinsText.text = "Coins: " + totalCoins;
     }
+    
     private void UpdateUI()
     {
         if (coinsText != null)

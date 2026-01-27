@@ -31,8 +31,10 @@ public class CharacterShopButton : MonoBehaviour
         {
             CharacterEquipManager.Instance.EquipCharacter(characterID);
         }
-        PlayerPrefs.SetString("SelectedCharacter", characterID);
-        PlayerPrefs.Save();
+        
+        SaveData data = SaveSystem.LoadData();
+        data.selectedCharacter = characterID;
+        SaveSystem.SaveData(data);
 
         RefreshUI();
         CharacterShopManager.Instance.RefreshAllButtons();
@@ -43,7 +45,8 @@ public class CharacterShopButton : MonoBehaviour
         if (button == null || buttonText == null || buttonImage == null)
             return;
 
-        string equipped = PlayerPrefs.GetString("SelectedCharacter", "Bits");
+        SaveData data = SaveSystem.LoadData();
+        string equipped = data.selectedCharacter;
         bool owned = CharacterPurchaseManager.Instance.IsCharacterOwned(characterID);
         int coins = (CoinsManager.Instance != null) ? CoinsManager.Instance.GetCoins() : 0;
 

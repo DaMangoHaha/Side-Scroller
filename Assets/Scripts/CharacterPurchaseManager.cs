@@ -21,7 +21,13 @@ public class CharacterPurchaseManager : MonoBehaviour
     // -------------------------
     public bool IsCharacterOwned(string characterID)
     {
-        return PlayerPrefs.GetInt("CHAR_OWNED_" + characterID, characterID == "Bits" ? 1 : 0) == 1;
+        SaveData data = SaveSystem.LoadData();
+        
+        if (data.ownedCharacters.ContainsKey(characterID))
+            return data.ownedCharacters[characterID];
+        
+        // Default: Bits is owned, others are not
+        return characterID == "Bits";
     }
 
     public void PurchaseCharacter(string characterID, int cost)
@@ -36,8 +42,10 @@ public class CharacterPurchaseManager : MonoBehaviour
         }
 
         CoinsManager.Instance.AddCoins(-cost);
-        PlayerPrefs.SetInt("CHAR_OWNED_" + characterID, 1);
-        PlayerPrefs.Save();
+        
+        SaveData data = SaveSystem.LoadData();
+        data.ownedCharacters[characterID] = true;
+        SaveSystem.SaveData(data);
 
         Debug.Log(characterID + " purchased!");
     }

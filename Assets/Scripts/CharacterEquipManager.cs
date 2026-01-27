@@ -4,8 +4,6 @@ public class CharacterEquipManager : MonoBehaviour
 {
     public static CharacterEquipManager Instance;
 
-    private const string EQUIPPED_KEY = "EquippedCharacter";
-
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -26,8 +24,10 @@ public class CharacterEquipManager : MonoBehaviour
             return;
         }
 
-        PlayerPrefs.SetString(EQUIPPED_KEY, characterID);
-        PlayerPrefs.Save();
+        SaveData data = SaveSystem.LoadData();
+        data.equippedCharacter = characterID;
+        SaveSystem.SaveData(data);
+        
         CharacterShopManager.Instance.RefreshAllButtons();
 
         Debug.Log(characterID + " equipped!");
@@ -35,7 +35,8 @@ public class CharacterEquipManager : MonoBehaviour
 
     public string GetEquippedCharacter()
     {
-        return PlayerPrefs.GetString(EQUIPPED_KEY, "Bits");
+        SaveData data = SaveSystem.LoadData();
+        return data.equippedCharacter;
     }
 }
 

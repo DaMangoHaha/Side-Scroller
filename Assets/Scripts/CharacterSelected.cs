@@ -17,8 +17,9 @@ public class CharacterSelected : MonoBehaviour
 
     public void OnButtonClicked()
     {
-        PlayerPrefs.SetString("SelectedCharacter", characterName);
-        PlayerPrefs.Save();
+        SaveData data = SaveSystem.LoadData();
+        data.selectedCharacter = characterName;
+        SaveSystem.SaveData(data);
 
         // Refresh ALL buttons in the scene
         CharacterSelected[] allButtons = Object.FindObjectsByType<CharacterSelected>(FindObjectsSortMode.None);
@@ -28,12 +29,12 @@ public class CharacterSelected : MonoBehaviour
 
     public void UpdateVisualState()
     {
-        string selected = PlayerPrefs.GetString("SelectedCharacter", "Bits");
+        SaveData data = SaveSystem.LoadData();
+        string selected = data.selectedCharacter;
 
         if (selected == characterName)
             buttonImage.sprite = selectedSprite;
         else
             buttonImage.sprite = normalSprite;
     }
-
 }
