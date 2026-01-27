@@ -2869,9 +2869,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 508860342}
     m_Modifications:
+    - target: {fileID: 2762608514745378843, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      propertyPath: m_Actions
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: c78e32015028c97408ad596d94115340, type: 3}
+    - target: {fileID: 2762608514745378843, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 3151982963095453169, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: groundRadius
-      value: 0.2
+      propertyPath: jumpActionRef
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3478733736790026891, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: energyFill
@@ -2881,17 +2889,9 @@ PrefabInstance:
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 442750849}
-    - target: {fileID: 3478733736790026891, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: depletionRate
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3566108749456092354, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: m_Name
       value: Bits
-      objectReference: {fileID: 0}
-    - target: {fileID: 3566108749456092354, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5967845733545688845, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: scoreText
@@ -2901,14 +2901,6 @@ PrefabInstance:
       propertyPath: shieldIcon
       value: 
       objectReference: {fileID: 2031230428}
-    - target: {fileID: 6457094141527707747, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: bitPortrait
-      value: 
-      objectReference: {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
-    - target: {fileID: 6457094141527707747, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: buffCooldown
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 6457094141527707747, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: skillDialogueUI
       value: 
@@ -4435,6 +4427,10 @@ PrefabInstance:
     - target: {fileID: 3761418259795023778, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4710975196256397543, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+      propertyPath: jumpActionRef
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6893222532360068997, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
       propertyPath: m_Name

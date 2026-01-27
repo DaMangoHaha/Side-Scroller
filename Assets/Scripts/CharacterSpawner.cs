@@ -43,7 +43,7 @@ public class CharacterSpawner : MonoBehaviour
         ninja.SetActive(equipped == "Ninja");
         wizKid.SetActive(equipped == "WizKid");
         crystal.SetActive(equipped == "Crystal");
-        //cubit.SetActive(equipped == "Cubit");
+        cubit.SetActive(equipped == "Cubit");
 
         // --- SKILL ICONS ---
         bitsIcon.SetActive(equipped == "Bits");
@@ -51,7 +51,7 @@ public class CharacterSpawner : MonoBehaviour
         ninjaIcon.SetActive(equipped == "Ninja");
         wizKidIcon.SetActive(equipped == "WizKid");
         crystalIcon.SetActive(equipped == "Crystal");
-        //cubitIcon.SetActive(equipped == "Cubit");
+        cubitIcon.SetActive(equipped == "Cubit");
 
         // --- ENERGY BARS ---
         bitsEnergyBar.SetActive(equipped == "Bits");
@@ -59,7 +59,7 @@ public class CharacterSpawner : MonoBehaviour
         ninjaEnergyBar.SetActive(equipped == "Ninja");
         wizKidEnergyBar.SetActive(equipped == "WizKid");
         crystalEnergyBar.SetActive(equipped == "Crystal");
-        //cubitEnergyBar.SetActive(equipped == "Cubit");
+        cubitEnergyBar.SetActive(equipped == "Cubit");
 
     }
 }

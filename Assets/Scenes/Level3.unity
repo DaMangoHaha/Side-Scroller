@@ -5430,6 +5430,10 @@ PrefabInstance:
       propertyPath: groundRadius
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 3151982963095453169, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      propertyPath: jumpActionRef
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3478733736790026891, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: energyFill
       value: 
@@ -6036,6 +6040,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4710975196256397543, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+      propertyPath: jumpActionRef
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 6893222532360068997, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
       propertyPath: m_Name
       value: Cubit
@@ -6048,6 +6056,11 @@ PrefabInstance:
 --- !u!4 &1348524108 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3761418259795023778, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+  m_PrefabInstance: {fileID: 1348524107}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1348524109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6893222532360068997, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
   m_PrefabInstance: {fileID: 1348524107}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1358686723
@@ -6762,19 +6775,19 @@ MonoBehaviour:
   ninja: {fileID: 853625235}
   wizKid: {fileID: 1225235818}
   crystal: {fileID: 2145978722}
-  cubit: {fileID: 0}
+  cubit: {fileID: 1348524109}
   bitsIcon: {fileID: 2133707491}
   thiefIcon: {fileID: 2133707490}
   ninjaIcon: {fileID: 2133707489}
   wizKidIcon: {fileID: 2133707487}
   crystalIcon: {fileID: 1033813804}
-  cubitIcon: {fileID: 0}
+  cubitIcon: {fileID: 1264599880}
   bitsEnergyBar: {fileID: 433677421}
   thiefEnergyBar: {fileID: 1820852120}
   ninjaEnergyBar: {fileID: 176831890}
   wizKidEnergyBar: {fileID: 1573335090}
   crystalEnergyBar: {fileID: 1866517891}
-  cubitEnergyBar: {fileID: 0}
+  cubitEnergyBar: {fileID: 691970760}
 --- !u!1 &1582775948
 GameObject:
   m_ObjectHideFlags: 0

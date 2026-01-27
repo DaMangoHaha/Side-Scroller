@@ -242,11 +242,11 @@ MonoBehaviour:
   jumpForce: 6.7
   maxJumps: 1
   groundCheck: {fileID: 7892862831352484671}
-  groundRadius: 0.15
+  groundRadius: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  jumpActionRef: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  jumpActionRef: {fileID: -3485855299901801243, guid: c78e32015028c97408ad596d94115340, type: 3}
 --- !u!114 &3478733736790026891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -261,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxEnergy: 100
   currentEnergy: 0
-  depletionRate: 1
+  depletionRate: 2
   isDepleting: 1
   energySlider: {fileID: 0}
   energyFill: {fileID: 0}
@@ -295,11 +295,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d983bedad0c3184589c4461619d6952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buffCooldown: 25
+  buffCooldown: 20
   warningTime: 2
   skillDialogueUI: {fileID: 0}
   bitBuffDialogue: Try and hit me!
-  bitPortrait: {fileID: 0}
+  bitPortrait: {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
   shieldIcon: {fileID: 0}
   buffActivateSFX: {fileID: 8300000, guid: b3c1579616d735d44bf9fa9b08b11145, type: 3}
   buffConsumeSFX: {fileID: 8300000, guid: a81af90bfdf4cc541bda69bf2e8bb0c7, type: 3}
@@ -501,6 +501,6 @@ MonoBehaviour:
     m_ActionName: UI/TrackedDeviceOrientation
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard&Mouse
-  m_DefaultActionMap: f3c01da3-0b81-4664-952a-312f687e197c
+  m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
