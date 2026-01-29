@@ -245,7 +245,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  jumpActionRef: {fileID: -2099379676528639254, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  jumpActionRef: {fileID: 0}
 --- !u!114 &3177173832279804204
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -418,7 +418,7 @@ MonoBehaviour:
   protectionCooldown: 45
   damageReduction: 0.25
   damageStorage: 0.75
-  energyConversionRate: 1
+  energyConversionRate: 0.5
   cubitIcon: {fileID: 0}
   skillDialogueUI: {fileID: 0}
   protectionProtocolDialogue: I am stronger than I look.

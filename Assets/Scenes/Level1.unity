@@ -4428,10 +4428,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4710975196256397543, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
-      propertyPath: jumpActionRef
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6893222532360068997, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
       propertyPath: m_Name
       value: Cubit

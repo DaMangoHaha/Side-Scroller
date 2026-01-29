@@ -9218,7 +9218,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: When cubits energy drops below 30%, energy depletion is paused for 5 seconds.
     damage taken during this period is reduced by 75%, and the rest is stored. when
-    five seconds is over, cubit restores 100% of the stored damage. has a cooldown
+    five seconds is over, cubit restores 50% of the stored damage. has a cooldown
     of 45 seconds.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
