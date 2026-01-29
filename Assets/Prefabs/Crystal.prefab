@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1335009512491143106}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.38, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -67,8 +67,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 2.5
+  m_Offset: {x: 0.51434636, y: 0}
+  m_Radius: 3.0143464
 --- !u!114 &7568488496206079838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,7 +324,7 @@ MonoBehaviour:
   jumpForce: 5.7
   maxJumps: 1
   groundCheck: {fileID: 2831813589863879644}
-  groundRadius: 0.15
+  groundRadius: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -347,7 +347,7 @@ MonoBehaviour:
   slideColliderOffset: {x: 0, y: -0.25}
   slideActionRef: {fileID: 0}
   groundCheck: {fileID: 2831813589863879644}
-  groundRadius: 0.15
+  groundRadius: 0.5
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerEnergy
   maxEnergy: 100
   currentEnergy: 0
-  depletionRate: 1
+  depletionRate: 2
   isDepleting: 1
   energySlider: {fileID: 0}
   energyFill: {fileID: 0}
@@ -399,9 +399,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f1754b73363a941a7a338968c2aa07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CrystalAbility
-  snowflakesNeeded: 5
+  snowflakesNeeded: 3
   abilityReady: 0
-  glaciateDuration: 5
+  glaciateDuration: 7
   glaciateEffectPrefab: {fileID: 915709137756361412, guid: 40ec1c83fefc0c541a873335144d39b9, type: 3}
   skillIcon: {fileID: 0}
   fadedColor: {r: 0, g: 0, b: 0, a: 0}
@@ -409,7 +409,8 @@ MonoBehaviour:
   flickerSpeed: 6
   skillDialogueUI: {fileID: 0}
   glaciateDialogue: The cold will take care of you.
-  crystalPortrait: {fileID: 0}
+  crystalPortrait: {fileID: -8710684726290518427, guid: ad90941f2e2de8e4291e9e7bf289c835, type: 3}
+  activateAbilityActionRef: {fileID: 0}
 --- !u!114 &6231816489603061774
 MonoBehaviour:
   m_ObjectHideFlags: 0

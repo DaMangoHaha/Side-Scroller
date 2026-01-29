@@ -208,10 +208,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bbfc44652157c4fad2e897e07802a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoubleJump
-  jumpForce: 7
+  jumpForce: 6.7
   maxJumps: 2
   groundCheck: {fileID: 8995899065987984133}
-  groundRadius: 0.5
+  groundRadius: 0.15
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -230,7 +230,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerEnergy
   maxEnergy: 110
   currentEnergy: 0
-  depletionRate: 1
+  depletionRate: 2
   isDepleting: 1
   energySlider: {fileID: 0}
   energyFill: {fileID: 0}
@@ -292,7 +292,8 @@ MonoBehaviour:
   readyIcon: {fileID: 0}
   skillDialogueUI: {fileID: 0}
   electricBoltDialogue: Too slow.
-  ninjaPortrait: {fileID: 0}
+  ninjaPortrait: {fileID: 61506194941554554, guid: 500f72fcd9b34894ea6fc359fe580c69, type: 3}
+  activateSkillActionRef: {fileID: 0}
 --- !u!114 &-5422530364633338121
 MonoBehaviour:
   m_ObjectHideFlags: 0

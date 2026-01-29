@@ -1301,10 +1301,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 508860342}
     m_Modifications:
-    - target: {fileID: 2350240065223381929, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
-      propertyPath: groundRadius
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 3081078471666345185, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
       propertyPath: scoreText
       value: 
@@ -1313,18 +1309,6 @@ PrefabInstance:
       propertyPath: wizIcon
       value: 
       objectReference: {fileID: 1727925245}
-    - target: {fileID: 3501100754619741129, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
-      propertyPath: cooldown
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501100754619741129, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
-      propertyPath: tickInterval
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501100754619741129, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
-      propertyPath: wizKidPortrait
-      value: 
-      objectReference: {fileID: 694068958173167402, guid: a13018d0373c22e4e9bc72555eebd8a2, type: 3}
     - target: {fileID: 3501100754619741129, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
       propertyPath: skillDialogueUI
       value: 
@@ -1337,14 +1321,6 @@ PrefabInstance:
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 332635756}
-    - target: {fileID: 4227063540521223218, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
-      propertyPath: depletionRate
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4775767470271842072, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
-      propertyPath: slideDuration
-      value: 0.8
-      objectReference: {fileID: 0}
     - target: {fileID: 5247978891995680957, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.524
@@ -1388,10 +1364,6 @@ PrefabInstance:
     - target: {fileID: 8922940431773350140, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
       propertyPath: m_Name
       value: WizKid
-      objectReference: {fileID: 0}
-    - target: {fileID: 8922940431773350140, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2869,18 +2841,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 508860342}
     m_Modifications:
-    - target: {fileID: 2762608514745378843, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: m_Actions
-      value: 
-      objectReference: {fileID: -944628639613478452, guid: c78e32015028c97408ad596d94115340, type: 3}
-    - target: {fileID: 2762608514745378843, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: m_DefaultActionMap
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 3151982963095453169, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
-      propertyPath: jumpActionRef
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3478733736790026891, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: energyFill
       value: 
@@ -3962,10 +3922,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 508860342}
     m_Modifications:
-    - target: {fileID: 3151982963095453169, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: groundRadius
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 3478733736790026891, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: energyFill
       value: 
@@ -3974,26 +3930,14 @@ PrefabInstance:
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 396907558}
-    - target: {fileID: 3478733736790026891, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: depletionRate
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3566108749456092354, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: m_Name
       value: Thief
-      objectReference: {fileID: 0}
-    - target: {fileID: 3566108749456092354, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: skillIcon
       value: 
       objectReference: {fileID: 547393983}
-    - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
-      propertyPath: thiefPortrait
-      value: 
-      objectReference: {fileID: 1136184288765050124, guid: aa8710ef7a9076849874a1f9a7b1f50d, type: 3}
     - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: skillDialogueUI
       value: 
@@ -7368,14 +7312,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 508860342}
     m_Modifications:
-    - target: {fileID: 285942465202752752, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
-      propertyPath: jumpForce
-      value: 6.7
-      objectReference: {fileID: 0}
-    - target: {fileID: 285942465202752752, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
-      propertyPath: groundRadius
-      value: 0.15
-      objectReference: {fileID: 0}
     - target: {fileID: 1626509325967240140, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.518
@@ -7420,30 +7356,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ninja
       objectReference: {fileID: 0}
-    - target: {fileID: 1844672861058412674, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3545611507391418815, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: readyIcon
       value: 
       objectReference: {fileID: 1588560743}
     - target: {fileID: 3545611507391418815, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
-      propertyPath: ninjaPortrait
-      value: 
-      objectReference: {fileID: 61506194941554554, guid: 500f72fcd9b34894ea6fc359fe580c69, type: 3}
-    - target: {fileID: 3545611507391418815, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 1321082302}
-    - target: {fileID: 3545611507391418815, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
-      propertyPath: electricBoltDialogue
-      value: Too slow.
-      objectReference: {fileID: 0}
-    - target: {fileID: 4144516064091159477, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
-      propertyPath: m_Mass
-      value: 1.15
-      objectReference: {fileID: 0}
     - target: {fileID: 6345193165560762942, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: energyFill
       value: 
@@ -7452,10 +7372,6 @@ PrefabInstance:
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 295030742}
-    - target: {fileID: 6345193165560762942, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
-      propertyPath: depletionRate
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 7300291592058614611, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: scoreText
       value: 
@@ -7611,18 +7527,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 508860342}
     m_Modifications:
-    - target: {fileID: 133769400952916230, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
-      propertyPath: groundRadius
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1029666397019496821, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
-      propertyPath: m_Radius
-      value: 3.0143464
-      objectReference: {fileID: 0}
-    - target: {fileID: 1029666397019496821, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
-      propertyPath: m_Offset.x
-      value: 0.51434636
-      objectReference: {fileID: 0}
     - target: {fileID: 1718776510595873893, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: energyFill
       value: 
@@ -7631,10 +7535,6 @@ PrefabInstance:
       propertyPath: energySlider
       value: 
       objectReference: {fileID: 357139401}
-    - target: {fileID: 1718776510595873893, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
-      propertyPath: depletionRate
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3559529769385931293, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: scoreText
       value: 
@@ -7683,34 +7583,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crystal
       objectReference: {fileID: 0}
-    - target: {fileID: 5780869232013711128, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.38
-      objectReference: {fileID: 0}
-    - target: {fileID: 6677320169776199481, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
-      propertyPath: groundRadius
-      value: 0.2
-      objectReference: {fileID: 0}
     - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: skillIcon
       value: 
       objectReference: {fileID: 550373293}
     - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
-      propertyPath: crystalPortrait
-      value: 
-      objectReference: {fileID: -8710684726290518427, guid: ad90941f2e2de8e4291e9e7bf289c835, type: 3}
-    - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 1731871663}
-    - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
-      propertyPath: glaciateDuration
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
-      propertyPath: snowflakesNeeded
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

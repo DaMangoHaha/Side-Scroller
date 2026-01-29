@@ -195,7 +195,7 @@ MonoBehaviour:
   jumpForce: 7
   maxJumps: 1
   groundCheck: {fileID: 1652681902379204608}
-  groundRadius: 0.5
+  groundRadius: 0.2
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
@@ -214,7 +214,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerEnergy
   maxEnergy: 70
   currentEnergy: 0
-  depletionRate: 1.5
+  depletionRate: 2
   isDepleting: 1
   energySlider: {fileID: 0}
   energyFill: {fileID: 0}
@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4ce6f164791404080711eced9c43ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerSlide
-  slideDuration: 0.5
+  slideDuration: 0.8
   slideYScale: 0.5
   slideColliderSize: {x: 1, y: 0.5}
   slideColliderOffset: {x: 0, y: -0.25}
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8705f100b90254947ba36e73815427d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WizKidSkill
-  cooldown: 20
+  cooldown: 25
   tickInterval: 0.5
   smallHeal: 3
   mediumHeal: 7
@@ -281,7 +281,7 @@ MonoBehaviour:
   wizIcon: {fileID: 0}
   skillDialogueUI: {fileID: 0}
   sproutingSorceryDialogue: My spellbook taught me this one!
-  wizKidPortrait: {fileID: 0}
+  wizKidPortrait: {fileID: 694068958173167402, guid: a13018d0373c22e4e9bc72555eebd8a2, type: 3}
   confettiPrefab: {fileID: 4264061607123971477, guid: b6c9629cab8b9554bac9c820a817c81b, type: 3}
 --- !u!60 &6266124163216811890
 PolygonCollider2D:

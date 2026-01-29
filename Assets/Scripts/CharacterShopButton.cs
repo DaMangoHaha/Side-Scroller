@@ -19,6 +19,7 @@ public class CharacterShopButton : MonoBehaviour
     {
         RefreshUI();
         CharacterShopManager.Instance.RefreshAllButtons();
+        DontDestroyOnLoad(gameObject);
     }
 
     public void OnButtonPressed()
