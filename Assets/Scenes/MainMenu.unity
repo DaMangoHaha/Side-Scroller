@@ -1742,7 +1742,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.5.11
+  m_text: Version 1.5.12
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -10145,7 +10145,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.5.11
+  m_text: Version 1.5.12
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -10573,9 +10573,13 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Introduced a new character: Cubit! Check out his details in the shop!
+  m_text: '- Added interactable objects in Level 2, giving Bits some personality.
 
-    (1.5.11)'
+    -
+    Updated Skill Dialogue in Level 3, giving characters unique lines while dealing
+    with slimes.
+
+    (1.5.12)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -11215,7 +11219,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.5.11
+  m_text: Version 1.5.12
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -12802,7 +12806,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1125735027}
   m_OnClick:
     m_PersistentCalls:
@@ -17385,7 +17389,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.5.11
+  m_text: Version 1.5.12
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -20780,9 +20784,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- February is around the corner, so be excited for a new feature: COSTUMES!
-    The valentines'' day update will launch on the holiday, featuring an advant calendar,
-    a costume shop, and unique currency for the update!'
+  m_text: '- February is here! Eventually, The valentines'' day update will launch
+    on the 14th, featuring the advent calendar and cosmetics for characters!'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
