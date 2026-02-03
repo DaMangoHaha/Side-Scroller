@@ -4254,6 +4254,10 @@ PrefabInstance:
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 672508564}
+    - target: {fileID: 3545611507391418815, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
+      propertyPath: electricBoltDialogue
+      value: Nice try.
+      objectReference: {fileID: 0}
     - target: {fileID: 4144516064091159477, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: m_Mass
       value: 1.15
@@ -5335,6 +5339,10 @@ PrefabInstance:
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 595362657}
+    - target: {fileID: 3501100754619741129, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
+      propertyPath: sproutingSorceryDialogue
+      value: I won't let you ruin my magic!
+      objectReference: {fileID: 0}
     - target: {fileID: 4227063540521223218, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
       propertyPath: energyFill
       value: 
@@ -5501,6 +5509,10 @@ PrefabInstance:
     - target: {fileID: 6457094141527707747, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: buffCooldown
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6457094141527707747, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      propertyPath: bitBuffDialogue
+      value: Do your worst, slimes!
       objectReference: {fileID: 0}
     - target: {fileID: 6457094141527707747, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: skillDialogueUI
@@ -6000,6 +6012,10 @@ PrefabInstance:
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 1582775950}
+    - target: {fileID: 961829212677669086, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+      propertyPath: protectionProtocolDialogue
+      value: You are no match for me.
+      objectReference: {fileID: 0}
     - target: {fileID: 3761418259795023778, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.848528
@@ -6297,6 +6313,10 @@ PrefabInstance:
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 2006485643}
+    - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
+      propertyPath: stickyFingersDialogue
+      value: Do you have ANYTHING of value?
+      objectReference: {fileID: 0}
     - target: {fileID: 5831928592119874244, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -9569,6 +9589,10 @@ PrefabInstance:
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 1171347524}
+    - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
+      propertyPath: glaciateDialogue
+      value: Even you should be able to feel the cold.
+      objectReference: {fileID: 0}
     - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: glaciateDuration
       value: 7
