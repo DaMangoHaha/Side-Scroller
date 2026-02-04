@@ -1,6 +1,7 @@
 public static class SaveKeys
 {
     public const string Coins = "TotalCoins";
+    public const string CupidCoins = "TotalCupidCoins";
     public const string EquippedCharacter = "EquippedCharacter";
 
     // Character ownership
