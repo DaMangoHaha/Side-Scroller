@@ -4,7 +4,6 @@ namespace StarterAssets
 {
     public class UICanvasControllerInput : MonoBehaviour
     {
-
         [Header("Output")]
         public PlayerFreeMove starterAssetsInputs;
 
@@ -17,7 +16,5 @@ namespace StarterAssets
         {
             starterAssetsInputs.InteractInput(virtualInteractState);
         }
-        
     }
-
 }

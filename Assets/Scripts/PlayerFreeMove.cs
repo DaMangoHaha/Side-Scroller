@@ -13,15 +13,11 @@ public class PlayerFreeMove : MonoBehaviour
 
     [Header("Interaction")]
     public float interactRange = 1.5f;
-    // how close player must be
     public LayerMask npcLayer;
-    // assign "NPC" layer in Inspector
 
     [Header("Input (New Input System)")]
     public InputActionReference moveActionRef;
-    // optional: assign a Vector2 action (left stick / WASD)
     public InputActionReference interactActionRef;
-    // optional: assign a Button action (interact)
 
     private InputAction moveAction;
     private InputAction interactAction;
@@ -125,7 +121,11 @@ public class PlayerFreeMove : MonoBehaviour
 
     private void OnInteractPerformed(InputAction.CallbackContext ctx)
     {
-        TryInteract();
+        // If a SpecialNPC conversation is active, advance it; otherwise try to interact.
+        if (!SpecialNPC.AdvanceIfActive())
+        {
+            TryInteract();
+        }
     }
 
     void Update()
@@ -160,7 +160,10 @@ public class PlayerFreeMove : MonoBehaviour
         if ((interactAction == null || !interactAction.enabled) && Keyboard.current != null)
         {
             if (Keyboard.current.wKey.wasPressedThisFrame)
-                TryInteract();
+            {
+                if (!SpecialNPC.AdvanceIfActive())
+                    TryInteract();
+            }
         }
     }
 
@@ -234,7 +237,11 @@ public class PlayerFreeMove : MonoBehaviour
         // trigger interaction when UI button is pressed
         if (pressed)
         {
-            TryInteract();
+            // Advance conversation if one is active; otherwise try to interact
+            if (!SpecialNPC.AdvanceIfActive())
+            {
+                TryInteract();
+            }
         }
     }
 }
