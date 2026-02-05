@@ -12,12 +12,16 @@ public class PlayerFreeMove : MonoBehaviour
     private bool facingRight = true;
 
     [Header("Interaction")]
-    public float interactRange = 1.5f; // how close player must be
-    public LayerMask npcLayer;         // assign "NPC" layer in Inspector
+    public float interactRange = 1.5f;
+    // how close player must be
+    public LayerMask npcLayer;
+    // assign "NPC" layer in Inspector
 
     [Header("Input (New Input System)")]
-    public InputActionReference moveActionRef;     // optional: assign a Vector2 action (left stick / WASD)
-    public InputActionReference interactActionRef; // optional: assign a Button action (interact)
+    public InputActionReference moveActionRef;
+    // optional: assign a Vector2 action (left stick / WASD)
+    public InputActionReference interactActionRef;
+    // optional: assign a Button action (interact)
 
     private InputAction moveAction;
     private InputAction interactAction;
@@ -212,5 +216,25 @@ public class PlayerFreeMove : MonoBehaviour
         Gizmos.color = Color.yellow;
         Vector3 dir = facingRight ? Vector3.right : Vector3.left;
         Gizmos.DrawLine(transform.position, transform.position + dir * interactRange);
+    }
+
+    // Added for UI virtual controls for mobile
+    public void MoveInput(Vector2 direction)
+    {
+        // update movement input from virtual joystick/buttons
+        moveInput = direction;
+
+        // keep facing direction consistent with horizontal input
+        if (direction.x > 0f && !facingRight) Flip();
+        else if (direction.x < 0f && facingRight) Flip();
+    }
+
+    public void InteractInput(bool pressed)
+    {
+        // trigger interaction when UI button is pressed
+        if (pressed)
+        {
+            TryInteract();
+        }
     }
 }
