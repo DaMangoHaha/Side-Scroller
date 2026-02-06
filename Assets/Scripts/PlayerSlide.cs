@@ -85,7 +85,20 @@ public class PlayerSlide : MonoBehaviour
 
     private void OnSlidePerformed(InputAction.CallbackContext ctx)
     {
-        // Only start slide on performed if grounded and not already sliding
+        TrySlide();
+    }
+
+    // Called by mobile UI virtual button via UICanvasControllerInput2
+    public void SlideInput(bool pressed)
+    {
+        if (pressed)
+        {
+            TrySlide();
+        }
+    }
+
+    private void TrySlide()
+    {
         if (isGrounded && !isSliding)
         {
             StartCoroutine(Slide());

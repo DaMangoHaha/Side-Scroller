@@ -56,6 +56,20 @@ public class DoubleJump : MonoBehaviour
 
     private void OnJumpPerformed(InputAction.CallbackContext ctx)
     {
+        TryJump();
+    }
+
+    // Called by mobile UI virtual button via UICanvasControllerInput
+    public void JumpInput(bool pressed)
+    {
+        if (pressed)
+        {
+            TryJump();
+        }
+    }
+
+    private void TryJump()
+    {
         if (jumpsUsed < maxJumps)
         {
             // reset vertical speed then apply impulse

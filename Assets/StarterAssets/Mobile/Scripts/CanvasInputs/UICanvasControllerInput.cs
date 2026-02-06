@@ -6,6 +6,7 @@ namespace StarterAssets
     {
         [Header("Output")]
         public PlayerFreeMove starterAssetsInputs;
+        public DoubleJump doubleJumpInput;
 
         public void VirtualMoveInput(Vector2 virtualMoveDirection)
         {
@@ -15,6 +16,11 @@ namespace StarterAssets
         public void VirtualInteractInput(bool virtualInteractState)
         {
             starterAssetsInputs.InteractInput(virtualInteractState);
+        }
+
+        public void VirtualJumpInput(bool virtualJumpState)
+        {
+            doubleJumpInput.JumpInput(virtualJumpState);
         }
     }
 }
