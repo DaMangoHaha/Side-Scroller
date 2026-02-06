@@ -29,6 +29,8 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
     private InputAction activateSkillAction;
     private bool createdLocalAction = false;
 
+    private Button skillButton;
+
     void Start()
     {
         cooldownRemaining = cooldownTime;
@@ -38,6 +40,13 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
             inactiveColor = readyIcon.color;
             inactiveColor.a = 0.2f; // faded look
             readyIcon.color = inactiveColor;
+
+            // Make the skill icon tappable on mobile
+            skillButton = readyIcon.GetComponent<Button>();
+            if (skillButton == null)
+                skillButton = readyIcon.gameObject.AddComponent<Button>();
+            skillButton.transition = Selectable.Transition.None;
+            skillButton.onClick.AddListener(() => ActivateSkillInput(true));
         }
     }
 
@@ -81,6 +90,20 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
 
     private void OnActivatePerformed(InputAction.CallbackContext ctx)
     {
+        TryFireElectricBolt();
+    }
+
+    // Called by mobile UI button tap on skill icon
+    public void ActivateSkillInput(bool pressed)
+    {
+        if (pressed)
+        {
+            TryFireElectricBolt();
+        }
+    }
+
+    private void TryFireElectricBolt()
+    {
         if (cooldownRemaining == 0f)
         {
             FireElectricBolt();
@@ -109,9 +132,7 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
         {
             if (Keyboard.current.leftShiftKey.wasPressedThisFrame && cooldownRemaining == 0f)
             {
-                FireElectricBolt();
-                if (SoundManager.Instance != null)
-                    SoundManager.Instance.PlaySound2D("ElectricBolt");
+                TryFireElectricBolt();
             }
         }
     }

@@ -34,6 +34,8 @@ public class ThiefSkill : MonoBehaviour
     private InputAction activateSkillAction;
     private bool createdLocalAction = false;
 
+    private Button skillButton;
+
     void Start()
     {
         cooldownTimer = cooldownTime;
@@ -44,6 +46,13 @@ public class ThiefSkill : MonoBehaviour
             inactiveColor = activeColor;
             inactiveColor.a = 0.3f;
             skillIcon.color = inactiveColor;  // starts faded
+
+            // Make the skill icon tappable on mobile
+            skillButton = skillIcon.GetComponent<Button>();
+            if (skillButton == null)
+                skillButton = skillIcon.gameObject.AddComponent<Button>();
+            skillButton.transition = Selectable.Transition.None;
+            skillButton.onClick.AddListener(() => ActivateSkillInput(true));
         }
     }
 
@@ -88,6 +97,20 @@ public class ThiefSkill : MonoBehaviour
 
     private void OnActivatePerformed(InputAction.CallbackContext ctx)
     {
+        TryActivateSkill();
+    }
+
+    // Called by mobile UI button tap on skill icon
+    public void ActivateSkillInput(bool pressed)
+    {
+        if (pressed)
+        {
+            TryActivateSkill();
+        }
+    }
+
+    private void TryActivateSkill()
+    {
         if (!isOnCooldown)
         {
             StartCoroutine(ActivateSkill());
@@ -116,9 +139,7 @@ public class ThiefSkill : MonoBehaviour
         {
             if (!isOnCooldown && Keyboard.current != null && Keyboard.current.leftShiftKey.wasPressedThisFrame)
             {
-                StartCoroutine(ActivateSkill());
-                if (SoundManager.Instance != null)
-                    SoundManager.Instance.PlaySound2D("StickyFingers");
+                TryActivateSkill();
             }
         }
 

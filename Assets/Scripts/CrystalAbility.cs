@@ -33,6 +33,8 @@ public class CrystalAbility : MonoBehaviour
     private bool abilityActive = false;
     private PlayerEnergy playerEnergy;
 
+    private Button skillButton;
+
     void Start()
     {
         playerEnergy = GetComponent<PlayerEnergy>();
@@ -43,6 +45,13 @@ public class CrystalAbility : MonoBehaviour
             fadedColor = skillIcon.color;
             fadedColor.a = 0.2f;              // faded power-down
             skillIcon.color = fadedColor;
+
+            // Make the skill icon tappable on mobile
+            skillButton = skillIcon.GetComponent<Button>();
+            if (skillButton == null)
+                skillButton = skillIcon.gameObject.AddComponent<Button>();
+            skillButton.transition = Selectable.Transition.None;
+            skillButton.onClick.AddListener(() => ActivateAbilityInput(true));
         }
     }
 
@@ -86,6 +95,20 @@ public class CrystalAbility : MonoBehaviour
 
     private void OnActivatePerformed(InputAction.CallbackContext ctx)
     {
+        TryActivateGlaciate();
+    }
+
+    // Called by mobile UI button tap on skill icon
+    public void ActivateAbilityInput(bool pressed)
+    {
+        if (pressed)
+        {
+            TryActivateGlaciate();
+        }
+    }
+
+    private void TryActivateGlaciate()
+    {
         if (abilityReady && !abilityActive)
         {
             StartCoroutine(ActivateGlaciate());
@@ -101,9 +124,7 @@ public class CrystalAbility : MonoBehaviour
         {
             if (abilityReady && Keyboard.current.leftShiftKey.wasPressedThisFrame && !abilityActive)
             {
-                StartCoroutine(ActivateGlaciate());
-                if (SoundManager.Instance != null)
-                    SoundManager.Instance.PlaySound2D("Glaciate");
+                TryActivateGlaciate();
             }
         }
     }
