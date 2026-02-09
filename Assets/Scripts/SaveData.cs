@@ -11,6 +11,12 @@ public class SaveData
     public float musicVolume = 1f;
     public float sfxVolume = 1f;
 
+    // Best times per level (in seconds; 0 = no record)
+    public float bestTimeLevel1 = 0f;
+    public float bestTimeLevel2 = 0f;
+    public float bestTimeLevel3 = 0f;
+    public float bestTimeLevel4 = 0f;
+
     public SaveData()
     {
         // Set default ownership (Bits is owned by default)

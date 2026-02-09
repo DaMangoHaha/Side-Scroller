@@ -25,6 +25,9 @@ public class SaveManager : MonoBehaviour
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
 
+        // Clear saved best times
+        SaveSystem.DeleteSave();
+
         if (CoinsManager.Instance != null)
             CoinsManager.Instance.SetCoins(0);
 
@@ -35,5 +38,4 @@ public class SaveManager : MonoBehaviour
 
         Debug.Log("ALL DATA CLEARED");
     }
-
 }

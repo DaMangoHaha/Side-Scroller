@@ -13,6 +13,12 @@ public class FinishFlag : MonoBehaviour
             levelComplete = true;
             Debug.Log("Tutorial Complete!");
 
+            // Stop the timer (best time will auto-save on scene exit)
+            if (LevelTimer.Instance != null)
+            {
+                LevelTimer.Instance.StopTimer();
+            }
+
             // Unlock Level 2
             if (LevelUnlockManager.Instance != null)
                 LevelUnlockManager.Instance.UnlockLevel(2);
@@ -25,6 +31,13 @@ public class FinishFlag : MonoBehaviour
         if (levelComplete && collision.CompareTag("Player"))
         {
             Debug.Log("Level 2 already unlocked.");
+
+            // Stop the timer (best time will auto-save on scene exit)
+            if (LevelTimer.Instance != null)
+            {
+                LevelTimer.Instance.StopTimer();
+            }
+
             // Unlock Level 3
             if (LevelUnlockManager.Instance != null)
                 LevelUnlockManager.Instance.UnlockLevel(3);
@@ -34,6 +47,13 @@ public class FinishFlag : MonoBehaviour
         if (levelComplete && collision.CompareTag("Player"))
         {
             Debug.Log("Level 2 already unlocked.");
+
+            // Stop the timer (best time will auto-save on scene exit)
+            if (LevelTimer.Instance != null)
+            {
+                LevelTimer.Instance.StopTimer();
+            }
+
             // Unlock Level 4
             if (LevelUnlockManager.Instance != null)
                 LevelUnlockManager.Instance.UnlockLevel(4);
