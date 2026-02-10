@@ -4854,6 +4854,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4ce6f164791404080711eced9c43ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1144997179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1144997180}
+  - component: {fileID: 1144997181}
+  m_Layer: 0
+  m_Name: MobileJump
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1144997180
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144997179}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1352737278}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1144997181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1144997179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 476908b767e22694f8895649ae887680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MobileTapToJump
 --- !u!1 &1180966583
 GameObject:
   m_ObjectHideFlags: 0
@@ -5826,6 +5870,7 @@ Transform:
   - {fileID: 259692455}
   - {fileID: 2071308073}
   - {fileID: 830722991}
+  - {fileID: 1144997180}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1363307592 stripped
@@ -6008,8 +6053,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410099508}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.6207268, y: 2.1136837, z: -0.01342082}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6036,8 +6081,8 @@ MonoBehaviour:
   - {fileID: 2306659110317527429, guid: 82e1c3521ca09264a8b664e94a0762ec, type: 3}
   spawnInterval: 2
   spawnX: 12
-  spawnYMin: 1
-  spawnYMax: 2
+  spawnYMin: 1.5
+  spawnYMax: 1.6
   floatChance: 0
 --- !u!1 &1415340433
 GameObject:
@@ -7827,6 +7872,10 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.5882353
       objectReference: {fileID: 0}
+    - target: {fileID: 4635207389212637381, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5959203425371069255, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -7853,7 +7902,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6751388636123340836, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7113428977333465798, guid: 2f7f3dde7ae722a4aafffe20691ad702, type: 3}
       propertyPath: joystickOutputEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
