@@ -48,9 +48,14 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // Apply Coin Fragment augment bonus (+10%, rounded up)
+            int finalCoinValue = coinValue;
+            if (PixelAugmentManager.Instance != null)
+                finalCoinValue = PixelAugmentManager.Instance.ApplyCoinFragmentBonus(coinValue);
+
             // Add coins to counter
             if (CoinsManager.Instance != null)
-                CoinsManager.Instance.AddCoins(coinValue);
+                CoinsManager.Instance.AddCoins(finalCoinValue);
             SoundManager.Instance.PlaySound2D("Coin");
 
             // Add to per-level score

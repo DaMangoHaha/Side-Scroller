@@ -36,6 +36,9 @@ public class SaveManager : MonoBehaviour
 
         CharacterShopManager.Instance.RefreshAllButtons();
 
+        if (AugmentShopManager.Instance != null)
+            AugmentShopManager.Instance.RefreshAllButtons();
+
         Debug.Log("ALL DATA CLEARED");
     }
 }
