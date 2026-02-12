@@ -21,6 +21,11 @@ public class OpeningCutscene : MonoBehaviour
     public float continueFadeSpeed = 2f;
     private bool showContinuePrompt = false;
 
+    [Header("Continue Prompt Messages")]
+    public string pcPrompt = "Left click to continue. (Right click to skip.)";
+    public string gamepadPrompt = "Press A to continue. (Press Y to skip.)";
+    public string mobilePrompt = "Tap to continue. (Press and hold to skip.)";
+
     [Header("Start Settings")]
     public bool showOnStart = true;
     [TextArea] public string startingText;
@@ -135,12 +140,41 @@ public class OpeningCutscene : MonoBehaviour
             SceneManager.LoadScene("MainMenu");
         }
 
+        // Update continue prompt text based on active input device
+        if (showContinuePrompt && continueText != null && continueText.alpha > 0)
+        {
+            continueText.text = GetPlatformPrompt();
+        }
+
         // Legacy fallback when InputAction is not assigned or enabled
         if ((advanceAction == null || !advanceAction.enabled) && Keyboard.current != null)
         {
             if (Keyboard.current.spaceKey.wasPressedThisFrame)
                 HandleAdvanceInput();
         }
+    }
+
+    /// <summary>
+    /// Returns the appropriate continue prompt string based on the
+    /// currently active input device / platform.
+    /// </summary>
+    private string GetPlatformPrompt()
+    {
+        // Mobile check first — if a touchscreen is the most recent device, show mobile prompt
+        if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
+            return mobilePrompt;
+
+        // On mobile platforms, default to the mobile prompt even without active touch
+#if UNITY_IOS || UNITY_ANDROID
+        return mobilePrompt;
+#else
+        // Gamepad check — if a gamepad is connected and was used most recently
+        if (Gamepad.current != null && Gamepad.current.wasUpdatedThisFrame)
+            return gamepadPrompt;
+
+        // Default to PC prompt
+        return pcPrompt;
+#endif
     }
 
     private void OnAdvancePerformed(InputAction.CallbackContext ctx)
@@ -220,7 +254,11 @@ public class OpeningCutscene : MonoBehaviour
 
         // Only fade in if this dialogue is allowed to show the prompt
         if (showContinuePrompt && continueText != null)
+        {
+            // Set the correct platform text before fading in
+            continueText.text = GetPlatformPrompt();
             StartCoroutine(FadeInContinueText());
+        }
     }
 
     IEnumerator FadeInContinueText()
@@ -243,7 +281,10 @@ public class OpeningCutscene : MonoBehaviour
 
         // Only show immediately if allowed
         if (showContinuePrompt && continueText != null)
+        {
+            continueText.text = GetPlatformPrompt();
             continueText.alpha = 1;
+        }
     }
 
     public void HideDialogue()

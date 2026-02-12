@@ -428,6 +428,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -566,6 +567,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -800,6 +802,7 @@ MonoBehaviour:
   autoStart: 1
   advanceActionRef: {fileID: 7130840277970935728, guid: c78e32015028c97408ad596d94115340, type: 3}
   skipActionRef: {fileID: 1568524168846622860, guid: c78e32015028c97408ad596d94115340, type: 3}
+  holdToSkipDuration: 1
 --- !u!4 &1640353151
 Transform:
   m_ObjectHideFlags: 0

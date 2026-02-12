@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class OpeningCutsceneTextSkip : MonoBehaviour
@@ -16,6 +17,13 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
     private InputAction skipAction;
     private bool createdLocalAdvance = false;
     private bool createdLocalSkip = false;
+
+    [Header("Mobile Touch Settings")]
+    [Tooltip("How long (in seconds) the player must hold before the cutscene is skipped.")]
+    public float holdToSkipDuration = 1.0f;
+
+    private float touchStartTime = -1f;
+    private bool touchHeldSkipped = false;
 
     private OpeningCutscene openingCutscene;
     private int currentLineIndex = 0;
@@ -115,6 +123,9 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
         if (!conversationActive || openingCutscene == null)
             return;
 
+        // --- Mobile touch input ---
+        HandleMobileTouch();
+
         // Legacy fallback if new Input System actions are not assigned/enabled
         // Use Mouse.current for left/right click fallback
         if ((skipAction == null || !skipAction.enabled) && Mouse.current != null)
@@ -131,6 +142,44 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
             {
                 HandleAdvance();
             }
+        }
+    }
+
+    private void HandleMobileTouch()
+    {
+        var touchscreen = Touchscreen.current;
+        if (touchscreen == null) return;
+
+        var primaryTouch = touchscreen.primaryTouch;
+
+        // Touch began — record the start time
+        if (primaryTouch.press.wasPressedThisFrame)
+        {
+            touchStartTime = Time.unscaledTime;
+            touchHeldSkipped = false;
+        }
+
+        // Touch is being held — check if the hold duration has been reached
+        if (primaryTouch.press.isPressed && !touchHeldSkipped && touchStartTime > 0f)
+        {
+            if (Time.unscaledTime - touchStartTime >= holdToSkipDuration)
+            {
+                touchHeldSkipped = true;
+                SkipCutscene();
+            }
+        }
+
+        // Touch released — if it was a short tap (not a hold-skip), advance the dialogue
+        if (primaryTouch.press.wasReleasedThisFrame)
+        {
+            if (!touchHeldSkipped && touchStartTime > 0f)
+            {
+                HandleAdvance();
+            }
+
+            // Reset touch state
+            touchStartTime = -1f;
+            touchHeldSkipped = false;
         }
     }
 
