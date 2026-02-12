@@ -27,7 +27,7 @@ public class CharacterSpawner : MonoBehaviour
     public GameObject cubitEnergyBar;
 
 
-    void Start()
+    void Awake()
     {
         ApplySelection();
     }

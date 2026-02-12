@@ -224,6 +224,9 @@ public class PlayerFreeMove : MonoBehaviour
     // Added for UI virtual controls for mobile
     public void MoveInput(Vector2 direction)
     {
+        // Clamp to unit magnitude so external sources (e.g., virtual joystick) can never exceed max speed
+        direction = Vector2.ClampMagnitude(direction, 1f);
+
         // update movement input from virtual joystick/buttons
         moveInput = direction;
 

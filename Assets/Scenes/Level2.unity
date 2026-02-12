@@ -299,6 +299,9 @@ MonoBehaviour:
   typingSpeed: 0.03
   continueText: {fileID: 1421553828}
   continueFadeSpeed: 2
+  pcPrompt: Left click to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
 --- !u!225 &136790540
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -8390,19 +8393,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buttonStateOutputEvent:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1976407159}
-        m_TargetAssemblyTypeName: StarterAssets.UICanvasControllerInput, Assembly-CSharp
-        m_MethodName: VirtualJumpInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   buttonClickOutputEvent:
     m_PersistentCalls:
       m_Calls:

@@ -2,6 +2,7 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class DialogueUI : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class DialogueUI : MonoBehaviour
     public TextMeshProUGUI continueText;
     public float continueFadeSpeed = 2f;
     private bool showContinuePrompt = false;   // 👈 NEW FLAG
+
+    [Header("Continue Prompt Messages")]
+    public string pcPrompt = "Left click to continue. (Right click to skip.)";
+    public string gamepadPrompt = "Press A to continue. (Press Y to skip.)";
+    public string mobilePrompt = "Tap to continue. (Press and hold to skip.)";
 
 
     private bool dialogueActive = false;
@@ -76,6 +82,38 @@ public class DialogueUI : MonoBehaviour
             StartCoroutine(FadeCanvasGroup(dialogueCanvasGroup, 0f, 1f, 0.3f));
     }
 
+    void Update()
+    {
+        // Update continue prompt text based on active input device
+        if (showContinuePrompt && continueText != null && continueText.alpha > 0)
+        {
+            continueText.text = GetPlatformPrompt();
+        }
+    }
+
+    /// <summary>
+    /// Returns the appropriate continue prompt string based on the
+    /// currently active input device / platform.
+    /// </summary>
+    private string GetPlatformPrompt()
+    {
+        // Mobile check first — if a touchscreen is the most recent device, show mobile prompt
+        if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)
+            return mobilePrompt;
+
+        // On mobile platforms, default to the mobile prompt even without active touch
+#if UNITY_IOS || UNITY_ANDROID
+        return mobilePrompt;
+#else
+        // Gamepad check — if a gamepad is connected and was used most recently
+        if (Gamepad.current != null && Gamepad.current.wasUpdatedThisFrame)
+            return gamepadPrompt;
+
+        // Default to PC prompt
+        return pcPrompt;
+#endif
+    }
+
     IEnumerator TypeText(string text)
     {
         isTyping = true;
@@ -96,7 +134,11 @@ public class DialogueUI : MonoBehaviour
 
         // Only fade in if this dialogue is allowed to show the prompt
         if (showContinuePrompt && continueText != null)
+        {
+            // Set the correct platform text before fading in
+            continueText.text = GetPlatformPrompt();
             StartCoroutine(FadeInContinueText());
+        }
     }
 
 
@@ -119,7 +161,10 @@ public class DialogueUI : MonoBehaviour
 
         // Only show immediately if allowed
         if (showContinuePrompt && continueText != null)
+        {
+            continueText.text = GetPlatformPrompt();
             continueText.alpha = 1;
+        }
     }
 
 

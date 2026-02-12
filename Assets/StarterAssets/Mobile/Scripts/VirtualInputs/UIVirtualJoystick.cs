@@ -47,7 +47,7 @@ public class UIVirtualJoystick : MonoBehaviour, IPointerDownHandler, IDragHandle
         
         Vector2 clampedPosition = ClampValuesToMagnitude(position);
 
-        Vector2 outputPosition = ApplyInversionFilter(position);
+        Vector2 outputPosition = ApplyInversionFilter(clampedPosition);
 
         OutputPointerEventValue(outputPosition * magnitudeMultiplier);
 

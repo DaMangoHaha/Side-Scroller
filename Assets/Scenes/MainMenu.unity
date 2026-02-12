@@ -5543,52 +5543,6 @@ RectTransform:
   m_AnchoredPosition: {x: -736, y: 356}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &313419296
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 313419298}
-  - component: {fileID: 313419297}
-  m_Layer: 0
-  m_Name: CupidCoinsManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &313419297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 313419296}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c001a79fb10e650478d2b94bc8842b0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CupidCoinsManager
-  totalCupidCoins: 0
-  cupidCoinsText: {fileID: 1020554555}
---- !u!4 &313419298
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 313419296}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 468.0508, y: 481.46878, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &314097807
 GameObject:
   m_ObjectHideFlags: 0
@@ -24479,6 +24433,7 @@ GameObject:
   - component: {fileID: 1670824902}
   - component: {fileID: 1670824901}
   - component: {fileID: 1670824900}
+  - component: {fileID: 1670824903}
   m_Layer: 5
   m_Name: CoinFragButton
   m_TagString: Untagged
@@ -24588,6 +24543,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1670824897}
   m_CullTransparentMesh: 1
+--- !u!114 &1670824903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670824897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b70da4327b24e344c9fc2afe2f96dd9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AugmentShopButton
+  augmentID: CoinFragment
+  cost: 300
+  button: {fileID: 1670824900}
+  buttonText: {fileID: 193009622}
+  normalSprite: {fileID: 0}
+  equippedSprite: {fileID: 0}
+  buttonImage: {fileID: 0}
 --- !u!1 &1672508582
 GameObject:
   m_ObjectHideFlags: 0
@@ -33214,7 +33188,6 @@ SceneRoots:
   - {fileID: 850561249}
   - {fileID: 941881163}
   - {fileID: 522387961}
-  - {fileID: 313419298}
   - {fileID: 323651582}
   - {fileID: 1400176731}
   - {fileID: 1303945262}
