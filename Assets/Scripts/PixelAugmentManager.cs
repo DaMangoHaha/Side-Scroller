@@ -8,7 +8,7 @@ public class PixelAugmentManager : MonoBehaviour
 {
     public static PixelAugmentManager Instance;
 
-    void Awake()
+    void Start()
     {
         if (Instance != null && Instance != this)
         {
@@ -96,7 +96,7 @@ public class PixelAugmentManager : MonoBehaviour
     /// </summary>
     public bool IsCoinFragmentActive()
     {
-        return GetEquippedAugment() == "CoinFragment";
+        return GetEquippedAugment() == "Coin Fragment";
     }
 
     /// <summary>
@@ -105,7 +105,7 @@ public class PixelAugmentManager : MonoBehaviour
     /// </summary>
     public bool IsStabilityPatchActive()
     {
-        return GetEquippedAugment() == "StabilityPatch";
+        return GetEquippedAugment() == "Stability Patch";
     }
 
     /// <summary>
@@ -114,7 +114,7 @@ public class PixelAugmentManager : MonoBehaviour
     /// </summary>
     public bool IsEmergencyUSBActive()
     {
-        return GetEquippedAugment() == "EmergencyUSB";
+        return GetEquippedAugment() == "Emergency USB";
     }
 
     /// <summary>

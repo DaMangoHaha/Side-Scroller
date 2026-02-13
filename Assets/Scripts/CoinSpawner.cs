@@ -51,7 +51,7 @@ public class CoinSpawner : MonoBehaviour
 
     void SpawnStair()
     {
-        int steps = Random.Range(4, 7); // 4–6 coins
+        int steps = Random.Range(3, 5); // 3–4 coins
         float stepHeight = 0.5f;
         float stepSpacing = .9f;
 

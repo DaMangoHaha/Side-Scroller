@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ using UnityEngine.UI;
 public class AugmentShopButton : MonoBehaviour
 {
     [Header("Augment Identity")]
-    [Tooltip("Must match the key in SaveData.ownedAugments (e.g. CoinFragment, StabilityPatch, EmergencyUSB)")]
+    [Tooltip("Must match the key in SaveData.ownedAugments (e.g. Coin Fragment, Stability Patch, Emergency USB)")]
     public string augmentID;
     public int cost;
 
@@ -21,8 +22,9 @@ public class AugmentShopButton : MonoBehaviour
     public Image buttonImage;
 
     private bool needsRefresh = false;
+    private Coroutine feedbackCoroutine;
 
-    void Start()
+    void Awake()
     {
         RefreshUI();
 
@@ -32,7 +34,7 @@ public class AugmentShopButton : MonoBehaviour
 
     void Update()
     {
-        // Deferred refresh: if Start ran before PixelAugmentManager was ready,
+        // Deferred refresh: if Awake ran before PixelAugmentManager was ready,
         // keep trying until it becomes available.
         if (needsRefresh && PixelAugmentManager.Instance != null)
         {
@@ -50,7 +52,17 @@ public class AugmentShopButton : MonoBehaviour
 
         if (!PixelAugmentManager.Instance.IsAugmentOwned(augmentID))
         {
-            // Purchase
+            // Attempt purchase — check coins first
+            int coins = (CoinsManager.Instance != null) ? CoinsManager.Instance.GetCoins() : 0;
+            if (coins < cost)
+            {
+                // Not enough coins — show brief feedback without disabling the button
+                if (feedbackCoroutine != null)
+                    StopCoroutine(feedbackCoroutine);
+                feedbackCoroutine = StartCoroutine(ShowInsufficientCoinsFeedback());
+                return;
+            }
+
             PixelAugmentManager.Instance.PurchaseAugment(augmentID, cost);
         }
         else
@@ -75,6 +87,18 @@ public class AugmentShopButton : MonoBehaviour
             AugmentShopManager.Instance.RefreshAllButtons();
     }
 
+    private IEnumerator ShowInsufficientCoinsFeedback()
+    {
+        if (buttonText != null)
+            buttonText.text = "Not enough coins!";
+
+        yield return new WaitForSeconds(1.5f);
+
+        // Restore normal label
+        RefreshUI();
+        feedbackCoroutine = null;
+    }
+
     public void RefreshUI()
     {
         if (button == null || buttonText == null || buttonImage == null) return;
@@ -90,7 +114,6 @@ public class AugmentShopButton : MonoBehaviour
 
         string equipped = PixelAugmentManager.Instance.GetEquippedAugment();
         bool owned = PixelAugmentManager.Instance.IsAugmentOwned(augmentID);
-        int coins = (CoinsManager.Instance != null) ? CoinsManager.Instance.GetCoins() : 0;
 
         // Equipped state
         if (equipped == augmentID)
@@ -101,12 +124,12 @@ public class AugmentShopButton : MonoBehaviour
             return;
         }
 
-        // Not owned — show purchase
+        // Not owned — show purchase (always interactable)
         if (!owned)
         {
             buttonText.text = "Purchase";
             buttonImage.sprite = normalSprite;
-            button.interactable = coins >= cost;
+            button.interactable = true;
             return;
         }
 

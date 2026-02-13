@@ -463,7 +463,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Error 404: Victory not found...yet'
+  m_text: 'Error 404: Energy values not found...'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -949,7 +949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 1927583080}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1339922536
@@ -1322,9 +1322,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 5297830662381079336, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
-    m_SelectedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 4867939462919490772, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
+    m_PressedSprite: {fileID: 2313319023010359933, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
+    m_SelectedSprite: {fileID: 4867939462919490772, guid: 3316aabd5dd7e2743ad1214e35350560, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
