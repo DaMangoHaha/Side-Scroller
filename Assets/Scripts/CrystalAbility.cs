@@ -66,7 +66,7 @@ public class CrystalAbility : MonoBehaviour
         {
             activateAbilityAction = new InputAction("ActivateGlaciate", InputActionType.Button);    
             activateAbilityAction.AddBinding("<Keyboard>/leftShift");
-            activateAbilityAction.AddBinding("<Gamepad>/leftShoulder");
+            activateAbilityAction.AddBinding("<Gamepad>/buttonEast");
             createdLocalAction = true;
         }
 

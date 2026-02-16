@@ -11,8 +11,9 @@ public class SnowflakeSpawner : MonoBehaviour
 
     void Update()
     {
-        // Only spawn if Crystal is the selected character
-        if (PlayerPrefs.GetString("EquippedCharacter") != "Crystal")
+        // Only spawn if Crystal is the selected character (from save system)
+        SaveData data = SaveSystem.LoadData();
+        if (data.equippedCharacter != "Crystal")
             return;
 
         timer += Time.deltaTime;

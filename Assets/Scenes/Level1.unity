@@ -4772,6 +4772,18 @@ PrefabInstance:
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 746957783}
+    - target: {fileID: 1902686624627076636, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 7326288200972241621}
+    - target: {fileID: 3177173832279804204, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+      propertyPath: energyFill
+      value: 
+      objectReference: {fileID: 1061283121}
+    - target: {fileID: 3177173832279804204, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+      propertyPath: energySlider
+      value: 
+      objectReference: {fileID: 1643640898}
     - target: {fileID: 3761418259795023778, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.5214915

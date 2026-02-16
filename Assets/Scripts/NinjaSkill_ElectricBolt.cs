@@ -61,7 +61,7 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
         {
             activateSkillAction = new InputAction("ActivateElectricBolt", InputActionType.Button);
             activateSkillAction.AddBinding("<Keyboard>/leftShift");
-            activateSkillAction.AddBinding("<Gamepad>/leftShoulder");
+            activateSkillAction.AddBinding("<Gamepad>/buttonEast");
             createdLocalAction = true;
         }
 

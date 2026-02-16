@@ -67,8 +67,7 @@ public class ThiefSkill : MonoBehaviour
         {
             activateSkillAction = new InputAction("ActivateThiefSkill", InputActionType.Button);
             activateSkillAction.AddBinding("<Keyboard>/Shift");
-            activateSkillAction.AddBinding("<Gamepad>/leftBumper");
-            activateSkillAction.AddBinding("<Gamepad>/rightBumper");
+            activateSkillAction.AddBinding("<Gamepad>/buttonEast");
             createdLocalAction = true;
         }
 

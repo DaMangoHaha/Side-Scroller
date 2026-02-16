@@ -56,7 +56,7 @@ public class PlayerSlide : MonoBehaviour
             slideAction = new InputAction("Slide", InputActionType.Button);
             slideAction.AddBinding("<Keyboard>/leftCtrl");
             slideAction.AddBinding("<Keyboard>/s");
-            slideAction.AddBinding("<Gamepad>/buttonSouth");
+            slideAction.AddBinding("<Gamepad>/buttonWest");
             createdLocalAction = true;
         }
 
