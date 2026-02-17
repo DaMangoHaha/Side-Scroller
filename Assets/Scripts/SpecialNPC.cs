@@ -19,10 +19,20 @@ public class SpecialNPC : MonoBehaviour
     public bool triggersEvent = true;
     public string eventMessage = "QuestUnlocked";
 
+    [Header("Continue Prompt Messages")]
+    public string pcPrompt = "Press Space to continue.";
+    public string gamepadPrompt = "Press A to continue.";
+    public string mobilePrompt = "Tap to continue.";
+
     [Header("Input (New Input System)")]
     public InputActionReference advanceActionRef; // optional: assign "AdvanceDialogue" action
     private InputAction advanceAction;
     private bool createdLocalAction = false;
+
+    // Saved original prompts so we can restore them after the conversation
+    private string originalPcPrompt;
+    private string originalGamepadPrompt;
+    private string originalMobilePrompt;
 
     void Start()
     {
@@ -71,7 +81,16 @@ public class SpecialNPC : MonoBehaviour
         if (dialogueUI == null || dialogueLines.Length == 0)
             return;
 
-        dialogueUI.SetContinuePromptVisible(true);   // enable "Press Space"
+        // Override DialogueUI prompts with this NPC's platform-specific messages
+        originalPcPrompt = dialogueUI.pcPrompt;
+        originalGamepadPrompt = dialogueUI.gamepadPrompt;
+        originalMobilePrompt = dialogueUI.mobilePrompt;
+
+        dialogueUI.pcPrompt = pcPrompt;
+        dialogueUI.gamepadPrompt = gamepadPrompt;
+        dialogueUI.mobilePrompt = mobilePrompt;
+
+        dialogueUI.SetContinuePromptVisible(true);   // enable "Press Space" / platform prompt
         currentLineIndex = 0;
         conversationActive = true;
         Active = this; // mark this instance as the active conversation
@@ -151,6 +170,11 @@ public class SpecialNPC : MonoBehaviour
         }
         if (dialogueUI != null)
         {
+            // Restore original DialogueUI prompts
+            dialogueUI.pcPrompt = originalPcPrompt;
+            dialogueUI.gamepadPrompt = originalGamepadPrompt;
+            dialogueUI.mobilePrompt = originalMobilePrompt;
+
             dialogueUI.HideDialogue();
             dialogueUI.SetContinuePromptVisible(false);   // disable again
         }

@@ -95,7 +95,7 @@ public class DialogueUI : MonoBehaviour
     /// Returns the appropriate continue prompt string based on the
     /// currently active input device / platform.
     /// </summary>
-    private string GetPlatformPrompt()
+    public string GetPlatformPrompt()
     {
         // Mobile check first — if a touchscreen is the most recent device, show mobile prompt
         if (Touchscreen.current != null && Touchscreen.current.primaryTouch.press.isPressed)

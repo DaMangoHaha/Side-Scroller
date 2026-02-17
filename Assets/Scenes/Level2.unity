@@ -299,7 +299,7 @@ MonoBehaviour:
   typingSpeed: 0.03
   continueText: {fileID: 1421553828}
   continueFadeSpeed: 2
-  pcPrompt: Left click to continue.
+  pcPrompt: Press Space to continue.
   gamepadPrompt: Press A to continue.
   mobilePrompt: Tap to continue.
 --- !u!225 &136790540
@@ -4142,6 +4142,9 @@ MonoBehaviour:
   portrait: {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
   triggersEvent: 0
   eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
   advanceActionRef: {fileID: 0}
 --- !u!61 &512568295
 BoxCollider2D:
@@ -4344,6 +4347,9 @@ MonoBehaviour:
   portrait: {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
   triggersEvent: 0
   eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
   advanceActionRef: {fileID: 0}
 --- !u!61 &578422694
 BoxCollider2D:
@@ -4646,6 +4652,9 @@ MonoBehaviour:
   portrait: {fileID: 1233648014105307703, guid: ee8c93e7b800143408ac9fb96af8d38a, type: 3}
   triggersEvent: 0
   eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
   advanceActionRef: {fileID: 0}
 --- !u!4 &725184291 stripped
 Transform:
@@ -5050,6 +5059,9 @@ MonoBehaviour:
   portrait: {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
   triggersEvent: 0
   eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
   advanceActionRef: {fileID: 0}
 --- !u!61 &932287290
 BoxCollider2D:
@@ -5969,6 +5981,9 @@ MonoBehaviour:
   portrait: {fileID: -4969650525585489641, guid: e2bf9d9978a6eae4aacac45e1fc6f208, type: 3}
   triggersEvent: 0
   eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
   advanceActionRef: {fileID: 0}
 --- !u!1 &1178269285
 GameObject:
@@ -6007,6 +6022,9 @@ MonoBehaviour:
   portrait: {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
   triggersEvent: 0
   eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
   advanceActionRef: {fileID: 0}
 --- !u!61 &1178269287
 BoxCollider2D:
@@ -6403,6 +6421,9 @@ MonoBehaviour:
   portrait: {fileID: 7189019146625116879, guid: c3769a55016802e4b882c7ac74a2a45c, type: 3}
   triggersEvent: 0
   eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
   advanceActionRef: {fileID: 0}
 --- !u!1 &1421553827
 GameObject:
@@ -7067,6 +7088,9 @@ MonoBehaviour:
   portrait: {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
   triggersEvent: 0
   eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
   advanceActionRef: {fileID: 0}
 --- !u!61 &1939559805
 BoxCollider2D:
@@ -7194,6 +7218,9 @@ MonoBehaviour:
   portrait: {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
   triggersEvent: 0
   eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
   advanceActionRef: {fileID: 0}
 --- !u!61 &1951244251
 BoxCollider2D:
@@ -7552,6 +7579,9 @@ MonoBehaviour:
   portrait: {fileID: -6269700758299973241, guid: a273f5b1d22105f4d853bbce2e8501ec, type: 3}
   triggersEvent: 0
   eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
   advanceActionRef: {fileID: 0}
 --- !u!4 &1969304488 stripped
 Transform:
@@ -7620,6 +7650,9 @@ MonoBehaviour:
   portrait: {fileID: 1136184288765050124, guid: aa8710ef7a9076849874a1f9a7b1f50d, type: 3}
   triggersEvent: 1
   eventMessage: Slime Extermination
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
   advanceActionRef: {fileID: 0}
 --- !u!95 &2049400546
 Animator:
@@ -7833,6 +7866,9 @@ MonoBehaviour:
   portrait: {fileID: -6447722072507503168, guid: 10f3cacccb0c4c547be76836eba20664, type: 3}
   triggersEvent: 0
   eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
   advanceActionRef: {fileID: 0}
 --- !u!61 &2137118314
 BoxCollider2D:
