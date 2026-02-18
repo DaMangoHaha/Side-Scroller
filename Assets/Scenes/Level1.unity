@@ -4828,6 +4828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cubit
       objectReference: {fileID: 0}
+    - target: {fileID: 7780450041561907053, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 1135985181}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4854,6 +4858,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95bbfc44652157c4fad2e897e07802a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1135985181 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6072321803392445595, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+  m_PrefabInstance: {fileID: 1135985177}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1135985183 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7780450041561907053, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
@@ -4909,8 +4918,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476908b767e22694f8895649ae887680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobileTapToJump
-  doubleJump: {fileID: 0}
-  swipeThreshold: 30
 --- !u!1 &1180966583
 GameObject:
   m_ObjectHideFlags: 0
