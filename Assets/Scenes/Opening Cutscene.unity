@@ -649,6 +649,9 @@ MonoBehaviour:
   typingSpeed: 0.03
   continueText: {fileID: 898942025}
   continueFadeSpeed: 2
+  pcPrompt: Left click to continue. (Right click to skip.)
+  gamepadPrompt: Press A to continue. (Press Y to skip.)
+  mobilePrompt: Tap to continue. (Press and hold to skip.)
   showOnStart: 1
   startingText: Welcome to the world of Spritz.
   startingPortrait: {fileID: 0}
@@ -780,7 +783,7 @@ MonoBehaviour:
   dialogueLines:
   - Welcome to the world of Spritz.
   - Deeper into this planet, there reside five major cities.
-  - Pixelville. Ninja Valley. Frostpeak. Greenwood. And Wizardspeak.
+  - Pixelville. Greenwood. Ninja Valley. Frosty Outpost. And Wizardspeak.
   - These five places, each home to communities of Sprites, once lived in harmony.
   - "But decades ago\u2026 war broke out."
   - "A war that shattered alliances\u2026 and split the continent apart."
