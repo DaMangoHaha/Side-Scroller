@@ -10,6 +10,10 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
     public Sprite portrait;
     public bool autoStart = false;
 
+    [Header("Slideshow Images")]
+    [Tooltip("One sprite per dialogue line. If an entry is left empty, the previous image stays. Array length should match dialogueLines.")]
+    public Sprite[] slideImages;
+
     [Header("Input (New Input System)")]
     public InputActionReference advanceActionRef; // left click / gamepad confirm
     public InputActionReference skipActionRef;    // right click / gamepad skip
@@ -116,6 +120,9 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
         currentLineIndex = 0;
         conversationActive = true;
         openingCutscene.ShowDialogue(dialogueLines[currentLineIndex], portrait);
+
+        // Show the first slide image (if provided)
+        ShowSlideForCurrentLine();
     }
 
     void Update()
@@ -205,6 +212,7 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
             if (currentLineIndex < dialogueLines.Length)
             {
                 openingCutscene.ShowDialogue(dialogueLines[currentLineIndex], portrait);
+                ShowSlideForCurrentLine();
             }
             else
             {
@@ -223,6 +231,7 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
         if (openingCutscene != null)
         {
             openingCutscene.HideDialogue();
+            openingCutscene.HideSlideImage();
             openingCutscene.SetContinuePromptVisible(false);
             // re-enable OpeningCutscene input now that this controller is done
             openingCutscene.SetAdvanceInputEnabled(true);
@@ -238,9 +247,29 @@ public class OpeningCutsceneTextSkip : MonoBehaviour
         {
             openingCutscene.FinishTyping();
             openingCutscene.HideDialogue();
+            openingCutscene.HideSlideImage();
             openingCutscene.SetContinuePromptVisible(false);
             // re-enable OpeningCutscene input
             openingCutscene.SetAdvanceInputEnabled(true);
         }
+    }
+
+    /// <summary>
+    /// Shows the slide image that corresponds to the current dialogue line.
+    /// If the slideImages array is shorter than dialogueLines, the last valid
+    /// slide stays visible. If no slides are assigned at all, nothing happens.
+    /// </summary>
+    private void ShowSlideForCurrentLine()
+    {
+        if (openingCutscene == null || slideImages == null || slideImages.Length == 0)
+            return;
+
+        // Clamp index so the last image persists for any extra dialogue lines
+        int index = Mathf.Min(currentLineIndex, slideImages.Length - 1);
+
+        // Only update if there is a non-null sprite at this index;
+        // otherwise keep the previous slide visible
+        if (slideImages[index] != null)
+            openingCutscene.ShowSlideImage(slideImages[index]);
     }
 }

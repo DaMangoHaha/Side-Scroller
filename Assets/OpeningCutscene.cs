@@ -13,6 +13,10 @@ public class OpeningCutscene : MonoBehaviour
     public CanvasGroup dialogueCanvasGroup;
     public Image portraitImage;
 
+    [Header("Slideshow Image")]
+    [Tooltip("Full-screen or panel Image used to display slideshow frames during the cutscene.")]
+    public Image slideImage;
+
     [Header("Typing Effect")]
     public float typingSpeed = 0.03f;
 
@@ -110,6 +114,9 @@ public class OpeningCutscene : MonoBehaviour
 
         if (portraitImage != null)
             portraitImage.enabled = false;
+
+        if (slideImage != null)
+            slideImage.enabled = false;
 
         if (dialogueCanvasGroup != null)
             dialogueCanvasGroup.alpha = 0;
@@ -299,6 +306,9 @@ public class OpeningCutscene : MonoBehaviour
         if (portraitImage != null)
             portraitImage.enabled = false;
 
+        // Also hide slideshow image when dialogue is hidden
+        HideSlideImage();
+
         if (continueText != null)
             continueText.alpha = 0; // Hide prompt
     }
@@ -326,5 +336,32 @@ public class OpeningCutscene : MonoBehaviour
         }
 
         cg.alpha = end;
+    }
+
+    /// <summary>
+    /// Displays a sprite in the slideshow Image panel. Pass null to hide.
+    /// </summary>
+    public void ShowSlideImage(Sprite slide)
+    {
+        if (slideImage == null) return;
+
+        if (slide != null)
+        {
+            slideImage.sprite = slide;
+            slideImage.enabled = true;
+        }
+        else
+        {
+            slideImage.enabled = false;
+        }
+    }
+
+    /// <summary>
+    /// Hides the slideshow Image panel.
+    /// </summary>
+    public void HideSlideImage()
+    {
+        if (slideImage != null)
+            slideImage.enabled = false;
     }
 }
