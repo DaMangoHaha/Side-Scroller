@@ -239,15 +239,15 @@ public class PauseManager : MonoBehaviour
     {
         Canvas canvas = GetOrCreateCanvas();
 
-        // Small pause icon in the top-right corner
+        // Small pause icon in the bottom-right corner
         autoPauseButton = new GameObject("MobilePauseButton");
         autoPauseButton.transform.SetParent(canvas.transform, false);
 
         RectTransform btnRT = autoPauseButton.AddComponent<RectTransform>();
-        btnRT.anchorMin = new Vector2(1f, 1f); // top-right
-        btnRT.anchorMax = new Vector2(1f, 1f);
-        btnRT.pivot = new Vector2(1f, 1f);
-        btnRT.anchoredPosition = new Vector2(-20f, -20f);
+        btnRT.anchorMin = new Vector2(1f, 0f); // bottom-right
+        btnRT.anchorMax = new Vector2(1f, 0f);
+        btnRT.pivot = new Vector2(1f, 0f);
+        btnRT.anchoredPosition = new Vector2(-20f, 20f);
         btnRT.sizeDelta = new Vector2(80f, 80f);
 
         Image btnImage = autoPauseButton.AddComponent<Image>();
