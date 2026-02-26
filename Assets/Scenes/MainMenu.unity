@@ -5028,7 +5028,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.8.19
+  m_text: Version 1.9.20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -6159,7 +6159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.8.19
+  m_text: Version 1.9.20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -6941,11 +6941,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 473d7724de76a6948837ed27337556ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level1Button: {fileID: 2102629020}
+  level2Button: {fileID: 2037931649}
+  level3Button: {fileID: 2019664058}
+  level4Button: {fileID: 2113258840}
   lockedLevelPanel: {fileID: 0}
-  lockedMessage: 'This level is locked!
+  lockedMessage: 'This level isn''t unlocked yet!
 
-    You must survive Level 1 for at least
-    1 minute to unlock the other levels.'
+    Play through "The Beginning"
+    for at least 1 minute to unlock the other levels.'
 --- !u!4 &640637411
 Transform:
   m_ObjectHideFlags: 0
@@ -9853,7 +9857,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.8.19
+  m_text: Version 1.9.20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -10283,12 +10287,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Added a (functioning) pause menu to levels
+  m_text: '- Added a feature that prevents level skipping for first time players
 
-    - Removed the "Main
-    Menu" button in levels
+    -
+    Added the pause menu to level 2
 
-    (1.8.19)'
+    (1.9.20)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -12365,50 +12369,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113967854}
   m_CullTransparentMesh: 1
---- !u!1 &1155215046
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1155215048}
-  - component: {fileID: 1155215047}
-  m_Layer: 0
-  m_Name: PixelAugmentManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1155215047
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155215046}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 726e61c89ea0cd543a88b2f4c4e292dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PixelAugmentManager
---- !u!4 &1155215048
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155215046}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 958.16376, y: 905.4919, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1169998391
 GameObject:
   m_ObjectHideFlags: 0
@@ -13008,7 +12968,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.8.19
+  m_text: Version 1.9.20
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -15347,7 +15307,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1400176729}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0cc4498b0059f17429499dbb54625058, type: 3}
   m_Name: 
@@ -22065,52 +22025,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1820056774}
   m_CullTransparentMesh: 1
---- !u!1 &1823140835
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1823140837}
-  - component: {fileID: 1823140836}
-  m_Layer: 0
-  m_Name: PixelAugmentShopManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1823140836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823140835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22239f2dcadc81d45b2d83b2f6633d99, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::AugmentShopManager
-  augmentButtons:
-  - {fileID: 0}
---- !u!4 &1823140837
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1823140835}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 899.12366, y: 522.6068, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1824820605
 GameObject:
   m_ObjectHideFlags: 0
@@ -24178,7 +24092,6 @@ GameObject:
   - component: {fileID: 2002830700}
   - component: {fileID: 2002830699}
   - component: {fileID: 2002830698}
-  - component: {fileID: 2002830697}
   m_Layer: 5
   m_Name: Level Select Canvas
   m_TagString: Untagged
@@ -24186,26 +24099,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &2002830697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002830696}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c292e158df412b64091b130c5e50d934, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  level1Button: {fileID: 2102629020}
-  level2Button: {fileID: 2037931649}
-  level3Button: {fileID: 2019664058}
-  lockedLevelPanel: {fileID: 0}
-  lockedMessage: 'This level is locked!
-
-    You must survive Level 1 for at least
-    1 minute to unlock the other levels.'
 --- !u!114 &2002830698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26854,5 +26747,3 @@ SceneRoots:
   - {fileID: 1303945262}
   - {fileID: 640637411}
   - {fileID: 1984190278}
-  - {fileID: 1155215048}
-  - {fileID: 1823140837}

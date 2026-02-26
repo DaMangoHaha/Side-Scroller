@@ -5,6 +5,13 @@ using TMPro;
 
 public class LevelSelect : MonoBehaviour
 {
+    [Header("Level Buttons")]
+    [Tooltip("Optional: assign level buttons to dim their appearance when locked.")]
+    public Button level1Button;
+    public Button level2Button;
+    public Button level3Button;
+    public Button level4Button;
+
     [Header("Locked Level Panel")]
     [Tooltip("Optional: assign an existing panel in the scene. If left empty, one will be created at runtime.")]
     public GameObject lockedLevelPanel;
@@ -14,6 +21,15 @@ public class LevelSelect : MonoBehaviour
     public string lockedMessage = "This level is locked!\nYou must survive Level 1 for at least 1 minute to unlock the other levels.";
 
     private GameObject runtimePanel;
+
+    void Start()
+    {
+        // Hide the assigned panel at start (if any)
+        if (lockedLevelPanel != null)
+            lockedLevelPanel.SetActive(false);
+
+        UpdateButtonVisuals();
+    }
 
     public void PlayLevel1()
     {
@@ -53,6 +69,41 @@ public class LevelSelect : MonoBehaviour
             case 3: return LevelUnlockManager.Instance.level3Unlocked;
             case 4: return LevelUnlockManager.Instance.level4Unlocked;
             default: return false;
+        }
+    }
+
+    // -------------------------------------------------------
+    // Button Visuals
+    // -------------------------------------------------------
+
+    /// <summary>
+    /// Dims locked buttons visually but keeps them interactable so the player can click them
+    /// and see the locked message.
+    /// </summary>
+    private void UpdateButtonVisuals()
+    {
+        SetButtonLockedVisual(level1Button, IsLevelUnlocked(1));
+        SetButtonLockedVisual(level2Button, IsLevelUnlocked(2));
+        SetButtonLockedVisual(level3Button, IsLevelUnlocked(3));
+        SetButtonLockedVisual(level4Button, IsLevelUnlocked(4));
+    }
+
+    private void SetButtonLockedVisual(Button button, bool unlocked)
+    {
+        if (button == null) return;
+
+        // Keep the button interactable so the player can click it and see the message
+        button.interactable = true;
+
+        // Dim the button colors when locked to give a visual hint
+        if (!unlocked)
+        {
+            ColorBlock colors = button.colors;
+            colors.normalColor = new Color(0.5f, 0.5f, 0.5f, 1f);
+            colors.highlightedColor = new Color(0.6f, 0.6f, 0.6f, 1f);
+            colors.pressedColor = new Color(0.4f, 0.4f, 0.4f, 1f);
+            colors.selectedColor = new Color(0.5f, 0.5f, 0.5f, 1f);
+            button.colors = colors;
         }
     }
 
