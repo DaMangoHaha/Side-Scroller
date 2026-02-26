@@ -52,9 +52,6 @@ public class SaveManager : MonoBehaviour
         // Refresh shop UIs so purchased items no longer appear as owned
         CharacterShopManager.Instance.RefreshAllButtons();
 
-        if (AugmentShopManager.Instance != null)
-            AugmentShopManager.Instance.RefreshAllButtons();
-
         Debug.Log("ALL DATA CLEARED");
     }
 }

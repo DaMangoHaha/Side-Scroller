@@ -77,10 +77,6 @@ public class PlayerEnergy : MonoBehaviour
             return;
         }
 
-        // Apply Emergency USB augment: reduce incoming damage by 15%
-        if (PixelAugmentManager.Instance != null)
-            amount = PixelAugmentManager.Instance.ApplyEmergencyUSBReduction(amount);
-
         // Check Cubit's Protection Protocol
         if (cubitPassive != null && cubitPassive.IsProtectionActive())
         {
@@ -125,10 +121,7 @@ public class PlayerEnergy : MonoBehaviour
         isInvulnerable = true;
         Debug.Log("Player is now invulnerable!");
 
-        // Apply Stability Patch augment: increase invulnerability duration by 20%
         float actualDuration = invulnerabilityDuration;
-        if (PixelAugmentManager.Instance != null)
-            actualDuration = PixelAugmentManager.Instance.ApplyStabilityPatchBonus(invulnerabilityDuration);
 
         float elapsed = 0f;
         Color tempColor = spriteRenderer.color;

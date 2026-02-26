@@ -36,16 +36,14 @@ public class SaveData
     public float bestTimeLevel3 = 0f;
     public float bestTimeLevel4 = 0f;
 
-    // Pixel Augments
-    public string equippedAugment = "";  // empty = none equipped
+    // Whether the player has survived 1 minute in Level 1 to unlock all levels
+    public bool levelsUnlocked = false;
 
     // --- Serializable ownership lists (replaces Dictionary<string,bool>) ---
     public List<StringBoolPair> ownedCharactersList = new List<StringBoolPair>();
-    public List<StringBoolPair> ownedAugmentsList = new List<StringBoolPair>();
 
     // --- Runtime dictionaries (not serialized, rebuilt from lists) ---
     [NonSerialized] public Dictionary<string, bool> ownedCharacters;
-    [NonSerialized] public Dictionary<string, bool> ownedAugments;
 
     public SaveData()
     {
@@ -58,14 +56,6 @@ public class SaveData
             new StringBoolPair("WizKid", false),
             new StringBoolPair("Crystal", false),
             new StringBoolPair("Cubit", false)
-        };
-
-        // Set default augment ownership
-        ownedAugmentsList = new List<StringBoolPair>
-        {
-            new StringBoolPair("CoinFragment", false),
-            new StringBoolPair("StabilityPatch", false),
-            new StringBoolPair("EmergencyUSB", false)
         };
 
         RebuildDictionaries();
@@ -84,23 +74,9 @@ public class SaveData
                 ownedCharacters[pair.key] = pair.value;
         }
 
-        ownedAugments = new Dictionary<string, bool>();
-        if (ownedAugmentsList != null)
-        {
-            foreach (var pair in ownedAugmentsList)
-                ownedAugments[pair.key] = pair.value;
-        }
-
         // Ensure defaults exist even if the save file is from an older version
         if (!ownedCharacters.ContainsKey("Bits"))
             ownedCharacters["Bits"] = true;
-
-        if (!ownedAugments.ContainsKey("CoinFragment"))
-            ownedAugments["CoinFragment"] = false;
-        if (!ownedAugments.ContainsKey("StabilityPatch"))
-            ownedAugments["StabilityPatch"] = false;
-        if (!ownedAugments.ContainsKey("EmergencyUSB"))
-            ownedAugments["EmergencyUSB"] = false;
     }
 
     /// <summary>
@@ -114,13 +90,6 @@ public class SaveData
         {
             foreach (var kvp in ownedCharacters)
                 ownedCharactersList.Add(new StringBoolPair(kvp.Key, kvp.Value));
-        }
-
-        ownedAugmentsList = new List<StringBoolPair>();
-        if (ownedAugments != null)
-        {
-            foreach (var kvp in ownedAugments)
-                ownedAugmentsList.Add(new StringBoolPair(kvp.Key, kvp.Value));
         }
     }
 }

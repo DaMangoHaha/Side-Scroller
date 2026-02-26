@@ -110,6 +110,12 @@ public class LevelTimer : MonoBehaviour
     {
         if (string.IsNullOrEmpty(currentLevelName)) return false;
 
+        // Check if player met the Level 1 unlock requirement
+        if (currentLevelName == "Level1" && LevelUnlockManager.Instance != null)
+        {
+            LevelUnlockManager.Instance.CheckAndUnlockFromLevel1(elapsedTime);
+        }
+
         SaveData data = SaveSystem.LoadData();
         float previousBest = GetBestTimeForLevel(data, currentLevelName);
 
