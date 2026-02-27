@@ -48,24 +48,42 @@ public class Coin : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            // Check ThiefSkill for upgrade bonuses
+            ThiefSkill thiefSkill = other.GetComponent<ThiefSkill>();
+
+            // Tier 3: coins collected during skill grant 20% more value
+            int effectiveCoinValue = coinValue;
+            if (thiefSkill != null)
+            {
+                float multiplier = thiefSkill.GetCoinValueMultiplier();
+                effectiveCoinValue = Mathf.RoundToInt(coinValue * multiplier);
+            }
+
             // Add coins to counter
             if (CoinsManager.Instance != null)
-                CoinsManager.Instance.AddCoins(coinValue);
+                CoinsManager.Instance.AddCoins(effectiveCoinValue);
             SoundManager.Instance.PlaySound2D("Coin");
 
             // Add to per-level score
             PlayerScore score = other.GetComponent<PlayerScore>();
             if (score != null)
+            {
                 score.AddScore(scoreValue);
-;
 
-            // Reduce cooldown if ThiefSkill is active on the player
-            ThiefSkill thiefSkill = other.GetComponent<ThiefSkill>();
+                // Tier 2: bonus +50 score when collected during active skill
+                if (thiefSkill != null)
+                {
+                    int bonusScore = thiefSkill.GetBonusCoinScore();
+                    if (bonusScore > 0)
+                        score.AddScore(bonusScore);
+                }
+            }
+
+            // Reduce cooldown if ThiefSkill exists on the player
             if (thiefSkill != null)
             {
                 thiefSkill.ReduceCooldown(1f); // -1s cooldown per coin collected
             }
-
 
             // Remove coin
             Destroy(gameObject);

@@ -36,9 +36,35 @@ public class ThiefSkill : MonoBehaviour
 
     private Button skillButton;
 
+    // --- Upgrade System ---
+    [Header("Upgrade")]
+    public int upgradeTier = 0; // 0 = no upgrades, 1-3 = tiers
+
+    // Tier 1: cooldown reduction
+    private float cooldownReduction = 5f;
+
+    // Tier 2: bonus score per coin during skill + radius multiplier
+    private int tier2BonusScore = 50;
+    private float tier2RadiusMultiplier = 1.5f; // 0.5x extra = 1.5x total
+
+    // Tier 3: coins collected during skill grant 20% more value
+    private float tier3CoinValueMultiplier = 1.2f;
+
+    // Base radius stored so upgrades can scale from it
+    private float baseCoinPullRadius;
+
+    /// <summary>Returns true while Sticky Fingers is active.</summary>
+    public bool IsSkillActive => isActive;
+
     void Start()
     {
         cooldownTimer = cooldownTime;
+
+        // Load upgrade tier from save data
+        SaveData data = SaveSystem.LoadData();
+        upgradeTier = data.thiefSkillUpgradeTier;
+        baseCoinPullRadius = coinPullRadius;
+        ApplyUpgrades();
 
         if (skillIcon != null)
         {
@@ -225,6 +251,83 @@ public class ThiefSkill : MonoBehaviour
             if (cooldownTimer < 0)
                 cooldownTimer = 0;
         }
+    }
+
+    // --- Upgrade helpers ---
+
+    /// <summary>
+    /// Applies upgrade effects based on the current tier.
+    /// </summary>
+    public void ApplyUpgrades()
+    {
+        // Tier 1: Decrease cooldown by 5 seconds
+        if (upgradeTier >= 1)
+        {
+            float effective = cooldownTime - cooldownReduction;
+            if (effective < activeDuration + 1f)
+                effective = activeDuration + 1f; // safety clamp
+            cooldownTime = effective;
+        }
+
+        // Tier 2: Increase pull radius by 0.5x the normal size
+        if (upgradeTier >= 2)
+        {
+            coinPullRadius = baseCoinPullRadius * tier2RadiusMultiplier;
+        }
+        else
+        {
+            coinPullRadius = baseCoinPullRadius;
+        }
+    }
+
+    /// <summary>
+    /// Returns the bonus score to add when a coin is collected during the active skill.
+    /// Returns 0 if Tier 2 is not unlocked or skill is not active.
+    /// </summary>
+    public int GetBonusCoinScore()
+    {
+        if (isActive && upgradeTier >= 2)
+            return tier2BonusScore;
+        return 0;
+    }
+
+    /// <summary>
+    /// Returns the coin value multiplier when a coin is collected during the active skill.
+    /// Returns 1.0 if Tier 3 is not unlocked or skill is not active.
+    /// </summary>
+    public float GetCoinValueMultiplier()
+    {
+        if (isActive && upgradeTier >= 3)
+            return tier3CoinValueMultiplier;
+        return 1f;
+    }
+
+    /// <summary>
+    /// Returns the current upgrade tier.
+    /// </summary>
+    public int GetUpgradeTier()
+    {
+        return upgradeTier;
+    }
+
+    /// <summary>
+    /// Sets the upgrade tier and re-applies effects. Also saves to disk.
+    /// </summary>
+    public void SetUpgradeTier(int tier)
+    {
+        upgradeTier = tier;
+
+        // Reset radius to base before reapplying
+        coinPullRadius = baseCoinPullRadius;
+        // Re-derive cooldown from original base (30s) before reduction
+        cooldownTime = 30f;
+
+        ApplyUpgrades();
+
+        // Persist
+        SaveData data = SaveSystem.LoadData();
+        data.thiefSkillUpgradeTier = tier;
+        SaveSystem.SaveData(data);
     }
 
     void OnDrawGizmosSelected() //This gizmo shows the coin pull radius

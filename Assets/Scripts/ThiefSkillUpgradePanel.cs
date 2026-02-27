@@ -3,15 +3,15 @@ using UnityEngine.UI;
 using TMPro;
 
 /// <summary>
-/// Manages the Bit Skill Upgrade UI panel.
+/// Manages the Thief Skill Upgrade UI panel.
 /// Attach to a GameObject with a Button (the Upgrade Icon).
 /// When the player clicks the icon, a panel showing three upgrade tiers appears.
 /// Each tier costs 300 coins and must be purchased in order.
 /// </summary>
-public class BitSkillUpgradePanel : MonoBehaviour
+public class ThiefSkillUpgradePanel : MonoBehaviour
 {
     [Header("References")]
-    public BitSkill bitSkill; // assign the player's BitSkill component
+    public ThiefSkill thiefSkill; // assign the player's ThiefSkill component
 
     [Header("Upgrade Cost")]
     public int upgradeCost = 300;
@@ -28,9 +28,9 @@ public class BitSkillUpgradePanel : MonoBehaviour
     // Tier descriptions
     private readonly string[] tierDescriptions = new string[]
     {
-        "Tier 1: Bit Buff's Cooldown -5 seconds",
-        "Tier 2: Bit Buff's DMG Reduction is now 60%",
-        "Tier 3: Bit Buff's begin Stacking (caps at 2 stacks. DMG Reduction cannot go past 80%. Taking damage removes all stacks.)"
+        "Tier 1: Sticky Fingers Cooldown -5 seconds",
+        "Tier 2: Coins during Sticky Fingers grant +50 Score & Pull Radius +0.5x",
+        "Tier 3: Coins during Sticky Fingers grant 20% more value"
     };
 
     void Start()
@@ -67,11 +67,11 @@ public class BitSkillUpgradePanel : MonoBehaviour
 
         Canvas canvas = GetOrCreatePopupCanvas();
         int currentTier = 0;
-        if (bitSkill != null)
-            currentTier = bitSkill.GetUpgradeTier();
+        if (thiefSkill != null)
+            currentTier = thiefSkill.GetUpgradeTier();
 
         // --- Dark overlay ---
-        panelRoot = new GameObject("BitUpgradePanel");
+        panelRoot = new GameObject("ThiefUpgradePanel");
         panelRoot.transform.SetParent(canvas.transform, false);
 
         RectTransform panelRT = panelRoot.AddComponent<RectTransform>();
@@ -107,7 +107,7 @@ public class BitSkillUpgradePanel : MonoBehaviour
         titleRT.sizeDelta = new Vector2(600f, 50f);
 
         TextMeshProUGUI titleTMP = titleGO.AddComponent<TextMeshProUGUI>();
-        titleTMP.text = "Bit Buff Upgrades";
+        titleTMP.text = "Sticky Fingers Upgrades";
         titleTMP.fontSize = 36;
         titleTMP.alignment = TextAlignmentOptions.Center;
         titleTMP.color = Color.cyan;
@@ -243,9 +243,9 @@ public class BitSkillUpgradePanel : MonoBehaviour
     /// </summary>
     private void PurchaseTier(int tierNumber)
     {
-        if (bitSkill == null) return;
+        if (thiefSkill == null) return;
 
-        int currentTier = bitSkill.GetUpgradeTier();
+        int currentTier = thiefSkill.GetUpgradeTier();
 
         // Must purchase in order
         if (tierNumber != currentTier + 1)
@@ -257,7 +257,7 @@ public class BitSkillUpgradePanel : MonoBehaviour
         // Check coins
         if (CoinsManager.Instance == null || CoinsManager.Instance.GetCoins() < upgradeCost)
         {
-            Debug.Log("Not enough coins for Bit Skill Upgrade!");
+            Debug.Log("Not enough coins for Thief Skill Upgrade!");
             ShowNotEnoughCoinsMessage();
             return;
         }
@@ -266,9 +266,9 @@ public class BitSkillUpgradePanel : MonoBehaviour
         CoinsManager.Instance.AddCoins(-upgradeCost);
 
         // Apply upgrade
-        bitSkill.SetUpgradeTier(tierNumber);
+        thiefSkill.SetUpgradeTier(tierNumber);
 
-        Debug.Log("Bit Skill upgraded to Tier " + tierNumber + "!");
+        Debug.Log("Thief Skill upgraded to Tier " + tierNumber + "!");
 
         // Refresh the panel to reflect new state
         ClosePanel();
@@ -280,8 +280,6 @@ public class BitSkillUpgradePanel : MonoBehaviour
     /// </summary>
     private void ShowNotEnoughCoinsMessage()
     {
-        // Re-use close and reopen to refresh, plus log
-        // For a better UX you could add a temporary text overlay
         ClosePanel();
         OpenPanel();
 
@@ -312,14 +310,14 @@ public class BitSkillUpgradePanel : MonoBehaviour
     {
         if (popupCanvas != null) return popupCanvas;
 
-        GameObject existing = GameObject.Find("BitUpgradeCanvas");
+        GameObject existing = GameObject.Find("ThiefUpgradeCanvas");
         if (existing != null)
         {
             popupCanvas = existing.GetComponent<Canvas>();
             if (popupCanvas != null) return popupCanvas;
         }
 
-        GameObject canvasGO = new GameObject("BitUpgradeCanvas");
+        GameObject canvasGO = new GameObject("ThiefUpgradeCanvas");
         popupCanvas = canvasGO.AddComponent<Canvas>();
         popupCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
         popupCanvas.sortingOrder = 999;
