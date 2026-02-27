@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class BitSkill : MonoBehaviour
 {
     [Header("Buff Settings")]
-    public float buffCooldown = 10f;   // time to fully charge
+    public float buffCooldown = 10f;   // base time to fully charge
     public float warningTime = 3f;     // twinkle before buff
     private float timer = 0f;
 
@@ -20,6 +20,7 @@ public class BitSkill : MonoBehaviour
 
     [Header("UI")]
     public Image shieldIcon; // drag the ShieldIcon here in Inspector
+    public Image shieldIcon2; // second stack icon (only visible at Tier 3)
     private Color inactiveColor;
     private Color activeColor;
 
@@ -28,11 +29,31 @@ public class BitSkill : MonoBehaviour
     public AudioClip buffConsumeSFX;    // SFX when buff is consumed
     private AudioSource audioSource;
 
+    // --- Upgrade System ---
+    [Header("Upgrade")]
+    public int upgradeTier = 0; // 0 = no upgrades, 1-3 = tiers
+
+    // Tier 1: cooldown reduction
+    private float cooldownReduction = 5f;
+
+    // Tier 2: improved damage reduction (0.4 means player takes 40% = 60% reduction)
+    private float tier2DamageReduction = 0.4f;
+
+    // Tier 3: stacking
+    private int maxStacks = 1;
+    private int currentStacks = 0;
+    private float tier3DamageReduction = 0.2f; // at 2 stacks, player takes 20% = 80% reduction
+
     void Start()
     {
         playerEnergy = GetComponent<PlayerEnergy>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         audioSource = GetComponent<AudioSource>();
+
+        // Load upgrade tier from save data
+        SaveData data = SaveSystem.LoadData();
+        upgradeTier = data.bitSkillUpgradeTier;
+        ApplyUpgrades();
 
         if (shieldIcon != null)
         {
@@ -41,6 +62,58 @@ public class BitSkill : MonoBehaviour
             inactiveColor.a = 0.2f; // faded look
             shieldIcon.color = inactiveColor;
         }
+
+        // Hide second stack icon unless Tier 3
+        if (shieldIcon2 != null)
+        {
+            if (upgradeTier >= 3)
+            {
+                shieldIcon2.gameObject.SetActive(true);
+                shieldIcon2.color = inactiveColor;
+            }
+            else
+            {
+                shieldIcon2.gameObject.SetActive(false);
+            }
+        }
+    }
+
+    /// <summary>
+    /// Applies upgrade effects based on the current tier.
+    /// </summary>
+    public void ApplyUpgrades()
+    {
+        float effectiveCooldown = buffCooldown;
+
+        // Tier 1: Decrease cooldown by 5 seconds
+        if (upgradeTier >= 1)
+        {
+            effectiveCooldown -= cooldownReduction;
+            if (effectiveCooldown < warningTime + 1f)
+                effectiveCooldown = warningTime + 1f; // safety clamp
+        }
+
+        // Tier 2: Improve damage reduction from 50% to 60%
+        if (upgradeTier >= 2)
+        {
+            playerEnergy.damageReduction = tier2DamageReduction;
+        }
+        else
+        {
+            playerEnergy.damageReduction = 0.5f; // default 50% reduction
+        }
+
+        // Tier 3: Enable stacking up to 2
+        if (upgradeTier >= 3)
+        {
+            maxStacks = 2;
+        }
+        else
+        {
+            maxStacks = 1;
+        }
+
+        buffCooldown = effectiveCooldown;
     }
 
     void Update()
@@ -65,12 +138,34 @@ public class BitSkill : MonoBehaviour
 
     void ActivateBuff()
     {
-        playerEnergy.hasBitBuff = true;
-        Debug.Log("Bit Buff Ready! Next spike damage is halved.");
+        if (currentStacks < maxStacks)
+        {
+            currentStacks++;
+        }
 
-        // Show shield icon as active
-        if (shieldIcon != null)
-            shieldIcon.color = activeColor;
+        // Update PlayerEnergy buff state
+        playerEnergy.hasBitBuff = true;
+        playerEnergy.bitBuffStacks = currentStacks;
+
+        // Set damage reduction based on stack count
+        if (upgradeTier >= 3 && currentStacks >= 2)
+        {
+            playerEnergy.damageReduction = tier3DamageReduction; // 80% reduction (take 20%)
+        }
+        else if (upgradeTier >= 2)
+        {
+            playerEnergy.damageReduction = tier2DamageReduction; // 60% reduction (take 40%)
+        }
+        else
+        {
+            playerEnergy.damageReduction = 0.5f; // 50% reduction (take 50%)
+        }
+
+        Debug.Log("Bit Buff Ready! Stacks: " + currentStacks + "/" + maxStacks +
+                  " | Damage reduction: " + ((1f - playerEnergy.damageReduction) * 100f) + "%");
+
+        // Show shield icons as active
+        UpdateShieldIcons();
 
         if (skillDialogueUI != null)
         {
@@ -82,17 +177,76 @@ public class BitSkill : MonoBehaviour
             audioSource.PlayOneShot(buffActivateSFX);
     }
 
+    /// <summary>
+    /// Called by PlayerEnergy when the buff is consumed by taking damage.
+    /// All stacks are lost at once.
+    /// </summary>
     public void ConsumeBuff()
     {
-        // Called by PlayerEnergy when the buff is used
-        if (shieldIcon != null)
-            shieldIcon.color = inactiveColor;
+        currentStacks = 0;
+
+        // Reset icons
+        UpdateShieldIcons();
 
         // Play consumption sound
         if (audioSource != null && buffConsumeSFX != null)
             audioSource.PlayOneShot(buffConsumeSFX);
 
-        Debug.Log("Bit Buff consumed!");
+        Debug.Log("Bit Buff consumed! All stacks lost.");
+    }
+
+    /// <summary>
+    /// Updates the shield icon visuals based on current stack count.
+    /// </summary>
+    private void UpdateShieldIcons()
+    {
+        // First icon
+        if (shieldIcon != null)
+        {
+            shieldIcon.color = currentStacks >= 1 ? activeColor : inactiveColor;
+        }
+
+        // Second icon (Tier 3 only)
+        if (shieldIcon2 != null && upgradeTier >= 3)
+        {
+            shieldIcon2.color = currentStacks >= 2 ? activeColor : inactiveColor;
+        }
+    }
+
+    /// <summary>
+    /// Returns the current upgrade tier.
+    /// </summary>
+    public int GetUpgradeTier()
+    {
+        return upgradeTier;
+    }
+
+    /// <summary>
+    /// Sets the upgrade tier and re-applies effects. Also saves to disk.
+    /// </summary>
+    public void SetUpgradeTier(int tier)
+    {
+        upgradeTier = tier;
+        ApplyUpgrades();
+
+        // Show/hide second stack icon
+        if (shieldIcon2 != null)
+        {
+            if (upgradeTier >= 3)
+            {
+                shieldIcon2.gameObject.SetActive(true);
+                shieldIcon2.color = inactiveColor;
+            }
+            else
+            {
+                shieldIcon2.gameObject.SetActive(false);
+            }
+        }
+
+        // Persist
+        SaveData data = SaveSystem.LoadData();
+        data.bitSkillUpgradeTier = tier;
+        SaveSystem.SaveData(data);
     }
 
     private System.Collections.IEnumerator TwinkleBlue()

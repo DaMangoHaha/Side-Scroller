@@ -39,6 +39,9 @@ public class SaveData
     // Whether the player has survived 1 minute in Level 1 to unlock all levels
     public bool levelsUnlocked = false;
 
+    // --- Bit Skill Upgrade Tier (0 = none, 1-3 = purchased tiers) ---
+    public int bitSkillUpgradeTier = 0;
+
     // --- Serializable ownership lists (replaces Dictionary<string,bool>) ---
     public List<StringBoolPair> ownedCharactersList = new List<StringBoolPair>();
 

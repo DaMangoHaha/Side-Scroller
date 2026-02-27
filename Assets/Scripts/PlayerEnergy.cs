@@ -24,6 +24,7 @@ public class PlayerEnergy : MonoBehaviour
     [Header("Bit Buff")]
     public bool hasBitBuff = false; // Is the skill active?
     public float damageReduction = 0.5f; // 50% damage reduction
+    public int bitBuffStacks = 0; // number of active buff stacks
 
     // Invulnerability Variables
     [Header("Invulnerability Settings")]
@@ -83,11 +84,12 @@ public class PlayerEnergy : MonoBehaviour
             amount = cubitPassive.ProcessDamage(amount);
         }
 
-        // Check Bit Buff
-        if (hasBitBuff)
+        // Check Bit Buff (all stacks consumed on any hit)
+        if (hasBitBuff && bitBuffStacks > 0)
         {
             amount *= damageReduction;
             hasBitBuff = false;
+            bitBuffStacks = 0;
 
             BitSkill skill = GetComponent<BitSkill>();
             if (skill != null)
@@ -96,7 +98,7 @@ public class PlayerEnergy : MonoBehaviour
                 skill.ConsumeBuff();
             }
 
-            Debug.Log("Bit Buff activated! Damage reduced.");
+            Debug.Log("Bit Buff activated! All stacks consumed. Damage reduced.");
         }
 
         currentEnergy = Mathf.Clamp(currentEnergy - amount, 0, maxEnergy);

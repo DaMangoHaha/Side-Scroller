@@ -18,6 +18,9 @@ public class CharacterSpawner : MonoBehaviour
     public GameObject crystalIcon;
     public GameObject cubitIcon;
 
+    [Header("Upgrade Icon Objects")]
+    public GameObject bitsUpgradeIcon; // Bit's Skill Chip upgrade icon (shown next to skill icon)
+
     [Header("Energy Bars")]
     public GameObject bitsEnergyBar;
     public GameObject thiefEnergyBar;
@@ -52,6 +55,10 @@ public class CharacterSpawner : MonoBehaviour
         wizKidIcon.SetActive(equipped == "WizKid");
         crystalIcon.SetActive(equipped == "Crystal");
         cubitIcon.SetActive(equipped == "Cubit");
+
+        // --- UPGRADE ICONS ---
+        if (bitsUpgradeIcon != null)
+            bitsUpgradeIcon.SetActive(equipped == "Bits");
 
         // --- ENERGY BARS ---
         bitsEnergyBar.SetActive(equipped == "Bits");
