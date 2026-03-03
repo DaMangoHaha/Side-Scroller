@@ -8687,6 +8687,7 @@ MonoBehaviour:
   cubitIcon: {fileID: 1264599880}
   bitsUpgradeIcon: {fileID: 2065619974}
   thiefUpgradeIcon: {fileID: 152194615}
+  ninjaUpgradeIcon: {fileID: 281753051}
   bitsEnergyBar: {fileID: 1610054509109797900}
   thiefEnergyBar: {fileID: 1820852120}
   ninjaEnergyBar: {fileID: 176831890}
