@@ -19,8 +19,9 @@ public class CharacterSpawner : MonoBehaviour
     public GameObject cubitIcon;
 
     [Header("Upgrade Icon Objects")]
-    public GameObject bitsUpgradeIcon; // Bit's Skill Chip upgrade icon (shown next to skill icon)
-    public GameObject thiefUpgradeIcon; // Thief's Sticky Fingers upgrade icon (shown next to skill icon)
+    public GameObject bitsUpgradeIcon; // Bit's Skill Chip upgrade icon (shown underneath his Energy Bar)
+    public GameObject thiefUpgradeIcon; // Thief's Sticky Fingers upgrade icon (shown underneath his Energy Bar)
+    public GameObject ninjaUpgradeIcon; // Ninja's Electric Bolt upgrade icon (shown underneath her Energy Bar)
 
     [Header("Energy Bars")]
     public GameObject bitsEnergyBar;
@@ -62,6 +63,8 @@ public class CharacterSpawner : MonoBehaviour
             bitsUpgradeIcon.SetActive(equipped == "Bits");
         if (thiefUpgradeIcon != null)
             thiefUpgradeIcon.SetActive(equipped == "Thief");
+        if (ninjaUpgradeIcon != null)
+            ninjaUpgradeIcon.SetActive(equipped == "Ninja");
 
         // --- ENERGY BARS ---
         bitsEnergyBar.SetActive(equipped == "Bits");
