@@ -26,6 +26,9 @@ public class EnergyPotion : MonoBehaviour
             PlayerEnergy energy = other.GetComponent<PlayerEnergy>();
             if (energy != null)
             {
+                // Show floating energy popup
+                CoinPopup.CreateEnergy(other.transform.position, restoreAmount);
+
                 // Restore energy immediately
                 energy.currentEnergy = Mathf.Clamp(energy.currentEnergy + restoreAmount, 0, energy.maxEnergy);
                 energy.UpdateUI();

@@ -101,6 +101,9 @@ public class PlayerEnergy : MonoBehaviour
             Debug.Log("Bit Buff activated! All stacks consumed. Damage reduced.");
         }
 
+        // Show floating damage popup
+        CoinPopup.CreateDamage(transform.position, amount);
+
         currentEnergy = Mathf.Clamp(currentEnergy - amount, 0, maxEnergy);
         UpdateUI();
 
@@ -188,6 +191,7 @@ public class PlayerEnergy : MonoBehaviour
 
     public void RestoreEnergy(float amount)
     {
+        CoinPopup.CreateEnergy(transform.position, amount);
         currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, maxEnergy);
         UpdateUI();
     }

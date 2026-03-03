@@ -5028,7 +5028,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.13.21
+  m_text: Version 1.13.22
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -6159,7 +6159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.13.21
+  m_text: Version 1.13.22
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -9857,7 +9857,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.13.21
+  m_text: Version 1.13.22
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -10287,19 +10287,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Added upgrades to Bits'' Bit Buff, thief''s sticky fingers, and Ninja''s
-    Electric Bolt There are three tiers to the upgrades, costing 500 coins each.
+  m_text: '- Ninja''s skill has undergone a nerf, increasing her cooldown for electric
+    bolt (now 25s instead of 15s) to match with her new upgrades.
 
-    -
-    To access the upgrade panel, simply play as bits/thief/ninja and click the icon
-    beneath their energy bars. (Note: The game does not pause when looking at the
-    panel, but you still have control over the character)
+    - Added popups
+    for UI when collecting coins, taking damage, and restoring energy.
 
-    - Ninja''s skill has
-    undergone a nerf, increasing her cooldown for electric bolt (now 25s instead
-    of 15s) to match with her new upgrades.
+    - Added
+    several new coin patterns: Diamond, Zigzag, Circle, Cross, and Wave.
 
-    (1.13.21)'
+    (1.13.22)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -10326,8 +10323,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35
-  m_fontSizeBase: 35
+  m_fontSize: 44
+  m_fontSizeBase: 44
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12975,7 +12972,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.13.21
+  m_text: Version 1.13.22
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}

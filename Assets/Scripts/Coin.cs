@@ -59,6 +59,9 @@ public class Coin : MonoBehaviour
                 effectiveCoinValue = Mathf.RoundToInt(coinValue * multiplier);
             }
 
+            // Show floating "+X Coin" popup at the coin's position
+            CoinPopup.Create(transform.position, effectiveCoinValue);
+
             // Add coins to counter
             if (CoinsManager.Instance != null)
                 CoinsManager.Instance.AddCoins(effectiveCoinValue);
