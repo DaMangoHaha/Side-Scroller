@@ -45,6 +45,9 @@ public class SaveData
     // --- Thief Skill Upgrade Tier (0 = none, 1-3 = purchased tiers) ---
     public int thiefSkillUpgradeTier = 0;
 
+    // --- Ninja Skill Upgrade Tier (0 = none, 1-3 = purchased tiers) ---
+    public int ninjaSkillUpgradeTier = 0;
+
     // --- Serializable ownership lists (replaces Dictionary<string,bool>) ---
     public List<StringBoolPair> ownedCharactersList = new List<StringBoolPair>();
 

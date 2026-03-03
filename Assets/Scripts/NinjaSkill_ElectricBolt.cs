@@ -31,9 +31,41 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
 
     private Button skillButton;
 
+    // --- Upgrade System ---
+    [Header("Upgrade")]
+    public int upgradeTier = 0; // 0 = no upgrades, 1-3 = tiers
+
+    // Tier 1: cooldown reduction on kill
+    private float tier1CooldownReduction = 3f;
+
+    // Tier 2: hold to fire large bolt
+    [Header("Tier 2 - Large Bolt")]
+    public GameObject largeBoltPrefab; // assign a larger bolt prefab in Inspector (optional, will scale normal if null)
+    public float holdTimeRequired = 2f;
+    private float holdTimer = 0f;
+    private bool isHolding = false;
+
+    // Tier 3: energy grant on use
+    private float tier3EnergyPercent = 0.10f; // 10% of total energy
+
+    // Base cooldown stored so upgrades can derive from it
+    private float baseCooldownTime;
+
+    // Reference to PlayerEnergy (for Tier 3)
+    private PlayerEnergy playerEnergy;
+
     void Start()
     {
         cooldownRemaining = cooldownTime;
+        baseCooldownTime = cooldownTime;
+
+        // Load upgrade tier from save data
+        SaveData data = SaveSystem.LoadData();
+        upgradeTier = data.ninjaSkillUpgradeTier;
+        ApplyUpgrades();
+
+        playerEnergy = GetComponent<PlayerEnergy>();
+
         if (readyIcon != null)
         {
             activeColor = readyIcon.color;
@@ -67,6 +99,8 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
 
         if (activateSkillAction != null)
         {
+            activateSkillAction.started += OnActivateStarted;
+            activateSkillAction.canceled += OnActivateCanceled;
             activateSkillAction.performed += OnActivatePerformed;
             activateSkillAction.Enable();
         }
@@ -76,6 +110,8 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
     {
         if (activateSkillAction != null)
         {
+            activateSkillAction.started -= OnActivateStarted;
+            activateSkillAction.canceled -= OnActivateCanceled;
             activateSkillAction.performed -= OnActivatePerformed;
             activateSkillAction.Disable();
         }
@@ -90,7 +126,43 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
 
     private void OnActivatePerformed(InputAction.CallbackContext ctx)
     {
-        TryFireElectricBolt();
+        // For non-Tier-2, fire immediately on performed (press)
+        if (upgradeTier < 2)
+        {
+            TryFireElectricBolt(false);
+        }
+    }
+
+    private void OnActivateStarted(InputAction.CallbackContext ctx)
+    {
+        // Tier 2+: begin tracking hold time
+        if (upgradeTier >= 2 && cooldownRemaining <= 0f)
+        {
+            isHolding = true;
+            holdTimer = 0f;
+        }
+    }
+
+    private void OnActivateCanceled(InputAction.CallbackContext ctx)
+    {
+        if (upgradeTier >= 2)
+        {
+            if (isHolding)
+            {
+                if (holdTimer >= holdTimeRequired)
+                {
+                    // Held long enough - fire large bolt
+                    TryFireElectricBolt(true);
+                }
+                else
+                {
+                    // Quick press/release - fire normal bolt
+                    TryFireElectricBolt(false);
+                }
+            }
+            isHolding = false;
+            holdTimer = 0f;
+        }
     }
 
     // Called by mobile UI button tap on skill icon
@@ -98,15 +170,15 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
     {
         if (pressed)
         {
-            TryFireElectricBolt();
+            TryFireElectricBolt(false);
         }
     }
 
-    private void TryFireElectricBolt()
+    private void TryFireElectricBolt(bool isLargeBolt)
     {
-        if (cooldownRemaining == 0f)
+        if (cooldownRemaining <= 0f)
         {
-            FireElectricBolt();
+            FireElectricBolt(isLargeBolt);
             if (SoundManager.Instance != null)
                 SoundManager.Instance.PlaySound2D("ElectricBolt");
         }
@@ -127,17 +199,23 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
             }
         }
 
+        // Track hold time for Tier 2
+        if (isHolding && upgradeTier >= 2)
+        {
+            holdTimer += Time.deltaTime;
+        }
+
         // legacy fallback if InputSystem action not available/enabled
         if ((activateSkillAction == null || !activateSkillAction.enabled) && Keyboard.current != null)
         {
-            if (Keyboard.current.leftShiftKey.wasPressedThisFrame && cooldownRemaining == 0f)
+            if (Keyboard.current.leftShiftKey.wasPressedThisFrame && cooldownRemaining <= 0f)
             {
-                TryFireElectricBolt();
+                TryFireElectricBolt(false);
             }
         }
     }
 
-    void FireElectricBolt()
+    void FireElectricBolt(bool isLargeBolt)
     {
         if (electricBoltPrefab == null || boltSpawnPoint == null)
         {
@@ -149,11 +227,103 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
             skillDialogueUI.ShowSkillDialogue(electricBoltDialogue, ninjaPortrait);
         }
 
-        Instantiate(electricBoltPrefab, boltSpawnPoint.position, Quaternion.identity);
+        GameObject boltObj;
+
+        if (isLargeBolt && upgradeTier >= 2)
+        {
+            // Tier 2 large bolt: use dedicated prefab if set, otherwise scale up the normal one
+            GameObject prefab = largeBoltPrefab != null ? largeBoltPrefab : electricBoltPrefab;
+            boltObj = Instantiate(prefab, boltSpawnPoint.position, Quaternion.identity);
+
+            ElectricBolt bolt = boltObj.GetComponent<ElectricBolt>();
+            if (bolt != null)
+            {
+                bolt.isLargeBolt = true;
+                bolt.speed = 5f; // travels slowly
+            }
+
+            // Scale up visually if using the normal prefab
+            if (largeBoltPrefab == null)
+            {
+                boltObj.transform.localScale *= 2f;
+            }
+        }
+        else
+        {
+            boltObj = Instantiate(electricBoltPrefab, boltSpawnPoint.position, Quaternion.identity);
+        }
+
+        // Pass a reference to this skill so the bolt can call back (Tier 1 cooldown reduction)
+        ElectricBolt boltScript = boltObj.GetComponent<ElectricBolt>();
+        if (boltScript != null)
+        {
+            boltScript.ownerSkill = this;
+        }
+
+        // Tier 3: Grant Ninja +10% of her total energy on use
+        if (upgradeTier >= 3 && playerEnergy != null)
+        {
+            float energyGrant = playerEnergy.maxEnergy * tier3EnergyPercent;
+            playerEnergy.RestoreEnergy(energyGrant);
+            Debug.Log("Tier 3: Ninja gained " + energyGrant + " energy from Electric Bolt!");
+        }
 
         // reset cooldown
         cooldownRemaining = cooldownTime;
         if (readyIcon != null)
             readyIcon.color = inactiveColor;
+    }
+
+    // --- Upgrade helpers ---
+
+    /// <summary>
+    /// Applies upgrade effects based on the current tier.
+    /// </summary>
+    public void ApplyUpgrades()
+    {
+        // Currently tier effects are handled at runtime in FireElectricBolt / ElectricBolt
+        // No persistent stat changes needed beyond what the tier field controls
+    }
+
+    /// <summary>
+    /// Called by ElectricBolt when it destroys an enemy/obstacle (Tier 1).
+    /// Reduces the current cooldown by 3 seconds.
+    /// </summary>
+    public void OnBoltKill()
+    {
+        if (upgradeTier >= 1 && cooldownRemaining > 0)
+        {
+            cooldownRemaining -= tier1CooldownReduction;
+            if (cooldownRemaining < 0f)
+                cooldownRemaining = 0f;
+
+            Debug.Log("Tier 1: Electric Bolt cooldown reduced by " + tier1CooldownReduction + "s! Remaining: " + cooldownRemaining);
+
+            // If cooldown hit zero, mark as ready
+            if (cooldownRemaining <= 0f && readyIcon != null)
+                readyIcon.color = activeColor;
+        }
+    }
+
+    /// <summary>
+    /// Returns the current upgrade tier.
+    /// </summary>
+    public int GetUpgradeTier()
+    {
+        return upgradeTier;
+    }
+
+    /// <summary>
+    /// Sets the upgrade tier and re-applies effects. Also saves to disk.
+    /// </summary>
+    public void SetUpgradeTier(int tier)
+    {
+        upgradeTier = tier;
+        ApplyUpgrades();
+
+        // Persist
+        SaveData data = SaveSystem.LoadData();
+        data.ninjaSkillUpgradeTier = tier;
+        SaveSystem.SaveData(data);
     }
 }

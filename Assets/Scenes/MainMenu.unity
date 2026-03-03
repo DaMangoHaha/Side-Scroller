@@ -5028,7 +5028,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.12.21
+  m_text: Version 1.13.21
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -6159,7 +6159,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.12.21
+  m_text: Version 1.13.21
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -9857,7 +9857,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.12.21
+  m_text: Version 1.13.21
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -10287,19 +10287,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Added upgrades to Bits'' Bit Buff and thief''s sticky fingers! There
-    are three tiers to the upgrades, costing 500 coins each.
+  m_text: '- Added upgrades to Bits'' Bit Buff, thief''s sticky fingers, and Ninja''s
+    Electric Bolt There are three tiers to the upgrades, costing 500 coins each.
 
-    - To access the
-    upgrade panel, simply play as bits/thief and click the icon beneath their energy
-    bars. (Note: The game does not pause when looking at the panel, but you still
-    have control over the character)
+    -
+    To access the upgrade panel, simply play as bits/thief/ninja and click the icon
+    beneath their energy bars. (Note: The game does not pause when looking at the
+    panel, but you still have control over the character)
 
-    - Wiz Kid has undergone another nerf to
-    his skill. The energy values from Sprouting Sorcery have been lowered slightly,
-    and the tick interval was increased.
+    - Ninja''s skill has
+    undergone a nerf, increasing her cooldown for electric bolt (now 25s instead
+    of 15s) to match with her new upgrades.
 
-    (1.12.21)'
+    (1.13.21)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -12975,7 +12975,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.12.21
+  m_text: Version 1.13.21
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -19809,8 +19809,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Character Upgrades are on the way! Currently, Bits has his upgrades fnished,
-    Thief and Ninja will be getting some too!
+  m_text: Part one of the Character Upgrades has been finished! Bits, Thief, and
+    Ninja, the original three character for bitbound, now have upgradable skills!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}

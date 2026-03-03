@@ -10,6 +10,10 @@ public class ElectricBolt : MonoBehaviour
     [Header("Scoring")]
     public int pointsPerKill = 50;
 
+    [Header("Upgrade Support")]
+    [HideInInspector] public NinjaSkill_ElectricBolt ownerSkill; // set by NinjaSkill on spawn
+    [HideInInspector] public bool isLargeBolt = false;           // Tier 2 large bolt
+
     void Update()
     {
         // Move bolt to the right
@@ -30,10 +34,18 @@ public class ElectricBolt : MonoBehaviour
             if (score != null)
                 score.AddScore(pointsPerKill);
 
+            // Notify owner skill of the kill (Tier 1: cooldown reduction)
+            if (ownerSkill != null)
+                ownerSkill.OnBoltKill();
 
             // Destroy the enemy/obstacle
             Destroy(collision.gameObject);
-            Destroy(gameObject);
+
+            // Large bolt (Tier 2) does NOT destroy itself on collision
+            if (!isLargeBolt)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
