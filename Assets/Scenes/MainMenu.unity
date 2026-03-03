@@ -11795,7 +11795,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: After 15 seconds of running, lightning bolt can be activated with shift.
+  m_text: After 25 seconds of running, electric bolt can be activated with shift.
     ninja shoots out a powerful bolt of lightning in front of her, destroying only
     one obstacle or enemy
   m_isRightToLeft: 0
@@ -13840,7 +13840,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Skill Name: Lightning bolt'
+  m_text: 'Skill Name: Electric bolt'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
