@@ -34,6 +34,12 @@ public class PlayerEnergy : MonoBehaviour
     // Cubit Passive Reference
     private CubitPassive cubitPassive;
 
+    // --- Chill Wind Buff ---
+    [Header("Chill Wind (Crystal Tier 3)")]
+    [HideInInspector] public float chillWindDamageReduction = 0f;   // 0 = no reduction, 0.2 = 20% reduction
+    [HideInInspector] public float depletionRateMultiplier = 1f;    // 1 = normal, 0.5 = 50% slower
+    [HideInInspector] public float maxEnergyMultiplier = 1f;        // 1 = normal, 1.25 = +25%
+
     void Start()
     {
         currentEnergy = maxEnergy;
@@ -60,8 +66,8 @@ public class PlayerEnergy : MonoBehaviour
     {
         if (isDepleting)
         {
-            currentEnergy -= depletionRate * Time.deltaTime;
-            currentEnergy = Mathf.Clamp(currentEnergy, 0, maxEnergy);
+            currentEnergy -= depletionRate * depletionRateMultiplier * Time.deltaTime;
+            currentEnergy = Mathf.Clamp(currentEnergy, 0, maxEnergy * maxEnergyMultiplier);
             UpdateUI();
 
             if (currentEnergy <= 0)
@@ -101,10 +107,17 @@ public class PlayerEnergy : MonoBehaviour
             Debug.Log("Bit Buff activated! All stacks consumed. Damage reduced.");
         }
 
+        // Apply Chill Wind damage reduction (Crystal Tier 3)
+        if (chillWindDamageReduction > 0f)
+        {
+            amount *= (1f - chillWindDamageReduction);
+            Debug.Log("Chill Wind reduced damage by " + (chillWindDamageReduction * 100f) + "%!");
+        }
+
         // Show floating damage popup
         CoinPopup.CreateDamage(transform.position, amount);
 
-        currentEnergy = Mathf.Clamp(currentEnergy - amount, 0, maxEnergy);
+        currentEnergy = Mathf.Clamp(currentEnergy - amount, 0, maxEnergy * maxEnergyMultiplier);
         UpdateUI();
 
         // Start invulnerability period
@@ -117,7 +130,10 @@ public class PlayerEnergy : MonoBehaviour
     public void UpdateUI()
     {
         if (energySlider != null)
+        {
+            energySlider.maxValue = maxEnergy * maxEnergyMultiplier;
             energySlider.value = currentEnergy;
+        }
     }
 
     // Invulnerability Coroutine
@@ -192,7 +208,44 @@ public class PlayerEnergy : MonoBehaviour
     public void RestoreEnergy(float amount)
     {
         CoinPopup.CreateEnergy(transform.position, amount);
-        currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, maxEnergy);
+        currentEnergy = Mathf.Clamp(currentEnergy + amount, 0, maxEnergy * maxEnergyMultiplier);
         UpdateUI();
+    }
+
+    /// <summary>
+    /// Grants the player invulnerability for the specified duration.
+    /// Can be called by external scripts (e.g., WizKid Tier 3).
+    /// </summary>
+    public void GrantInvulnerability(float duration)
+    {
+        StartCoroutine(ExternalInvulnerability(duration));
+    }
+
+    private IEnumerator ExternalInvulnerability(float duration)
+    {
+        isInvulnerable = true;
+        Debug.Log("Player granted invulnerability for " + duration + " seconds!");
+
+        float elapsed = 0f;
+        Color tempColor = spriteRenderer.color;
+
+        while (elapsed < duration)
+        {
+            tempColor.a = 0.5f;
+            spriteRenderer.color = tempColor;
+            yield return new WaitForSeconds(0.1f);
+
+            tempColor.a = 1f;
+            spriteRenderer.color = tempColor;
+            yield return new WaitForSeconds(0.1f);
+
+            elapsed += 0.2f;
+        }
+
+        tempColor.a = 1f;
+        spriteRenderer.color = tempColor;
+        isInvulnerable = false;
+
+        Debug.Log("Granted invulnerability ended.");
     }
 }

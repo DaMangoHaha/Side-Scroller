@@ -32,12 +32,37 @@ public class WizKidSkill : MonoBehaviour
     [Header("Effects")]
     public GameObject confettiPrefab;
 
+    // --- Upgrade System ---
+    [Header("Upgrade")]
+    public int upgradeTier = 0; // 0 = no upgrades, 1-3 = tiers
+
+    // Tier 1: cooldown reduction
+    private float tier1CooldownReduction = 3f;
+
+    // Tier 2: energy bonus & energy loss chance
+    private float tier2EnergyBonus = 0.10f;       // +10% healing per tick
+    private float tier2EnergyLossPercent = 0.15f;  // lose 15% of current energy
+
+    // Tier 3: expanded effect pool
+    private int tier3CoinReward = 50;
+    private float tier3InvulnerabilityDuration = 5f;
+
+    // Base cooldown stored so upgrades can derive from it
+    private float baseCooldown;
+
     private PlayerEnergy playerEnergy;
     private float timer = 0f;
 
     void Start()
     {
         playerEnergy = GetComponent<PlayerEnergy>();
+        baseCooldown = cooldown;
+
+        // Load upgrade tier from save data
+        SaveData data = SaveSystem.LoadData();
+        upgradeTier = data.wizKidSkillUpgradeTier;
+        ApplyUpgrades();
+
         timer = cooldown;
         if (wizIcon != null)
         {
@@ -46,7 +71,6 @@ public class WizKidSkill : MonoBehaviour
             inactiveColor.a = 0.2f; // faded look
             wizIcon.color = inactiveColor;
         }
-
     }
 
     void Update()
@@ -57,46 +81,95 @@ public class WizKidSkill : MonoBehaviour
         {
             StartCoroutine(ActivateSproutingSorcery());
             timer = cooldown;
-            if (wizIcon != null)
-                wizIcon.color = activeColor;
         }
+    }
+
+    /// <summary>
+    /// Applies upgrade effects based on the current tier.
+    /// </summary>
+    public void ApplyUpgrades()
+    {
+        float effectiveCooldown = baseCooldown;
+
+        // Tier 1: Decrease cooldown by 3 seconds
+        if (upgradeTier >= 1)
+        {
+            effectiveCooldown -= tier1CooldownReduction;
+            if (effectiveCooldown < 5f)
+                effectiveCooldown = 5f; // safety clamp
+        }
+
+        cooldown = effectiveCooldown;
     }
 
     private IEnumerator ActivateSproutingSorcery()
     {
-        // Pick one of three effects
-        int choice = Random.Range(0, 3);
+        // Light up icon when skill activates
+        if (wizIcon != null)
+            wizIcon.color = activeColor;
 
-        float duration;
-        float healAmount;
+        // Determine the pool of effects based on upgrade tier
+        // Tier 0-1: 3 effects (small/medium/large heal)
+        // Tier 2:   4 effects (small/medium/large heal + energy loss)
+        // Tier 3:   6 effects (small/medium/large heal + energy loss + coins + invulnerability)
+        int effectCount = 3;
+        if (upgradeTier >= 3)
+            effectCount = 6;
+        else if (upgradeTier >= 2)
+            effectCount = 4;
 
-        // Assign duration and healAmount based on choice
+        int choice = Random.Range(0, effectCount);
+
+        // Handle based on chosen effect
         switch (choice)
         {
-            case 0:
-                duration = smallDuration;
-                healAmount = smallHeal;
-                SoundManager.Instance.PlaySound2D("SmallBurst");
+            case 0: // Small heal (default)
+                yield return StartCoroutine(HealOverTime(smallDuration, smallHeal, "SmallBurst"));
                 break;
-            case 1:
-                duration = mediumDuration;
-                healAmount = mediumHeal;
-                SoundManager.Instance.PlaySound2D("MediumBurst");
+
+            case 1: // Medium heal (default)
+                yield return StartCoroutine(HealOverTime(mediumDuration, mediumHeal, "MediumBurst"));
                 break;
-            case 2:
-                duration = largeDuration;
-                healAmount = largeHeal;
-                SoundManager.Instance.PlaySound2D("LargeBurst");
+
+            case 2: // Large heal (default)
+                yield return StartCoroutine(HealOverTime(largeDuration, largeHeal, "LargeBurst"));
                 break;
-            default:
-                duration = smallDuration;
-                healAmount = smallHeal;
+
+            case 3: // Tier 2+: Lose 15% of current energy
+                ApplyEnergyLoss();
+                break;
+
+            case 4: // Tier 3: Grant 50 coins
+                GrantCoins();
+                break;
+
+            case 5: // Tier 3: Grant invulnerability for 5 seconds
+                GrantInvulnerability();
                 break;
         }
+
+        // Dim icon after effect completes
+        if (wizIcon != null)
+            wizIcon.color = inactiveColor;
+    }
+
+    /// <summary>
+    /// Heals the player over time with confetti. Applies Tier 2 bonus if applicable.
+    /// </summary>
+    private IEnumerator HealOverTime(float duration, float healAmount, string soundName)
+    {
+        SoundManager.Instance.PlaySound2D(soundName);
 
         if (skillDialogueUI != null)
         {
             skillDialogueUI.ShowSkillDialogue(sproutingSorceryDialogue, wizKidPortrait);
+        }
+
+        // Tier 2+: boost healing by 10%
+        float effectiveHeal = healAmount;
+        if (upgradeTier >= 2)
+        {
+            effectiveHeal = healAmount * (1f + tier2EnergyBonus);
         }
 
         // Spawn the confetti
@@ -106,12 +179,67 @@ public class WizKidSkill : MonoBehaviour
 
         while (timePassed < duration)
         {
-            playerEnergy.RestoreEnergy(healAmount);
+            playerEnergy.RestoreEnergy(effectiveHeal);
             timePassed += tickInterval;
             yield return new WaitForSeconds(tickInterval);
         }
-        if (wizIcon != null)
-            wizIcon.color = inactiveColor;
+    }
+
+    /// <summary>
+    /// Tier 2+: Wiz Kid loses 15% of his current energy.
+    /// </summary>
+    private void ApplyEnergyLoss()
+    {
+        float energyLoss = playerEnergy.maxEnergy * tier2EnergyLossPercent;
+
+        if (skillDialogueUI != null)
+        {
+            skillDialogueUI.ShowSkillDialogue("Ouch... that wasn't the right spell!", wizKidPortrait);
+        }
+
+        SoundManager.Instance.PlaySound2D("SmallBurst");
+        playerEnergy.TakeDamage(energyLoss);
+        Debug.Log("Sprouting Sorcery backfired! Lost " + energyLoss + " energy (" + (tier2EnergyLossPercent * 100f) + "% of total).");
+    }
+
+    /// <summary>
+    /// Tier 3: Grants the player 50 coins.
+    /// </summary>
+    private void GrantCoins()
+    {
+        if (skillDialogueUI != null)
+        {
+            skillDialogueUI.ShowSkillDialogue("Look what I conjured!", wizKidPortrait);
+        }
+
+        SoundManager.Instance.PlaySound2D("MediumBurst");
+
+        if (CoinsManager.Instance != null)
+        {
+            CoinsManager.Instance.AddCoins(tier3CoinReward);
+        }
+
+        Debug.Log("Sprouting Sorcery granted " + tier3CoinReward + " coins!");
+    }
+
+    /// <summary>
+    /// Tier 3: Grants the player invulnerability for 5 seconds.
+    /// </summary>
+    private void GrantInvulnerability()
+    {
+        if (skillDialogueUI != null)
+        {
+            skillDialogueUI.ShowSkillDialogue("Nothing can touch me now!", wizKidPortrait);
+        }
+
+        SoundManager.Instance.PlaySound2D("LargeBurst");
+
+        playerEnergy.GrantInvulnerability(tier3InvulnerabilityDuration);
+
+        // Spawn confetti during invulnerability for visual flair
+        StartCoroutine(SpawnConfetti(tier3InvulnerabilityDuration));
+
+        Debug.Log("Sprouting Sorcery granted invulnerability for " + tier3InvulnerabilityDuration + " seconds!");
     }
 
     private IEnumerator SpawnConfetti(float duration)
@@ -129,5 +257,29 @@ public class WizKidSkill : MonoBehaviour
 
             yield return new WaitForSeconds(0.1f); // rapid burst effect
         }
+    }
+
+    // --- Upgrade helpers ---
+
+    /// <summary>
+    /// Returns the current upgrade tier.
+    /// </summary>
+    public int GetUpgradeTier()
+    {
+        return upgradeTier;
+    }
+
+    /// <summary>
+    /// Sets the upgrade tier and re-applies effects. Also saves to disk.
+    /// </summary>
+    public void SetUpgradeTier(int tier)
+    {
+        upgradeTier = tier;
+        ApplyUpgrades();
+
+        // Persist
+        SaveData data = SaveSystem.LoadData();
+        data.wizKidSkillUpgradeTier = tier;
+        SaveSystem.SaveData(data);
     }
 }
