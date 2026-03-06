@@ -7765,7 +7765,7 @@ MonoBehaviour:
   - {fileID: 8190133650557961079, guid: 3f7d75c3a0fd142438df7c68f9932ed2, type: 3}
   - {fileID: 752929616349015609, guid: ddc86045530e0864fafb43911285032b, type: 3}
   - {fileID: 2306659110317527429, guid: 82e1c3521ca09264a8b664e94a0762ec, type: 3}
-  spawnInterval: 2
+  spawnInterval: 3
   spawnX: 12
   spawnYMin: 1.4
   spawnYMax: 1.499
@@ -8171,7 +8171,7 @@ PrefabInstance:
       objectReference: {fileID: 1590231918626976876}
     - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: cooldownTime
-      value: 25
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: thiefPortrait

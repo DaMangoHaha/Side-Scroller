@@ -110,7 +110,7 @@ public class ThiefSkillUpgradePanel : MonoBehaviour
         titleTMP.text = "Sticky Fingers Upgrades";
         titleTMP.fontSize = 36;
         titleTMP.alignment = TextAlignmentOptions.Center;
-        titleTMP.color = Color.cyan;
+        titleTMP.color = Color.grey;
 
         // --- Tier Buttons ---
         for (int i = 0; i < 3; i++)
