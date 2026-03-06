@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class CubitPassive : MonoBehaviour
 {
     [Header("Protection Protocol Settings")]
-    public float energyThreshold = 20f;           // Trigger when energy is below this percentage
+    public float energyThreshold = 20f;           // Trigger when energy is below this percentage (base: 20% -> 30% at Tier 0, modified by upgrades)
     public float protectionDuration = 5f;         // Duration of energy pause
     public float protectionCooldown = 45f;        // Cooldown before can trigger again
     public float damageReduction = 0.75f;         // Player takes 75% damage
@@ -25,6 +25,24 @@ public class CubitPassive : MonoBehaviour
 
     [Header("Visual Feedback")]
     
+    // --- Upgrade System ---
+    [Header("Upgrade")]
+    public int upgradeTier = 0; // 0 = no upgrades, 1-3 = tiers
+
+    // Base values stored so upgrades can derive from them
+    private float baseCooldown;
+    private float baseThreshold;
+    private float baseDuration;
+
+    // Tier 1: cooldown reduction
+    private float tier1CooldownReduction = 5f;
+
+    // Tier 2: energy threshold increases from 30% to 40%
+    private float tier2EnergyThreshold = 40f;
+
+    // Tier 3: protection duration doubles from 5s to 10s
+    private float tier3ProtectionDuration = 10f;
+
     private PlayerEnergy playerEnergy;
     private bool isProtectionReady = true;
     private bool isProtectionActive = false;
@@ -42,6 +60,16 @@ public class CubitPassive : MonoBehaviour
             return;
         }
 
+        // Store base values before upgrades modify them
+        baseCooldown = protectionCooldown;
+        baseThreshold = energyThreshold;
+        baseDuration = protectionDuration;
+
+        // Load upgrade tier from save data
+        SaveData data = SaveSystem.LoadData();
+        upgradeTier = data.cubitSkillUpgradeTier;
+        ApplyUpgrades();
+
         if (cubitIcon != null)
         {
             activeColor = cubitIcon.color;
@@ -49,6 +77,40 @@ public class CubitPassive : MonoBehaviour
             inactiveColor.a = 0.2f; // faded look
             cubitIcon.color = inactiveColor;
         }
+    }
+
+    /// <summary>
+    /// Applies upgrade effects based on the current tier.
+    /// </summary>
+    public void ApplyUpgrades()
+    {
+        float effectiveCooldown = baseCooldown;
+        float effectiveThreshold = baseThreshold;
+        float effectiveDuration = baseDuration;
+
+        // Tier 1: Decrease cooldown by 5 seconds
+        if (upgradeTier >= 1)
+        {
+            effectiveCooldown -= tier1CooldownReduction;
+            if (effectiveCooldown < 5f)
+                effectiveCooldown = 5f; // safety clamp
+        }
+
+        // Tier 2: Skill activates at 40% energy instead of 30%
+        if (upgradeTier >= 2)
+        {
+            effectiveThreshold = tier2EnergyThreshold;
+        }
+
+        // Tier 3: Protection pauses for 10 seconds instead of 5
+        if (upgradeTier >= 3)
+        {
+            effectiveDuration = tier3ProtectionDuration;
+        }
+
+        protectionCooldown = effectiveCooldown;
+        energyThreshold = effectiveThreshold;
+        protectionDuration = effectiveDuration;
     }
 
     void Update()
@@ -70,7 +132,7 @@ public class CubitPassive : MonoBehaviour
         isProtectionReady = false;
         storedDamage = 0f;
 
-        Debug.Log("Protection Protocol ACTIVATED!");
+        Debug.Log("Protection Protocol ACTIVATED! Duration: " + protectionDuration + "s, Cooldown: " + protectionCooldown + "s, Threshold: " + energyThreshold + "%");
 
         // Pause energy depletion
         playerEnergy.PauseDepletion(protectionDuration);
@@ -150,5 +212,29 @@ public class CubitPassive : MonoBehaviour
     public bool IsProtectionReady()
     {
         return isProtectionReady;
+    }
+
+    // --- Upgrade helpers ---
+
+    /// <summary>
+    /// Returns the current upgrade tier.
+    /// </summary>
+    public int GetUpgradeTier()
+    {
+        return upgradeTier;
+    }
+
+    /// <summary>
+    /// Sets the upgrade tier and re-applies effects. Also saves to disk.
+    /// </summary>
+    public void SetUpgradeTier(int tier)
+    {
+        upgradeTier = tier;
+        ApplyUpgrades();
+
+        // Persist
+        SaveData data = SaveSystem.LoadData();
+        data.cubitSkillUpgradeTier = tier;
+        SaveSystem.SaveData(data);
     }
 }

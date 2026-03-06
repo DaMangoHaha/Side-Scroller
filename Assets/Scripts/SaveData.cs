@@ -54,6 +54,9 @@ public class SaveData
     // --- Crystal Skill Upgrade Tier (0 = none, 1-3 = purchased tiers) ---
     public int crystalSkillUpgradeTier = 0;
 
+    // --- Cubit Skill Upgrade Tier (0 = none, 1-3 = purchased tiers) ---
+    public int cubitSkillUpgradeTier = 0;
+
     // --- Serializable ownership lists (replaces Dictionary<string,bool>) ---
     public List<StringBoolPair> ownedCharactersList = new List<StringBoolPair>();
 

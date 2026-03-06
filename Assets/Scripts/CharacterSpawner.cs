@@ -24,6 +24,7 @@ public class CharacterSpawner : MonoBehaviour
     public GameObject ninjaUpgradeIcon; // Ninja's Electric Bolt upgrade icon (shown underneath her Energy Bar)
     public GameObject wizKidUpgradeIcon; // WizKid's Sprouting Sorcery upgrade icon (shown underneath his Energy Bar)
     public GameObject crystalUpgradeIcon; // Crystal's Glaciate upgrade icon (shown underneath her Energy Bar)
+    public GameObject cubitUpgradeIcon; // Cubit's Protection Protocol upgrade icon (shown underneath his Energy Bar)
 
     [Header("Energy Bars")]
     public GameObject bitsEnergyBar;
@@ -71,6 +72,8 @@ public class CharacterSpawner : MonoBehaviour
             wizKidUpgradeIcon.SetActive(equipped == "WizKid");
         if (crystalUpgradeIcon != null)
             crystalUpgradeIcon.SetActive(equipped == "Crystal");
+        if (cubitUpgradeIcon != null)
+            cubitUpgradeIcon.SetActive(equipped == "Cubit");
 
         // --- ENERGY BARS ---
         bitsEnergyBar.SetActive(equipped == "Bits");
