@@ -79,7 +79,7 @@ public class CoinPopup : MonoBehaviour
     /// </summary>
     public static void CreateDamage(Vector3 position, float damageAmount)
     {
-        string text = "-" + Mathf.RoundToInt(damageAmount) + " Damage";
+        string text = "-" + Mathf.RoundToInt(damageAmount) + " Energy";
         Create(position, text, new Color(1f, 0.2f, 0.2f, 1f), 4f); // red, slightly larger
     }
 
