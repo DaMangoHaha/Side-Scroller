@@ -23,6 +23,7 @@ public class PlayerSlide : MonoBehaviour
 
     private BoxCollider2D boxCollider;
     private Transform playerTransform;
+    private StatusEffectManager statusEffects;
 
     [Header("Ground Check")]
     public Transform groundCheck;
@@ -34,6 +35,7 @@ public class PlayerSlide : MonoBehaviour
     {
         playerTransform = transform;
         boxCollider = GetComponent<BoxCollider2D>();
+        statusEffects = GetComponent<StatusEffectManager>();
 
         if (boxCollider != null)
         {
@@ -85,6 +87,13 @@ public class PlayerSlide : MonoBehaviour
 
     private void OnSlidePerformed(InputAction.CallbackContext ctx)
     {
+        // Apply Soggy input delay if active
+        if (statusEffects != null && statusEffects.isSoggy)
+        {
+            StartCoroutine(DelayedSlide(statusEffects.GetInputDelay()));
+            return;
+        }
+
         TrySlide();
     }
 
@@ -93,8 +102,21 @@ public class PlayerSlide : MonoBehaviour
     {
         if (pressed)
         {
+            // Apply Soggy input delay if active
+            if (statusEffects != null && statusEffects.isSoggy)
+            {
+                StartCoroutine(DelayedSlide(statusEffects.GetInputDelay()));
+                return;
+            }
+
             TrySlide();
         }
+    }
+
+    private IEnumerator DelayedSlide(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        TrySlide();
     }
 
     private void TrySlide()

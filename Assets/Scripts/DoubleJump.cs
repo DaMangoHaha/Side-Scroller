@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,7 @@ public class DoubleJump : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
+    private StatusEffectManager statusEffects;
 
     [Header("Input (New Input System)")]
     public InputActionReference jumpActionRef; // optional: assign an action from an Input Actions asset
@@ -23,6 +25,7 @@ public class DoubleJump : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        statusEffects = GetComponent<StatusEffectManager>();
 
         // Use provided InputActionReference if available, otherwise create a simple fallback action
         if (jumpActionRef != null && jumpActionRef.action != null)
@@ -56,6 +59,13 @@ public class DoubleJump : MonoBehaviour
 
     private void OnJumpPerformed(InputAction.CallbackContext ctx)
     {
+        // Apply Soggy input delay if active
+        if (statusEffects != null && statusEffects.isSoggy)
+        {
+            StartCoroutine(DelayedJump(statusEffects.GetInputDelay()));
+            return;
+        }
+
         TryJump();
     }
 
@@ -64,8 +74,21 @@ public class DoubleJump : MonoBehaviour
     {
         if (pressed)
         {
+            // Apply Soggy input delay if active
+            if (statusEffects != null && statusEffects.isSoggy)
+            {
+                StartCoroutine(DelayedJump(statusEffects.GetInputDelay()));
+                return;
+            }
+
             TryJump();
         }
+    }
+
+    private IEnumerator DelayedJump(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        TryJump();
     }
 
     private void TryJump()
@@ -77,7 +100,7 @@ public class DoubleJump : MonoBehaviour
             rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
             jumpsUsed++;
         }
-        }
+    }
 
     void Update()
     {

@@ -20,6 +20,15 @@ public class GreenSlime : SlimeBase
 
     protected override void OnHitPlayer()
     {
+        // Apply Sticky debuff to the player
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            StatusEffectManager statusEffects = player.GetComponent<StatusEffectManager>();
+            if (statusEffects != null)
+                statusEffects.ApplySticky(player.transform.position);
+        }
+
         Die();
         SoundManager.Instance.PlaySound2D("Damage");
     }

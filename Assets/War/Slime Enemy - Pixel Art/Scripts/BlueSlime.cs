@@ -57,6 +57,15 @@ public class BlueSlime : SlimeBase
 
     protected override void OnHitPlayer()
     {
+        // Apply Soggy debuff to the player
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            StatusEffectManager statusEffects = player.GetComponent<StatusEffectManager>();
+            if (statusEffects != null)
+                statusEffects.ApplySoggy(player.transform.position);
+        }
+
         Die();
         SoundManager.Instance.PlaySound2D("Damage");
     }

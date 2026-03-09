@@ -91,4 +91,15 @@ public class CoinPopup : MonoBehaviour
         string text = "+" + Mathf.RoundToInt(energyAmount) + " Energy";
         Create(position, text, new Color(0.2f, 1f, 0.4f, 1f)); // green
     }
+
+    /// <summary>
+    /// Status effect popup — displays a debuff/buff name with a matching color.
+    /// Spawns slightly higher than damage popups so they don't overlap.
+    /// </summary>
+    public static void CreateStatusEffect(Vector3 position, string effectName, Color color)
+    {
+        // Offset upward a bit extra so it doesn't overlap with the damage popup
+        Vector3 offset = new Vector3(0f, 1.2f, 0f);
+        Create(position + offset, effectName, color, 3.5f);
+    }
 }

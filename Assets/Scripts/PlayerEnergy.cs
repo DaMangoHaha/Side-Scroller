@@ -127,6 +127,25 @@ public class PlayerEnergy : MonoBehaviour
             GameOver();
     }
 
+    /// <summary>
+    /// Deals damage that bypasses invulnerability and does NOT trigger i-frames.
+    /// Used by status effects like Burning that tick through invincibility.
+    /// </summary>
+    public void TakeBurnDamage(float amount)
+    {
+        // Apply Chill Wind damage reduction (Crystal Tier 3) — burn can still be reduced
+        if (chillWindDamageReduction > 0f)
+        {
+            amount *= (1f - chillWindDamageReduction);
+        }
+
+        currentEnergy = Mathf.Clamp(currentEnergy - amount, 0, maxEnergy * maxEnergyMultiplier);
+        UpdateUI();
+
+        if (currentEnergy <= 0)
+            GameOver();
+    }
+
     public void UpdateUI()
     {
         if (energySlider != null)

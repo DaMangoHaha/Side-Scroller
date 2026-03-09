@@ -5736,7 +5736,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1844672861058412674, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 853625239}
   m_SourcePrefab: {fileID: 100100000, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
 --- !u!4 &853625234 stripped
 Transform:
@@ -5781,6 +5784,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcb812e346ab1de41b46ba0caa8c0c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NinjaSkill_ElectricBolt
+--- !u!114 &853625239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853625235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf10f2b1dc697043b24aab29908ea4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
+  stickyDuration: 3
+  jumpForceMultiplier: 0.9
+  burningDuration: 5
+  burningDamagePerTick: 5
+  burningTickInterval: 1
+  soggyDuration: 5
+  inputDelaySeconds: 0.15
+  isSticky: 0
+  isBurning: 0
+  isSoggy: 0
 --- !u!1 &875054047
 GameObject:
   m_ObjectHideFlags: 0
@@ -7136,7 +7161,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8922940431773350140, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1225235822}
   m_SourcePrefab: {fileID: 100100000, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
 --- !u!4 &1225235817 stripped
 Transform:
@@ -7181,6 +7209,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8705f100b90254947ba36e73815427d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WizKidSkill
+--- !u!114 &1225235822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1225235818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf10f2b1dc697043b24aab29908ea4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
+  stickyDuration: 3
+  jumpForceMultiplier: 0.9
+  burningDuration: 5
+  burningDamagePerTick: 5
+  burningTickInterval: 1
+  soggyDuration: 5
+  inputDelaySeconds: 0.15
+  isSticky: 0
+  isBurning: 0
+  isSoggy: 0
 --- !u!1001 &1228121489
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7324,7 +7374,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3566108749456092354, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1951891114}
   m_SourcePrefab: {fileID: 100100000, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
 --- !u!212 &1228121490 stripped
 SpriteRenderer:
@@ -7919,7 +7972,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6893222532360068997, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1348524113}
   m_SourcePrefab: {fileID: 100100000, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
 --- !u!4 &1348524108 stripped
 Transform:
@@ -7958,6 +8014,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6072321803392445595, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
   m_PrefabInstance: {fileID: 1348524107}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1348524113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348524109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf10f2b1dc697043b24aab29908ea4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
+  stickyDuration: 3
+  jumpForceMultiplier: 0.9
+  burningDuration: 5
+  burningDamagePerTick: 5
+  burningTickInterval: 1
+  soggyDuration: 5
+  inputDelaySeconds: 0.15
+  isSticky: 0
+  isBurning: 0
+  isSoggy: 0
 --- !u!1 &1358686723
 GameObject:
   m_ObjectHideFlags: 0
@@ -8247,7 +8325,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3566108749456092354, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1381084140}
   m_SourcePrefab: {fileID: 100100000, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
 --- !u!4 &1381084135 stripped
 Transform:
@@ -8292,6 +8373,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a845b969a55c44abb3b7c109a0954b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1381084140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381084136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf10f2b1dc697043b24aab29908ea4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
+  stickyDuration: 3
+  jumpForceMultiplier: 0.9
+  burningDuration: 5
+  burningDamagePerTick: 5
+  burningTickInterval: 1
+  soggyDuration: 5
+  inputDelaySeconds: 0.15
+  isSticky: 0
+  isBurning: 0
+  isSoggy: 0
 --- !u!1 &1477008155
 GameObject:
   m_ObjectHideFlags: 0
@@ -11603,6 +11706,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d983bedad0c3184589c4461619d6952, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1951891114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228121492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf10f2b1dc697043b24aab29908ea4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
+  stickyDuration: 3
+  jumpForceMultiplier: 0.9
+  burningDuration: 5
+  burningDamagePerTick: 5
+  burningTickInterval: 1
+  soggyDuration: 5
+  inputDelaySeconds: 0.15
+  isSticky: 0
+  isBurning: 0
+  isSoggy: 0
 --- !u!114 &1984349938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12625,7 +12750,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5022524820393484414, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2145978727}
   m_SourcePrefab: {fileID: 100100000, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
 --- !u!1 &2145978722 stripped
 GameObject:
@@ -12670,6 +12798,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15f1754b73363a941a7a338968c2aa07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CrystalAbility
+--- !u!114 &2145978727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145978722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdf10f2b1dc697043b24aab29908ea4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
+  stickyDuration: 3
+  jumpForceMultiplier: 0.9
+  burningDuration: 5
+  burningDamagePerTick: 5
+  burningTickInterval: 1
+  soggyDuration: 5
+  inputDelaySeconds: 0.15
+  isSticky: 0
+  isBurning: 0
+  isSoggy: 0
 --- !u!114 &73551714744104861
 MonoBehaviour:
   m_ObjectHideFlags: 0

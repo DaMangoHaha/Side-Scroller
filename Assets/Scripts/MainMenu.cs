@@ -9,15 +9,16 @@ public class MainMenu : MonoBehaviour
 
     public Slider musicSlider;
     public Slider sfxSlider;
+
     private void Start()
     {
         LoadVolume();
         MusicManager.Instance.PlayMusic("Main Menu");
     }
+
     // Called by Play Button
     public void PlayGame()
     {
-        // Load the next scene (Level Select)
         SceneManager.LoadScene("LevelSelect");
     }
 
@@ -31,7 +32,6 @@ public class MainMenu : MonoBehaviour
     public void OpenCredits()
     {
         SceneManager.LoadScene("Credits");
-        // Credits scene for appropriate acknowledgments for assests used in game
     }
 
     // Called by Quit Button (if added later)
@@ -44,13 +44,14 @@ public class MainMenu : MonoBehaviour
     public void UpdateMusicVolume(float volume)
     {
         audioMixer.SetFloat("MusicVolume", volume);
+        PlayerPrefs.SetFloat("MusicVolume", volume);
     }
 
     public void UpdateSoundVolume(float volume)
     {
         audioMixer.SetFloat("SFXVolume", volume);
+        PlayerPrefs.SetFloat("SFXVolume", volume);
     }
-
 
     public void SaveVolume()
     {
@@ -63,8 +64,9 @@ public class MainMenu : MonoBehaviour
 
     public void LoadVolume()
     {
-        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume");
-        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume");
+        float defaultVolume = 0f; // 0 dB = full volume in most AudioMixer setups
+        musicSlider.value = PlayerPrefs.GetFloat("MusicVolume", defaultVolume);
+        sfxSlider.value = PlayerPrefs.GetFloat("SFXVolume", defaultVolume);
     }
 }
 

@@ -42,5 +42,20 @@ public class RedSlime : SlimeBase
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, 0f); // reset vertical speed
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
     }
+
+    protected override void OnHitPlayer()
+    {
+        // Apply Burning debuff to the player
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            StatusEffectManager statusEffects = player.GetComponent<StatusEffectManager>();
+            if (statusEffects != null)
+                statusEffects.ApplyBurning(player.transform.position);
+        }
+
+        Die();
+        SoundManager.Instance.PlaySound2D("Damage");
+    }
 }
 
