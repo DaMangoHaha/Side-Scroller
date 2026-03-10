@@ -5145,7 +5145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12c4bb2d7d9c1f348abec2b90bf8aa33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelEndTrigger
-  nextSceneName: Level5
+  nextSceneName: Level5Cutscene
 --- !u!1 &740395288
 GameObject:
   m_ObjectHideFlags: 0
