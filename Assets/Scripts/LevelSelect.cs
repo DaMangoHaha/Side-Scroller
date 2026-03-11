@@ -34,36 +34,31 @@ public class LevelSelect : MonoBehaviour
 
     public void PlayLevel1()
     {
-        MusicManager.Instance.PlayMusic("Level 1");
-        SceneManager.LoadScene("Level1");
+        SceneTransition.Instance.LoadScene("Level1", () => MusicManager.Instance.PlayMusic("Level 1"));
     }
 
     public void PlayLevel2()
     {
         if (!IsLevelUnlocked(2)) { ShowLockedPanel(); return; }
-        MusicManager.Instance.PlayMusic("Level 2");
-        SceneManager.LoadScene("Level2");
+        SceneTransition.Instance.LoadScene("Level2", () => MusicManager.Instance.PlayMusic("Level 2"));
     }
 
     public void PlayLevel3()
     {
         if (!IsLevelUnlocked(3)) { ShowLockedPanel(); return; }
-        MusicManager.Instance.PlayMusic("Level 3");
-        SceneManager.LoadScene("Level3");
+        SceneTransition.Instance.LoadScene("Level3", () => MusicManager.Instance.PlayMusic("Level 3"));
     }
 
     public void PlayLevel4()
     {
         if (!IsLevelUnlocked(4)) { ShowLockedPanel(); return; }
-        MusicManager.Instance.PlayMusic("Level 4");
-        SceneManager.LoadScene("Level4");
+        SceneTransition.Instance.LoadScene("Level4", () => MusicManager.Instance.PlayMusic("Level 4"));
     }
 
     public void PlayLevel5()
     {
         if (!IsLevelUnlocked(5)) { ShowLockedPanel(); return; }
-        MusicManager.Instance.PlayMusic("Level 5");
-        SceneManager.LoadScene("Level5");
+        SceneTransition.Instance.LoadScene("Level5", () => MusicManager.Instance.PlayMusic("Level 5"));
     }
 
     private bool IsLevelUnlocked(int levelNumber)

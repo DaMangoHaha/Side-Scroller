@@ -144,7 +144,7 @@ public class OpeningCutscene : MonoBehaviour
         if (!mainMenuLoaded && dialogueBox != null && !dialogueBox.activeInHierarchy)
         {
             mainMenuLoaded = true;
-            SceneManager.LoadScene("MainMenu");
+            SceneTransition.Instance.LoadScene("MainMenu");
         }
 
         // Update continue prompt text based on active input device

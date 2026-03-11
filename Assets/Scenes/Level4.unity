@@ -5146,6 +5146,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelEndTrigger
   nextSceneName: Level5Cutscene
+  musicTrackName: 
+  requiresEventGate: 1
+  blockedMessage: "You can't leave yet \u2014 check out the Sign"
 --- !u!1 &740395288
 GameObject:
   m_ObjectHideFlags: 0

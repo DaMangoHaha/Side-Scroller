@@ -144,7 +144,7 @@ public class Level5CutsceneOpening : MonoBehaviour
         if (!level5Loaded && dialogueBox != null && !dialogueBox.activeInHierarchy)
         {
             level5Loaded = true;
-            SceneManager.LoadScene("Level5");
+            SceneTransition.Instance.LoadScene("Level5", () => MusicManager.Instance.PlayMusic("Level 5"));
         }
 
         // Update continue prompt text based on active input device

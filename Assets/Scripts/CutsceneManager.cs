@@ -38,7 +38,7 @@ public class CutsceneManager : MonoBehaviour
         else
         {
             // Finished all lines, go to level
-            SceneManager.LoadScene("Level1"); // Your actual game scene
+            SceneTransition.Instance.LoadScene("Level1");
         }
     }
 }

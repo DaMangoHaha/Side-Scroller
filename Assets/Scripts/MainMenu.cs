@@ -19,19 +19,19 @@ public class MainMenu : MonoBehaviour
     // Called by Play Button
     public void PlayGame()
     {
-        SceneManager.LoadScene("LevelSelect");
+        SceneTransition.Instance.LoadScene("LevelSelect");
     }
 
     // Called by Settings Button
     public void OpenSettings()
     {
-        SceneManager.LoadScene("Settings");
+        SceneTransition.Instance.LoadScene("Settings");
     }
 
     // Called by Shop Button
     public void OpenCredits()
     {
-        SceneManager.LoadScene("Credits");
+        SceneTransition.Instance.LoadScene("Credits");
     }
 
     // Called by Quit Button (if added later)

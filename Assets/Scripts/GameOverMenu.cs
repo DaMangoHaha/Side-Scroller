@@ -10,12 +10,12 @@ public class GameOverMenu : MonoBehaviour
     public void OnContinuePressed()
     {
         string lastLevel = PlayerPrefs.GetString("LastLevel", "Level1"); // fallback if none is saved
-        SceneManager.LoadScene(lastLevel);
+        SceneTransition.Instance.LoadScene(lastLevel);
     }
 
     public void OnMainMenuPressed()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneTransition.Instance.LoadScene("MainMenu");
     }
 
     public void OnQuitPressed()

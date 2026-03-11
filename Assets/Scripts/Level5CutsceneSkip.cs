@@ -240,6 +240,7 @@ public class Level5CutsceneSkip : MonoBehaviour
 
         // Load Level5 immediately when conversation ends
         SceneManager.LoadScene("Level5");
+        MusicManager.Instance.PlayMusic("Level 5");
     }
 
     void SkipCutscene()
@@ -259,6 +260,7 @@ public class Level5CutsceneSkip : MonoBehaviour
 
         // Load Level5 immediately when skipping
         SceneManager.LoadScene("Level5");
+        MusicManager.Instance.PlayMusic("Level 5");
     }
 
     /// <summary>

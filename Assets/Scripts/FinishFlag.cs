@@ -23,9 +23,8 @@ public class FinishFlag : MonoBehaviour
             if (LevelUnlockManager.Instance != null)
                 LevelUnlockManager.Instance.UnlockLevel(2);
 
-            MusicManager.Instance.PlayMusic("Main Menu");
             // Return to Level Select
-            SceneManager.LoadScene("LevelSelect");
+            SceneTransition.Instance.LoadScene("LevelSelect", () => MusicManager.Instance.PlayMusic("Main Menu"));
         }
 
         if (levelComplete && collision.CompareTag("Player"))
@@ -42,7 +41,7 @@ public class FinishFlag : MonoBehaviour
             if (LevelUnlockManager.Instance != null)
                 LevelUnlockManager.Instance.UnlockLevel(3);
             // Return to Level Select
-            SceneManager.LoadScene("LevelSelect");
+            SceneTransition.Instance.LoadScene("LevelSelect");
         }
         if (levelComplete && collision.CompareTag("Player"))
         {
@@ -58,7 +57,7 @@ public class FinishFlag : MonoBehaviour
             if (LevelUnlockManager.Instance != null)
                 LevelUnlockManager.Instance.UnlockLevel(4);
             // Return to Level Select
-            SceneManager.LoadScene("LevelSelect");
+            SceneTransition.Instance.LoadScene("LevelSelect");
         }
     }
 }
