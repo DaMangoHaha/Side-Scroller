@@ -3,11 +3,11 @@ guid: ab82ce21c9aebdc45991a21674c92abe
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 491333964637579925
-    second: Bits-1.png_0
+      213: 3041004344430545484
+    second: Bits Tied Up_0
   - first:
-      213: -2333275852762334098
-    second: Bits-1.png_1
+      213: 6212739812918765491
+    second: Bits Tied Up_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -142,13 +142,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bits-1.png_0
+      name: Bits Tied Up_0
       rect:
         serializedVersion: 2
-        x: 719
-        y: 203
-        width: 158
-        height: 194
+        x: 359
+        y: 101
+        width: 80
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,20 +157,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 59aae4c33a191d600800000000000000
-      internalID: 491333964637579925
+      spriteID: c4ac33ed651d33a20800000000000000
+      internalID: 3041004344430545484
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bits-1.png_1
+      name: Bits Tied Up_1
       rect:
         serializedVersion: 2
-        x: 923
-        y: 203
-        width: 158
-        height: 182
+        x: 461
+        y: 101
+        width: 80
+        height: 92
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,8 +179,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e6cba1169f98e9fd0800000000000000
-      internalID: -2333275852762334098
+      spriteID: 3b723fe71f5183650800000000000000
+      internalID: 6212739812918765491
       vertices: []
       indices: 
       edges: []
@@ -199,8 +199,8 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Bits-1.png_0: 491333964637579925
-      Bits-1.png_1: -2333275852762334098
+      Bits Tied Up_0: 3041004344430545484
+      Bits Tied Up_1: 6212739812918765491
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

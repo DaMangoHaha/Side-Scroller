@@ -7223,7 +7223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
   stickyDuration: 3
   jumpForceMultiplier: 0.9
-  burningDuration: 5
+  burningDuration: 3
   burningDamagePerTick: 5
   burningTickInterval: 1
   soggyDuration: 5
@@ -8387,7 +8387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
   stickyDuration: 3
   jumpForceMultiplier: 0.9
-  burningDuration: 5
+  burningDuration: 4
   burningDamagePerTick: 5
   burningTickInterval: 1
   soggyDuration: 5

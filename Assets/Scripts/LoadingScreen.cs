@@ -20,10 +20,14 @@ public class LoadingScreen : MonoBehaviour
 
     [Header("Timing")]
     [Tooltip("Minimum seconds the loading screen stays visible (so it doesn't just flash).")]
-    public float minimumDisplayTime = 1.5f;
+    public float minimumDisplayTime = 2f;
 
     [Tooltip("How quickly the displayed progress bar catches up to actual progress.")]
     public float progressLerpSpeed = 3f;
+
+    [Header("Numeric Counter")]
+    [Tooltip("Speed at which the cosmetic number counter ticks up (units per second). Higher = faster counting.")]
+    public float counterSpeed = 60f;
 
     [Header("Tips (Optional)")]
     [Tooltip("Random tips shown at the bottom of the loading screen. Leave empty to hide.")]
@@ -32,12 +36,21 @@ public class LoadingScreen : MonoBehaviour
     {
         "Tip: Collect coins to unlock new abilities!",
         "Tip: Each character has unique skills that can be upgraded.",
+        "Tip: The Sticky! debuff makes it harder to jump.",
+        "Tip: The Burning! debuff does damage over time.",
+        "Tip: The Soggy! debuff makes inputs register later than usual.",
         "Tip: Bits Bit Buff lets him tank incoming damage!",
         "Tip: Thief can use Sticky Fingers to pull in nearby coins!",
         "Tip: Ninja can fire her Electric Bolt to destroy obstacles!",
         "Tip: Wiz Kid can give himself energy!",
         "Tip: Crystal can use Glaciate to freeze enemies in place!",
         "Tip: Cubit can pause his energy depletion for a short time!",
+        "Fun Fact: Bits' name is a play on 'bit' as in computer bits!",
+        "Fun Fact: Despite being a thief, Thief never actually steals anything!",
+        "Fun Fact: Ninja's hometown, Ninjavalley, is home to all women!",
+        "Fun Fact: Wiz Kid's real name is Wizzleton McGuffin!",
+        "Fun Fact: Crystal is actually a frost spirit, not a living creature!",
+        "Fun Fact: Cubit is a sentient cube that grew limbs from another dimension!",
     };
 
     // --- Runtime UI references (built in code) ---
@@ -48,6 +61,7 @@ public class LoadingScreen : MonoBehaviour
     private TextMeshProUGUI loadingLabel;
     private TextMeshProUGUI tipLabel;
     private TextMeshProUGUI percentLabel;
+    private TextMeshProUGUI counterLabel;
     private CanvasGroup canvasGroup;
 
     private bool isLoading = false;
@@ -107,6 +121,8 @@ public class LoadingScreen : MonoBehaviour
             progressBarFill.fillAmount = 0f;
         if (percentLabel != null)
             percentLabel.text = "0%";
+        if (counterLabel != null)
+            counterLabel.text = "0";
 
         // Show the loading screen canvas
         loadingCanvas.gameObject.SetActive(true);
@@ -120,6 +136,7 @@ public class LoadingScreen : MonoBehaviour
         asyncOp.allowSceneActivation = false;
 
         float displayedProgress = 0f;
+        float cosmeticCounter = 0f;
         float elapsed = 0f;
 
         // Animate progress bar while loading
@@ -132,10 +149,19 @@ public class LoadingScreen : MonoBehaviour
             displayedProgress = Mathf.MoveTowards(displayedProgress, targetProgress,
                 progressLerpSpeed * Time.unscaledDeltaTime);
 
+            // Cosmetic counter — ticks up independently at counterSpeed, clamped to 0-100.
+            // It races ahead but never exceeds the displayed progress percentage,
+            // so it always "agrees" with the bar visually.
+            float progressPercent = displayedProgress * 100f;
+            cosmeticCounter = Mathf.MoveTowards(cosmeticCounter, progressPercent,
+                counterSpeed * Time.unscaledDeltaTime);
+
             if (progressBarFill != null)
                 progressBarFill.fillAmount = displayedProgress;
             if (percentLabel != null)
                 percentLabel.text = Mathf.RoundToInt(displayedProgress * 100f) + "%";
+            if (counterLabel != null)
+                counterLabel.text = Mathf.FloorToInt(cosmeticCounter).ToString();
 
             // Wait until async is ready AND we've shown the screen long enough
             if (asyncOp.progress >= 0.9f && elapsed >= minimumDisplayTime && displayedProgress >= 0.99f)
@@ -145,6 +171,8 @@ public class LoadingScreen : MonoBehaviour
                     progressBarFill.fillAmount = 1f;
                 if (percentLabel != null)
                     percentLabel.text = "100%";
+                if (counterLabel != null)
+                    counterLabel.text = "100";
 
                 // Callback (e.g. music change)
                 onBeforeActivation?.Invoke();
@@ -270,7 +298,7 @@ public class LoadingScreen : MonoBehaviour
         barFillRT.offsetMin = Vector2.zero;
         barFillRT.offsetMax = Vector2.zero;
 
-        // --- Percentage label ---
+        // --- Percentage label (below the bar) ---
         GameObject pctGO = new GameObject("PercentLabel");
         pctGO.transform.SetParent(canvasGO.transform, false);
 
@@ -285,6 +313,22 @@ public class LoadingScreen : MonoBehaviour
         pctRT.anchorMax = new Vector2(0.5f, 0.5f);
         pctRT.anchoredPosition = new Vector2(0f, -50f);
         pctRT.sizeDelta = new Vector2(200f, 40f);
+
+        // --- Numeric counter label (right side of the bar) ---
+        GameObject counterGO = new GameObject("CounterLabel");
+        counterGO.transform.SetParent(canvasGO.transform, false);
+
+        counterLabel = counterGO.AddComponent<TextMeshProUGUI>();
+        counterLabel.text = "0";
+        counterLabel.fontSize = 36;
+        counterLabel.alignment = TextAlignmentOptions.Right;
+        counterLabel.color = new Color(0.3f, 0.8f, 0.4f, 1f); // match the bar fill color
+
+        RectTransform counterRT = counterLabel.rectTransform;
+        counterRT.anchorMin = new Vector2(0.5f, 0.5f);
+        counterRT.anchorMax = new Vector2(0.5f, 0.5f);
+        counterRT.anchoredPosition = new Vector2(330f, -10f); // just right of the 600px-wide bar
+        counterRT.sizeDelta = new Vector2(100f, 40f);
 
         // --- Tip label ---
         GameObject tipGO = new GameObject("TipLabel");

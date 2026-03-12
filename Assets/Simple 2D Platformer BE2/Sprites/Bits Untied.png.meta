@@ -61,7 +61,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -166,10 +166,10 @@ TextureImporter:
       name: Bits Untied_0
       rect:
         serializedVersion: 2
-        x: 95
-        y: 203
-        width: 158
-        height: 194
+        x: 47
+        y: 101
+        width: 80
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -188,10 +188,10 @@ TextureImporter:
       name: Bits Untied_1
       rect:
         serializedVersion: 2
-        x: 275
-        y: 203
-        width: 158
-        height: 194
+        x: 137
+        y: 101
+        width: 80
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -210,10 +210,10 @@ TextureImporter:
       name: Bits Untied_2
       rect:
         serializedVersion: 2
-        x: 455
-        y: 203
-        width: 158
-        height: 194
+        x: 227
+        y: 101
+        width: 80
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -232,10 +232,10 @@ TextureImporter:
       name: Bits Untied_3
       rect:
         serializedVersion: 2
-        x: 635
-        y: 203
-        width: 158
-        height: 194
+        x: 317
+        y: 101
+        width: 80
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -254,10 +254,10 @@ TextureImporter:
       name: Bits Untied_4
       rect:
         serializedVersion: 2
-        x: 815
-        y: 203
-        width: 158
-        height: 194
+        x: 407
+        y: 101
+        width: 80
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -276,10 +276,10 @@ TextureImporter:
       name: Bits Untied_5
       rect:
         serializedVersion: 2
-        x: 995
-        y: 203
-        width: 158
-        height: 194
+        x: 497
+        y: 101
+        width: 80
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,10 +298,10 @@ TextureImporter:
       name: Bits Untied_6
       rect:
         serializedVersion: 2
-        x: 1175
-        y: 203
-        width: 158
-        height: 194
+        x: 587
+        y: 101
+        width: 80
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -320,10 +320,10 @@ TextureImporter:
       name: Bits Untied_7
       rect:
         serializedVersion: 2
-        x: 1355
-        y: 203
-        width: 158
-        height: 194
+        x: 677
+        y: 101
+        width: 80
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,10 +342,10 @@ TextureImporter:
       name: Bits Untied_8
       rect:
         serializedVersion: 2
-        x: 1535
-        y: 203
-        width: 158
-        height: 194
+        x: 767
+        y: 101
+        width: 80
+        height: 98
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
