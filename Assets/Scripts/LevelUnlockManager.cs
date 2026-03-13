@@ -75,6 +75,7 @@ public class LevelUnlockManager : MonoBehaviour
         level2Unlocked = true;
         level3Unlocked = true;
         level4Unlocked = true;
+        level5Unlocked = true;
 
         SaveData data = SaveSystem.LoadData();
         data.levelsUnlocked = true;

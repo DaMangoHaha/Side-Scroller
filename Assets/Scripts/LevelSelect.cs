@@ -71,6 +71,7 @@ public class LevelSelect : MonoBehaviour
             case 2: return LevelUnlockManager.Instance.level2Unlocked;
             case 3: return LevelUnlockManager.Instance.level3Unlocked;
             case 4: return LevelUnlockManager.Instance.level4Unlocked;
+            case 5: return LevelUnlockManager.Instance.level5Unlocked;
             default: return false;
         }
     }

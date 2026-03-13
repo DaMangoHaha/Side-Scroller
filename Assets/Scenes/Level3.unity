@@ -5798,10 +5798,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
   stickyDuration: 3
   jumpForceMultiplier: 0.9
-  burningDuration: 5
+  burningDuration: 3
   burningDamagePerTick: 5
   burningTickInterval: 1
-  soggyDuration: 5
+  soggyDuration: 3
   inputDelaySeconds: 0.15
   isSticky: 0
   isBurning: 0
@@ -7226,7 +7226,7 @@ MonoBehaviour:
   burningDuration: 3
   burningDamagePerTick: 5
   burningTickInterval: 1
-  soggyDuration: 5
+  soggyDuration: 3
   inputDelaySeconds: 0.15
   isSticky: 0
   isBurning: 0
@@ -8028,10 +8028,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
   stickyDuration: 3
   jumpForceMultiplier: 0.9
-  burningDuration: 5
+  burningDuration: 3
   burningDamagePerTick: 5
   burningTickInterval: 1
-  soggyDuration: 5
+  soggyDuration: 3
   inputDelaySeconds: 0.15
   isSticky: 0
   isBurning: 0
@@ -8387,10 +8387,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
   stickyDuration: 3
   jumpForceMultiplier: 0.9
-  burningDuration: 4
+  burningDuration: 3
   burningDamagePerTick: 5
   burningTickInterval: 1
-  soggyDuration: 5
+  soggyDuration: 3
   inputDelaySeconds: 0.15
   isSticky: 0
   isBurning: 0
@@ -11720,10 +11720,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
   stickyDuration: 3
   jumpForceMultiplier: 0.9
-  burningDuration: 5
+  burningDuration: 3
   burningDamagePerTick: 5
   burningTickInterval: 1
-  soggyDuration: 5
+  soggyDuration: 3
   inputDelaySeconds: 0.15
   isSticky: 0
   isBurning: 0
@@ -12812,10 +12812,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StatusEffectManager
   stickyDuration: 3
   jumpForceMultiplier: 0.9
-  burningDuration: 5
+  burningDuration: 3
   burningDamagePerTick: 5
   burningTickInterval: 1
-  soggyDuration: 5
+  soggyDuration: 3
   inputDelaySeconds: 0.15
   isSticky: 0
   isBurning: 0
