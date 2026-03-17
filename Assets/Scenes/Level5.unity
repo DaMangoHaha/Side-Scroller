@@ -1168,7 +1168,7 @@ MonoBehaviour:
   - Time to see what else this place has in store for me...
   portrait: {fileID: -8848074254060127402, guid: d218e8ff1ca6dcf41851c9a8f937f5e5, type: 3}
   triggersEvent: 0
-  eventMessage: 
+  eventMessage: Onward!
   pcPrompt: Press Space to continue.
   gamepadPrompt: Press A to continue.
   mobilePrompt: Tap to continue.
