@@ -10894,6 +10894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1814394787}
   - component: {fileID: 1814394786}
+  - component: {fileID: 1814394788}
   m_Layer: 0
   m_Name: PotionManager
   m_TagString: Untagged
@@ -10935,6 +10936,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1724580990}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1814394788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814394785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 923b8ef01822fcc4d895f6997e24c9ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CoinPotionSpawner
+  potionPrefab: {fileID: 4593962361709624636, guid: b2e194af13b71c74ba957d560d32124e, type: 3}
+  spawnX: 12
+  groundY: 0
+  minSpawnInterval: 18
+  maxSpawnInterval: 30
+  moveSpeed: 5
+  destroyX: -12
 --- !u!1 &1816110847
 GameObject:
   m_ObjectHideFlags: 0

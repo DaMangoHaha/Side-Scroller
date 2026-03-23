@@ -12,6 +12,7 @@ public class DoubleJump : MonoBehaviour
     public float groundRadius = 0.1f;
     public LayerMask groundLayer;
     private bool isGrounded;
+    private bool wasGroundedLastFrame; // Track previous frame's grounded state
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -105,6 +106,7 @@ public class DoubleJump : MonoBehaviour
     void Update()
     {
         // Check if player is on the ground
+        bool wasGrounded = isGrounded;
         if (groundCheck != null)
             isGrounded = Physics2D.OverlapCircle(groundCheck.position, groundRadius, groundLayer);
 

@@ -102,4 +102,13 @@ public class CoinPopup : MonoBehaviour
         Vector3 offset = new Vector3(0f, 1.2f, 0f);
         Create(position + offset, effectName, color, 3.5f);
     }
+
+    /// <summary>
+    /// Coin multiplier popup — cyan/blue colored "x2 Coins for Xs!".
+    /// </summary>
+    public static void CreateMultiplier(Vector3 position, float multiplier, float duration)
+    {
+        string text = $"x{multiplier} Coins for {duration}s!";
+        Create(position, text, new Color(0.3f, 0.8f, 1f, 1f), 4f); // cyan, slightly larger
+    }
 }

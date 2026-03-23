@@ -59,10 +59,17 @@ public class Coin : MonoBehaviour
                 effectiveCoinValue = Mathf.RoundToInt(coinValue * multiplier);
             }
 
-            // Show floating "+X Coin" popup at the coin's position
-            CoinPopup.Create(transform.position, effectiveCoinValue);
+            // Calculate the final display value including the CoinsManager multiplier
+            int displayCoinValue = effectiveCoinValue;
+            if (CoinsManager.Instance != null)
+            {
+                displayCoinValue = Mathf.RoundToInt(effectiveCoinValue * CoinsManager.Instance.GetCoinMultiplier());
+            }
 
-            // Add coins to counter
+            // Show floating "+X Coin" popup at the coin's position (with multiplier applied)
+            CoinPopup.Create(transform.position, displayCoinValue);
+
+            // Add coins to counter (multiplier is applied inside AddCoins)
             if (CoinsManager.Instance != null)
                 CoinsManager.Instance.AddCoins(effectiveCoinValue);
             SoundManager.Instance.PlaySound2D("Coin");
