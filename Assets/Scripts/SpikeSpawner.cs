@@ -21,7 +21,7 @@ public class SpikeSpawner : MonoBehaviour
     void Start()
     {
         // pick a random time for the first spawn
-        nextSpawnTime = Random.Range(minSpawnInterval, maxSpawnInterval);
+        ScheduleNextSpawn();
     }
 
     void Update()
@@ -32,8 +32,24 @@ public class SpikeSpawner : MonoBehaviour
         {
             SpawnSpikeCluster();
             timer = 0f;
-            nextSpawnTime = Random.Range(minSpawnInterval, maxSpawnInterval);
+            ScheduleNextSpawn();
         }
+    }
+
+    /// <summary>
+    /// Schedules the next spawn time, applying difficulty modifier.
+    /// </summary>
+    void ScheduleNextSpawn()
+    {
+        float baseInterval = Random.Range(minSpawnInterval, maxSpawnInterval);
+
+        // Apply difficulty modifier (lower = faster spawns)
+        if (DifficultyManager.Instance != null)
+        {
+            baseInterval *= DifficultyManager.Instance.spawnRateModifier;
+        }
+
+        nextSpawnTime = baseInterval;
     }
 
     void SpawnSpikeCluster()

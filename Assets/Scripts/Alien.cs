@@ -8,16 +8,38 @@ public class Alien : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Collider2D alienCollider;
 
+    // Cached difficulty bonuses (applied on spawn)
+    private float actualDamage;
+    private float actualSpeed;
+
     void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         alienCollider = GetComponent<Collider2D>();
+
+        // Apply difficulty modifiers on spawn
+        ApplyDifficultyModifiers();
+    }
+
+    /// <summary>
+    /// Applies current difficulty bonuses to this enemy's stats.
+    /// </summary>
+    private void ApplyDifficultyModifiers()
+    {
+        actualDamage = damage;
+        actualSpeed = speed;
+
+        if (DifficultyManager.Instance != null)
+        {
+            actualDamage += DifficultyManager.Instance.bonusDamage;
+            actualSpeed += DifficultyManager.Instance.bonusSpeed;
+        }
     }
 
     void Update()
     {
-        // Move left
-        transform.position += Vector3.left * speed * Time.deltaTime;
+        // Move left using modified speed
+        transform.position += Vector3.left * actualSpeed * Time.deltaTime;
 
         // Destroy when off-screen
         if (transform.position.x < -15f)
@@ -50,8 +72,8 @@ public class Alien : MonoBehaviour
 
             hasHit = true;
 
-            // Damage player
-            energy.TakeDamage(damage);
+            // Damage player using modified damage
+            energy.TakeDamage(actualDamage);
 
             // Spike turns transparent and disables collider
             if (spriteRenderer != null)

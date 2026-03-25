@@ -37,9 +37,20 @@ public class SlimeSpawner : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Schedules the next spawn time, applying difficulty modifier.
+    /// </summary>
     void ScheduleNextSpawn()
     {
-        nextSpawnTime = Time.time + Random.Range(minSpawnTime, maxSpawnTime);
+        float baseInterval = Random.Range(minSpawnTime, maxSpawnTime);
+
+        // Apply difficulty modifier (lower = faster spawns)
+        if (DifficultyManager.Instance != null)
+        {
+            baseInterval *= DifficultyManager.Instance.spawnRateModifier;
+        }
+
+        nextSpawnTime = Time.time + baseInterval;
     }
 
     void SpawnRandomSlime()

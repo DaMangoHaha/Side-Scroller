@@ -21,6 +21,10 @@ public class SlimeBase : MonoBehaviour
     public float destroyDelay = 1.2f;
     public AudioClip hitSoundSFX;  // assign in Inspector
 
+    // Cached difficulty bonuses (applied on spawn)
+    protected float actualDamage;
+    protected float actualMoveSpeed;
+
     protected virtual void Awake()
     {
         anim = GetComponent<Animator>();
@@ -30,8 +34,25 @@ public class SlimeBase : MonoBehaviour
 
         if (rb == null)
             Debug.LogError($"{name}: No Rigidbody2D found! Add one to the slime prefab.");
+
+        // Apply difficulty modifiers on spawn
+        ApplyDifficultyModifiers();
     }
 
+    /// <summary>
+    /// Applies current difficulty bonuses to this enemy's stats.
+    /// </summary>
+    protected virtual void ApplyDifficultyModifiers()
+    {
+        actualDamage = damage;
+        actualMoveSpeed = moveSpeed;
+
+        if (DifficultyManager.Instance != null)
+        {
+            actualDamage += DifficultyManager.Instance.bonusDamage;
+            actualMoveSpeed += DifficultyManager.Instance.bonusSpeed;
+        }
+    }
 
     protected virtual void Update()
     {
@@ -51,7 +72,8 @@ public class SlimeBase : MonoBehaviour
     // ------------------------------
     protected virtual void MoveLeft()
     {
-        transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+        // Use modified speed
+        transform.position += Vector3.left * actualMoveSpeed * Time.deltaTime;
     }
 
     // ------------------------------
@@ -77,7 +99,8 @@ public class SlimeBase : MonoBehaviour
             PlayerEnergy player = collision.gameObject.GetComponent<PlayerEnergy>();
             if (player != null)
             {
-                player.TakeDamage(damage);
+                // Use modified damage
+                player.TakeDamage(actualDamage);
                 hasHitPlayer = true;
                 OnHitPlayer();  // Hook for derived classes
             }
