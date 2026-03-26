@@ -254,16 +254,20 @@ public class CubitSkillUpgradePanel : MonoBehaviour
             return;
         }
 
-        // Check coins
-        if (CoinsManager.Instance == null || CoinsManager.Instance.GetCoins() < upgradeCost)
+        // Check CoinsManager exists
+        if (CoinsManager.Instance == null)
+        {
+            Debug.Log("CoinsManager not found!");
+            return;
+        }
+
+        // Attempt to spend coins (this validates we have enough)
+        if (!CoinsManager.Instance.SpendCoins(upgradeCost))
         {
             Debug.Log("Not enough coins for Cubit Skill Upgrade!");
             ShowNotEnoughCoinsMessage();
             return;
         }
-
-        // Deduct coins
-        CoinsManager.Instance.AddCoins(-upgradeCost);
 
         // Apply upgrade
         cubitPassive.SetUpgradeTier(tierNumber);

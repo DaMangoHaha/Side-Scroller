@@ -33,11 +33,36 @@ public class CoinsManager : MonoBehaviour
     // --------------------
     public void AddCoins(int amount)
     {
-        // Apply the current multiplier to the coin amount
-        int multipliedAmount = Mathf.RoundToInt(amount * currentCoinMultiplier);
-        totalCoins += multipliedAmount;
+        // Only apply multiplier to positive amounts (coins gained)
+        int finalAmount = amount > 0 
+            ? Mathf.RoundToInt(amount * currentCoinMultiplier) 
+            : amount;
+        totalCoins += finalAmount;
+        
+        // Prevent negative coins
+        if (totalCoins < 0)
+            totalCoins = 0;
+            
         SaveCoins();
         UpdateUI();
+    }
+
+    /// <summary>
+    /// Attempts to spend the specified amount of coins.
+    /// Returns true if successful, false if not enough coins.
+    /// Does NOT apply coin multipliers to spending.
+    /// </summary>
+    public bool SpendCoins(int amount)
+    {
+        if (amount <= 0) return true; // Nothing to spend
+        
+        if (totalCoins < amount)
+            return false; // Not enough coins
+            
+        totalCoins -= amount;
+        SaveCoins();
+        UpdateUI();
+        return true;
     }
 
     /// <summary>

@@ -26,6 +26,9 @@ public class CharacterSpawner : MonoBehaviour
     public GameObject crystalUpgradeIcon; // Crystal's Glaciate upgrade icon (shown underneath her Energy Bar)
     public GameObject cubitUpgradeIcon; // Cubit's Protection Protocol upgrade icon (shown underneath his Energy Bar)
 
+    [Header("Self-Buff Icons")] // These icons appear in the top-left corner, below the energy bar, when the corresponding buff is active. Crystal is the only character with a self-buff (Chill Wind).
+    public GameObject chillWindIcon; // Crystal's Chill Wind buff icon (shown in the top-left corner of the screen when active)
+
     [Header("Energy Bars")]
     public GameObject bitsEnergyBar;
     public GameObject thiefEnergyBar;

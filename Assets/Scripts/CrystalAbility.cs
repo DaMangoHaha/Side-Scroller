@@ -40,14 +40,32 @@ public class CrystalAbility : MonoBehaviour
     public int upgradeTier = 0; // 0 = no upgrades, 1-3 = tiers
 
     // Tier 1: reduce snowflakes needed by 1
-    private int snowflakeReduction = 1;
+    public int snowflakeReduction = 1;
 
     // Tier 2: extend Glaciate by 1s when collecting a snowflake during activation
-    private float snowflakeExtension = 1f;
+    public float snowflakeExtension = 1f;
 
     // Tier 3: 25% chance to spawn Chill Wind on Glaciate activation
-    private float chillWindChance = 0.25f;
+    public float chillWindChance = 0.25f;
     private bool chillWindActive = false; // tracks if a Chill Wind is currently active
+
+    // ——— Chill Wind Buff Icon ———
+    [Header("Chill Wind Buff Icon")]
+    [Tooltip("UI Image component for the Chill Wind buff icon")]
+    public Image chillWindIcon;
+    [Tooltip("Sprite to display for Chill Wind buff (optional - uses existing Image sprite if not set)")]
+    public Sprite chillWindSprite;
+
+    [Header("Chill Wind Icon Animation")]
+    [Tooltip("Should the icon pulse/flash while active?")]
+    public bool animateChillWindIcon = true;
+    [Tooltip("Speed of the pulse animation")]
+    public float chillWindPulseSpeed = 2f;
+    [Tooltip("Minimum alpha during pulse")]
+    public float chillWindPulseMinAlpha = 0.5f;
+
+    // Icon animation coroutine
+    private Coroutine chillWindIconAnimCoroutine;
 
     void Start()
     {
@@ -71,6 +89,34 @@ public class CrystalAbility : MonoBehaviour
                 skillButton = skillIcon.gameObject.AddComponent<Button>();
             skillButton.transition = Selectable.Transition.None;
             skillButton.onClick.AddListener(() => ActivateAbilityInput(true));
+
+            Debug.Log("CrystalAbility: Skill Icon assigned and initialized. Active: " + skillIcon.gameObject.activeInHierarchy);
+        }
+        else
+        {
+            Debug.LogWarning("CrystalAbility: Skill Icon is NOT assigned in the Inspector!");
+        }
+
+        // Initialize Chill Wind icon - hide it at start
+        InitializeChillWindIcon();
+    }
+
+    /// <summary>
+    /// Sets up the Chill Wind icon with its sprite and hides it initially.
+    /// </summary>
+    private void InitializeChillWindIcon()
+    {
+        if (chillWindIcon != null)
+        {
+            if (chillWindSprite != null)
+                chillWindIcon.sprite = chillWindSprite;
+            chillWindIcon.gameObject.SetActive(false);
+
+            Debug.Log("CrystalAbility: Chill Wind Icon assigned and hidden at start.");
+        }
+        else
+        {
+            Debug.LogWarning("CrystalAbility: Chill Wind Icon is NOT assigned in the Inspector!");
         }
     }
 
@@ -263,6 +309,7 @@ public class CrystalAbility : MonoBehaviour
     private void SpawnChillWind()
     {
         chillWindActive = true;
+        ShowChillWindIcon();
         Debug.Log("Chill Wind activated! Crystal gains icy buffs for 25 seconds.");
 
         // Add or get ChillWind component
@@ -279,7 +326,78 @@ public class CrystalAbility : MonoBehaviour
     public void OnChillWindExpired()
     {
         chillWindActive = false;
+        HideChillWindIcon();
         Debug.Log("Chill Wind expired.");
+    }
+
+    // --------------------------------------------------
+    // Chill Wind Icon Management
+    // --------------------------------------------------
+
+    /// <summary>
+    /// Shows the Chill Wind buff icon and optionally starts pulsing animation.
+    /// </summary>
+    private void ShowChillWindIcon()
+    {
+        if (chillWindIcon == null)
+        {
+            Debug.LogWarning("CrystalAbility: Cannot show Chill Wind Icon - not assigned!");
+            return;
+        }
+
+        chillWindIcon.gameObject.SetActive(true);
+        Debug.Log("CrystalAbility: Chill Wind Icon shown. Active in hierarchy: " + chillWindIcon.gameObject.activeInHierarchy);
+
+        // Reset alpha to full
+        Color c = chillWindIcon.color;
+        c.a = 1f;
+        chillWindIcon.color = c;
+
+        // Start pulse animation if enabled
+        if (animateChillWindIcon)
+        {
+            if (chillWindIconAnimCoroutine != null)
+                StopCoroutine(chillWindIconAnimCoroutine);
+            chillWindIconAnimCoroutine = StartCoroutine(PulseChillWindIcon());
+        }
+    }
+
+    /// <summary>
+    /// Hides the Chill Wind buff icon and stops any animation.
+    /// </summary>
+    private void HideChillWindIcon()
+    {
+        if (chillWindIcon == null) return;
+
+        // Stop animation
+        if (chillWindIconAnimCoroutine != null)
+        {
+            StopCoroutine(chillWindIconAnimCoroutine);
+            chillWindIconAnimCoroutine = null;
+        }
+
+        chillWindIcon.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// Pulse animation for the active Chill Wind buff icon.
+    /// </summary>
+    private IEnumerator PulseChillWindIcon()
+    {
+        if (chillWindIcon == null) yield break;
+
+        while (true)
+        {
+            // Pulse from full alpha down to min alpha and back
+            float t = (Mathf.Sin(Time.time * chillWindPulseSpeed) + 1f) * 0.5f; // 0 to 1
+            float alpha = Mathf.Lerp(chillWindPulseMinAlpha, 1f, t);
+
+            Color c = chillWindIcon.color;
+            c.a = alpha;
+            chillWindIcon.color = c;
+
+            yield return null;
+        }
     }
 
     /// <summary>
