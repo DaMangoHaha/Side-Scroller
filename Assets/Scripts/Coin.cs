@@ -51,13 +51,7 @@ public class Coin : MonoBehaviour
             // Check ThiefSkill for upgrade bonuses
             ThiefSkill thiefSkill = other.GetComponent<ThiefSkill>();
 
-            // Tier 3: coins collected during skill grant 20% more value
             int effectiveCoinValue = coinValue;
-            if (thiefSkill != null)
-            {
-                float multiplier = thiefSkill.GetCoinValueMultiplier();
-                effectiveCoinValue = Mathf.RoundToInt(coinValue * multiplier);
-            }
 
             // Calculate the final display value including the CoinsManager multiplier
             int displayCoinValue = effectiveCoinValue;
@@ -86,6 +80,16 @@ public class Coin : MonoBehaviour
                     int bonusScore = thiefSkill.GetBonusCoinScore();
                     if (bonusScore > 0)
                         score.AddScore(bonusScore);
+                }
+            }
+
+            // Tier 3: coins collected during Sticky Fingers grant +1 energy
+            if (thiefSkill != null && thiefSkill.ShouldGrantEnergy())
+            {
+                PlayerEnergy energy = other.GetComponent<PlayerEnergy>();
+                if (energy != null)
+                {
+                    energy.RestoreEnergy(thiefSkill.GetEnergyPerCoin());
                 }
             }
 

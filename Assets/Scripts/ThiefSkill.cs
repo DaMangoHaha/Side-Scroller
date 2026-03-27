@@ -47,8 +47,8 @@ public class ThiefSkill : MonoBehaviour
     private int tier2BonusScore = 50;
     private float tier2RadiusMultiplier = 1.5f; // 0.5x extra = 1.5x total
 
-    // Tier 3: coins collected during skill grant 20% more value
-    private float tier3CoinValueMultiplier = 1.2f;
+    // Tier 3: coins collected during skill grant +3 energy
+    private float tier3EnergyPerCoin = 3f;
 
     // Base radius stored so upgrades can scale from it
     private float baseCoinPullRadius;
@@ -292,14 +292,22 @@ public class ThiefSkill : MonoBehaviour
     }
 
     /// <summary>
-    /// Returns the coin value multiplier when a coin is collected during the active skill.
-    /// Returns 1.0 if Tier 3 is not unlocked or skill is not active.
+    /// Returns true if a coin collected during the active skill should grant energy.
+    /// Returns false if Tier 3 is not unlocked or skill is not active.
     /// </summary>
-    public float GetCoinValueMultiplier()
+    public bool ShouldGrantEnergy()
     {
         if (isActive && upgradeTier >= 3)
-            return tier3CoinValueMultiplier;
-        return 1f;
+            return true;
+        return false;
+    }
+
+    /// <summary>
+    /// Returns the amount of energy to grant per coin collected during the active skill.
+    /// </summary>
+    public float GetEnergyPerCoin()
+    {
+        return tier3EnergyPerCoin;
     }
 
     /// <summary>

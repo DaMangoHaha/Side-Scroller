@@ -30,7 +30,7 @@ public class ThiefSkillUpgradePanel : MonoBehaviour
     {
         "Tier 1: Sticky Fingers Cooldown -5 seconds",
         "Tier 2: Coins during Sticky Fingers grant +50 Score & Pull Radius +0.5x",
-        "Tier 3: Coins during Sticky Fingers grant 20% more value"
+        "Tier 3: Coins during Sticky Fingers grant +3 Energy"
     };
 
     void Start()

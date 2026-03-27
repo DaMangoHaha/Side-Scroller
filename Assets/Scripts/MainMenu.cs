@@ -44,8 +44,17 @@ public class MainMenu : MonoBehaviour
     /// </summary>
     private void GenerateClearDataPanel()
     {
-        // Find or create a Canvas
-        Canvas canvas = FindObjectOfType<Canvas>();
+        // Find a scene-local Canvas (skip DontDestroyOnLoad canvases like FadeCanvas/LoadingScreenCanvas)
+        Canvas canvas = null;
+        foreach (Canvas c in FindObjectsOfType<Canvas>())
+        {
+            if (c.gameObject.scene.IsValid() && c.gameObject.scene == gameObject.scene)
+            {
+                canvas = c;
+                break;
+            }
+        }
+
         if (canvas == null)
         {
             GameObject canvasObj = new GameObject("Canvas");
