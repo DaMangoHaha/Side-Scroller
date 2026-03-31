@@ -3878,7 +3878,7 @@ GameObject:
   - component: {fileID: 270808196}
   - component: {fileID: 270808195}
   - component: {fileID: 270808194}
-  - component: {fileID: 270808193}
+  - component: {fileID: 270808199}
   m_Layer: 7
   m_Name: Girl (Orange)
   m_TagString: NPC
@@ -3886,20 +3886,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &270808193
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 270808192}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45ff1c406a44af1458a02b8560f3e746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPC
-  dialogueText: I did my best to hold them off...
-  portrait: {fileID: -3942327951939586132, guid: bd63b47cff9ae594eb568115bc61e341, type: 3}
 --- !u!95 &270808194
 Animator:
   serializedVersion: 7
@@ -4069,6 +4055,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &270808199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 270808192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16ea9402a67f9e4f964ac1d24753db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpecialNPC
+  dialogueLines:
+  - I did my best to hold them off...
+  portrait: {fileID: -3942327951939586132, guid: bd63b47cff9ae594eb568115bc61e341, type: 3}
+  triggersEvent: 0
+  eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
+  advanceActionRef: {fileID: 0}
 --- !u!1001 &273660993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4798,7 +4805,7 @@ GameObject:
   - component: {fileID: 709411165}
   - component: {fileID: 709411164}
   - component: {fileID: 709411163}
-  - component: {fileID: 709411162}
+  - component: {fileID: 709411168}
   m_Layer: 7
   m_Name: Guy (LightBlue)
   m_TagString: NPC
@@ -4806,20 +4813,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &709411162
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 709411161}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45ff1c406a44af1458a02b8560f3e746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPC
-  dialogueText: If I keep my eyes closed, the slimes can't see me...
-  portrait: {fileID: -132834808501018910, guid: 7f25b693df8b38a4792dc5989a87c32a, type: 3}
 --- !u!95 &709411163
 Animator:
   serializedVersion: 7
@@ -4989,6 +4982,27 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &709411168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709411161}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16ea9402a67f9e4f964ac1d24753db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpecialNPC
+  dialogueLines:
+  - If I keep my eyes closed, the slimes can't see me...
+  portrait: {fileID: -132834808501018910, guid: 7f25b693df8b38a4792dc5989a87c32a, type: 3}
+  triggersEvent: 0
+  eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
+  advanceActionRef: {fileID: 0}
 --- !u!4 &725184291 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7471922057008591194, guid: bbde5b0f2fde63f47aab9703a1e8e784, type: 3}
@@ -5880,11 +5894,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 946689777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45ff1c406a44af1458a02b8560f3e746, type: 3}
+  m_Script: {fileID: 11500000, guid: b16ea9402a67f9e4f964ac1d24753db0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPC
-  dialogueText: Ugh... Those slimes sure know how to fight...
+  m_EditorClassIdentifier: Assembly-CSharp::SpecialNPC
+  dialogueLines:
+  - Ugh... Those slimes sure know how to fight...
   portrait: {fileID: 6889698823660593160, guid: 18a09acc3ba0a9244803bf3e276e9511, type: 3}
+  triggersEvent: 0
+  eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
+  advanceActionRef: {fileID: 0}
 --- !u!4 &999914625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1755214644681904956, guid: f39426a001c71d84999be2ee63c7d322, type: 3}
@@ -6619,7 +6640,7 @@ GameObject:
   - component: {fileID: 1599046073}
   - component: {fileID: 1599046072}
   - component: {fileID: 1599046071}
-  - component: {fileID: 1599046070}
+  - component: {fileID: 1599046076}
   m_Layer: 7
   m_Name: Guy (Blue)
   m_TagString: NPC
@@ -6627,20 +6648,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1599046070
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1599046069}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45ff1c406a44af1458a02b8560f3e746, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPC
-  dialogueText: Th-the slimes... They came back stronger...
-  portrait: {fileID: -5700717146302426459, guid: d9f998a9105d91f45845c4e37d53a028, type: 3}
 --- !u!95 &1599046071
 Animator:
   serializedVersion: 7
@@ -6810,6 +6817,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1599046076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599046069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b16ea9402a67f9e4f964ac1d24753db0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpecialNPC
+  dialogueLines:
+  - Th-the slimes...
+  - They... came back stronger...
+  portrait: {fileID: -5700717146302426459, guid: d9f998a9105d91f45845c4e37d53a028, type: 3}
+  triggersEvent: 0
+  eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
+  advanceActionRef: {fileID: 0}
 --- !u!1 &1605604914
 GameObject:
   m_ObjectHideFlags: 0

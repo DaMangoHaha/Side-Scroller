@@ -4860,6 +4860,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelEndTrigger
   nextSceneName: Level3
+  musicTrackName: Level 3
+  requiresEventGate: 1
+  blockedMessage: "You can't leave yet \u2014 talk to the Thief first."
 --- !u!1 &740395288
 GameObject:
   m_ObjectHideFlags: 0
@@ -5211,7 +5214,7 @@ GameObject:
   - component: {fileID: 946689779}
   - component: {fileID: 946689778}
   - component: {fileID: 946689782}
-  - component: {fileID: 946689783}
+  - component: {fileID: 946689784}
   m_Layer: 7
   m_Name: Guy (Yellow)
   m_TagString: NPC
@@ -5388,7 +5391,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &946689783
+--- !u!114 &946689784
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5397,11 +5400,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 946689777}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45ff1c406a44af1458a02b8560f3e746, type: 3}
+  m_Script: {fileID: 11500000, guid: b16ea9402a67f9e4f964ac1d24753db0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPC
-  dialogueText: The place is still under construction! Try comin' back later.
+  m_EditorClassIdentifier: Assembly-CSharp::SpecialNPC
+  dialogueLines:
+  - Hey, Bits! How've ya been?
+  - ...Oh, me? Still workin' hard as this place's blacksmith.
   portrait: {fileID: 5252683509716513573, guid: 1e0f743bbab92704dbfa4a1267785fb8, type: 3}
+  triggersEvent: 0
+  eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
+  advanceActionRef: {fileID: 0}
 --- !u!4 &999914625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1755214644681904956, guid: f39426a001c71d84999be2ee63c7d322, type: 3}
@@ -5663,11 +5674,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1105079184}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45ff1c406a44af1458a02b8560f3e746, type: 3}
+  m_Script: {fileID: 11500000, guid: b16ea9402a67f9e4f964ac1d24753db0, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NPC
-  dialogueText: Hey, Bits... Things haven't been looking too good for Greenwood.
+  m_EditorClassIdentifier: Assembly-CSharp::SpecialNPC
+  dialogueLines:
+  - Hello, Bits...
+  - Greenwood hasn't been the best as of recently.
+  - Hostile slimes have been showing up out of nowhere!
   portrait: {fileID: 7849969377420751282, guid: e6e1a6362e5892440994939274a230c5, type: 3}
+  triggersEvent: 0
+  eventMessage: 
+  pcPrompt: Press Space to continue.
+  gamepadPrompt: Press A to continue.
+  mobilePrompt: Tap to continue.
+  advanceActionRef: {fileID: 0}
 --- !u!1 &1141148791
 GameObject:
   m_ObjectHideFlags: 0
