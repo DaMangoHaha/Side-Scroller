@@ -21,6 +21,25 @@ public class StringBoolPair
     }
 }
 
+/// <summary>
+/// A single string-string key-value entry for serialization with JsonUtility.
+/// Used for equipped costumes (characterID ? costumeID).
+/// </summary>
+[Serializable]
+public class StringStringPair
+{
+    public string key;
+    public string value;
+
+    public StringStringPair() { }
+
+    public StringStringPair(string key, string value)
+    {
+        this.key = key;
+        this.value = value;
+    }
+}
+
 [Serializable]
 public class SaveData
 {
@@ -60,8 +79,16 @@ public class SaveData
     // --- Serializable ownership lists (replaces Dictionary<string,bool>) ---
     public List<StringBoolPair> ownedCharactersList = new List<StringBoolPair>();
 
+    // --- Costume ownership (costumeID ? owned) ---
+    public List<StringBoolPair> ownedCostumesList = new List<StringBoolPair>();
+
+    // --- Equipped costumes per character (characterID ? costumeID) ---
+    public List<StringStringPair> equippedCostumesList = new List<StringStringPair>();
+
     // --- Runtime dictionaries (not serialized, rebuilt from lists) ---
     [NonSerialized] public Dictionary<string, bool> ownedCharacters;
+    [NonSerialized] public Dictionary<string, bool> ownedCostumes;
+    [NonSerialized] public Dictionary<string, string> equippedCostumes;
 
     public SaveData()
     {
@@ -76,6 +103,9 @@ public class SaveData
             new StringBoolPair("Cubit", false)
         };
 
+        ownedCostumesList = new List<StringBoolPair>();
+        equippedCostumesList = new List<StringStringPair>();
+
         RebuildDictionaries();
     }
 
@@ -85,6 +115,7 @@ public class SaveData
     /// </summary>
     public void RebuildDictionaries()
     {
+        // --- Character ownership ---
         ownedCharacters = new Dictionary<string, bool>();
         if (ownedCharactersList != null)
         {
@@ -95,6 +126,22 @@ public class SaveData
         // Ensure defaults exist even if the save file is from an older version
         if (!ownedCharacters.ContainsKey("Bits"))
             ownedCharacters["Bits"] = true;
+
+        // --- Costume ownership ---
+        ownedCostumes = new Dictionary<string, bool>();
+        if (ownedCostumesList != null)
+        {
+            foreach (var pair in ownedCostumesList)
+                ownedCostumes[pair.key] = pair.value;
+        }
+
+        // --- Equipped costumes ---
+        equippedCostumes = new Dictionary<string, string>();
+        if (equippedCostumesList != null)
+        {
+            foreach (var pair in equippedCostumesList)
+                equippedCostumes[pair.key] = pair.value;
+        }
     }
 
     /// <summary>
@@ -103,11 +150,28 @@ public class SaveData
     /// </summary>
     public void SyncListsFromDictionaries()
     {
+        // --- Character ownership ---
         ownedCharactersList = new List<StringBoolPair>();
         if (ownedCharacters != null)
         {
             foreach (var kvp in ownedCharacters)
                 ownedCharactersList.Add(new StringBoolPair(kvp.Key, kvp.Value));
+        }
+
+        // --- Costume ownership ---
+        ownedCostumesList = new List<StringBoolPair>();
+        if (ownedCostumes != null)
+        {
+            foreach (var kvp in ownedCostumes)
+                ownedCostumesList.Add(new StringBoolPair(kvp.Key, kvp.Value));
+        }
+
+        // --- Equipped costumes ---
+        equippedCostumesList = new List<StringStringPair>();
+        if (equippedCostumes != null)
+        {
+            foreach (var kvp in equippedCostumes)
+                equippedCostumesList.Add(new StringStringPair(kvp.Key, kvp.Value));
         }
     }
 }
