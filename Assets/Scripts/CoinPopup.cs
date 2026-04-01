@@ -111,4 +111,14 @@ public class CoinPopup : MonoBehaviour
         string text = $"x{multiplier} Coins for {duration}s!";
         Create(position, text, new Color(0.3f, 0.8f, 1f, 1f), 4f); // cyan, slightly larger
     }
+
+    /// <summary>
+    /// Bit Buff popup — blue colored text near the player.
+    /// Spawns slightly higher so it doesn't overlap with other popups.
+    /// </summary>
+    public static void CreateBitBuff(Vector3 position, string message)
+    {
+        Vector3 offset = new Vector3(0f, 1.2f, 0f);
+        Create(position + offset, message, new Color(0.3f, 0.5f, 1f, 1f), 3.5f); // blue
+    }
 }
