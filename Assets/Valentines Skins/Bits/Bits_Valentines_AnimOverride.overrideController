@@ -9,11 +9,11 @@ AnimatorOverrideController:
   m_Name: Bits_Valentines_AnimOverride
   m_Controller: {fileID: 9100000, guid: f4d8af1512375444ca0cd9e1ec405b95, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 76256ce361a584747b1b0d7b62631e71, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: b4c14587d3885d941b858783a68f84c9, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: ff62ece64c8ebe944a82b3a3a687aa2e, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: 925c01b2afcd68341b0bbbda08826905, type: 2}
-  - m_OriginalClip: {fileID: 7400000, guid: b0f4f6acb344b0645ab82628a0f27a37, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: ea6e6ff7a179a1b4d98a2b536589f2f0, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: fee9aea02b550d44bb1ca1603c056fe9, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: ba96749a68a83b84fa2797afcf5317b2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: b0f4f6acb344b0645ab82628a0f27a37, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ea6e6ff7a179a1b4d98a2b536589f2f0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ff62ece64c8ebe944a82b3a3a687aa2e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 925c01b2afcd68341b0bbbda08826905, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 76256ce361a584747b1b0d7b62631e71, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b4c14587d3885d941b858783a68f84c9, type: 2}

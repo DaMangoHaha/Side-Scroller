@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Thief_Valentines_AnimOverride
+  m_Controller: {fileID: 9100000, guid: 0d462cb715ab93d43804d0b5cd1ddfdf, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: a0b26f3b490b62244908d9eee58a584a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 61c915935b9578a43bdfabf89c725262, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: f3a609f31030712458ee79d80b489af2, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1d3b30f555881e9469556a5670d10e75, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 6bb405d5dc2ace0479b30df4e496062a, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 86efb07c2da453d40af370e57d25601d, type: 2}

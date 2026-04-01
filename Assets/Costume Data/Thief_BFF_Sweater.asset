@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3d8fd89054d256f439d12e4c7844d37b, type: 3}
-  m_Name: Bits_BFF_Sweater
+  m_Name: Thief_BFF_Sweater
   m_EditorClassIdentifier: Assembly-CSharp::CostumeData
-  costumeID: Bits_Valentines
-  characterID: Bits
-  displayName: Bits - BFF Sweater
-  description: A lovely sweater that matches with his friend, Thief!
-  shopIcon: {fileID: 651562494165481337, guid: e21f00ceeefdcb5498a709e58898bc5d, type: 3}
-  animatorOverride: {fileID: 22100000, guid: ff9c1a1a0c02d544fb9fa5428657e198, type: 2}
+  costumeID: Thief_Valentines
+  characterID: Thief
+  displayName: Thief - BFF Sweater
+  description: A lovely sweater that matches with his friend, Bits!
+  shopIcon: {fileID: 2687075577775702632, guid: ea6890803910f9c498d20e269b289c8c, type: 3}
+  animatorOverride: {fileID: 22100000, guid: 865702337cc27244c94d21c06eb46778, type: 2}
   coinCost: 500
   cupidCoinCost: 0
   isFreeDefault: 0

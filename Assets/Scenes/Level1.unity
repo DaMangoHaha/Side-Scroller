@@ -3686,6 +3686,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 508860342}
     m_Modifications:
+    - target: {fileID: 507965385375742996, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      propertyPath: m_Size.y
+      value: 0.89925015
+      objectReference: {fileID: 0}
+    - target: {fileID: 507965385375742996, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.005152166
+      objectReference: {fileID: 0}
     - target: {fileID: 3478733736790026891, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: energyFill
       value: 
@@ -5936,7 +5944,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3566108749456092354, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1049275098}
   m_SourcePrefab: {fileID: 100100000, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
 --- !u!1 &947916077 stripped
 GameObject:
@@ -6317,6 +6328,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4ce6f164791404080711eced9c43ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1049275098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947916077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5123751c92d285c4ca74a5b8ad5bb544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CostumeApplier
+  characterID: Thief
 --- !u!1 &1061283119
 GameObject:
   m_ObjectHideFlags: 0
@@ -11613,6 +11637,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 508860342}
     m_Modifications:
+    - target: {fileID: 482358018203420766, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6065967
+      objectReference: {fileID: 0}
+    - target: {fileID: 482358018203420766, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.031701714
+      objectReference: {fileID: 0}
     - target: {fileID: 1626509325967240140, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.518
@@ -11684,7 +11716,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1844672861058412674, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2132420927}
   m_SourcePrefab: {fileID: 100100000, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
 --- !u!1 &2132420922 stripped
 GameObject:
@@ -11724,6 +11759,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd4ce6f164791404080711eced9c43ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2132420927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2132420922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5123751c92d285c4ca74a5b8ad5bb544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CostumeApplier
+  characterID: Ninja
 --- !u!1 &2142224529
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,34 +1,34 @@
 fileFormatVersion: 2
-guid: c0f9fc80288029b4aa91d2302d73098f
+guid: c2741c45a38e2594ca16099f49612c33
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3807707268196757203
-    second: Valentines Day Skin-3.png_0
+      213: 5119378236795442106
+    second: Valentines Day Skin-3.png (1)_0
   - first:
-      213: -2031218311414876438
-    second: Valentines Day Skin-3.png_1
+      213: 7685885428241405712
+    second: Valentines Day Skin-3.png (1)_1
   - first:
-      213: 785747765739375870
-    second: Valentines Day Skin-3.png_2
+      213: -5476080957909421111
+    second: Valentines Day Skin-3.png (1)_2
   - first:
-      213: -6444160893104182621
-    second: Valentines Day Skin-3.png_3
+      213: 6048774341231640749
+    second: Valentines Day Skin-3.png (1)_3
   - first:
-      213: -7281021077615108094
-    second: Valentines Day Skin-3.png_4
+      213: -823811496797910046
+    second: Valentines Day Skin-3.png (1)_4
   - first:
-      213: 3367940741114353054
-    second: Valentines Day Skin-3.png_5
+      213: 7208173874277070151
+    second: Valentines Day Skin-3.png (1)_5
   - first:
-      213: 6298866173291209876
-    second: Valentines Day Skin-3.png_6
+      213: -1168753730559715384
+    second: Valentines Day Skin-3.png (1)_6
   - first:
-      213: 6628529028675837221
-    second: Valentines Day Skin-3.png_7
+      213: -2871082484645809749
+    second: Valentines Day Skin-3.png (1)_7
   - first:
-      213: 8267549094834133855
-    second: Valentines Day Skin-3.png_8
+      213: -7865760042948749866
+    second: Valentines Day Skin-3.png (1)_8
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -163,13 +163,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Valentines Day Skin-3.png_0
+      name: Valentines Day Skin-3.png (1)_0
       rect:
         serializedVersion: 2
-        x: 15
-        y: 543
-        width: 210
-        height: 257
+        x: 9
+        y: 339
+        width: 132
+        height: 161
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -178,20 +178,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d219576e96e482bc0800000000000000
-      internalID: -3807707268196757203
+      spriteID: ab3de0bf16fab0740800000000000000
+      internalID: 5119378236795442106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Valentines Day Skin-3.png_1
+      name: Valentines Day Skin-3.png (1)_1
       rect:
         serializedVersion: 2
-        x: 287
-        y: 543
-        width: 210
-        height: 242
+        x: 179
+        y: 339
+        width: 132
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,20 +200,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ae6f8d625b9afc3e0800000000000000
-      internalID: -2031218311414876438
+      spriteID: 0171eae4310c9aa60800000000000000
+      internalID: 7685885428241405712
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Valentines Day Skin-3.png_2
+      name: Valentines Day Skin-3.png (1)_2
       rect:
         serializedVersion: 2
-        x: 559
-        y: 543
-        width: 210
-        height: 242
+        x: 349
+        y: 339
+        width: 132
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -222,20 +222,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: efcc3fb0e6987ea00800000000000000
-      internalID: 785747765739375870
+      spriteID: 9c3378ed16d0104b0800000000000000
+      internalID: -5476080957909421111
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Valentines Day Skin-3.png_3
+      name: Valentines Day Skin-3.png (1)_3
       rect:
         serializedVersion: 2
-        x: 15
-        y: 271
-        width: 210
-        height: 258
+        x: 9
+        y: 169
+        width: 132
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,20 +244,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 3aaaf037fcdb196a0800000000000000
-      internalID: -6444160893104182621
+      spriteID: da00c9f273091f350800000000000000
+      internalID: 6048774341231640749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Valentines Day Skin-3.png_4
+      name: Valentines Day Skin-3.png (1)_4
       rect:
         serializedVersion: 2
-        x: 287
-        y: 271
-        width: 210
-        height: 242
+        x: 179
+        y: 169
+        width: 132
+        height: 152
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -266,20 +266,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 200ae9a08ed94fa90800000000000000
-      internalID: -7281021077615108094
+      spriteID: 2eb4a73fecb3194f0800000000000000
+      internalID: -823811496797910046
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Valentines Day Skin-3.png_5
+      name: Valentines Day Skin-3.png (1)_5
       rect:
         serializedVersion: 2
-        x: 559
-        y: 271
-        width: 210
-        height: 258
+        x: 349
+        y: 169
+        width: 132
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,20 +288,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e95dfaa82445dbe20800000000000000
-      internalID: 3367940741114353054
+      spriteID: 7453987b2f3980460800000000000000
+      internalID: 7208173874277070151
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Valentines Day Skin-3.png_6
+      name: Valentines Day Skin-3.png (1)_6
       rect:
         serializedVersion: 2
-        x: 15
+        x: 9
         y: 0
-        width: 210
-        height: 257
+        width: 132
+        height: 161
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,20 +310,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4942fba69611a6750800000000000000
-      internalID: 6298866173291209876
+      spriteID: 8c75314aca0c7cfe0800000000000000
+      internalID: -1168753730559715384
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Valentines Day Skin-3.png_7
+      name: Valentines Day Skin-3.png (1)_7
       rect:
         serializedVersion: 2
-        x: 287
+        x: 179
         y: 0
-        width: 210
-        height: 257
+        width: 132
+        height: 161
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -332,20 +332,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 52d969938044dfb50800000000000000
-      internalID: 6628529028675837221
+      spriteID: ba137dd11bdd728d0800000000000000
+      internalID: -2871082484645809749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Valentines Day Skin-3.png_8
+      name: Valentines Day Skin-3.png (1)_8
       rect:
         serializedVersion: 2
-        x: 559
+        x: 349
         y: 0
-        width: 210
-        height: 257
+        width: 132
+        height: 161
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -354,8 +354,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f5bd0b0391c3cb270800000000000000
-      internalID: 8267549094834133855
+      spriteID: 6d5149f5ae437d290800000000000000
+      internalID: -7865760042948749866
       vertices: []
       indices: 
       edges: []
@@ -374,15 +374,15 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Valentines Day Skin-3.png_0: -3807707268196757203
-      Valentines Day Skin-3.png_1: -2031218311414876438
-      Valentines Day Skin-3.png_2: 785747765739375870
-      Valentines Day Skin-3.png_3: -6444160893104182621
-      Valentines Day Skin-3.png_4: -7281021077615108094
-      Valentines Day Skin-3.png_5: 3367940741114353054
-      Valentines Day Skin-3.png_6: 6298866173291209876
-      Valentines Day Skin-3.png_7: 6628529028675837221
-      Valentines Day Skin-3.png_8: 8267549094834133855
+      Valentines Day Skin-3.png (1)_0: 5119378236795442106
+      Valentines Day Skin-3.png (1)_1: 7685885428241405712
+      Valentines Day Skin-3.png (1)_2: -5476080957909421111
+      Valentines Day Skin-3.png (1)_3: 6048774341231640749
+      Valentines Day Skin-3.png (1)_4: -823811496797910046
+      Valentines Day Skin-3.png (1)_5: 7208173874277070151
+      Valentines Day Skin-3.png (1)_6: -1168753730559715384
+      Valentines Day Skin-3.png (1)_7: -2871082484645809749
+      Valentines Day Skin-3.png (1)_8: -7865760042948749866
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

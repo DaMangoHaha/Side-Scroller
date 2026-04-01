@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Bits_Run_Valentines
+  m_Name: Bits_Fall_Valentines
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,13 +21,7 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 4318155472119038315, guid: 08691361a8f9a1147af20d0a17fbe01a, type: 3}
-    - time: 0.083333336
-      value: {fileID: -5896923412036558476, guid: 08691361a8f9a1147af20d0a17fbe01a, type: 3}
-    - time: 0.16666667
-      value: {fileID: 184622741111796051, guid: 08691361a8f9a1147af20d0a17fbe01a, type: 3}
-    - time: 0.25
-      value: {fileID: -7679308779844329716, guid: 08691361a8f9a1147af20d0a17fbe01a, type: 3}
+      value: {fileID: 4509956599670756059, guid: e21f00ceeefdcb5498a709e58898bc5d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -50,16 +44,13 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 4318155472119038315, guid: 08691361a8f9a1147af20d0a17fbe01a, type: 3}
-    - {fileID: -5896923412036558476, guid: 08691361a8f9a1147af20d0a17fbe01a, type: 3}
-    - {fileID: 184622741111796051, guid: 08691361a8f9a1147af20d0a17fbe01a, type: 3}
-    - {fileID: -7679308779844329716, guid: 08691361a8f9a1147af20d0a17fbe01a, type: 3}
+    - {fileID: 4509956599670756059, guid: e21f00ceeefdcb5498a709e58898bc5d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.33333334
+    m_StopTime: 0.083333336
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

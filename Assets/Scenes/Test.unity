@@ -645,6 +645,7 @@ MonoBehaviour:
   wizKidUpgradeIcon: {fileID: 0}
   crystalUpgradeIcon: {fileID: 0}
   cubitUpgradeIcon: {fileID: 0}
+  chillWindIcon: {fileID: 0}
   bitsEnergyBar: {fileID: 6480057630519680162}
   thiefEnergyBar: {fileID: 0}
   ninjaEnergyBar: {fileID: 0}

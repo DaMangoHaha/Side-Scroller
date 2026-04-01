@@ -5995,6 +5995,14 @@ PrefabInstance:
       propertyPath: groundRadius
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 482358018203420766, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
+      propertyPath: m_Size.y
+      value: 1.6231816
+      objectReference: {fileID: 0}
+    - target: {fileID: 482358018203420766, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
+      propertyPath: m_Offset.y
+      value: 0.023409128
+      objectReference: {fileID: 0}
     - target: {fileID: 1418188758721588606, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -6094,6 +6102,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1844672861058412674, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       insertIndex: -1
       addedObject: {fileID: 853625239}
+    - targetCorrespondingSourceObject: {fileID: 1844672861058412674, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 853625240}
   m_SourcePrefab: {fileID: 100100000, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
 --- !u!4 &853625234 stripped
 Transform:
@@ -6169,6 +6180,19 @@ MonoBehaviour:
   isSticky: 0
   isBurning: 0
   isSoggy: 0
+--- !u!114 &853625240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 853625235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5123751c92d285c4ca74a5b8ad5bb544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CostumeApplier
+  characterID: Ninja
 --- !u!1 &875054047
 GameObject:
   m_ObjectHideFlags: 0
@@ -7836,6 +7860,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 131462263}
     m_Modifications:
+    - target: {fileID: 507965385375742996, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8978318
+      objectReference: {fileID: 0}
+    - target: {fileID: 507965385375742996, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.00444299
+      objectReference: {fileID: 0}
     - target: {fileID: 3091335463352084533, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: m_Controller
       value: 
@@ -7979,6 +8011,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3566108749456092354, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1951891114}
+    - targetCorrespondingSourceObject: {fileID: 3566108749456092354, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1951891115}
   m_SourcePrefab: {fileID: 100100000, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
 --- !u!212 &1228121490 stripped
 SpriteRenderer:
@@ -8939,6 +8974,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3566108749456092354, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1381084140}
+    - targetCorrespondingSourceObject: {fileID: 3566108749456092354, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1381084141}
   m_SourcePrefab: {fileID: 100100000, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
 --- !u!4 &1381084135 stripped
 Transform:
@@ -9014,6 +9052,19 @@ MonoBehaviour:
   isSticky: 0
   isBurning: 0
   isSoggy: 0
+--- !u!114 &1381084141
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381084136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5123751c92d285c4ca74a5b8ad5bb544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CostumeApplier
+  characterID: Thief
 --- !u!1 &1477008155
 GameObject:
   m_ObjectHideFlags: 0
@@ -12533,6 +12584,19 @@ MonoBehaviour:
   isSticky: 0
   isBurning: 0
   isSoggy: 0
+--- !u!114 &1951891115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1228121492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5123751c92d285c4ca74a5b8ad5bb544, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CostumeApplier
+  characterID: Bits
 --- !u!114 &1984349938
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Ninja_Valentines_AnimOverride
+  m_Controller: {fileID: 9100000, guid: 7c63cb946211cdf488c17839d27a595a, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 9d9bf8ad641446e4c8cb7b1a0bfa64e1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c1ffc1cab96e8b24da5609ad78d7b85c, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4fe1f0ab3c7a44e42822214f43618dce, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: f94b66b80406dc24f8c2410b26734d02, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8bffb856cbf4f9947819f60c34e1d287, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 514f12db56eb21b40ae5d109620f881e, type: 2}
