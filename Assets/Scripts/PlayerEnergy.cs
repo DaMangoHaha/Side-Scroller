@@ -191,13 +191,37 @@ public class PlayerEnergy : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("Energy depleted! You suck.");
+        Debug.Log("Energy depleted! Run complete.");
+
+        string levelName = SceneManager.GetActiveScene().name;
 
         // Save the current scene name before switching
-        PlayerPrefs.SetString("LastLevel", SceneManager.GetActiveScene().name);
+        PlayerPrefs.SetString("LastLevel", levelName);
 
-        // Load the Game Over scene
-        SceneManager.LoadScene("GameOver");
+        // Gather final score
+        PlayerScore playerScore = GetComponent<PlayerScore>();
+        int finalScore = (playerScore != null) ? playerScore.score : 0;
+        PlayerPrefs.SetInt("LastScore", finalScore);
+
+        // Gather survival time
+        float timeSurvived = 0f;
+        if (LevelTimer.Instance != null)
+        {
+            timeSurvived = LevelTimer.Instance.GetElapsedTime();
+            LevelTimer.Instance.StopTimer();
+        }
+        PlayerPrefs.SetFloat("LastTimeSurvived", timeSurvived);
+
+        // Calculate stars (requires LevelVictoryData in the scene)
+        int stars = 0;
+        if (LevelVictoryData.Instance != null)
+            stars = LevelVictoryData.Instance.CalculateStars(finalScore, timeSurvived);
+        PlayerPrefs.SetInt("LastStars", stars);
+
+        PlayerPrefs.Save();
+
+        // Load the Victory scene instead of Game Over
+        SceneManager.LoadScene("Victory");
     }
 
     // Potion Support
