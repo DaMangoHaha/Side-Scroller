@@ -3381,6 +3381,7 @@ GameObject:
   - component: {fileID: 665973789}
   - component: {fileID: 665973788}
   - component: {fileID: 665973790}
+  - component: {fileID: 665973791}
   m_Layer: 6
   m_Name: Tilemap
   m_TagString: Ground
@@ -4111,6 +4112,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 18, y: 3.0375288}
   m_EdgeRadius: 0
+--- !u!114 &665973791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 665973786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18505d6e5d03d6247b083aadc39a39e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveAndRepeatTilemapBackground
+  speed: 2
 --- !u!1 &669524067
 GameObject:
   m_ObjectHideFlags: 0
