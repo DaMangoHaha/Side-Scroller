@@ -8,23 +8,29 @@ using UnityEngine.UI;
 /// </summary>
 public class StatusEffectManager : MonoBehaviour
 {
-    // ——— Sticky (Green Slime) ———
+    // ??? Sticky (Green Slime) ???
     [Header("Sticky — Green Slime")]
     public float stickyDuration = 3f;
     public float jumpForceMultiplier = 0.5f; // halves jump force
 
-    // ——— Burning (Red Slime) ———
+    // ??? Burning (Red Slime) ???
     [Header("Burning — Red Slime")]
     public float burningDuration = 5f;
     public float burningDamagePerTick = 5f;
     public float burningTickInterval = 1f; // damage every 1 second
 
-    // ——— Soggy (Blue Slime) ———
+    // ??? Soggy (Blue Slime) ???
     [Header("Soggy — Blue Slime")]
     public float soggyDuration = 5f;
     public float inputDelaySeconds = 0.15f; // small delay before actions register
 
-    // ——— Status Effect Icons ———
+    // ??? Cursed (Magic Bolts) ???
+    [Header("Cursed — Magic Bolts")]
+    public float cursedDuration = 7f;
+    [Tooltip("Chance (0-1) for a magic bolt to inflict Cursed on hit")]
+    public float cursedChance = 0.25f;
+
+    // ??? Status Effect Icons ???
     [Header("Status Effect Icons")]
     [Tooltip("UI Image component for the Sticky debuff icon")]
     public Image stickyIcon;
@@ -40,6 +46,11 @@ public class StatusEffectManager : MonoBehaviour
     public Image soggyIcon;
     [Tooltip("Sprite to display for Soggy debuff (optional - uses existing Image sprite if not set)")]
     public Sprite soggySprite;
+
+    [Tooltip("UI Image component for the Cursed debuff icon")]
+    public Image cursedIcon;
+    [Tooltip("Sprite to display for Cursed debuff (optional - uses existing Image sprite if not set)")]
+    public Sprite cursedSprite;
 
     [Header("Icon Animation Settings")]
     [Tooltip("Should icons pulse/flash while active?")]
@@ -59,16 +70,19 @@ public class StatusEffectManager : MonoBehaviour
     private Coroutine stickyCoroutine;
     private Coroutine burningCoroutine;
     private Coroutine soggyCoroutine;
+    private Coroutine cursedCoroutine;
 
     // Icon animation coroutines
     private Coroutine stickyIconAnimCoroutine;
     private Coroutine burningIconAnimCoroutine;
     private Coroutine soggyIconAnimCoroutine;
+    private Coroutine cursedIconAnimCoroutine;
 
     // Public flags so other scripts can check active debuffs
     [HideInInspector] public bool isSticky = false;
     [HideInInspector] public bool isBurning = false;
     [HideInInspector] public bool isSoggy = false;
+    [HideInInspector] public bool isCursed = false;
 
     void Awake()
     {
@@ -108,6 +122,14 @@ public class StatusEffectManager : MonoBehaviour
             if (soggySprite != null)
                 soggyIcon.sprite = soggySprite;
             soggyIcon.gameObject.SetActive(false);
+        }
+
+        // Cursed icon setup
+        if (cursedIcon != null)
+        {
+            if (cursedSprite != null)
+                cursedIcon.sprite = cursedSprite;
+            cursedIcon.gameObject.SetActive(false);
         }
     }
 
@@ -287,6 +309,182 @@ public class StatusEffectManager : MonoBehaviour
         Debug.Log("Soggy effect wore off.");
     }
 
+    // --------------------------------------------------
+    // Cursed — disables/disrupts the player's skill for 7 seconds
+    // --------------------------------------------------
+
+    /// <summary>
+    /// Attempts to apply the Cursed debuff. Call this from magic bolt scripts.
+    /// Cubit is immune to the Cursed debuff.
+    /// </summary>
+    public void ApplyCursed(Vector3 popupPosition)
+    {
+        // Cubit is immune to Cursed
+        CubitPassive cubitPassive = GetComponent<CubitPassive>();
+        if (cubitPassive != null)
+        {
+            CoinPopup.CreateStatusEffect(popupPosition, "Immune!", new Color(0.5f, 1f, 0.5f, 1f)); // light green
+            Debug.Log("Cubit is immune to the Cursed debuff!");
+            return;
+        }
+
+        CoinPopup.CreateStatusEffect(popupPosition, "Cursed!", new Color(0.6f, 0.2f, 0.9f, 1f)); // purple
+
+        // Restart the debuff if already active (refresh duration)
+        if (cursedCoroutine != null)
+            StopCoroutine(cursedCoroutine);
+
+        cursedCoroutine = StartCoroutine(CursedRoutine());
+    }
+
+    /// <summary>
+    /// Rolls a 25% chance and applies Cursed if successful.
+    /// Convenience method for magic bolt scripts to call.
+    /// </summary>
+    public bool TryApplyCursed(Vector3 popupPosition)
+    {
+        if (Random.value <= cursedChance)
+        {
+            ApplyCursed(popupPosition);
+            return true;
+        }
+        return false;
+    }
+
+    private IEnumerator CursedRoutine()
+    {
+        isCursed = true;
+        ShowIcon(cursedIcon, ref cursedIconAnimCoroutine);
+
+        // Tint the cursed icon purple
+        if (cursedIcon != null)
+        {
+            cursedIcon.color = new Color(0.6f, 0.2f, 0.9f, 1f);
+        }
+
+        Debug.Log("Cursed! Player's skill is disrupted for " + cursedDuration + "s.");
+
+        // --- Apply character-specific curse effects ---
+
+        // Bits: negate Bit Buff stacks and damage reduction
+        BitSkill bitSkill = GetComponent<BitSkill>();
+        if (bitSkill != null)
+        {
+            bitSkill.OnCursed();
+        }
+
+        // Thief: cancel active Sticky Fingers, pause cooldown
+        ThiefSkill thiefSkill = GetComponent<ThiefSkill>();
+        if (thiefSkill != null)
+        {
+            thiefSkill.OnCursed();
+        }
+
+        // Ninja: disable skill activation, pause cooldown
+        NinjaSkill_ElectricBolt ninjaSkill = GetComponent<NinjaSkill_ElectricBolt>();
+        if (ninjaSkill != null)
+        {
+            ninjaSkill.OnCursed();
+        }
+
+        // Wiz Kid: pause cooldown timer, delay activation until curse ends
+        WizKidSkill wizKidSkill = GetComponent<WizKidSkill>();
+        if (wizKidSkill != null)
+        {
+            wizKidSkill.OnCursed();
+        }
+
+        // Crystal: pause snowflake spawning, cancel active Glaciate
+        CrystalAbility crystalAbility = GetComponent<CrystalAbility>();
+        if (crystalAbility != null)
+        {
+            crystalAbility.OnCursed();
+        }
+
+        // Tint the character's skill icon purple while cursed
+        TintSkillIconPurple(true);
+
+        yield return new WaitForSeconds(cursedDuration);
+
+        // --- Remove curse effects ---
+        isCursed = false;
+
+        if (bitSkill != null)
+            bitSkill.OnCurseLifted();
+
+        if (thiefSkill != null)
+            thiefSkill.OnCurseLifted();
+
+        if (ninjaSkill != null)
+            ninjaSkill.OnCurseLifted();
+
+        if (wizKidSkill != null)
+            wizKidSkill.OnCurseLifted();
+
+        if (crystalAbility != null)
+            crystalAbility.OnCurseLifted();
+
+        // Restore skill icon tint
+        TintSkillIconPurple(false);
+
+        HideIcon(cursedIcon, ref cursedIconAnimCoroutine);
+        cursedCoroutine = null;
+
+        Debug.Log("Cursed effect wore off.");
+    }
+
+    /// <summary>
+    /// Tints the active character's skill icon purple (when cursed) or restores it.
+    /// </summary>
+    private void TintSkillIconPurple(bool tint)
+    {
+        Color purpleTint = new Color(0.6f, 0.2f, 0.9f, 1f);
+
+        // Check each possible skill and tint its icon
+        BitSkill bitSkill = GetComponent<BitSkill>();
+        if (bitSkill != null && bitSkill.shieldIcon != null)
+        {
+            bitSkill.shieldIcon.color = tint ? purpleTint : (bitSkill.shieldIcon.color); // BitSkill manages its own colors
+            if (!tint) bitSkill.RefreshIconColor();
+        }
+
+        ThiefSkill thiefSkill = GetComponent<ThiefSkill>();
+        if (thiefSkill != null && thiefSkill.skillIcon != null)
+        {
+            if (tint)
+                thiefSkill.skillIcon.color = purpleTint;
+            else
+                thiefSkill.RefreshIconColor();
+        }
+
+        NinjaSkill_ElectricBolt ninjaSkill = GetComponent<NinjaSkill_ElectricBolt>();
+        if (ninjaSkill != null && ninjaSkill.readyIcon != null)
+        {
+            if (tint)
+                ninjaSkill.readyIcon.color = purpleTint;
+            else
+                ninjaSkill.RefreshIconColor();
+        }
+
+        WizKidSkill wizKidSkill = GetComponent<WizKidSkill>();
+        if (wizKidSkill != null && wizKidSkill.wizIcon != null)
+        {
+            if (tint)
+                wizKidSkill.wizIcon.color = purpleTint;
+            else
+                wizKidSkill.RefreshIconColor();
+        }
+
+        CrystalAbility crystalAbility = GetComponent<CrystalAbility>();
+        if (crystalAbility != null && crystalAbility.skillIcon != null)
+        {
+            if (tint)
+                crystalAbility.skillIcon.color = purpleTint;
+            else
+                crystalAbility.RefreshIconColor();
+        }
+    }
+
     /// <summary>
     /// Returns the current input delay in seconds (0 if no Soggy debuff is active).
     /// Called by DoubleJump, PlayerFreeMove, and PlayerSlide to throttle input.
@@ -332,6 +530,35 @@ public class StatusEffectManager : MonoBehaviour
         }
         isSoggy = false;
         HideIcon(soggyIcon, ref soggyIconAnimCoroutine);
+
+        // Clear Cursed
+        if (cursedCoroutine != null)
+        {
+            StopCoroutine(cursedCoroutine);
+            cursedCoroutine = null;
+        }
+        if (isCursed)
+        {
+            // Lift curse from all skills
+            BitSkill bitSkill = GetComponent<BitSkill>();
+            if (bitSkill != null) bitSkill.OnCurseLifted();
+
+            ThiefSkill thiefSkill = GetComponent<ThiefSkill>();
+            if (thiefSkill != null) thiefSkill.OnCurseLifted();
+
+            NinjaSkill_ElectricBolt ninjaSkill = GetComponent<NinjaSkill_ElectricBolt>();
+            if (ninjaSkill != null) ninjaSkill.OnCurseLifted();
+
+            WizKidSkill wizKidSkill = GetComponent<WizKidSkill>();
+            if (wizKidSkill != null) wizKidSkill.OnCurseLifted();
+
+            CrystalAbility crystalAbility = GetComponent<CrystalAbility>();
+            if (crystalAbility != null) crystalAbility.OnCurseLifted();
+
+            TintSkillIconPurple(false);
+        }
+        isCursed = false;
+        HideIcon(cursedIcon, ref cursedIconAnimCoroutine);
 
         Debug.Log("All status effects cleared.");
     }

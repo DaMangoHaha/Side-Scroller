@@ -144,6 +144,8 @@ public class VictoryScreen : MonoBehaviour
             "Level2" => data.bestScoreLevel2,
             "Level3" => data.bestScoreLevel3,
             "Level4" => data.bestScoreLevel4,
+            "Level5" => data.bestScoreLevel5,
+            "Level6" => data.bestScoreLevel6,
             _ => 0
         };
     }
@@ -156,6 +158,8 @@ public class VictoryScreen : MonoBehaviour
             case "Level2": data.bestScoreLevel2 = score; break;
             case "Level3": data.bestScoreLevel3 = score; break;
             case "Level4": data.bestScoreLevel4 = score; break;
+            case "Level5": data.bestScoreLevel5 = score; break;
+            case "Level6": data.bestScoreLevel6 = score; break;
         }
     }
 
@@ -167,6 +171,8 @@ public class VictoryScreen : MonoBehaviour
             "Level2" => data.bestStarsLevel2,
             "Level3" => data.bestStarsLevel3,
             "Level4" => data.bestStarsLevel4,
+            "Level5" => data.bestStarsLevel5,
+            "Level6" => data.bestStarsLevel6,
             _ => 0
         };
     }
@@ -179,6 +185,8 @@ public class VictoryScreen : MonoBehaviour
             case "Level2": data.bestStarsLevel2 = stars; break;
             case "Level3": data.bestStarsLevel3 = stars; break;
             case "Level4": data.bestStarsLevel4 = stars; break;
+            case "Level5": data.bestStarsLevel5 = stars; break;
+            case "Level6": data.bestStarsLevel6 = stars; break;
         }
     }
 
@@ -195,6 +203,7 @@ public class VictoryScreen : MonoBehaviour
             "Level3" => "Level 3",
             "Level4" => "Level 4",
             "Level5" => "Level 5",
+            "Level6" => "Level 6",
             _ => null
         };
     }

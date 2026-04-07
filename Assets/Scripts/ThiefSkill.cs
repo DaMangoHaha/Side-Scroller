@@ -36,6 +36,9 @@ public class ThiefSkill : MonoBehaviour
 
     private Button skillButton;
 
+    // --- Cursed Debuff ---
+    private bool isCursedPaused = false;
+
     // --- Upgrade System ---
     [Header("Upgrade")]
     public int upgradeTier = 0; // 0 = no upgrades, 1-3 = tiers
@@ -136,7 +139,7 @@ public class ThiefSkill : MonoBehaviour
 
     private void TryActivateSkill()
     {
-        if (!isOnCooldown)
+        if (!isOnCooldown && !isCursedPaused)
         {
             StartCoroutine(ActivateSkill());
             if (SoundManager.Instance != null)
@@ -146,8 +149,8 @@ public class ThiefSkill : MonoBehaviour
 
     void Update()
     {
-        // Cooldown counting
-        if (isOnCooldown)
+        // Cooldown counting (paused while cursed)
+        if (isOnCooldown && !isCursedPaused)
         {
             cooldownTimer -= Time.deltaTime;
 
@@ -162,7 +165,7 @@ public class ThiefSkill : MonoBehaviour
         // legacy fallback: if for some reason the new input isn't set up, allow keyboard input once
         if (activateSkillAction == null || !activateSkillAction.enabled)
         {
-            if (!isOnCooldown && Keyboard.current != null && Keyboard.current.leftShiftKey.wasPressedThisFrame)
+            if (!isOnCooldown && !isCursedPaused && Keyboard.current != null && Keyboard.current.leftShiftKey.wasPressedThisFrame)
             {
                 TryActivateSkill();
             }
@@ -342,6 +345,59 @@ public class ThiefSkill : MonoBehaviour
     {
         Gizmos.color = Color.grey;
         Gizmos.DrawWireSphere(transform.position, coinPullRadius);
+    }
+
+    /// <summary>
+    /// Called by StatusEffectManager when the Cursed debuff is applied.
+    /// If Sticky Fingers is active, cancel it immediately and pause cooldown.
+    /// If on cooldown, pause the cooldown timer.
+    /// If ready to use, disable activation.
+    /// </summary>
+    public void OnCursed()
+    {
+        isCursedPaused = true;
+
+        if (isActive)
+        {
+            // Cancel Sticky Fingers immediately
+            isActive = false;
+            isOnCooldown = true;
+            cooldownTimer = cooldownTime;
+            Debug.Log("Cursed! Sticky Fingers cancelled mid-use! Cooldown paused.");
+        }
+        else if (isOnCooldown)
+        {
+            Debug.Log("Cursed! Sticky Fingers cooldown timer paused.");
+        }
+        else
+        {
+            // Skill was ready to use — disable it
+            Debug.Log("Cursed! Sticky Fingers disabled until curse ends.");
+        }
+    }
+
+    /// <summary>
+    /// Called by StatusEffectManager when the Cursed debuff wears off.
+    /// Resumes the cooldown timer.
+    /// </summary>
+    public void OnCurseLifted()
+    {
+        isCursedPaused = false;
+        Debug.Log("Curse lifted! Sticky Fingers resumed.");
+    }
+
+    /// <summary>
+    /// Refreshes the skill icon color to its correct state (called when curse tint is removed).
+    /// </summary>
+    public void RefreshIconColor()
+    {
+        if (skillIcon != null)
+        {
+            if (isOnCooldown || isActive)
+                skillIcon.color = inactiveColor;
+            else
+                skillIcon.color = activeColor;
+        }
     }
 }
 

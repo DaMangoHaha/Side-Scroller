@@ -16,6 +16,15 @@ public class SnowflakeSpawner : MonoBehaviour
         if (data.equippedCharacter != "Crystal")
             return;
 
+        // Pause spawning while Crystal is cursed
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player != null)
+        {
+            CrystalAbility crystalAbility = player.GetComponent<CrystalAbility>();
+            if (crystalAbility != null && crystalAbility.isCursedPaused)
+                return;
+        }
+
         timer += Time.deltaTime;
 
         if (timer >= spawnInterval)

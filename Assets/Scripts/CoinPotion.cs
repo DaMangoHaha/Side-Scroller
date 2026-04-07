@@ -33,6 +33,10 @@ public class CoinPotion : MonoBehaviour
                 // Apply the coin multiplier buff
                 CoinsManager.Instance.ApplyCoinMultiplier(coinMultiplier, multiplierDuration);
             }
+            else
+            {
+                Debug.LogWarning("CoinPotion: CoinsManager.Instance is null! Coin multiplier not applied.");
+            }
 
             // Play sound
             if (potionPickupSFX != null && audioSource != null)

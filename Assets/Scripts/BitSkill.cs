@@ -29,6 +29,9 @@ public class BitSkill : MonoBehaviour
     public AudioClip buffConsumeSFX;    // SFX when buff is consumed
     private AudioSource audioSource;
 
+    // --- Cursed Debuff ---
+    private bool isCursedPaused = false;
+
     // --- Upgrade System ---
     [Header("Upgrade")]
     public int upgradeTier = 0; // 0 = no upgrades, 1-3 = tiers
@@ -118,6 +121,10 @@ public class BitSkill : MonoBehaviour
 
     void Update()
     {
+        // If cursed, pause the cooldown timer entirely
+        if (isCursedPaused)
+            return;
+
         timer += Time.deltaTime;
 
         // Start warning twinkle before buff activates
@@ -193,6 +200,58 @@ public class BitSkill : MonoBehaviour
             audioSource.PlayOneShot(buffConsumeSFX);
 
         Debug.Log("Bit Buff consumed! All stacks lost.");
+    }
+
+    /// <summary>
+    /// Called by StatusEffectManager when the Cursed debuff is applied.
+    /// If Bits has stacks, negate damage reduction and remove stacks.
+    /// If no stacks, pause the cooldown timer.
+    /// </summary>
+    public void OnCursed()
+    {
+        if (currentStacks > 0)
+        {
+            // Negate Bit Buff: remove all stacks and damage reduction
+            Debug.Log("Cursed! Bit Buff stacks negated! Lost " + currentStacks + " stack(s).");
+            currentStacks = 0;
+            playerEnergy.hasBitBuff = false;
+            playerEnergy.bitBuffStacks = 0;
+            playerEnergy.damageReduction = 1f; // no damage reduction while cursed
+
+            UpdateShieldIcons();
+
+            if (audioSource != null && buffConsumeSFX != null)
+                audioSource.PlayOneShot(buffConsumeSFX);
+        }
+
+        // Always pause the cooldown timer while cursed
+        isCursedPaused = true;
+        Debug.Log("Cursed! Bit Buff cooldown timer paused.");
+    }
+
+    /// <summary>
+    /// Called by StatusEffectManager when the Cursed debuff wears off.
+    /// Resumes the cooldown timer and restores damage reduction settings.
+    /// </summary>
+    public void OnCurseLifted()
+    {
+        isCursedPaused = false;
+
+        // Restore proper damage reduction based on upgrade tier
+        if (upgradeTier >= 2)
+            playerEnergy.damageReduction = tier2DamageReduction;
+        else
+            playerEnergy.damageReduction = 0.5f;
+
+        Debug.Log("Curse lifted! Bit Buff cooldown timer resumed.");
+    }
+
+    /// <summary>
+    /// Refreshes the skill icon color to its correct state (called when curse tint is removed).
+    /// </summary>
+    public void RefreshIconColor()
+    {
+        UpdateShieldIcons();
     }
 
     /// <summary>

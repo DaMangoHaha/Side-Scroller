@@ -53,6 +53,10 @@ public class WizKidSkill : MonoBehaviour
     private PlayerEnergy playerEnergy;
     private float timer = 0f;
 
+    // --- Cursed Debuff ---
+    private bool isCursedPaused = false;
+    private bool wasReadyWhenCursed = false;
+
     void Start()
     {
         playerEnergy = GetComponent<PlayerEnergy>();
@@ -75,6 +79,10 @@ public class WizKidSkill : MonoBehaviour
 
     void Update()
     {
+        // If cursed, pause the timer entirely
+        if (isCursedPaused)
+            return;
+
         timer -= Time.deltaTime;
 
         if (timer <= 0f)
@@ -281,5 +289,60 @@ public class WizKidSkill : MonoBehaviour
         SaveData data = SaveSystem.LoadData();
         data.wizKidSkillUpgradeTier = tier;
         SaveSystem.SaveData(data);
+    }
+
+    /// <summary>
+    /// Called by StatusEffectManager when the Cursed debuff is applied.
+    /// If on cooldown, pauses the cooldown timer.
+    /// If ready to activate (timer about to fire), delays it until curse ends.
+    /// </summary>
+    public void OnCursed()
+    {
+        isCursedPaused = true;
+
+        // Check if the skill was about to fire (timer very close to 0 or already at 0)
+        if (timer <= 0f)
+        {
+            wasReadyWhenCursed = true;
+            Debug.Log("Cursed! Sprouting Sorcery was ready — activation delayed until curse ends.");
+        }
+        else
+        {
+            wasReadyWhenCursed = false;
+            Debug.Log("Cursed! Sprouting Sorcery cooldown timer paused.");
+        }
+    }
+
+    /// <summary>
+    /// Called by StatusEffectManager when the Cursed debuff wears off.
+    /// Resumes the cooldown timer. If the skill was ready when cursed, activate it now.
+    /// </summary>
+    public void OnCurseLifted()
+    {
+        isCursedPaused = false;
+
+        if (wasReadyWhenCursed)
+        {
+            // Fire the skill immediately since it was ready before the curse
+            timer = 0f; // will trigger on next Update
+            Debug.Log("Curse lifted! Sprouting Sorcery activating now!");
+        }
+        else
+        {
+            Debug.Log("Curse lifted! Sprouting Sorcery cooldown timer resumed.");
+        }
+
+        wasReadyWhenCursed = false;
+    }
+
+    /// <summary>
+    /// Refreshes the skill icon color to its correct state (called when curse tint is removed).
+    /// </summary>
+    public void RefreshIconColor()
+    {
+        if (wizIcon != null)
+        {
+            wizIcon.color = inactiveColor;
+        }
     }
 }

@@ -54,6 +54,9 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
     // Reference to PlayerEnergy (for Tier 3)
     private PlayerEnergy playerEnergy;
 
+    // --- Cursed Debuff ---
+    private bool isCursedPaused = false;
+
     void Start()
     {
         cooldownRemaining = cooldownTime;
@@ -176,7 +179,7 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
 
     private void TryFireElectricBolt(bool isLargeBolt)
     {
-        if (cooldownRemaining <= 0f)
+        if (cooldownRemaining <= 0f && !isCursedPaused)
         {
             FireElectricBolt(isLargeBolt);
             if (SoundManager.Instance != null)
@@ -186,8 +189,8 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
 
     void Update()
     {
-        // Update cooldown
-        if (cooldownRemaining > 0)
+        // Update cooldown (paused while cursed)
+        if (cooldownRemaining > 0 && !isCursedPaused)
         {
             cooldownRemaining -= Time.deltaTime;
 
@@ -208,7 +211,7 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
         // legacy fallback if InputSystem action not available/enabled
         if ((activateSkillAction == null || !activateSkillAction.enabled) && Keyboard.current != null)
         {
-            if (Keyboard.current.leftShiftKey.wasPressedThisFrame && cooldownRemaining <= 0f)
+            if (Keyboard.current.leftShiftKey.wasPressedThisFrame && cooldownRemaining <= 0f && !isCursedPaused)
             {
                 TryFireElectricBolt(false);
             }
@@ -325,5 +328,48 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
         SaveData data = SaveSystem.LoadData();
         data.ninjaSkillUpgradeTier = tier;
         SaveSystem.SaveData(data);
+    }
+
+    /// <summary>
+    /// Called by StatusEffectManager when the Cursed debuff is applied.
+    /// If on cooldown, pauses the cooldown timer.
+    /// If ready to use, disables activation until curse ends.
+    /// </summary>
+    public void OnCursed()
+    {
+        isCursedPaused = true;
+
+        if (cooldownRemaining > 0)
+        {
+            Debug.Log("Cursed! Electric Bolt cooldown timer paused.");
+        }
+        else
+        {
+            Debug.Log("Cursed! Electric Bolt disabled until curse ends.");
+        }
+    }
+
+    /// <summary>
+    /// Called by StatusEffectManager when the Cursed debuff wears off.
+    /// Resumes the cooldown timer.
+    /// </summary>
+    public void OnCurseLifted()
+    {
+        isCursedPaused = false;
+        Debug.Log("Curse lifted! Electric Bolt resumed.");
+    }
+
+    /// <summary>
+    /// Refreshes the skill icon color to its correct state (called when curse tint is removed).
+    /// </summary>
+    public void RefreshIconColor()
+    {
+        if (readyIcon != null)
+        {
+            if (cooldownRemaining > 0)
+                readyIcon.color = inactiveColor;
+            else
+                readyIcon.color = activeColor;
+        }
     }
 }

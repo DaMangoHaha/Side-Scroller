@@ -35,6 +35,10 @@ public class CrystalAbility : MonoBehaviour
 
     private Button skillButton;
 
+    // --- Cursed Debuff ---
+    [HideInInspector] public bool isCursedPaused = false;
+    private Coroutine glaciateCoroutine;
+
     // --- Upgrade System ---
     [Header("Upgrade")]
     public int upgradeTier = 0; // 0 = no upgrades, 1-3 = tiers
@@ -199,9 +203,9 @@ public class CrystalAbility : MonoBehaviour
 
     private void TryActivateGlaciate()
     {
-        if (abilityReady && !abilityActive)
+        if (abilityReady && !abilityActive && !isCursedPaused)
         {
-            StartCoroutine(ActivateGlaciate());
+            glaciateCoroutine = StartCoroutine(ActivateGlaciate());
             if (SoundManager.Instance != null)
                 SoundManager.Instance.PlaySound2D("Glaciate");
         }
@@ -438,6 +442,68 @@ public class CrystalAbility : MonoBehaviour
                 skillIcon.color = c;
 
             yield return null;
+        }
+    }
+
+    /// <summary>
+    /// Called by StatusEffectManager when the Cursed debuff is applied.
+    /// If collecting snowflakes, pauses snowflake spawning.
+    /// If Glaciate is active, cancels it immediately and pauses cooldown.
+    /// </summary>
+    public void OnCursed()
+    {
+        isCursedPaused = true;
+
+        if (abilityActive)
+        {
+            // Cancel Glaciate immediately
+            if (glaciateCoroutine != null)
+            {
+                StopCoroutine(glaciateCoroutine);
+                glaciateCoroutine = null;
+            }
+
+            // Clean up active Glaciate effect
+            GlaciateArea glaciate = GetComponentInChildren<GlaciateArea>();
+            if (glaciate != null)
+                glaciate.EnableRadius(false);
+
+            abilityActive = false;
+            abilityReady = false;
+            currentSnowflakes = 0;
+
+            if (skillIcon != null)
+                skillIcon.color = fadedColor;
+
+            Debug.Log("Cursed! Glaciate cancelled mid-use! Snowflake collection paused.");
+        }
+        else
+        {
+            Debug.Log("Cursed! Snowflake spawning paused until curse ends.");
+        }
+    }
+
+    /// <summary>
+    /// Called by StatusEffectManager when the Cursed debuff wears off.
+    /// Resumes snowflake spawning / skill availability.
+    /// </summary>
+    public void OnCurseLifted()
+    {
+        isCursedPaused = false;
+        Debug.Log("Curse lifted! Crystal's skill resumed.");
+    }
+
+    /// <summary>
+    /// Refreshes the skill icon color to its correct state (called when curse tint is removed).
+    /// </summary>
+    public void RefreshIconColor()
+    {
+        if (skillIcon != null)
+        {
+            if (abilityReady)
+                skillIcon.color = readyColor;
+            else
+                skillIcon.color = fadedColor;
         }
     }
 }
