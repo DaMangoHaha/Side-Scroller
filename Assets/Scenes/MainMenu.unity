@@ -3083,7 +3083,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.20.33
+  m_text: Version 1.21.34
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -3809,7 +3809,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.20.33
+  m_text: Version 1.21.34
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -5323,7 +5323,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.20.33
+  m_text: Version 1.21.34
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -5541,16 +5541,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Fixed the issue in Level 3 where the background looping was not a seamless
-    transition
+  m_text: '- Added 2D Lighting to Level 4 and Level 5
 
-    - Removed the Game Over scene and replaced it with a Victorry
-    screen, showing the player''s score, time survived in a level, and their star
-    rating
+    - Added new obstacles
+    in Level 5
 
-    - Small bug fixes
+    - Added a new debuff, "Cursed!", which causes different effects
+    for each character.
 
-    (1.20.33)'
+    - Added new loading screen tips
+
+    (1.21.34)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -7168,7 +7169,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Version 1.20.33
+  m_text: Version 1.21.34
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
@@ -11038,9 +11039,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The first half of the costume update is here! Bits, Thief, and Ninja now
-    have costumes together! Wiz Kid, Crystal, and Cubit will have theirs coming in
-    soon!
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}
   m_sharedMaterial: {fileID: -4928746856037401556, guid: b98c2b3d7d7f73e45af9af9449e408e6, type: 2}

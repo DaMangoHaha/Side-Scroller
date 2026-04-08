@@ -27,7 +27,7 @@ public class LoadingScreen : MonoBehaviour
 
     [Header("Numeric Counter")]
     [Tooltip("Speed at which the cosmetic number counter ticks up (units per second). Higher = faster counting.")]
-    public float counterSpeed = 60f;
+    public float counterSpeed = 80f;
 
     [Header("Tips (Optional)")]
     [Tooltip("Random tips shown at the bottom of the loading screen. Leave empty to hide.")]
@@ -39,12 +39,14 @@ public class LoadingScreen : MonoBehaviour
         "Tip: The Sticky! debuff makes it harder to jump.",
         "Tip: The Burning! debuff does damage over time.",
         "Tip: The Soggy! debuff makes inputs register later than usual.",
-        "Tip: Bits Bit Buff lets him tank incoming damage!",
+        "Tip: The Cursed! debuff causes all sorts of weird effects!",
+        "Tip: Bits' Bit Buff lets him tank incoming damage!",
         "Tip: Thief can use Sticky Fingers to pull in nearby coins!",
         "Tip: Ninja can fire her Electric Bolt to destroy obstacles!",
         "Tip: Wiz Kid can give himself energy!",
-        "Tip: Crystal can use Glaciate to freeze enemies in place!",
+        "Tip: Crystal can use Glaciate to freeze certain enemies in place!",
         "Tip: Cubit can pause his energy depletion for a short time!",
+        "Tip: Cubit is immune to the Cursed! debuff, as he is an antivirus!",
         "Fun Fact: Bits' name is a play on 'bit' as in computer bits!",
         "Fun Fact: Despite being a thief, Thief never actually steals anything!",
         "Fun Fact: Ninja's hometown, Ninjavalley, is home to all women!",
