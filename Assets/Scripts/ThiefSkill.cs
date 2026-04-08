@@ -23,6 +23,9 @@ public class ThiefSkill : MonoBehaviour
 
     public float flickerSpeed = 6f;   // how fast icon flickers
 
+    [Header("Cooldown Text")]
+    public SkillCooldownUI skillCooldownUI;
+
     [Header("Skill Dialogue")]
     public SkillDialogueUI skillDialogueUI;
     [TextArea]
@@ -174,6 +177,8 @@ public class ThiefSkill : MonoBehaviour
         // Active coin pulling effect
         if (isActive)
             AttractNearbyCoins();
+
+        UpdateCooldownUI();
     }
 
     private IEnumerator ActivateSkill()
@@ -397,6 +402,24 @@ public class ThiefSkill : MonoBehaviour
                 skillIcon.color = inactiveColor;
             else
                 skillIcon.color = activeColor;
+        }
+    }
+
+    private void UpdateCooldownUI()
+    {
+        if (skillCooldownUI == null) return;
+
+        if (isActive)
+        {
+            skillCooldownUI.ShowUsing();
+        }
+        else if (!isOnCooldown)
+        {
+            skillCooldownUI.ShowReady();
+        }
+        else
+        {
+            skillCooldownUI.ShowCooldown(cooldownTimer);
         }
     }
 }

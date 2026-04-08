@@ -24,6 +24,9 @@ public class BitSkill : MonoBehaviour
     private Color inactiveColor;
     private Color activeColor;
 
+    [Header("Cooldown Text")]
+    public SkillCooldownUI skillCooldownUI;
+
     [Header("Audio")]
     public AudioClip buffActivateSFX;   // SFX when buff activates
     public AudioClip buffConsumeSFX;    // SFX when buff is consumed
@@ -123,7 +126,11 @@ public class BitSkill : MonoBehaviour
     {
         // If cursed, pause the cooldown timer entirely
         if (isCursedPaused)
+        {
+            // Still update UI while paused
+            UpdateCooldownUI();
             return;
+        }
 
         timer += Time.deltaTime;
 
@@ -141,6 +148,8 @@ public class BitSkill : MonoBehaviour
             timer = 0f;
             isWarning = false;
         }
+
+        UpdateCooldownUI();
     }
 
     void ActivateBuff()
@@ -327,5 +336,23 @@ public class BitSkill : MonoBehaviour
         }
 
         spriteRenderer.color = original;
+    }
+
+    private void UpdateCooldownUI()
+    {
+        if (skillCooldownUI == null) return;
+
+        if (currentStacks >= maxStacks)
+        {
+            // Buff is fully charged / active
+            skillCooldownUI.ShowReady();
+        }
+        else
+        {
+            // Show time remaining until next buff
+            float remaining = buffCooldown - timer;
+            if (remaining < 0f) remaining = 0f;
+            skillCooldownUI.ShowCooldown(remaining);
+        }
     }
 }

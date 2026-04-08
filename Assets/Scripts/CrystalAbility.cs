@@ -19,6 +19,9 @@ public class CrystalAbility : MonoBehaviour
     public Color readyColor;
     public float flickerSpeed = 6f; // how fast icon flickers
 
+    [Header("Cooldown Text")]
+    public SkillCooldownUI skillCooldownUI;
+
     [Header("Skill Dialogue")]
     public SkillDialogueUI skillDialogueUI;
     [TextArea]
@@ -221,6 +224,8 @@ public class CrystalAbility : MonoBehaviour
                 TryActivateGlaciate();
             }
         }
+
+        UpdateCooldownUI();
     }
 
     public void CollectSnowflake()
@@ -504,6 +509,27 @@ public class CrystalAbility : MonoBehaviour
                 skillIcon.color = readyColor;
             else
                 skillIcon.color = fadedColor;
+        }
+    }
+
+    /// <summary>
+    /// Updates the cooldown UI element based on Crystal's snowflake state.
+    /// </summary>
+    private void UpdateCooldownUI()
+    {
+        if (skillCooldownUI == null) return;
+
+        if (abilityActive)
+        {
+            skillCooldownUI.ShowUsing();
+        }
+        else if (abilityReady)
+        {
+            skillCooldownUI.ShowReady();
+        }
+        else
+        {
+            skillCooldownUI.ShowSnowflakeCount(currentSnowflakes, GetEffectiveSnowflakesNeeded());
         }
     }
 }

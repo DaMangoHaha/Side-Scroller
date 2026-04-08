@@ -18,6 +18,9 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
     private Color inactiveColor;
     private Color activeColor;
 
+    [Header("Cooldown Text")]
+    public SkillCooldownUI skillCooldownUI;
+
     [Header("Skill Dialogue")]
     public SkillDialogueUI skillDialogueUI;
     [TextArea]
@@ -215,6 +218,23 @@ public class NinjaSkill_ElectricBolt : MonoBehaviour
             {
                 TryFireElectricBolt(false);
             }
+        }
+
+        UpdateCooldownUI();
+    }
+
+    // This method is called to update the cooldown UI
+    private void UpdateCooldownUI()
+    {
+        if (skillCooldownUI == null) return;
+
+        if (cooldownRemaining <= 0f)
+        {
+            skillCooldownUI.ShowReady();
+        }
+        else
+        {
+            skillCooldownUI.ShowCooldown(cooldownRemaining);
         }
     }
 

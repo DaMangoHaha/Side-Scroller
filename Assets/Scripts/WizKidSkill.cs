@@ -23,6 +23,9 @@ public class WizKidSkill : MonoBehaviour
     private Color inactiveColor;
     private Color activeColor;
 
+    [Header("Cooldown Text")]
+    public SkillCooldownUI skillCooldownUI;
+
     [Header("Skill Dialogue")]
     public SkillDialogueUI skillDialogueUI;
     [TextArea]
@@ -57,6 +60,9 @@ public class WizKidSkill : MonoBehaviour
     private bool isCursedPaused = false;
     private bool wasReadyWhenCursed = false;
 
+    // Skill active tracking
+    private bool isSkillActive = false;
+
     void Start()
     {
         playerEnergy = GetComponent<PlayerEnergy>();
@@ -81,7 +87,10 @@ public class WizKidSkill : MonoBehaviour
     {
         // If cursed, pause the timer entirely
         if (isCursedPaused)
+        {
+            UpdateCooldownUI();
             return;
+        }
 
         timer -= Time.deltaTime;
 
@@ -90,6 +99,8 @@ public class WizKidSkill : MonoBehaviour
             StartCoroutine(ActivateSproutingSorcery());
             timer = cooldown;
         }
+
+        UpdateCooldownUI();
     }
 
     /// <summary>
@@ -112,6 +123,8 @@ public class WizKidSkill : MonoBehaviour
 
     private IEnumerator ActivateSproutingSorcery()
     {
+        isSkillActive = true;
+
         // Light up icon when skill activates
         if (wizIcon != null)
             wizIcon.color = activeColor;
@@ -159,6 +172,8 @@ public class WizKidSkill : MonoBehaviour
         // Dim icon after effect completes
         if (wizIcon != null)
             wizIcon.color = inactiveColor;
+
+        isSkillActive = false;
     }
 
     /// <summary>
@@ -343,6 +358,27 @@ public class WizKidSkill : MonoBehaviour
         if (wizIcon != null)
         {
             wizIcon.color = inactiveColor;
+        }
+    }
+
+    /// <summary>
+    /// Updates the cooldown UI element based on the skill state.
+    /// </summary>
+    private void UpdateCooldownUI()
+    {
+        if (skillCooldownUI == null) return;
+
+        if (isSkillActive)
+        {
+            skillCooldownUI.ShowUsing();
+        }
+        else if (timer <= 0f)
+        {
+            skillCooldownUI.ShowReady();
+        }
+        else
+        {
+            skillCooldownUI.ShowCooldown(timer);
         }
     }
 }
