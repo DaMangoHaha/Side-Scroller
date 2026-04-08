@@ -4241,6 +4241,7 @@ GameObject:
   - component: {fileID: 740479809}
   - component: {fileID: 740479808}
   - component: {fileID: 740479807}
+  - component: {fileID: 740479810}
   m_Layer: 5
   m_Name: ThiefStickyFingersIcon
   m_TagString: Untagged
@@ -4305,6 +4306,28 @@ RectTransform:
   m_AnchoredPosition: {x: 135.90002, y: 153.5}
   m_SizeDelta: {x: 206.6604, y: 206.6604}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &740479810
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740479806}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 91eaaf7664f1cd045a89568995b5ba67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &746957781
 GameObject:
   m_ObjectHideFlags: 0
@@ -5811,6 +5834,10 @@ PrefabInstance:
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 1824975670}
+    - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
+      propertyPath: skillIconAnimator
+      value: 
+      objectReference: {fileID: 740479810}
     - target: {fileID: 5967845733545688845, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: scoreText
       value: 

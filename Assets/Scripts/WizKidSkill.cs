@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -304,7 +304,7 @@ public class WizKidSkill : MonoBehaviour
         if (timer <= 0f)
         {
             wasReadyWhenCursed = true;
-            Debug.Log("Cursed! Sprouting Sorcery was ready — activation delayed until curse ends.");
+            Debug.Log("Cursed! Sprouting Sorcery was ready � activation delayed until curse ends.");
         }
         else
         {
