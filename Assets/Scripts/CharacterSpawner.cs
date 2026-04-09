@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class CharacterSpawner : MonoBehaviour
@@ -37,6 +38,13 @@ public class CharacterSpawner : MonoBehaviour
     public GameObject crystalEnergyBar;
     public GameObject cubitEnergyBar;
 
+    [Header("Skill Cooldown UI")]
+    public TextMeshProUGUI bitsCooldownText;
+    public TextMeshProUGUI thiefCooldownText;
+    public TextMeshProUGUI ninjaCooldownText;
+    public TextMeshProUGUI wizKidCooldownText;
+    public TextMeshProUGUI crystalCooldownText;
+    public TextMeshProUGUI cubitCooldownText;
 
     void Awake()
     {
@@ -85,6 +93,14 @@ public class CharacterSpawner : MonoBehaviour
         wizKidEnergyBar.SetActive(equipped == "WizKid");
         crystalEnergyBar.SetActive(equipped == "Crystal");
         cubitEnergyBar.SetActive(equipped == "Cubit");
+
+        // --- SKILL COOLDOWN UI ---
+        bitsCooldownText.gameObject.SetActive(equipped == "Bits");
+        thiefCooldownText.gameObject.SetActive(equipped == "Thief");
+        ninjaCooldownText.gameObject.SetActive(equipped == "Ninja");
+        wizKidCooldownText.gameObject.SetActive(equipped == "WizKid");
+        crystalCooldownText.gameObject.SetActive(equipped == "Crystal");
+        cubitCooldownText.gameObject.SetActive(equipped == "Cubit");
 
     }
 }

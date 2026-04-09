@@ -1897,7 +1897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::OpeningCutsceneTextSkip
   dialogueLines:
   - Welcome to the world of Spritz.
-  - Deeper into this planet, there reside five major cities.
+  - Deeper into this planet, there reside five major continents.
   - Pixelville.
   - Greenwood.
   - Ninja Valley.
