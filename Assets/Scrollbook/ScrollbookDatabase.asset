@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 79f35638ac6885c4e955fbd2fef5cfba, type: 3}
+  m_Name: ScrollbookDatabase
+  m_EditorClassIdentifier: Assembly-CSharp::ScrollbookDatabase
+  characters:
+  - title: Bits
+    icon: {fileID: -8848074254060127402, guid: d218e8ff1ca6dcf41851c9a8f937f5e5, type: 3}
+    description: An average pixel who wants to unite Spritz back together after the
+      wiz'd destruction. His skill, Bit Buff, allows him to take less damage from
+      obstacles by half.
+  - title: Thief
+    icon: {fileID: 1136184288765050124, guid: aa8710ef7a9076849874a1f9a7b1f50d, type: 3}
+    description: A self-proclaimed thief, yet he doesn't really steal anything. He's
+      a laid-back gentleman who is the great grandson of the founder of greenwood,
+      and is currently the town's mayor.
+  - title: Ninja
+    icon: {fileID: 61506194941554554, guid: 500f72fcd9b34894ea6fc359fe580c69, type: 3}
+    description: A quick-witted woman who silently sneaks where she travels. Working
+      as one of several ninjas from ninja valley, her electric bolts were created
+      by the high traces of voltage between her fingers.
+  - title: Wiz Kid
+    icon: {fileID: 694068958173167402, guid: a13018d0373c22e4e9bc72555eebd8a2, type: 3}
+    description: A wizard who is still in training, trying to become a wizard like
+      his father. Or...before his father went mentally unstable due to his anger.
+      He may be a timid child, but as he tries controlling his powers, he'll one
+      day master them.
+  - title: Crystal
+    icon: {fileID: -8710684726290518427, guid: ad90941f2e2de8e4291e9e7bf289c835, type: 3}
+    description: A woman who was frozen in frosty outpost during the great war. When
+      the war concluded, the idea of revenge excited her enough to shatter the glacier
+      she was trapped in. Mysteriously, she gained the power to control wind and
+      freezing temperatures, and she roams the world for her attacker, not knowing
+      he's already gone.
+  - title: Cubit
+    icon: {fileID: 377528032064278403, guid: 058659ad0ffe58248a063b9eb665c510, type: 3}
+    description: It's unknown exactly how cubit made his way onto spritz. All that
+      is known is that he's from a place with lots of platforming, and the atoms
+      alligned incorrectly, transporting him here.
+  obstacles:
+  - title: Spikes
+    icon: {fileID: 7145198348311737387, guid: f73dfe034c22cfc41bd7e8799020a5ac, type: 3}
+    description: Enter Spikes details here...
+  - title: Aliens
+    icon: {fileID: 21300000, guid: a8166ea434d337349818825bff42d2f6, type: 3}
+    description: Enter Aliens details here...
+  - title: Slimes
+    icon: {fileID: -1207516536243021827, guid: 669d02063a8fc58438fea9a7a71d9e25, type: 3}
+    description: Enter Slimes details here...
+  - title: Magic Bolts
+    icon: {fileID: 21300000, guid: 9687b8cba872c4f50aeb3b2b3ff1a0b7, type: 3}
+    description: Enter Magic Bolts details here...
+  spritzHistory:
+  - title: The World of Spritz
+    icon: {fileID: -4851718564733221013, guid: ac5a007d2c6d7a641b294f3c6f24fcbe, type: 3}
+    description: Enter the full history of Spritz here...
+  founders:
+  - title: Founder of Pixelville
+    icon: {fileID: 15890179032266369, guid: e2bb8738977dab94ba9c2194812bce80, type: 3}
+    description: Enter founder lore here...
+  - title: Founder of Greenwood
+    icon: {fileID: -907721790803237427, guid: c99abf2f37418384686a5790aac6e7c5, type: 3}
+    description: Enter founder lore here...
+  - title: Founder of Ninja Valley
+    icon: {fileID: -4162772872327981196, guid: dabc574330200e84a88274fcb96ecb59, type: 3}
+    description: Enter founder lore here...
+  - title: Founder of Frosty Outpost
+    icon: {fileID: -1816940465327449870, guid: 30d320b8d7fc8024ab1980f3d4cc0519, type: 3}
+    description: Enter founder lore here...
+  - title: Founder of Wizardspeak
+    icon: {fileID: 5698218290411745946, guid: d3ed3e37b9559f54ab1079484c00d66e, type: 3}
+    description: Enter founder lore here...
