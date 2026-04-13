@@ -38,6 +38,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1602519370068957339
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -83,6 +84,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -1815028623620493103, guid: 126a37edd1fb23c4ca7b973b4c19daad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -92,7 +94,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &8339203376020862617
 CircleCollider2D:
@@ -143,7 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Coin
   coinType: 5
-  coinPickupSFX: {fileID: 8300000, guid: 76a55da118e36014fa88f4fcad3d7d58, type: 3}
+  collectVFXPrefab: {fileID: 5328288384664320850, guid: 5ae94f13fe8972349a3bc6344e8845d3, type: 3}
 --- !u!114 &159728588916868207
 MonoBehaviour:
   m_ObjectHideFlags: 0

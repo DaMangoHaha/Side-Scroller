@@ -10881,12 +10881,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af871235d44d5fb459095cd96339635c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelVictoryData
-  oneStarScore: 500
-  oneStarTime: 60
-  twoStarScore: 1000
-  twoStarTime: 120
-  threeStarScore: 2000
-  threeStarTime: 180
+  oneStarScore: 300
+  oneStarTime: 30
+  twoStarScore: 500
+  twoStarTime: 60
+  threeStarScore: 750
+  threeStarTime: 90
 --- !u!1 &1724580989
 GameObject:
   m_ObjectHideFlags: 0

@@ -319,7 +319,12 @@ public class BitSkill : MonoBehaviour
 
     private System.Collections.IEnumerator TwinkleBlue()
     {
-        Color original = spriteRenderer.color;
+        // Use the saved original color from PlayerEnergy so we never
+        // snapshot a color corrupted by an in-progress invulnerability flash.
+        Color original = playerEnergy != null
+            ? playerEnergy.OriginalColor
+            : spriteRenderer.color;
+
         Color twinkle = Color.blue;
 
         float flashInterval = 0.3f;
@@ -327,15 +332,26 @@ public class BitSkill : MonoBehaviour
 
         while (elapsed < warningTime)
         {
-            spriteRenderer.color = twinkle;
+            // Set blue tint but preserve the current alpha
+            // (invulnerability may be flashing it to 0.5)
+            Color c = twinkle;
+            c.a = spriteRenderer.color.a;
+            spriteRenderer.color = c;
             yield return new WaitForSeconds(flashInterval);
-            spriteRenderer.color = original;
+
+            // Restore original RGB but preserve the current alpha
+            c = original;
+            c.a = spriteRenderer.color.a;
+            spriteRenderer.color = c;
             yield return new WaitForSeconds(flashInterval);
 
             elapsed += flashInterval * 2;
         }
 
-        spriteRenderer.color = original;
+        // Final restore: original RGB, preserve current alpha
+        Color finalColor = original;
+        finalColor.a = spriteRenderer.color.a;
+        spriteRenderer.color = finalColor;
     }
 
     private void UpdateCooldownUI()

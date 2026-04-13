@@ -22,60 +22,123 @@ MonoBehaviour:
     icon: {fileID: 1136184288765050124, guid: aa8710ef7a9076849874a1f9a7b1f50d, type: 3}
     description: A self-proclaimed thief, yet he doesn't really steal anything. He's
       a laid-back gentleman who is the great grandson of the founder of greenwood,
-      and is currently the town's mayor.
+      and is currently the watcher of the town. His skill, Sticky Fingers, lets him
+      pull in coins in a nearby radius.
   - title: Ninja
     icon: {fileID: 61506194941554554, guid: 500f72fcd9b34894ea6fc359fe580c69, type: 3}
     description: A quick-witted woman who silently sneaks where she travels. Working
       as one of several ninjas from ninja valley, her electric bolts were created
-      by the high traces of voltage between her fingers.
+      by the high traces of voltage between her fingers, which she learned to control.
+      Her skill, Electric Bolt, lets her fire a projectile to take out any obstacle.
   - title: Wiz Kid
     icon: {fileID: 694068958173167402, guid: a13018d0373c22e4e9bc72555eebd8a2, type: 3}
     description: A wizard who is still in training, trying to become a wizard like
       his father. Or...before his father went mentally unstable due to his anger.
       He may be a timid child, but as he tries controlling his powers, he'll one
-      day master them.
+      day master them. His skill, Sprouting Sorcery, lets his randomly restore amounts
+      of energy.
   - title: Crystal
     icon: {fileID: -8710684726290518427, guid: ad90941f2e2de8e4291e9e7bf289c835, type: 3}
     description: A woman who was frozen in frosty outpost during the great war. When
       the war concluded, the idea of revenge excited her enough to shatter the glacier
       she was trapped in. Mysteriously, she gained the power to control wind and
       freezing temperatures, and she roams the world for her attacker, not knowing
-      he's already gone.
+      he's already gone. Her skill, Glaciate, is charged with snowflakes, and lets
+      her freeze obstacles in a circle around her.
   - title: Cubit
     icon: {fileID: 377528032064278403, guid: 058659ad0ffe58248a063b9eb665c510, type: 3}
     description: It's unknown exactly how cubit made his way onto spritz. All that
       is known is that he's from a place with lots of platforming, and the atoms
-      alligned incorrectly, transporting him here.
+      alligned incorrectly, transporting him here. His skill, Protection Protocol,
+      lets him stop his energy depletion and store incoming damage for a short time,
+      then restore his energy with said damage.
   obstacles:
   - title: Spikes
     icon: {fileID: 7145198348311737387, guid: f73dfe034c22cfc41bd7e8799020a5ac, type: 3}
-    description: Enter Spikes details here...
+    description: Spikes are a common obstacle with only one way to avoid them, and
+      that's by jumping over them. They deal 15 damage and have no secondary effects.
   - title: Aliens
     icon: {fileID: 21300000, guid: a8166ea434d337349818825bff42d2f6, type: 3}
-    description: Enter Aliens details here...
+    description: Aliens are an uncommnon obstacle with only one way to avoid them,
+      and that's by jumping over them. They deal 15 damage and move faster than spikes.
   - title: Slimes
     icon: {fileID: -1207516536243021827, guid: 669d02063a8fc58438fea9a7a71d9e25, type: 3}
-    description: Enter Slimes details here...
+    description: There are three kinds of slimes, Green, Red, and Blue slimes. They
+      each provide debuffs in they come in contact with the player, Green Slimes
+      inflict the Sticky debuff, Red Slimes inflict Burning, and Blue Slimes inflict
+      Soggy. Sticky - Lowers jump force by half. Burning - Take 5 damage for a couple
+      of seconds. Soggy - Forces input delay for jumping and sliding. Green slimes
+      deal 15 damage, and Red and Blue slimes deal 20 damage.
   - title: Magic Bolts
     icon: {fileID: 21300000, guid: 9687b8cba872c4f50aeb3b2b3ff1a0b7, type: 3}
-    description: Enter Magic Bolts details here...
+    description: 'There are four kinds of magic bolts, each one having a chance to
+      inflict the Curse debuff, and also have different behaviors in a level. Magic
+      and Twin Bolts deal 15 damage, with the Twin Bolt having a 50/50 chance to
+      deal half damage or double damage. Charged and Spark Bolts deal 20 damage. '
   spritzHistory:
   - title: The World of Spritz
     icon: {fileID: -4851718564733221013, guid: ac5a007d2c6d7a641b294f3c6f24fcbe, type: 3}
-    description: Enter the full history of Spritz here...
+    description: Spritz is a planet in the Pixelverse, which was created by a fusion
+      of pixels that gave every Sprite life. For the first hundreds of of years,
+      the world was quiet, until five people came together to build communities of
+      different cultures. These people became known as the founders of Pixelville,
+      Greenwood, Ninja Valley, Frosty Outpost, and Wizardspeak. Life was simple,
+      and everyone was happy. One day, these communities sought out for more resources,
+      which led to pilfering amongst themselves...leading into the Great War. Sprites
+      were killed ad injured left and right, and parts of Spritz were damage beyond
+      recognition - Wizardspeak being the only named town to be affected. Realizing
+      the fighting was becoming unstable, the founders called for a meeting, leading
+      to the peace treaty to end the great war.
   founders:
   - title: Founder of Pixelville
     icon: {fileID: 15890179032266369, guid: e2bb8738977dab94ba9c2194812bce80, type: 3}
-    description: Enter founder lore here...
+    description: 'Axiom Byte, known as the architect of order, was the one who figured
+      out how to organize the chaotic pixel energy of spritz into stable structures,
+      being the reason civilization exists at all. He''s a logical, calm visonary,
+      who belived structure gave prosperity to people. He''s not very emotional,
+      but deeply cared in a quiet way. '
   - title: Founder of Greenwood
     icon: {fileID: -907721790803237427, guid: c99abf2f37418384686a5790aac6e7c5, type: 3}
-    description: Enter founder lore here...
+    description: 'Sylro Vex, known as the silent hand, built greenwood as a hidden,
+      self-sufficient settlement, who taught his people how to take what they needed
+      without being seen. He''s clever, resourceful, and secretive, but he was charming
+      when he needed to be. He considered surval to be greater than rules in the
+      grand scheme of things. '
   - title: Founder of Ninja Valley
     icon: {fileID: -4162772872327981196, guid: dabc574330200e84a88274fcb96ecb59, type: 3}
-    description: Enter founder lore here...
+    description: 'Kairi Shin, known as the veiled guardian, created ninja valley
+      as a place of training and spritual balance. Her women served as protectors
+      untl the war made them all choose sides. She''s disciplined, honorable, and
+      quiet, and she values balance and self-control. She speaks very little, but
+      when she does, her voice matters. '
   - title: Founder of Frosty Outpost
     icon: {fileID: -1816940465327449870, guid: 30d320b8d7fc8024ab1980f3d4cc0519, type: 3}
-    description: Enter founder lore here...
+    description: Eiran Glaciel, known as the heart of ice, built frosty outpost in
+      the harshest region, mastering preservation of resources. He's elegant, composed,
+      and emotionally guarded, and he values preservation and endurance, but he was
+      kind in a distant way.
   - title: Founder of Wizardspeak
     icon: {fileID: 5698218290411745946, guid: d3ed3e37b9559f54ab1079484c00d66e, type: 3}
-    description: Enter founder lore here...
+    description: Orin Lux, known as the first spellbinder, discovered how to manipulate
+      raw pixel energy into magic, which lead to Wizarrdspeak becoming the center
+      of knowledge and power. He is curious, eccentric, and imaginative, and is always
+      experimenting. After the great war, he changed his name to "The Wiz" as an
+      alias
+  - title: Flaws
+    icon: {fileID: 7561238145954236011, guid: 681f18d42825f7c40ab718fdde8bc653, type: 3}
+    description: 'Each of the founders were not perfect. They had flaws that lead
+      to the great war.
+
+      Axiom Byte - Structures society, which caused inequality.
+
+      Sylro
+      Vex - Normalized stealing resources from others outside of Greenwood.
+
+      Kairi
+      Shin - Stayed neutral for too long when fighting began.
+
+      Eiran Glaciel
+      - Hoarded supplies and refused to give out any to other towns.
+
+      Orin
+      Lux - Introduced unstable magic, which soon became illega.l'

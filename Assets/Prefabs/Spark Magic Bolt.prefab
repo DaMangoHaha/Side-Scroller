@@ -183,7 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SparkBolt
   speed: 7
-  damage: 15
+  damage: 20
   minY: 0
   maxY: 4
 --- !u!61 &-7366850079948566857

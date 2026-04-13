@@ -5,6 +5,9 @@ public class Coin : MonoBehaviour
     public enum CoinType { Bronze, Silver, Gold, Platnium, Emerald, Diamond }
     public CoinType coinType;
 
+    [Header("VFX")]
+    public GameObject collectVFXPrefab; // drag your particle prefab here
+
     private int coinValue;   // how many coins to add
     private int scoreValue;  // how many score points to add
 
@@ -97,6 +100,13 @@ public class Coin : MonoBehaviour
             if (thiefSkill != null)
             {
                 thiefSkill.ReduceCooldown(0.5f); // -0.5s cooldown per coin collected
+            }
+
+            // Spawn collection VFX
+            if (collectVFXPrefab != null)
+            {
+                GameObject vfx = Instantiate(collectVFXPrefab, transform.position, Quaternion.identity);
+                Destroy(vfx, 2f); // auto-cleanup after 2 seconds
             }
 
             // Remove coin

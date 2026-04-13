@@ -18,7 +18,8 @@ public class PlayerEnergy : MonoBehaviour
     [Header("Visual Feedback")]
     public SpriteRenderer spriteRenderer; // assign your player's sprite
 
-    private Color originalColor;
+    private Color _originalColor;
+    public Color OriginalColor => _originalColor;
     private Color originalFillColor;
 
     [Header("Bit Buff")]
@@ -51,7 +52,7 @@ public class PlayerEnergy : MonoBehaviour
             spriteRenderer = GetComponentInChildren<SpriteRenderer>();
 
         if (spriteRenderer != null)
-            originalColor = spriteRenderer.color;
+            _originalColor = spriteRenderer.color;
 
         if (energyFill != null)
             originalFillColor = energyFill.color;
@@ -164,26 +165,26 @@ public class PlayerEnergy : MonoBehaviour
         float actualDuration = invulnerabilityDuration;
 
         float elapsed = 0f;
-        Color tempColor = spriteRenderer.color;
 
         while (elapsed < actualDuration)
         {
-            // Fade to 50% transparency
-            tempColor.a = 0.5f;
-            spriteRenderer.color = tempColor;
+            // Fade to 50% transparency — always use _originalColor RGB
+            // so we never lock in a blue tint from TwinkleBlue
+            Color c = _originalColor;
+            c.a = 0.5f;
+            spriteRenderer.color = c;
             yield return new WaitForSeconds(0.1f);
 
             // Fade back to full opacity
-            tempColor.a = 1f;
-            spriteRenderer.color = tempColor;
+            c.a = 1f;
+            spriteRenderer.color = c;
             yield return new WaitForSeconds(0.1f);
 
             elapsed += 0.2f;
         }
 
-        // Reset transparency and end invulnerability
-        tempColor.a = 1f;
-        spriteRenderer.color = tempColor;
+        // Reset to the true original color with full opacity
+        spriteRenderer.color = _originalColor;
         isInvulnerable = false;
 
         Debug.Log("Invulnerability ended.");
@@ -270,23 +271,24 @@ public class PlayerEnergy : MonoBehaviour
         Debug.Log("Player granted invulnerability for " + duration + " seconds!");
 
         float elapsed = 0f;
-        Color tempColor = spriteRenderer.color;
 
         while (elapsed < duration)
         {
-            tempColor.a = 0.5f;
-            spriteRenderer.color = tempColor;
+            // Always use _originalColor RGB so we never lock in a blue tint
+            Color c = _originalColor;
+            c.a = 0.5f;
+            spriteRenderer.color = c;
             yield return new WaitForSeconds(0.1f);
 
-            tempColor.a = 1f;
-            spriteRenderer.color = tempColor;
+            c.a = 1f;
+            spriteRenderer.color = c;
             yield return new WaitForSeconds(0.1f);
 
             elapsed += 0.2f;
         }
 
-        tempColor.a = 1f;
-        spriteRenderer.color = tempColor;
+        // Reset to the true original color with full opacity
+        spriteRenderer.color = _originalColor;
         isInvulnerable = false;
 
         Debug.Log("Granted invulnerability ended.");
