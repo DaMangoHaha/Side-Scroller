@@ -23,7 +23,7 @@ public class Snowflake : MonoBehaviour
         transform.position = new Vector3(transform.position.x, newY, 0);
 
         // Destroy if off screen
-        if (transform.position.x < -12f)
+        if (transform.position.x < -30f)
             Destroy(gameObject);
     }
 

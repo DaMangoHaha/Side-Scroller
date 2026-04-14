@@ -8952,7 +8952,7 @@ PrefabInstance:
       objectReference: {fileID: 1074828123}
     - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: cooldownTime
-      value: 50
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: thiefPortrait

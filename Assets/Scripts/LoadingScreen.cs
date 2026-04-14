@@ -53,6 +53,12 @@ public class LoadingScreen : MonoBehaviour
         "Fun Fact: Wiz Kid's real name is Wizzleton McGuffin!",
         "Fun Fact: Crystal is actually a frost spirit, not a living creature!",
         "Fun Fact: Cubit is a sentient cube that grew limbs from another dimension!",
+        "Lore Fact: The planet Spritz was once a barren wasteland until the five founders arrived and built the first cities!",
+        "Lore Fact: Axiom Byte, the founder of Pixelville and ancestor of Bits, was the first to create society!",
+        "Lore Fact: Sylro Vex, the founder of Greenwood and ancestor of Thief, was a master of stealth and trickery!",
+        "Lore Fact: Kairi Shin, the founder of Ninja Valley and ancestor of Ninja, was a leader of women who valued strength and unity.",
+        "Lore Fact: Glace Frost, the founder of Frosty Outpost and ancestor of Crystal, was an elegant yet composed frost spirit who preserved resources in the harsh climate.",
+        "Lore Fact: Orin Lux, the founder of Wizardspeak and father of Wiz Kid, was a brilliant inventor who discovered how to harness magic and technology together!",
     };
 
     // --- Runtime UI references (built in code) ---

@@ -35,6 +35,10 @@ public class BitSkill : MonoBehaviour
     // --- Cursed Debuff ---
     private bool isCursedPaused = false;
 
+    // --- Buff Timer Pause ---
+    // When at max stacks the cooldown timer freezes until stacks are consumed.
+    private bool isBuffPaused = false;
+
     // --- Upgrade System ---
     [Header("Upgrade")]
     public int upgradeTier = 0; // 0 = no upgrades, 1-3 = tiers
@@ -124,8 +128,8 @@ public class BitSkill : MonoBehaviour
 
     void Update()
     {
-        // If cursed, pause the cooldown timer entirely
-        if (isCursedPaused)
+        // If cursed or at max stacks, pause the cooldown timer entirely
+        if (isCursedPaused || isBuffPaused)
         {
             // Still update UI while paused
             UpdateCooldownUI();
@@ -177,6 +181,13 @@ public class BitSkill : MonoBehaviour
             playerEnergy.damageReduction = 0.5f; // 50% reduction (take 50%)
         }
 
+        // Pause the cooldown timer when at max stacks
+        if (currentStacks >= maxStacks)
+        {
+            isBuffPaused = true;
+            Debug.Log("Bit Buff at max stacks — cooldown timer paused.");
+        }
+
         Debug.Log("Bit Buff Ready! Stacks: " + currentStacks + "/" + maxStacks +
                   " | Damage reduction: " + ((1f - playerEnergy.damageReduction) * 100f) + "%");
 
@@ -201,6 +212,9 @@ public class BitSkill : MonoBehaviour
     {
         currentStacks = 0;
 
+        // Resume the cooldown timer now that stacks have been consumed
+        isBuffPaused = false;
+
         // Reset icons
         UpdateShieldIcons();
 
@@ -208,7 +222,7 @@ public class BitSkill : MonoBehaviour
         if (audioSource != null && buffConsumeSFX != null)
             audioSource.PlayOneShot(buffConsumeSFX);
 
-        Debug.Log("Bit Buff consumed! All stacks lost.");
+        Debug.Log("Bit Buff consumed! All stacks lost. Cooldown timer resumed.");
     }
 
     /// <summary>
@@ -226,6 +240,9 @@ public class BitSkill : MonoBehaviour
             playerEnergy.hasBitBuff = false;
             playerEnergy.bitBuffStacks = 0;
             playerEnergy.damageReduction = 1f; // no damage reduction while cursed
+
+            // Also unpause the buff timer since stacks are gone
+            isBuffPaused = false;
 
             UpdateShieldIcons();
 

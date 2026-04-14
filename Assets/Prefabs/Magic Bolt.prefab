@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: 8540769751368028431}
   - component: {fileID: 2578167312525090221}
   - component: {fileID: -4764823222107341501}
+  - component: {fileID: -4658686144305862353}
   m_Layer: 0
   m_Name: Magic Bolt
-  m_TagString: Untagged
+  m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -278,3 +279,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-4658686144305862353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 911331639349682388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1c3d9f7f076644caad09fa21cdcea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChillTarget
+  chilledSprite: {fileID: 4486103593889330417, guid: 78a34fdc85a78e444a89557c3880bd2b, type: 3}
+  driftSpeed: 5

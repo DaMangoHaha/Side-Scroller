@@ -17,6 +17,9 @@ public class CubitPassive : MonoBehaviour
     private Color inactiveColor;
     private Color activeColor;
 
+    [Header("Cooldown Text")]
+    public SkillCooldownUI skillCooldownUI;
+
     [Header("Skill Dialogue")]
     public SkillDialogueUI skillDialogueUI;
     [TextArea]
@@ -48,6 +51,10 @@ public class CubitPassive : MonoBehaviour
     private bool isProtectionActive = false;
     private float storedDamage = 0f;
     private GameObject activeEffect;
+
+    // Cooldown tracking for UI
+    private bool isOnCooldown = false;
+    private float cooldownTimer = 0f;
 
     void Start()
     {
@@ -117,6 +124,17 @@ public class CubitPassive : MonoBehaviour
     {
         if (playerEnergy == null) return;
 
+        // Track cooldown timer for UI display
+        if (isOnCooldown)
+        {
+            cooldownTimer -= Time.deltaTime;
+            if (cooldownTimer <= 0f)
+            {
+                cooldownTimer = 0f;
+                isOnCooldown = false;
+            }
+        }
+
         // Check if energy drops below threshold and protocol is ready
         float energyPercent = (playerEnergy.currentEnergy / playerEnergy.maxEnergy) * 100f;
         
@@ -124,12 +142,15 @@ public class CubitPassive : MonoBehaviour
         {
             StartCoroutine(ActivateProtectionProtocol());
         }
+
+        UpdateCooldownUI();
     }
 
     private IEnumerator ActivateProtectionProtocol()
     {
         isProtectionActive = true;
         isProtectionReady = false;
+        isOnCooldown = false;
         storedDamage = 0f;
 
         Debug.Log("Protection Protocol ACTIVATED! Duration: " + protectionDuration + "s, Cooldown: " + protectionCooldown + "s, Threshold: " + energyThreshold + "%");
@@ -175,11 +196,16 @@ public class CubitPassive : MonoBehaviour
         if (cubitIcon != null)
             cubitIcon.color = inactiveColor;
 
-        // Start cooldown
+        // Start cooldown — also track for UI
+        isOnCooldown = true;
+        cooldownTimer = protectionCooldown;
+
         yield return new WaitForSeconds(protectionCooldown);
 
         // Ready again - set to active color
         isProtectionReady = true;
+        isOnCooldown = false;
+        cooldownTimer = 0f;
         if (cubitIcon != null)
             cubitIcon.color = activeColor;
 
@@ -236,5 +262,23 @@ public class CubitPassive : MonoBehaviour
         SaveData data = SaveSystem.LoadData();
         data.cubitSkillUpgradeTier = tier;
         SaveSystem.SaveData(data);
+    }
+
+    private void UpdateCooldownUI()
+    {
+        if (skillCooldownUI == null) return;
+
+        if (isProtectionActive)
+        {
+            skillCooldownUI.ShowUsing();
+        }
+        else if (isOnCooldown)
+        {
+            skillCooldownUI.ShowCooldown(cooldownTimer);
+        }
+        else if (isProtectionReady)
+        {
+            skillCooldownUI.ShowReady();
+        }
     }
 }

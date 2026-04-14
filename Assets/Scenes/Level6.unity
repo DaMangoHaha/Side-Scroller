@@ -199,6 +199,10 @@ PrefabInstance:
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 1673176341}
+    - target: {fileID: 3545611507391418815, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
+      propertyPath: electricBoltDialogue
+      value: My electric bolts are stronger.
+      objectReference: {fileID: 0}
     - target: {fileID: 6345193165560762942, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
       propertyPath: energyFill
       value: 
@@ -2814,6 +2818,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 223080358}
     - target: {fileID: 961829212677669086, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+      propertyPath: skillCooldownUI
+      value: 
+      objectReference: {fileID: 1442186725}
+    - target: {fileID: 961829212677669086, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 1715300887}
@@ -5148,7 +5156,7 @@ PrefabInstance:
     - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: chillWindIcon
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1138317082}
     - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: chillWindChance
       value: 0.25
@@ -5165,6 +5173,10 @@ PrefabInstance:
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 1112055364}
+    - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
+      propertyPath: glaciateDialogue
+      value: You cannot stop the cold.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16305,7 +16317,7 @@ PrefabInstance:
       objectReference: {fileID: 651012301}
     - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: cooldownTime
-      value: 50
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: skillCooldownUI
@@ -16315,6 +16327,10 @@ PrefabInstance:
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 1188879912}
+    - target: {fileID: 5026143633479990479, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
+      propertyPath: stickyFingersDialogue
+      value: Excuse me. I'm just trying to get by...
+      objectReference: {fileID: 0}
     - target: {fileID: 5831928592119874244, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
       propertyPath: m_SortingOrder
       value: 999
@@ -19727,6 +19743,10 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 6457094141527707747, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
+      propertyPath: bitBuffDialogue
+      value: You can't curse me!
+      objectReference: {fileID: 0}
+    - target: {fileID: 6457094141527707747, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
       propertyPath: skillCooldownUI
       value: 
       objectReference: {fileID: 355153150}
@@ -20488,6 +20508,10 @@ PrefabInstance:
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 1444214146}
+    - target: {fileID: 3501100754619741129, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
+      propertyPath: sproutingSorceryDialogue
+      value: I won't let you curse me!
+      objectReference: {fileID: 0}
     - target: {fileID: 4227063540521223218, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
       propertyPath: energyFill
       value: 

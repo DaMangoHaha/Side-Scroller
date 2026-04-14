@@ -16,7 +16,7 @@ MonoBehaviour:
   - title: Bits
     icon: {fileID: -8848074254060127402, guid: d218e8ff1ca6dcf41851c9a8f937f5e5, type: 3}
     description: An average pixel who wants to unite Spritz back together after the
-      wiz'd destruction. His skill, Bit Buff, allows him to take less damage from
+      wiz's destruction. His skill, Bit Buff, allows him to take less damage from
       obstacles by half.
   - title: Thief
     icon: {fileID: 1136184288765050124, guid: aa8710ef7a9076849874a1f9a7b1f50d, type: 3}
@@ -49,9 +49,9 @@ MonoBehaviour:
     icon: {fileID: 377528032064278403, guid: 058659ad0ffe58248a063b9eb665c510, type: 3}
     description: It's unknown exactly how cubit made his way onto spritz. All that
       is known is that he's from a place with lots of platforming, and the atoms
-      alligned incorrectly, transporting him here. His skill, Protection Protocol,
-      lets him stop his energy depletion and store incoming damage for a short time,
-      then restore his energy with said damage.
+      alligned, transporting him here. His skill, Protection Protocol, lets him stop
+      his energy depletion and store incoming damage for a short time, then restore
+      his energy with said damage.
   obstacles:
   - title: Spikes
     icon: {fileID: 7145198348311737387, guid: f73dfe034c22cfc41bd7e8799020a5ac, type: 3}
@@ -60,7 +60,8 @@ MonoBehaviour:
   - title: Aliens
     icon: {fileID: 21300000, guid: a8166ea434d337349818825bff42d2f6, type: 3}
     description: Aliens are an uncommnon obstacle with only one way to avoid them,
-      and that's by jumping over them. They deal 15 damage and move faster than spikes.
+      and that's by sliding under them. They deal 15 damage and move faster than
+      spikes.
   - title: Slimes
     icon: {fileID: -1207516536243021827, guid: 669d02063a8fc58438fea9a7a71d9e25, type: 3}
     description: There are three kinds of slimes, Green, Red, and Blue slimes. They
@@ -113,14 +114,14 @@ MonoBehaviour:
       when she does, her voice matters. '
   - title: Founder of Frosty Outpost
     icon: {fileID: -1816940465327449870, guid: 30d320b8d7fc8024ab1980f3d4cc0519, type: 3}
-    description: Eiran Glaciel, known as the heart of ice, built frosty outpost in
+    description: Glace Frost, known as the heart of ice, built frosty outpost in
       the harshest region, mastering preservation of resources. He's elegant, composed,
       and emotionally guarded, and he values preservation and endurance, but he was
       kind in a distant way.
   - title: Founder of Wizardspeak
     icon: {fileID: 5698218290411745946, guid: d3ed3e37b9559f54ab1079484c00d66e, type: 3}
     description: Orin Lux, known as the first spellbinder, discovered how to manipulate
-      raw pixel energy into magic, which lead to Wizarrdspeak becoming the center
+      raw pixel energy into magic, which lead to Wizardspeak becoming the center
       of knowledge and power. He is curious, eccentric, and imaginative, and is always
       experimenting. After the great war, he changed his name to "The Wiz" as an
       alias

@@ -29,6 +29,10 @@ public class ElectricBolt : MonoBehaviour
         // Check if it's an enemy/obstacle
         if (collision.CompareTag("Enemy") || collision.CompareTag("Obstacle"))
         {
+            // Play electric zap sound only when destroying an obstacle
+            if (collision.CompareTag("Obstacle") && SoundManager.Instance != null)
+                SoundManager.Instance.PlaySound2D("ElectricZap");
+
             // Award score
             PlayerScore score = FindAnyObjectByType<PlayerScore>();
             if (score != null)

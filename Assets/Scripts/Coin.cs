@@ -96,12 +96,6 @@ public class Coin : MonoBehaviour
                 }
             }
 
-            // Reduce cooldown if ThiefSkill exists on the player
-            if (thiefSkill != null)
-            {
-                thiefSkill.ReduceCooldown(0.5f); // -0.5s cooldown per coin collected
-            }
-
             // Spawn collection VFX
             if (collectVFXPrefab != null)
             {

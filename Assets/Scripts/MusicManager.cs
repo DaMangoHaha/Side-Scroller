@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 public class MusicManager : MonoBehaviour
@@ -23,29 +22,11 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    public void PlayMusic(string trackName, float fadeDuration = 0.5f)
+    public void PlayMusic(string trackName, float fadeDuration = 0f)
     {
-        StartCoroutine(AnimateMusicCrossfade(musicLibrary.GetClipFromName(trackName), fadeDuration));
-    }
-
-    IEnumerator AnimateMusicCrossfade(AudioClip nextTrack, float fadeDuration = 0.5f)
-    {
-        float percent = 0f;
-        while (percent < 1f)
-        {
-            percent += Time.deltaTime * 1 / fadeDuration;
-            musicSource.volume = Mathf.Lerp(1f, 0, percent);
-            yield return null;
-        }
-        musicSource.clip = nextTrack;
+        musicSource.Stop();
+        musicSource.clip = musicLibrary.GetClipFromName(trackName);
+        musicSource.volume = 1f;
         musicSource.Play();
-
-        percent = 0;
-        while (percent < 1)
-        {
-            percent += Time.deltaTime * 1 / fadeDuration;
-            musicSource.volume = Mathf.Lerp(0, 1f, percent);
-            yield return null;
-        }
     }
 }

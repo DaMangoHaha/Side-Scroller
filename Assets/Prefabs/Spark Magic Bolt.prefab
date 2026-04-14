@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -1089635669525755365}
   - component: {fileID: -7366850079948566857}
   - component: {fileID: -7717688617837796179}
+  - component: {fileID: 5221438407667927516}
   m_Layer: 0
   m_Name: Spark Magic Bolt
   m_TagString: Untagged
@@ -259,3 +260,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &5221438407667927516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4253592434395475978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e1c3d9f7f076644caad09fa21cdcea1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChillTarget
+  chilledSprite: {fileID: 3199872231963612353, guid: b28ff268c4ec8e648be06b473e40f10a, type: 3}
+  driftSpeed: 5

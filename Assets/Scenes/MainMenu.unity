@@ -10853,7 +10853,7 @@ GameObject:
   - component: {fileID: 1471556901}
   - component: {fileID: 1471556900}
   m_Layer: 0
-  m_Name: AudioManager
+  m_Name: SoundManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10916,6 +10916,9 @@ MonoBehaviour:
   - groupID: Snowflake
     clips:
     - {fileID: 8300000, guid: f15d5efd5dffbc14b801d614b92c587c, type: 3}
+  - groupID: ElectricZap
+    clips:
+    - {fileID: 8300000, guid: 104f977375eb18d42a63f53ba5a8895b, type: 3}
 --- !u!4 &1471556902
 Transform:
   m_ObjectHideFlags: 0

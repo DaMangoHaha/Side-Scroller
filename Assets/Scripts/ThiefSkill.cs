@@ -53,8 +53,8 @@ public class ThiefSkill : MonoBehaviour
     private int tier2BonusScore = 50;
     private float tier2RadiusMultiplier = 1.5f; // 0.5x extra = 1.5x total
 
-    // Tier 3: coins collected during skill grant +3 energy
-    private float tier3EnergyPerCoin = 3f;
+    // Tier 3: coins collected during skill grant +2 energy
+    private float tier3EnergyPerCoin = 2f;
 
     // Base radius stored so upgrades can scale from it
     private float baseCoinPullRadius;
@@ -247,17 +247,6 @@ public class ThiefSkill : MonoBehaviour
                     coinPullSpeed * Time.deltaTime
                 );
             }
-        }
-    }
-
-    // Called from Coin.cs
-    public void ReduceCooldown(float amount)
-    {
-        if (isOnCooldown && cooldownTimer > 0)
-        {
-            cooldownTimer -= amount;
-            if (cooldownTimer < 0)
-                cooldownTimer = 0;
         }
     }
 

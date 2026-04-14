@@ -19,13 +19,6 @@ public class CupidCoin : MonoBehaviour
             if (score != null)
                 score.AddScore(scoreValue);
 
-            // Reduce cooldown if ThiefSkill is active on the player
-            ThiefSkill thiefSkill = other.GetComponent<ThiefSkill>();
-            if (thiefSkill != null)
-            {
-                thiefSkill.ReduceCooldown(1f); // -1s cooldown per coin collected
-            }
-
             // Remove coin
             Destroy(gameObject);
         }
