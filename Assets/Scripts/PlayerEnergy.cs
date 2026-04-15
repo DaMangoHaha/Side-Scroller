@@ -22,6 +22,35 @@ public class PlayerEnergy : MonoBehaviour
     public Color OriginalColor => _originalColor;
     private Color originalFillColor;
 
+    // Active tint override — when set, invulnerability flashes use this color
+    // instead of _originalColor so buff tints (e.g. Chill Wind) persist through damage.
+    private bool _hasTintOverride = false;
+    private Color _tintOverride;
+
+    /// <summary>
+    /// Returns the color that should be treated as the current "base" color.
+    /// If a tint override is active (e.g. Chill Wind), returns that; otherwise returns the true original.
+    /// </summary>
+    public Color ActiveBaseColor => _hasTintOverride ? _tintOverride : _originalColor;
+
+    /// <summary>
+    /// Sets a temporary tint override. While active, invulnerability flashes
+    /// will restore to this color instead of the original sprite color.
+    /// </summary>
+    public void SetTintOverride(Color tint)
+    {
+        _hasTintOverride = true;
+        _tintOverride = tint;
+    }
+
+    /// <summary>
+    /// Clears the tint override so invulnerability restores the true original color.
+    /// </summary>
+    public void ClearTintOverride()
+    {
+        _hasTintOverride = false;
+    }
+
     [Header("Bit Buff")]
     public bool hasBitBuff = false; // Is the skill active?
     public float damageReduction = 0.5f; // 50% damage reduction
@@ -40,6 +69,9 @@ public class PlayerEnergy : MonoBehaviour
     [HideInInspector] public float chillWindDamageReduction = 0f;   // 0 = no reduction, 0.2 = 20% reduction
     [HideInInspector] public float depletionRateMultiplier = 1f;    // 1 = normal, 0.5 = 50% slower
     [HideInInspector] public float maxEnergyMultiplier = 1f;        // 1 = normal, 1.25 = +25%
+
+    // --- Player Buff Manager ---
+    [HideInInspector] public float playerBuffDamageReduction = 0f;  // 0 = no reduction, stacks from PlayerBuffManager
 
     void Start()
     {
@@ -115,6 +147,13 @@ public class PlayerEnergy : MonoBehaviour
             Debug.Log("Chill Wind reduced damage by " + (chillWindDamageReduction * 100f) + "%!");
         }
 
+        // Apply Player Buff defense reduction (from PlayerBuffManager)
+        if (playerBuffDamageReduction > 0f)
+        {
+            amount *= (1f - playerBuffDamageReduction);
+            Debug.Log("Player Buff reduced damage by " + (playerBuffDamageReduction * 100f) + "%!");
+        }
+
         // Show floating damage popup
         CoinPopup.CreateDamage(transform.position, amount);
 
@@ -168,14 +207,15 @@ public class PlayerEnergy : MonoBehaviour
 
         while (elapsed < actualDuration)
         {
-            // Fade to 50% transparency — always use _originalColor RGB
-            // so we never lock in a blue tint from TwinkleBlue
-            Color c = _originalColor;
+            // Fade to 50% transparency — use ActiveBaseColor so buff tints
+            // (e.g. Chill Wind) are preserved during the flash
+            Color c = ActiveBaseColor;
             c.a = 0.5f;
             spriteRenderer.color = c;
             yield return new WaitForSeconds(0.1f);
 
             // Fade back to full opacity
+            c = ActiveBaseColor;
             c.a = 1f;
             spriteRenderer.color = c;
             yield return new WaitForSeconds(0.1f);
@@ -183,8 +223,8 @@ public class PlayerEnergy : MonoBehaviour
             elapsed += 0.2f;
         }
 
-        // Reset to the true original color with full opacity
-        spriteRenderer.color = _originalColor;
+        // Reset to the current base color with full opacity
+        spriteRenderer.color = ActiveBaseColor;
         isInvulnerable = false;
 
         Debug.Log("Invulnerability ended.");
@@ -274,12 +314,13 @@ public class PlayerEnergy : MonoBehaviour
 
         while (elapsed < duration)
         {
-            // Always use _originalColor RGB so we never lock in a blue tint
-            Color c = _originalColor;
+            // Use ActiveBaseColor so buff tints are preserved during the flash
+            Color c = ActiveBaseColor;
             c.a = 0.5f;
             spriteRenderer.color = c;
             yield return new WaitForSeconds(0.1f);
 
+            c = ActiveBaseColor;
             c.a = 1f;
             spriteRenderer.color = c;
             yield return new WaitForSeconds(0.1f);
@@ -287,8 +328,8 @@ public class PlayerEnergy : MonoBehaviour
             elapsed += 0.2f;
         }
 
-        // Reset to the true original color with full opacity
-        spriteRenderer.color = _originalColor;
+        // Reset to the current base color with full opacity
+        spriteRenderer.color = ActiveBaseColor;
         isInvulnerable = false;
 
         Debug.Log("Granted invulnerability ended.");

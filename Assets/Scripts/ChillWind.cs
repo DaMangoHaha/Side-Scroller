@@ -76,9 +76,11 @@ public class ChillWind : MonoBehaviour
         playerEnergy.chillWindDamageReduction = damageReduction;
         playerEnergy.UpdateUI();
 
-        // Apply dark tint
+        // Apply dark tint and register it as the active base color
+        // so invulnerability flashes restore to the chill tint, not the original color
         if (spriteRenderer != null)
             spriteRenderer.color = chillTint;
+        playerEnergy.SetTintOverride(chillTint);
 
         // Show buff icon
         ShowIcon();
@@ -97,6 +99,9 @@ public class ChillWind : MonoBehaviour
             playerEnergy.currentEnergy = playerEnergy.maxEnergy;
 
         playerEnergy.UpdateUI();
+
+        // Clear the tint override so invulnerability restores the true original color
+        playerEnergy.ClearTintOverride();
 
         // Restore original color
         if (spriteRenderer != null)

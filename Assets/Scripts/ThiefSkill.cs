@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
@@ -58,6 +59,12 @@ public class ThiefSkill : MonoBehaviour
 
     // Base radius stored so upgrades can scale from it
     private float baseCoinPullRadius;
+
+    [Header("Coin Pull Tint")]
+    public Color coinPullTint = new Color(0.5f, 0.5f, 0.5f, 1f); // darker tint while being pulled
+
+    // Track coins currently tinted so we can restore them when skill ends
+    private HashSet<Coin> tintedCoins = new HashSet<Coin>();
 
     /// <summary>Returns true while Sticky Fingers is active.</summary>
     public bool IsSkillActive => isActive;
@@ -211,6 +218,8 @@ public class ThiefSkill : MonoBehaviour
         // Return icon to faded look
         if (skillIcon != null)
             skillIcon.color = inactiveColor;
+
+        ClearAllCoinTints();
     }
 
     private IEnumerator FlickerIcon()
@@ -237,6 +246,9 @@ public class ThiefSkill : MonoBehaviour
     {
         Collider2D[] nearbyCoins = Physics2D.OverlapCircleAll(transform.position, coinPullRadius);
 
+        // Collect coins currently in range so we can untint those that left
+        HashSet<Coin> coinsInRange = new HashSet<Coin>();
+
         foreach (var col in nearbyCoins)
         {
             if (col.CompareTag("Coin"))
@@ -246,8 +258,42 @@ public class ThiefSkill : MonoBehaviour
                     transform.position,
                     coinPullSpeed * Time.deltaTime
                 );
+
+                // Tint the coin darker while it's being pulled
+                Coin coin = col.GetComponent<Coin>();
+                if (coin != null)
+                {
+                    coin.SetPullTint(coinPullTint);
+                    coinsInRange.Add(coin);
+                }
             }
         }
+
+        // Clear tint on coins that are no longer in pull range
+        tintedCoins.RemoveWhere(c => c == null); // clean up destroyed coins
+        foreach (var coin in tintedCoins)
+        {
+            if (!coinsInRange.Contains(coin))
+            {
+                coin.ClearPullTint();
+            }
+        }
+
+        tintedCoins = coinsInRange;
+    }
+
+    /// <summary>
+    /// Restores the original color on all coins that are still tinted.
+    /// Called when Sticky Fingers ends or is cancelled.
+    /// </summary>
+    private void ClearAllCoinTints()
+    {
+        foreach (var coin in tintedCoins)
+        {
+            if (coin != null)
+                coin.ClearPullTint();
+        }
+        tintedCoins.Clear();
     }
 
     // --- Upgrade helpers ---
@@ -355,6 +401,7 @@ public class ThiefSkill : MonoBehaviour
         {
             // Cancel Sticky Fingers immediately
             isActive = false;
+            ClearAllCoinTints();
             isOnCooldown = true;
             cooldownTimer = cooldownTime;
             Debug.Log("Cursed! Sticky Fingers cancelled mid-use! Cooldown paused.");

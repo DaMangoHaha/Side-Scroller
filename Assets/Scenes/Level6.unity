@@ -283,7 +283,7 @@ MonoBehaviour:
   burningTickInterval: 0
   soggyDuration: 0
   inputDelaySeconds: 0
-  cursedDuration: 7
+  cursedDuration: 10
   cursedChance: 0.25
   stickyIcon: {fileID: 0}
   stickySprite: {fileID: 0}
@@ -541,6 +541,7 @@ Transform:
   - {fileID: 1314808590}
   - {fileID: 374920057}
   - {fileID: 1687177950}
+  - {fileID: 582297419}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &74700441
@@ -2607,6 +2608,58 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &582297418
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 582297419}
+  - component: {fileID: 582297420}
+  m_Layer: 0
+  m_Name: PlayerBuffManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &582297419
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582297418}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9.11487, y: 1.8537, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 69536376}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &582297420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582297418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3740ab72977a784d952c842948624b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBuffManager
+  buffInterval: 100
+  buffChance: 0.5
+  maxEnergyBonus: 0.05
+  defenseBonus: 0.1
+  restorePercent: 0.25
+  notificationText: {fileID: 0}
+  notificationDuration: 3
+  notificationColor: {r: 0.2, g: 1, b: 0.2, a: 1}
 --- !u!1 &593552968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2946,7 +2999,7 @@ MonoBehaviour:
   burningTickInterval: 0
   soggyDuration: 0
   inputDelaySeconds: 0
-  cursedDuration: 7
+  cursedDuration: 10
   cursedChance: 0
   stickyIcon: {fileID: 0}
   stickySprite: {fileID: 0}
@@ -5177,6 +5230,10 @@ PrefabInstance:
       propertyPath: glaciateDialogue
       value: You cannot stop the cold.
       objectReference: {fileID: 0}
+    - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
+      propertyPath: snowflakesNeeded
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5225,7 +5282,7 @@ MonoBehaviour:
   burningTickInterval: 0
   soggyDuration: 0
   inputDelaySeconds: 0
-  cursedDuration: 7
+  cursedDuration: 10
   cursedChance: 0.25
   stickyIcon: {fileID: 0}
   stickySprite: {fileID: 0}
@@ -16443,7 +16500,7 @@ MonoBehaviour:
   burningTickInterval: 0
   soggyDuration: 0
   inputDelaySeconds: 0
-  cursedDuration: 7
+  cursedDuration: 10
   cursedChance: 0.25
   stickyIcon: {fileID: 0}
   stickySprite: {fileID: 0}
@@ -16509,7 +16566,7 @@ MonoBehaviour:
   twoStarScore: 500
   twoStarTime: 60
   threeStarScore: 750
-  threeStarTime: 90
+  threeStarTime: 120
 --- !u!1 &1328035952
 GameObject:
   m_ObjectHideFlags: 0
@@ -19858,7 +19915,7 @@ MonoBehaviour:
   burningTickInterval: 0
   soggyDuration: 0
   inputDelaySeconds: 0
-  cursedDuration: 7
+  cursedDuration: 10
   cursedChance: 0.25
   stickyIcon: {fileID: 0}
   stickySprite: {fileID: 0}
@@ -20616,7 +20673,7 @@ MonoBehaviour:
   burningTickInterval: 0
   soggyDuration: 0
   inputDelaySeconds: 0
-  cursedDuration: 7
+  cursedDuration: 10
   cursedChance: 0.25
   stickyIcon: {fileID: 0}
   stickySprite: {fileID: 0}

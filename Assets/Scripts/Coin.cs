@@ -11,9 +11,17 @@ public class Coin : MonoBehaviour
     private int coinValue;   // how many coins to add
     private int scoreValue;  // how many score points to add
 
+    private SpriteRenderer spriteRenderer;
+    private Color originalColor;
+    private bool isTinted = false;
+
 
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        if (spriteRenderer != null)
+            originalColor = spriteRenderer.color;
+
         // Set coin + score values
         switch (coinType)
         {
@@ -45,6 +53,30 @@ public class Coin : MonoBehaviour
         }
 
 
+    }
+
+    /// <summary>
+    /// Darkens the coin sprite to indicate it is being pulled by Sticky Fingers.
+    /// </summary>
+    public void SetPullTint(Color tint)
+    {
+        if (spriteRenderer != null && !isTinted)
+        {
+            spriteRenderer.color = tint;
+            isTinted = true;
+        }
+    }
+
+    /// <summary>
+    /// Restores the coin sprite to its original color.
+    /// </summary>
+    public void ClearPullTint()
+    {
+        if (spriteRenderer != null && isTinted)
+        {
+            spriteRenderer.color = originalColor;
+            isTinted = false;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)

@@ -10919,6 +10919,9 @@ MonoBehaviour:
   - groupID: ElectricZap
     clips:
     - {fileID: 8300000, guid: 104f977375eb18d42a63f53ba5a8895b, type: 3}
+  - groupID: Freeze
+    clips:
+    - {fileID: 8300000, guid: ed9527ed509127542a2d7efd7d8082a1, type: 3}
 --- !u!4 &1471556902
 Transform:
   m_ObjectHideFlags: 0

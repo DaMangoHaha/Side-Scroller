@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ccc160b5c0632a469fd75a163a49546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTransition
-  fadeDuration: 0.4
+  fadeDuration: 0.3
   useLoadingScreenByDefault: 1
 --- !u!4 &239827639
 Transform:

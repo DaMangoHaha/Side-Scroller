@@ -8572,6 +8572,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 992401765}
     - target: {fileID: 961829212677669086, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
+      propertyPath: skillCooldownUI
+      value: 
+      objectReference: {fileID: 1916341611}
+    - target: {fileID: 961829212677669086, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
       propertyPath: skillDialogueUI
       value: 
       objectReference: {fileID: 1582775950}
@@ -10886,7 +10890,7 @@ MonoBehaviour:
   twoStarScore: 500
   twoStarTime: 60
   threeStarScore: 750
-  threeStarTime: 90
+  threeStarTime: 120
 --- !u!1 &1724580989
 GameObject:
   m_ObjectHideFlags: 0
@@ -10928,6 +10932,7 @@ Transform:
   - {fileID: 1348158898}
   - {fileID: 620889652}
   - {fileID: 1710741770}
+  - {fileID: 1959649174}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1735271212
@@ -12368,6 +12373,58 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CostumeApplier
   characterID: Bits
+--- !u!1 &1959649173
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1959649174}
+  - component: {fileID: 1959649175}
+  m_Layer: 0
+  m_Name: PlayerBuffManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1959649174
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959649173}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.10002, y: -2.55366, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1724580990}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1959649175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1959649173}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3740ab72977a784d952c842948624b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerBuffManager
+  buffInterval: 100
+  buffChance: 0.5
+  maxEnergyBonus: 0.05
+  defenseBonus: 0.1
+  restorePercent: 0.25
+  notificationText: {fileID: 0}
+  notificationDuration: 3
+  notificationColor: {r: 0.2, g: 1, b: 0.2, a: 1}
 --- !u!114 &1984349938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13380,7 +13437,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6686437094569612098, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
       propertyPath: snowflakesNeeded
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

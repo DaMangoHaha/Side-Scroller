@@ -13,6 +13,10 @@ public class ChillTarget : MonoBehaviour
         if (isChilled) return;
         isChilled = true;
 
+        // Play freeze sound effect
+        if (SoundManager.Instance != null)
+            SoundManager.Instance.PlaySound2D("Freeze");
+
         // Disable all other scripts except this one
         MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();
         foreach (var s in scripts)

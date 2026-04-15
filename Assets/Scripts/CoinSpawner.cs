@@ -25,7 +25,7 @@ public class CoinSpawner : MonoBehaviour
 
     void SpawnPattern()
     {
-        int pattern = Random.Range(0, 8); // 0–7
+        int pattern = Random.Range(0, 10); // 0–9
 
         switch (pattern)
         {
@@ -52,6 +52,12 @@ public class CoinSpawner : MonoBehaviour
                 break;
             case 7:
                 SpawnWave();
+                break;
+            case 8:
+                SpawnSpiral();
+                break;
+            case 9:
+                SpawnRandomScatter();
                 break;
         }
     }
@@ -233,6 +239,56 @@ public class CoinSpawner : MonoBehaviour
         {
             float yOffset = Mathf.Sin(i * waveFrequency) * waveHeight;
             Vector3 pos = new Vector3(spawnX + i * xSpacing, baseY + yOffset, 0);
+            GameObject coin = Instantiate(coinPrefabs[index], pos, Quaternion.identity);
+            TryAddFloat(coin);
+        }
+    }
+
+    /// <summary>
+    /// Spawns coins in an outward spiral pattern.
+    /// Visually striking — coins swirl outward from a center point.
+    /// </summary>
+    void SpawnSpiral()
+    {
+        int count = 10;
+        float radiusStep = 0.2f;   // how much the spiral expands per coin
+        float angleStep = 0.8f;    // radians between each coin (controls tightness)
+
+        int index = Random.Range(0, coinPrefabs.Length);
+        float centerY = Random.Range(spawnYMin + 2f, spawnYMax - 2f);
+
+        for (int i = 0; i < count; i++)
+        {
+            float radius = i * radiusStep;
+            float angle = i * angleStep;
+            float xOffset = Mathf.Cos(angle) * radius;
+            float yOffset = Mathf.Sin(angle) * radius;
+
+            Vector3 pos = new Vector3(spawnX + xOffset, centerY + yOffset, 0);
+            GameObject coin = Instantiate(coinPrefabs[index], pos, Quaternion.identity);
+            TryAddFloat(coin);
+        }
+    }
+
+    /// <summary>
+    /// Spawns coins scattered randomly in a rectangular area.
+    /// Chaotic burst of coins — rewarding but unpredictable.
+    /// </summary>
+    void SpawnRandomScatter()
+    {
+        int count = Random.Range(5, 9); // 5–8 coins
+        float scatterWidth = 3f;
+        float scatterHeight = 2.5f;
+
+        int index = Random.Range(0, coinPrefabs.Length);
+        float centerY = Random.Range(spawnYMin + scatterHeight * 0.5f, spawnYMax - scatterHeight * 0.5f);
+
+        for (int i = 0; i < count; i++)
+        {
+            float xOffset = Random.Range(0f, scatterWidth);
+            float yOffset = Random.Range(-scatterHeight * 0.5f, scatterHeight * 0.5f);
+
+            Vector3 pos = new Vector3(spawnX + xOffset, centerY + yOffset, 0);
             GameObject coin = Instantiate(coinPrefabs[index], pos, Quaternion.identity);
             TryAddFloat(coin);
         }

@@ -15,43 +15,118 @@ MonoBehaviour:
   characters:
   - title: Bits
     icon: {fileID: -8848074254060127402, guid: d218e8ff1ca6dcf41851c9a8f937f5e5, type: 3}
-    description: An average pixel who wants to unite Spritz back together after the
-      wiz's destruction. His skill, Bit Buff, allows him to take less damage from
-      obstacles by half.
+    description: 'An average pixel who wants to unite Spritz back together after
+      the wiz''s destruction. His skill, Bit Buff, allows him to take less damage
+      from obstacles by half.
+
+
+      Skill Stats:
+
+      Type (of skill) - Passive.
+
+      Cooldown
+      - 25 seconds.
+
+      Description - After 25 seconds, Bits gains a shield that
+      lets him take 50% less damage from an obstacle. The shield will store itself
+      until damage is taken, so it doesn''t go away after a certain time. '
   - title: Thief
     icon: {fileID: 1136184288765050124, guid: aa8710ef7a9076849874a1f9a7b1f50d, type: 3}
-    description: A self-proclaimed thief, yet he doesn't really steal anything. He's
-      a laid-back gentleman who is the great grandson of the founder of greenwood,
+    description: 'A self-proclaimed thief, yet he doesn''t really steal anything.
+      He''s a laid-back gentleman who is the great grandson of the founder of greenwood,
       and is currently the watcher of the town. His skill, Sticky Fingers, lets him
       pull in coins in a nearby radius.
+
+
+      Skill Stats:
+
+      Type (of skill)
+      - Active
+
+      Cooldown - 35s
+
+      Description - After 35 seconds, Thief
+      can activate Sticky Fingers to pull in nearby coins within a circle around
+      him. Coins being pulled in with Sticky Fingers are tinted darker. '
   - title: Ninja
     icon: {fileID: 61506194941554554, guid: 500f72fcd9b34894ea6fc359fe580c69, type: 3}
-    description: A quick-witted woman who silently sneaks where she travels. Working
+    description: 'A quick-witted woman who silently sneaks where she travels. Working
       as one of several ninjas from ninja valley, her electric bolts were created
       by the high traces of voltage between her fingers, which she learned to control.
       Her skill, Electric Bolt, lets her fire a projectile to take out any obstacle.
+
+
+      Skill
+      Stats:
+
+      Type (of skill) - Active
+
+      Cooldown - 25s
+
+      Description
+      - After 25 seconds, Ninja can fire her Electric Bolt to destroy obstacles in
+      front of her. Some obstacles cannot be destroyed this way.'
   - title: Wiz Kid
     icon: {fileID: 694068958173167402, guid: a13018d0373c22e4e9bc72555eebd8a2, type: 3}
-    description: A wizard who is still in training, trying to become a wizard like
+    description: 'A wizard who is still in training, trying to become a wizard like
       his father. Or...before his father went mentally unstable due to his anger.
-      He may be a timid child, but as he tries controlling his powers, he'll one
+      He may be a timid child, but as he tries controlling his powers, he''ll one
       day master them. His skill, Sprouting Sorcery, lets his randomly restore amounts
       of energy.
+
+
+      Skill Stats:
+
+      Type (of skill) - Passive
+
+      Cooldown
+      - 25s
+
+      Description - After 25 seconds of running, Wiz Kid will randomly
+      generate a random interval and a fixed amount of energy to himself. The longer
+      Sprouting Sorcery goes on, the more energy Wiz Kid gets.'
   - title: Crystal
     icon: {fileID: -8710684726290518427, guid: ad90941f2e2de8e4291e9e7bf289c835, type: 3}
-    description: A woman who was frozen in frosty outpost during the great war. When
-      the war concluded, the idea of revenge excited her enough to shatter the glacier
-      she was trapped in. Mysteriously, she gained the power to control wind and
-      freezing temperatures, and she roams the world for her attacker, not knowing
-      he's already gone. Her skill, Glaciate, is charged with snowflakes, and lets
+    description: 'A woman who was frozen in frosty outpost during the great war.
+      When the war concluded, the idea of revenge excited her enough to shatter the
+      glacier she was trapped in. Mysteriously, she gained the power to control wind
+      and freezing temperatures, and she roams the world for her attacker, not knowing
+      he''s already gone. Her skill, Glaciate, is charged with snowflakes, and lets
       her freeze obstacles in a circle around her.
+
+
+      Skill Stats:
+
+      Type
+      (of skill) -
+
+      Cooldown - N/A. Crystal just needs to collect 5 snowflakes.
+
+      Description
+      - When Crystal collects 5 snowflakes, she can cast Glaciate in a small circle
+      around her, freezing obstacles to make them harmless. Crystal can pass through
+      frozen obstacles.'
   - title: Cubit
     icon: {fileID: 377528032064278403, guid: 058659ad0ffe58248a063b9eb665c510, type: 3}
-    description: It's unknown exactly how cubit made his way onto spritz. All that
-      is known is that he's from a place with lots of platforming, and the atoms
+    description: 'It''s unknown exactly how cubit made his way onto spritz. All that
+      is known is that he''s from a place with lots of platforming, and the atoms
       alligned, transporting him here. His skill, Protection Protocol, lets him stop
       his energy depletion and store incoming damage for a short time, then restore
       his energy with said damage.
+
+
+      Skill Stats:
+
+      Type (of skill) -
+      Passive
+
+      Cooldown - 45s after first activation.
+
+      Description -
+      When Cubit''s energy drops below 30%, he will pause his energy depletion for
+      several seconds. During this time, his defense will increase and he''ll take
+      less damage from obstacles. Once Protection Protocol ends, he will restore
+      his energy depending on how much damage he took during the pause. '
   obstacles:
   - title: Spikes
     icon: {fileID: 7145198348311737387, guid: f73dfe034c22cfc41bd7e8799020a5ac, type: 3}
@@ -76,6 +151,37 @@ MonoBehaviour:
       inflict the Curse debuff, and also have different behaviors in a level. Magic
       and Twin Bolts deal 15 damage, with the Twin Bolt having a 50/50 chance to
       deal half damage or double damage. Charged and Spark Bolts deal 20 damage. '
+  - title: Status Effects
+    icon: {fileID: -3953663722524100884, guid: 66de816e1278a514abcaaf6590b117f7, type: 3}
+    description: 'Status Effects are negative effects that hinder the player in some
+      way. There are currently four status effects.
+
+
+      Sticky - When afflicted,
+      lowers jump force slightly until its duration ends.
+
+      Burning - When afflicted,
+      continously deals 5 damage over time until the duration ends.
+
+      Soggy
+      - When afflicted, forces player inputs to register later than when actually
+      pressed until the duration ends.
+
+      Cursed - When afflicted, can cause
+      all sorts of effects. It can pause skill cooldown, cancel an active skill,
+      prevent crystal''s snowflakes from spawning, and force skills to activate once
+      the duration ends. '
+  - title: Chill Wind
+    icon: {fileID: -3975070904865700949, guid: 0aea1d93bf0abc846917a4eb9fe863a6, type: 3}
+    description: 'The Chill Wind Buff is a buff exclusive to Crystal only. It can
+      be obtained once you upgrade Glaciate to tier three.
+
+
+      Chill Wind - When
+      using Glaciate, there is a 25% chance Crystal will activate Chill Wind. Chill
+      wind extends Crystal''s max energy by 25%, deplete crystal''s energy 50% slower,
+      and takes 20% less damage from all obstacles. Chill Wind will last for 25 seconds,
+      and cannot be overlapped with another one.'
   spritzHistory:
   - title: The World of Spritz
     icon: {fileID: -4851718564733221013, guid: ac5a007d2c6d7a641b294f3c6f24fcbe, type: 3}
