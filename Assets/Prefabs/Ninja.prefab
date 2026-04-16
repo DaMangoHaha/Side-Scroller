@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 1221497261706771659}
   - component: {fileID: 3545611507391418815}
   - component: {fileID: -5422530364633338121}
+  - component: {fileID: 6799000501880268466}
   m_Layer: 0
   m_Name: Ninja
   m_TagString: Player
@@ -45,6 +46,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1418188758721588606
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -90,6 +92,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: 2566270302476966300, guid: 500f72fcd9b34894ea6fc359fe580c69, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,7 +102,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &482358018203420766
 BoxCollider2D:
@@ -237,7 +239,12 @@ MonoBehaviour:
   spriteRenderer: {fileID: 0}
   hasBitBuff: 0
   damageReduction: 0.5
+  bitBuffStacks: 0
   invulnerabilityDuration: 2
+  chillWindDamageReduction: 0
+  depletionRateMultiplier: 1
+  maxEnergyMultiplier: 1
+  playerBuffDamageReduction: 0
 --- !u!114 &7300291592058614611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -290,10 +297,14 @@ MonoBehaviour:
   electricBoltPrefab: {fileID: 8134066807548886167, guid: 0610652006ae7c24ca4f3b57f7656382, type: 3}
   boltSpawnPoint: {fileID: 8310439251337273947}
   readyIcon: {fileID: 0}
+  skillCooldownUI: {fileID: 0}
   skillDialogueUI: {fileID: 0}
   electricBoltDialogue: Too slow.
   ninjaPortrait: {fileID: 61506194941554554, guid: 500f72fcd9b34894ea6fc359fe580c69, type: 3}
   activateSkillActionRef: {fileID: 0}
+  upgradeTier: 0
+  largeBoltPrefab: {fileID: 0}
+  holdTimeRequired: 2
 --- !u!114 &-5422530364633338121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -324,6 +335,25 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &6799000501880268466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844672861058412674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d5ea8b992f7b24f9b75ab29ab1ced4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFreeMove
+  moveSpeed: 5
+  interactRange: 1.5
+  npcLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  moveActionRef: {fileID: 0}
+  interactActionRef: {fileID: 0}
 --- !u!1 &5864338631574227806
 GameObject:
   m_ObjectHideFlags: 0

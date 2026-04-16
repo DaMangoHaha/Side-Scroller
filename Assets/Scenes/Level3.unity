@@ -12417,8 +12417,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3740ab72977a784d952c842948624b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerBuffManager
-  buffInterval: 100
-  buffChance: 0.5
+  buffInterval: 70
+  buffChance: 1
   maxEnergyBonus: 0.05
   defenseBonus: 0.1
   restorePercent: 0.25

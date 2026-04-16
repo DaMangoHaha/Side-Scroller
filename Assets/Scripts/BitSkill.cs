@@ -32,6 +32,11 @@ public class BitSkill : MonoBehaviour
     public AudioClip buffConsumeSFX;    // SFX when buff is consumed
     private AudioSource audioSource;
 
+    [Header("VFX")]
+    [Tooltip("Particle prefab spawned as a child of Bits when Bit Buff is at max stacks. Assign a looping particle system.")]
+    public GameObject bitBuffAuraVFXPrefab;
+    private GameObject activeAuraVFX;
+
     // --- Cursed Debuff ---
     private bool isCursedPaused = false;
 
@@ -185,6 +190,7 @@ public class BitSkill : MonoBehaviour
         if (currentStacks >= maxStacks)
         {
             isBuffPaused = true;
+            ShowAuraVFX();
             Debug.Log("Bit Buff at max stacks — cooldown timer paused.");
         }
 
@@ -215,6 +221,9 @@ public class BitSkill : MonoBehaviour
         // Resume the cooldown timer now that stacks have been consumed
         isBuffPaused = false;
 
+        // Hide aura VFX
+        HideAuraVFX();
+
         // Reset icons
         UpdateShieldIcons();
 
@@ -243,6 +252,9 @@ public class BitSkill : MonoBehaviour
 
             // Also unpause the buff timer since stacks are gone
             isBuffPaused = false;
+
+            // Hide aura VFX
+            HideAuraVFX();
 
             UpdateShieldIcons();
 
@@ -386,6 +398,37 @@ public class BitSkill : MonoBehaviour
             float remaining = buffCooldown - timer;
             if (remaining < 0f) remaining = 0f;
             skillCooldownUI.ShowCooldown(remaining);
+        }
+    }
+
+    // ------------------------------------------------------------------
+    //  AURA VFX HELPERS
+    // ------------------------------------------------------------------
+
+    /// <summary>
+    /// Spawns the aura VFX as a child of Bits (follows the player automatically).
+    /// Only spawns if the prefab is assigned and no aura is already active.
+    /// </summary>
+    private void ShowAuraVFX()
+    {
+        if (bitBuffAuraVFXPrefab == null || activeAuraVFX != null) return;
+
+        activeAuraVFX = Instantiate(bitBuffAuraVFXPrefab, transform.position, Quaternion.identity, transform);
+        activeAuraVFX.transform.localPosition = Vector3.zero;
+
+        Debug.Log("Bit Buff aura VFX activated.");
+    }
+
+    /// <summary>
+    /// Destroys the active aura VFX instance.
+    /// </summary>
+    private void HideAuraVFX()
+    {
+        if (activeAuraVFX != null)
+        {
+            Destroy(activeAuraVFX);
+            activeAuraVFX = null;
+            Debug.Log("Bit Buff aura VFX deactivated.");
         }
     }
 }

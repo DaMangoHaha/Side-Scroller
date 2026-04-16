@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 6445765439352345584}
   - component: {fileID: 5026143633479990479}
   - component: {fileID: -5184333995924163736}
+  - component: {fileID: -1158483206347440174}
   m_Layer: 0
   m_Name: Thief
   m_TagString: Player
@@ -75,6 +76,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5831928592119874244
 SpriteRenderer:
+  serializedVersion: 2
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -120,6 +122,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_Sprite: {fileID: -1142568716818093905, guid: aa8710ef7a9076849874a1f9a7b1f50d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -129,7 +132,6 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &3091335463352084533
 Animator:
@@ -267,7 +269,12 @@ MonoBehaviour:
   spriteRenderer: {fileID: 5831928592119874244}
   hasBitBuff: 0
   damageReduction: 0.5
+  bitBuffStacks: 0
   invulnerabilityDuration: 2
+  chillWindDamageReduction: 0
+  depletionRateMultiplier: 1
+  maxEnergyMultiplier: 1
+  playerBuffDamageReduction: 0
 --- !u!114 &5967845733545688845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -322,10 +329,13 @@ MonoBehaviour:
   coinPullSpeed: 8
   skillIcon: {fileID: 0}
   flickerSpeed: 6
+  skillCooldownUI: {fileID: 0}
   skillDialogueUI: {fileID: 0}
   stickyFingersDialogue: I'll be taking these...
   thiefPortrait: {fileID: 1136184288765050124, guid: aa8710ef7a9076849874a1f9a7b1f50d, type: 3}
   activateSkillActionRef: {fileID: 0}
+  upgradeTier: 0
+  coinPullTint: {r: 0.5, g: 0.5, b: 0.5, a: 1}
 --- !u!114 &-5184333995924163736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,3 +366,22 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &-1158483206347440174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3566108749456092354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d5ea8b992f7b24f9b75ab29ab1ced4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerFreeMove
+  moveSpeed: 5
+  interactRange: 1.5
+  npcLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  moveActionRef: {fileID: 0}
+  interactActionRef: {fileID: 0}
