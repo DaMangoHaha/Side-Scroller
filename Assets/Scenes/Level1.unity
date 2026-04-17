@@ -2042,7 +2042,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: WizKid
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -132187813741495116, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -3849,7 +3850,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8927709064647807121, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -6508,7 +6510,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -1158483206347440174, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -7388,7 +7391,8 @@ PrefabInstance:
       propertyPath: slideActionRef
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2984690137129313312, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -12700,7 +12704,8 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 7326288200972241621}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6799000501880268466, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -13039,7 +13044,8 @@ PrefabInstance:
       propertyPath: snowflakesNeeded
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5871436585954095265, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

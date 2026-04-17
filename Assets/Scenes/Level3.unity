@@ -5743,7 +5743,8 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 3033717867594396283}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6799000501880268466, guid: 2293fc1a845be3a4796c53e9bd1e9251, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -5826,6 +5827,10 @@ MonoBehaviour:
   soggySprite: {fileID: 5068505083757532201, guid: a8a7e7cccb3da774190d7e0a10bfaefb, type: 3}
   cursedIcon: {fileID: 0}
   cursedSprite: {fileID: 0}
+  stickyVFXPrefab: {fileID: 1885949351208521774, guid: 7f49da0b38629dd44abdcf287c7f421b, type: 3}
+  burningVFXPrefab: {fileID: 1887375125347342090, guid: 9fef1aa6ecc24414c92c5502eda5195d, type: 3}
+  soggyVFXPrefab: {fileID: 3801900826914466891, guid: 4e240fc9a0f3e4e47a192bfbe8d170b4, type: 3}
+  cursedVFXPrefab: {fileID: 8080548275857587720, guid: 2e62be06f4b447a4aa83cc4a573da7a8, type: 3}
   animateIcons: 1
   pulseSpeed: 2
   pulseMinAlpha: 0.5
@@ -7652,7 +7657,8 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -132187813741495116, guid: 7e3acd695ac1c4145a1769769dac5c33, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -7732,6 +7738,10 @@ MonoBehaviour:
   soggySprite: {fileID: 5068505083757532201, guid: a8a7e7cccb3da774190d7e0a10bfaefb, type: 3}
   cursedIcon: {fileID: 0}
   cursedSprite: {fileID: 0}
+  stickyVFXPrefab: {fileID: 1885949351208521774, guid: 7f49da0b38629dd44abdcf287c7f421b, type: 3}
+  burningVFXPrefab: {fileID: 1887375125347342090, guid: 9fef1aa6ecc24414c92c5502eda5195d, type: 3}
+  soggyVFXPrefab: {fileID: 3801900826914466891, guid: 4e240fc9a0f3e4e47a192bfbe8d170b4, type: 3}
+  cursedVFXPrefab: {fileID: 8080548275857587720, guid: 2e62be06f4b447a4aa83cc4a573da7a8, type: 3}
   animateIcons: 1
   pulseSpeed: 2
   pulseMinAlpha: 0.5
@@ -7895,7 +7905,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8927709064647807121, guid: 8137dde238c0fd64a9b75c5e22b6ddd1, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -8651,7 +8662,8 @@ PrefabInstance:
       propertyPath: groundCheck
       value: 
       objectReference: {fileID: 1348524112}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -2984690137129313312, guid: d6746daab4eb07140b9a2bf8804b0d80, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -8725,6 +8737,10 @@ MonoBehaviour:
   soggySprite: {fileID: 5068505083757532201, guid: a8a7e7cccb3da774190d7e0a10bfaefb, type: 3}
   cursedIcon: {fileID: 0}
   cursedSprite: {fileID: 0}
+  stickyVFXPrefab: {fileID: 1885949351208521774, guid: 7f49da0b38629dd44abdcf287c7f421b, type: 3}
+  burningVFXPrefab: {fileID: 1887375125347342090, guid: 9fef1aa6ecc24414c92c5502eda5195d, type: 3}
+  soggyVFXPrefab: {fileID: 3801900826914466891, guid: 4e240fc9a0f3e4e47a192bfbe8d170b4, type: 3}
+  cursedVFXPrefab: {fileID: 8080548275857587720, guid: 2e62be06f4b447a4aa83cc4a573da7a8, type: 3}
   animateIcons: 1
   pulseSpeed: 2
   pulseMinAlpha: 0.5
@@ -9022,7 +9038,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -1158483206347440174, guid: 4eb4949ed5dac3f46b5ff7586b11cd7c, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -9105,6 +9122,10 @@ MonoBehaviour:
   soggySprite: {fileID: 5068505083757532201, guid: a8a7e7cccb3da774190d7e0a10bfaefb, type: 3}
   cursedIcon: {fileID: 0}
   cursedSprite: {fileID: 0}
+  stickyVFXPrefab: {fileID: 1885949351208521774, guid: 7f49da0b38629dd44abdcf287c7f421b, type: 3}
+  burningVFXPrefab: {fileID: 1887375125347342090, guid: 9fef1aa6ecc24414c92c5502eda5195d, type: 3}
+  soggyVFXPrefab: {fileID: 3801900826914466891, guid: 4e240fc9a0f3e4e47a192bfbe8d170b4, type: 3}
+  cursedVFXPrefab: {fileID: 8080548275857587720, guid: 2e62be06f4b447a4aa83cc4a573da7a8, type: 3}
   animateIcons: 1
   pulseSpeed: 2
   pulseMinAlpha: 0.5
@@ -12353,6 +12374,10 @@ MonoBehaviour:
   soggySprite: {fileID: 5068505083757532201, guid: a8a7e7cccb3da774190d7e0a10bfaefb, type: 3}
   cursedIcon: {fileID: 0}
   cursedSprite: {fileID: 0}
+  stickyVFXPrefab: {fileID: 1885949351208521774, guid: 7f49da0b38629dd44abdcf287c7f421b, type: 3}
+  burningVFXPrefab: {fileID: 1887375125347342090, guid: 9fef1aa6ecc24414c92c5502eda5195d, type: 3}
+  soggyVFXPrefab: {fileID: 3801900826914466891, guid: 4e240fc9a0f3e4e47a192bfbe8d170b4, type: 3}
+  cursedVFXPrefab: {fileID: 8080548275857587720, guid: 2e62be06f4b447a4aa83cc4a573da7a8, type: 3}
   animateIcons: 1
   pulseSpeed: 2
   pulseMinAlpha: 0.5
@@ -13439,7 +13464,8 @@ PrefabInstance:
       propertyPath: snowflakesNeeded
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -5871436585954095265, guid: 9d93e256be957f746b3f29c74e537ce7, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -13519,6 +13545,10 @@ MonoBehaviour:
   soggySprite: {fileID: 5068505083757532201, guid: a8a7e7cccb3da774190d7e0a10bfaefb, type: 3}
   cursedIcon: {fileID: 0}
   cursedSprite: {fileID: 0}
+  stickyVFXPrefab: {fileID: 1885949351208521774, guid: 7f49da0b38629dd44abdcf287c7f421b, type: 3}
+  burningVFXPrefab: {fileID: 1887375125347342090, guid: 9fef1aa6ecc24414c92c5502eda5195d, type: 3}
+  soggyVFXPrefab: {fileID: 3801900826914466891, guid: 4e240fc9a0f3e4e47a192bfbe8d170b4, type: 3}
+  cursedVFXPrefab: {fileID: 8080548275857587720, guid: 2e62be06f4b447a4aa83cc4a573da7a8, type: 3}
   animateIcons: 1
   pulseSpeed: 2
   pulseMinAlpha: 0.5

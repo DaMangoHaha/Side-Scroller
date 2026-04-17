@@ -52,6 +52,21 @@ public class StatusEffectManager : MonoBehaviour
     [Tooltip("Sprite to display for Cursed debuff (optional - uses existing Image sprite if not set)")]
     public Sprite cursedSprite;
 
+    [Header("Status Effect VFX")]
+    [Tooltip("VFX prefab spawned as child of player while Sticky is active")]
+    public GameObject stickyVFXPrefab;
+    [Tooltip("VFX prefab spawned as child of player while Burning is active")]
+    public GameObject burningVFXPrefab;
+    [Tooltip("VFX prefab spawned as child of player while Soggy is active")]
+    public GameObject soggyVFXPrefab;
+    [Tooltip("VFX prefab spawned as child of player while Cursed is active")]
+    public GameObject cursedVFXPrefab;
+
+    private GameObject activeStickyVFX;
+    private GameObject activeBurningVFX;
+    private GameObject activeSoggyVFX;
+    private GameObject activeCursedVFX;
+
     [Header("Icon Animation Settings")]
     [Tooltip("Should icons pulse/flash while active?")]
     public bool animateIcons = true;
@@ -199,8 +214,29 @@ public class StatusEffectManager : MonoBehaviour
     }
 
     // --------------------------------------------------
-    // Sticky — halves jump force for a few seconds
+    // Status Effect VFX Helpers
     // --------------------------------------------------
+
+    private void ShowStatusVFX(GameObject prefab, ref GameObject activeInstance)
+    {
+        if (prefab == null || activeInstance != null) return;
+        activeInstance = Instantiate(prefab, transform.position, Quaternion.identity, transform);
+        activeInstance.transform.localPosition = Vector3.zero;
+    }
+
+    private void HideStatusVFX(ref GameObject activeInstance)
+    {
+        if (activeInstance != null)
+        {
+            Destroy(activeInstance);
+            activeInstance = null;
+        }
+    }
+
+    // --------------------------------------------------
+    // Sticky
+    // --------------------------------------------------
+
     public void ApplySticky(Vector3 popupPosition)
     {
         CoinPopup.CreateStatusEffect(popupPosition, "Sticky!", new Color(0.2f, 0.9f, 0.2f, 1f)); // green
@@ -218,6 +254,7 @@ public class StatusEffectManager : MonoBehaviour
 
         isSticky = true;
         ShowIcon(stickyIcon, ref stickyIconAnimCoroutine);
+        ShowStatusVFX(stickyVFXPrefab, ref activeStickyVFX);
 
         float originalJumpForce = doubleJump.jumpForce;
         doubleJump.jumpForce *= jumpForceMultiplier;
@@ -226,10 +263,10 @@ public class StatusEffectManager : MonoBehaviour
 
         yield return new WaitForSeconds(stickyDuration);
 
-        // Restore original jump force
         doubleJump.jumpForce = originalJumpForce;
         isSticky = false;
         HideIcon(stickyIcon, ref stickyIconAnimCoroutine);
+        HideStatusVFX(ref activeStickyVFX);
         stickyCoroutine = null;
 
         Debug.Log("Sticky effect wore off.");
@@ -255,6 +292,7 @@ public class StatusEffectManager : MonoBehaviour
 
         isBurning = true;
         ShowIcon(burningIcon, ref burningIconAnimCoroutine);
+        ShowStatusVFX(burningVFXPrefab, ref activeBurningVFX);
 
         float elapsed = 0f;
 
@@ -265,15 +303,13 @@ public class StatusEffectManager : MonoBehaviour
             yield return new WaitForSeconds(burningTickInterval);
             elapsed += burningTickInterval;
 
-            // Show a small burn tick popup each time
             CoinPopup.CreateDamage(transform.position, burningDamagePerTick);
-
-            // Use TakeBurnDamage to bypass invulnerability and skip triggering i-frames
             playerEnergy.TakeBurnDamage(burningDamagePerTick);
         }
 
         isBurning = false;
         HideIcon(burningIcon, ref burningIconAnimCoroutine);
+        HideStatusVFX(ref activeBurningVFX);
         burningCoroutine = null;
 
         Debug.Log("Burning effect wore off.");
@@ -297,6 +333,7 @@ public class StatusEffectManager : MonoBehaviour
     {
         isSoggy = true;
         ShowIcon(soggyIcon, ref soggyIconAnimCoroutine);
+        ShowStatusVFX(soggyVFXPrefab, ref activeSoggyVFX);
 
         Debug.Log("Soggy! Input delayed by " + inputDelaySeconds + "s for " + soggyDuration + "s.");
 
@@ -304,6 +341,7 @@ public class StatusEffectManager : MonoBehaviour
 
         isSoggy = false;
         HideIcon(soggyIcon, ref soggyIconAnimCoroutine);
+        HideStatusVFX(ref activeSoggyVFX);
         soggyCoroutine = null;
 
         Debug.Log("Soggy effect wore off.");
@@ -355,11 +393,21 @@ public class StatusEffectManager : MonoBehaviour
     {
         isCursed = true;
         ShowIcon(cursedIcon, ref cursedIconAnimCoroutine);
+        ShowStatusVFX(cursedVFXPrefab, ref activeCursedVFX);
 
         // Tint the cursed icon purple
         if (cursedIcon != null)
         {
             cursedIcon.color = new Color(0.6f, 0.2f, 0.9f, 1f);
+        }
+
+        // Play/Wire Cursed VFX
+        if (cursedVFXPrefab != null && activeCursedVFX == null)
+        {
+            activeCursedVFX = Instantiate(cursedVFXPrefab, transform);
+            var ps = activeCursedVFX.GetComponent<ParticleSystem>();
+            if (ps != null)
+                Destroy(activeCursedVFX, ps.main.duration); // Auto-destroy based on particle system duration
         }
 
         Debug.Log("Cursed! Player's skill is disrupted for " + cursedDuration + "s.");
@@ -428,6 +476,7 @@ public class StatusEffectManager : MonoBehaviour
         TintSkillIconPurple(false);
 
         HideIcon(cursedIcon, ref cursedIconAnimCoroutine);
+        HideStatusVFX(ref activeCursedVFX);
         cursedCoroutine = null;
 
         Debug.Log("Cursed effect wore off.");
@@ -512,6 +561,7 @@ public class StatusEffectManager : MonoBehaviour
         }
         isSticky = false;
         HideIcon(stickyIcon, ref stickyIconAnimCoroutine);
+        HideStatusVFX(ref activeStickyVFX); // <- Hide Sticky VFX
 
         // Clear Burning
         if (burningCoroutine != null)
@@ -521,6 +571,7 @@ public class StatusEffectManager : MonoBehaviour
         }
         isBurning = false;
         HideIcon(burningIcon, ref burningIconAnimCoroutine);
+        HideStatusVFX(ref activeBurningVFX); // <- Hide Burning VFX
 
         // Clear Soggy
         if (soggyCoroutine != null)
@@ -530,6 +581,7 @@ public class StatusEffectManager : MonoBehaviour
         }
         isSoggy = false;
         HideIcon(soggyIcon, ref soggyIconAnimCoroutine);
+        HideStatusVFX(ref activeSoggyVFX); // <- Hide Soggy VFX
 
         // Clear Cursed
         if (cursedCoroutine != null)
@@ -559,7 +611,60 @@ public class StatusEffectManager : MonoBehaviour
         }
         isCursed = false;
         HideIcon(cursedIcon, ref cursedIconAnimCoroutine);
+        HideStatusVFX(ref activeCursedVFX); // <- Hide Cursed VFX
 
         Debug.Log("All status effects cleared.");
+    }
+
+    // --------------------------------------------------
+    // VFX Management
+    // --------------------------------------------------
+
+    /// <summary>
+    /// Hides the active Sticky VFX if present.
+    /// </summary>
+    private void HideStickyVFX()
+    {
+        if (activeStickyVFX != null)
+        {
+            Destroy(activeStickyVFX);
+            activeStickyVFX = null;
+        }
+    }
+
+    /// <summary>
+    /// Hides the active Burning VFX if present.
+    /// </summary>
+    private void HideBurningVFX()
+    {
+        if (activeBurningVFX != null)
+        {
+            Destroy(activeBurningVFX);
+            activeBurningVFX = null;
+        }
+    }
+
+    /// <summary>
+    /// Hides the active Soggy VFX if present.
+    /// </summary>
+    private void HideSoggyVFX()
+    {
+        if (activeSoggyVFX != null)
+        {
+            Destroy(activeSoggyVFX);
+            activeSoggyVFX = null;
+        }
+    }
+
+    /// <summary>
+    /// Hides the active Cursed VFX if present.
+    /// </summary>
+    private void HideCursedVFX()
+    {
+        if (activeCursedVFX != null)
+        {
+            Destroy(activeCursedVFX);
+            activeCursedVFX = null;
+        }
     }
 }

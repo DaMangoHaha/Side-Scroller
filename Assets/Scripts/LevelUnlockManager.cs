@@ -11,6 +11,7 @@ public class LevelUnlockManager : MonoBehaviour
     public bool level4Unlocked = false;
     public bool level5Unlocked = false;
     public bool level6Unlocked = false;
+    public bool level7Unlocked = false;
 
     // The minimum time (in seconds) a player must survive in Level 1 to unlock other levels
     public float requiredLevel1Time = 60f;
@@ -45,6 +46,7 @@ public class LevelUnlockManager : MonoBehaviour
             level4Unlocked = true;
             level5Unlocked = true;
             level6Unlocked = true;
+            level7Unlocked = true;
         }
         else
         {
@@ -55,6 +57,7 @@ public class LevelUnlockManager : MonoBehaviour
             level4Unlocked = false;
             level5Unlocked = false;
             level6Unlocked = false;
+            level7Unlocked = false;
         }
     }
 
@@ -66,6 +69,7 @@ public class LevelUnlockManager : MonoBehaviour
         if (levelNumber == 4) level4Unlocked = true;
         if (levelNumber == 5) level5Unlocked = true;
         if (levelNumber == 6) level6Unlocked = true;
+        if (levelNumber == 7) level7Unlocked = true;
         // Later, extend this with more levels
     }
 
@@ -81,6 +85,7 @@ public class LevelUnlockManager : MonoBehaviour
         level4Unlocked = true;
         level5Unlocked = true;
         level6Unlocked = true;
+        level7Unlocked = true;
 
         SaveData data = SaveSystem.LoadData();
         data.levelsUnlocked = true;

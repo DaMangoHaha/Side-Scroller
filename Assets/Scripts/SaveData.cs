@@ -56,6 +56,7 @@ public class SaveData
     public float bestTimeLevel4 = 0f;
     public float bestTimeLevel5 = 0f;
     public float bestTimeLevel6 = 0f;
+    public float bestTimeLevel7 = 0f;
 
     // Best scores per level (0 = no record)
     public int bestScoreLevel1 = 0;
@@ -64,6 +65,7 @@ public class SaveData
     public int bestScoreLevel4 = 0;
     public int bestScoreLevel5 = 0;
     public int bestScoreLevel6 = 0;
+    public int bestScoreLevel7 = 0;
 
     // Best star ratings per level (0-3)
     public int bestStarsLevel1 = 0;
@@ -72,6 +74,7 @@ public class SaveData
     public int bestStarsLevel4 = 0;
     public int bestStarsLevel5 = 0;
     public int bestStarsLevel6 = 0;
+    public int bestStarsLevel7 = 0;
 
     // Whether the player has survived 1 minute in Level 1 to unlock all levels
     public bool levelsUnlocked = false;

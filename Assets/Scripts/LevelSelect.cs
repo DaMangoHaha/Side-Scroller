@@ -13,6 +13,7 @@ public class LevelSelect : MonoBehaviour
     public Button level4Button;
     public Button level5Button;
     public Button level6Button;
+    public Button level7Button;
 
     [Header("Locked Level Panel")]
     [Tooltip("Optional: assign an existing panel in the scene. If left empty, one will be created at runtime.")]
@@ -68,6 +69,12 @@ public class LevelSelect : MonoBehaviour
         SceneTransition.Instance.LoadScene("Level6", () => MusicManager.Instance.PlayMusic("Level 6"));
     }
 
+    public void PlayLevel7()
+    {
+        if (!IsLevelUnlocked(7)) { ShowLockedPanel(); return; }
+        SceneTransition.Instance.LoadScene("Level7", () => MusicManager.Instance.PlayMusic("Level 7"));
+    }
+
     private bool IsLevelUnlocked(int levelNumber)
     {
         if (LevelUnlockManager.Instance == null) return true;
@@ -80,6 +87,7 @@ public class LevelSelect : MonoBehaviour
             case 4: return LevelUnlockManager.Instance.level4Unlocked;
             case 5: return LevelUnlockManager.Instance.level5Unlocked;
             case 6: return LevelUnlockManager.Instance.level6Unlocked;
+            case 7: return LevelUnlockManager.Instance.level7Unlocked;
             default: return false;
         }
     }
@@ -100,6 +108,7 @@ public class LevelSelect : MonoBehaviour
         SetButtonLockedVisual(level4Button, IsLevelUnlocked(4));
         SetButtonLockedVisual(level5Button, IsLevelUnlocked(5));
         SetButtonLockedVisual(level6Button, IsLevelUnlocked(6));
+        SetButtonLockedVisual(level7Button, IsLevelUnlocked(7));
     }
 
     private void SetButtonLockedVisual(Button button, bool unlocked)
