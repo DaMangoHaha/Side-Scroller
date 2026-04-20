@@ -293,3 +293,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ChillTarget
   chilledSprite: {fileID: 4486103593889330417, guid: 78a34fdc85a78e444a89557c3880bd2b, type: 3}
   driftSpeed: 5
+  freezeVFXPrefab: {fileID: 4924508274929071776, guid: 0edef91621bb6b34384ccc9dbb98729c, type: 3}

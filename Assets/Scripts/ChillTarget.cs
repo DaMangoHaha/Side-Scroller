@@ -6,7 +6,11 @@ public class ChillTarget : MonoBehaviour
     public Sprite chilledSprite;
     public float driftSpeed = 5f;
 
+    [Header("VFX")]
+    public GameObject freezeVFXPrefab; // assign freeze/ice VFX prefab in Inspector
+
     private bool isChilled = false;
+    private GameObject activeVFX;
 
     public void ApplyChill()
     {
@@ -16,6 +20,12 @@ public class ChillTarget : MonoBehaviour
         // Play freeze sound effect
         if (SoundManager.Instance != null)
             SoundManager.Instance.PlaySound2D("Freeze");
+
+        // Spawn freeze VFX at the enemy's position (parented so it follows during drift)
+        if (freezeVFXPrefab != null)
+        {
+            activeVFX = Instantiate(freezeVFXPrefab, transform.position, Quaternion.identity, transform);
+        }
 
         // Disable all other scripts except this one
         MonoBehaviour[] scripts = GetComponents<MonoBehaviour>();

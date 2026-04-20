@@ -10,6 +10,9 @@ public class ElectricBolt : MonoBehaviour
     [Header("Scoring")]
     public int pointsPerKill = 50;
 
+    [Header("VFX")]
+    public GameObject obstacleDestroyVFXPrefab; // assign electric zap VFX prefab in Inspector
+
     [Header("Upgrade Support")]
     [HideInInspector] public NinjaSkill_ElectricBolt ownerSkill; // set by NinjaSkill on spawn
     [HideInInspector] public bool isLargeBolt = false;           // Tier 2 large bolt
@@ -32,6 +35,13 @@ public class ElectricBolt : MonoBehaviour
             // Play electric zap sound only when destroying an obstacle
             if (collision.CompareTag("Obstacle") && SoundManager.Instance != null)
                 SoundManager.Instance.PlaySound2D("ElectricZap");
+
+            // Spawn destroy VFX at the obstacle's position
+            if (collision.CompareTag("Obstacle") && obstacleDestroyVFXPrefab != null)
+            {
+                GameObject vfx = Instantiate(obstacleDestroyVFXPrefab, collision.transform.position, Quaternion.identity);
+                Destroy(vfx, 2f); // auto-cleanup after 2 seconds
+            }
 
             // Award score
             PlayerScore score = FindAnyObjectByType<PlayerScore>();

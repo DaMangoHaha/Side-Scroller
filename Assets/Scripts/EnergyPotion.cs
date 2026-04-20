@@ -9,6 +9,9 @@ public class EnergyPotion : MonoBehaviour
     public AudioClip potionPickupSFX;   // assign in Inspector
     private static AudioSource audioSource;
 
+    [Header("VFX")]
+    public GameObject healingVFXPrefab; // assign healing particle prefab in Inspector
+
     void Start()
     {
         // Ensure there is a shared AudioSource for potion sounds
@@ -44,6 +47,21 @@ public class EnergyPotion : MonoBehaviour
                 // Pause depletion
                 energy.PauseDepletion(pauseDuration);
 
+                // Spawn healing VFX on the player for the pause duration
+                if (healingVFXPrefab != null)
+                {
+                    GameObject vfx = Instantiate(healingVFXPrefab, other.transform.position, Quaternion.identity, other.transform);
+                    // Counteract the player's scale so the VFX always appears at its intended size
+                    Vector3 prefabScale = healingVFXPrefab.transform.localScale;
+                    Vector3 parentScale = other.transform.lossyScale;
+                    vfx.transform.localScale = new Vector3(
+                        prefabScale.x / parentScale.x,
+                        prefabScale.y / parentScale.y,
+                        prefabScale.z / parentScale.z
+                    );
+                    Destroy(vfx, pauseDuration);
+                }
+
                 Debug.Log($"[EnergyPotion] SUCCESS — restored {restoreAmount} energy to '{other.gameObject.name}'");
             }
             else
@@ -60,6 +78,10 @@ public class EnergyPotion : MonoBehaviour
         }
     }
 }
+
+
+
+
 
 
 

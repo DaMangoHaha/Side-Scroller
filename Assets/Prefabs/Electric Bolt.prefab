@@ -157,6 +157,7 @@ MonoBehaviour:
   speed: 8
   destroyX: 12
   pointsPerKill: 50
+  obstacleDestroyVFXPrefab: {fileID: 2965222256817593503, guid: a164e676dbbd6e54587237e619372c98, type: 3}
   ownerSkill: {fileID: 0}
   isLargeBolt: 0
 --- !u!95 &-8507442388790801217

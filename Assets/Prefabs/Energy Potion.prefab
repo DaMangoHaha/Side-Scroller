@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 1197286419924460492}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.43, y: -1.26, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,6 +109,7 @@ MonoBehaviour:
   pauseDuration: 5
   restoreAmount: 25
   potionPickupSFX: {fileID: 8300000, guid: 9a561cf8877c18d4dbd3d72c9a1f9a0c, type: 3}
+  healingVFXPrefab: {fileID: 9017484664307500583, guid: 1245b8d2997d5b34fb1637be70a7eb05, type: 3}
 --- !u!50 &2032869673352049824
 Rigidbody2D:
   serializedVersion: 5

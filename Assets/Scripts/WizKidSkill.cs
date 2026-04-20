@@ -34,6 +34,10 @@ public class WizKidSkill : MonoBehaviour
 
     [Header("Effects")]
     public GameObject confettiPrefab;
+    public GameObject auraPrefab;
+
+    // Runtime reference to the spawned aura instance
+    private GameObject auraInstance;
 
     // --- Upgrade System ---
     [Header("Upgrade")]
@@ -129,17 +133,59 @@ public class WizKidSkill : MonoBehaviour
         if (wizIcon != null)
             wizIcon.color = activeColor;
 
-        // Determine the pool of effects based on upgrade tier
-        // Tier 0-1: 3 effects (small/medium/large heal)
-        // Tier 2:   4 effects (small/medium/large heal + energy loss)
-        // Tier 3:   6 effects (small/medium/large heal + energy loss + coins + invulnerability)
-        int effectCount = 3;
-        if (upgradeTier >= 3)
-            effectCount = 6;
-        else if (upgradeTier >= 2)
-            effectCount = 4;
+        // Spawn aura VFX on the player
+        if (auraPrefab != null)
+        {
+            auraInstance = Instantiate(auraPrefab, transform.position, Quaternion.identity, transform);
+            // Counteract the player's scale so the VFX always appears at its intended size
+            Vector3 prefabScale = auraPrefab.transform.localScale;
+            Vector3 parentScale = transform.lossyScale;
+            auraInstance.transform.localScale = new Vector3(
+                prefabScale.x / parentScale.x,
+                prefabScale.y / parentScale.y,
+                prefabScale.z / parentScale.z
+            );
+        }
 
-        int choice = Random.Range(0, effectCount);
+        // Determine the chosen effect using weighted random selection.
+        // At every tier the three heals remain the most likely outcomes.
+        // Tier 0-1: Small 33% | Medium 33% | Large 34%
+        // Tier 2:   Small 27% | Medium 27% | Large 26% | Energy Loss 20%
+        // Tier 3:   Small 20% | Medium 20% | Large 20% | Energy Loss 15% | Coins 12.5% | Invuln 12.5%
+        int choice;
+
+        if (upgradeTier >= 3)
+        {
+            float roll = Random.value; // 0.0 to 1.0
+            if (roll < 0.20f)
+                choice = 0; // Small heal
+            else if (roll < 0.40f)
+                choice = 1; // Medium heal
+            else if (roll < 0.60f)
+                choice = 2; // Large heal
+            else if (roll < 0.75f)
+                choice = 3; // Energy loss
+            else if (roll < 0.875f)
+                choice = 4; // Coins
+            else
+                choice = 5; // Invulnerability
+        }
+        else if (upgradeTier >= 2)
+        {
+            float roll = Random.value;
+            if (roll < 0.27f)
+                choice = 0;
+            else if (roll < 0.54f)
+                choice = 1;
+            else if (roll < 0.80f)
+                choice = 2;
+            else
+                choice = 3;
+        }
+        else
+        {
+            choice = Random.Range(0, 3);
+        }
 
         // Handle based on chosen effect
         switch (choice)
@@ -172,6 +218,13 @@ public class WizKidSkill : MonoBehaviour
         // Dim icon after effect completes
         if (wizIcon != null)
             wizIcon.color = inactiveColor;
+
+        // Destroy aura VFX
+        if (auraInstance != null)
+        {
+            Destroy(auraInstance);
+            auraInstance = null;
+        }
 
         isSkillActive = false;
     }
@@ -278,7 +331,7 @@ public class WizKidSkill : MonoBehaviour
                 Instantiate(confettiPrefab, transform.position + offset, Quaternion.identity);
             }
 
-            yield return new WaitForSeconds(0.1f); // rapid burst effect
+            yield return new WaitForSeconds(0.2f); // rapid burst effect
         }
     }
 
