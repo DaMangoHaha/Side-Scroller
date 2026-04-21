@@ -27,7 +27,9 @@ public class CubitPassive : MonoBehaviour
     public Sprite cubitPortrait;
 
     [Header("Visual Feedback")]
-    
+    [Tooltip("Looping VFX prefab spawned around Cubit while Protection Protocol is active.")]
+    public GameObject protectionVFXPrefab;
+
     // --- Upgrade System ---
     [Header("Upgrade")]
     public int upgradeTier = 0; // 0 = no upgrades, 1-3 = tiers
@@ -157,6 +159,14 @@ public class CubitPassive : MonoBehaviour
 
         // Pause energy depletion
         playerEnergy.PauseDepletion(protectionDuration);
+
+        // Spawn looping VFX around Cubit if prefab assigned
+        if (protectionVFXPrefab != null && activeEffect == null)
+        {
+            activeEffect = Instantiate(protectionVFXPrefab, transform.position, Quaternion.identity, transform);
+            activeEffect.transform.localPosition = Vector3.zero;
+            Debug.Log("Protection Protocol VFX spawned.");
+        }
 
         // Keep icon at active color during protection
         if (cubitIcon != null)

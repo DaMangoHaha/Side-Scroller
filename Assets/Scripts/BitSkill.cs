@@ -37,6 +37,12 @@ public class BitSkill : MonoBehaviour
     public GameObject bitBuffAuraVFXPrefab;
     private GameObject activeAuraVFX;
 
+    [Tooltip("One-shot shield VFX prefab that plays for a short duration when a stack activates.")]
+    public GameObject bitBuffShieldVFXPrefab;
+
+    [Tooltip("How long the shield VFX lasts before being destroyed (seconds).")]
+    public float shieldVFXDuration = 2f;
+
     // --- Cursed Debuff ---
     private bool isCursedPaused = false;
 
@@ -185,6 +191,9 @@ public class BitSkill : MonoBehaviour
         {
             playerEnergy.damageReduction = 0.5f; // 50% reduction (take 50%)
         }
+
+        // Play one-shot shield VFX on every activation
+        ShowShieldVFX();
 
         // Pause the cooldown timer when at max stacks
         if (currentStacks >= maxStacks)
@@ -430,5 +439,24 @@ public class BitSkill : MonoBehaviour
             activeAuraVFX = null;
             Debug.Log("Bit Buff aura VFX deactivated.");
         }
+    }
+
+    // ------------------------------------------------------------------
+    //  SHIELD VFX HELPERS
+    // ------------------------------------------------------------------
+
+    /// <summary>
+    /// Plays the one-shot shield VFX at the player's position. This is an
+    /// ephemeral effect that is destroyed after `shieldVFXDuration` seconds.
+    /// </summary>
+    private void ShowShieldVFX()
+    {
+        if (bitBuffShieldVFXPrefab == null) return;
+
+        GameObject vfx = Instantiate(bitBuffShieldVFXPrefab, transform.position, Quaternion.identity);
+        vfx.transform.SetParent(transform); // keep it following the player
+        vfx.transform.localPosition = Vector3.zero;
+
+        Destroy(vfx, shieldVFXDuration);
     }
 }

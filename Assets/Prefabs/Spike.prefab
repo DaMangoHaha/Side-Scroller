@@ -142,8 +142,8 @@ PolygonCollider2D:
   m_Points:
     m_Paths:
     - - {x: 0, y: -0.0625}
-      - {x: -0.5, y: -0.5}
-      - {x: 0.5, y: -0.5}
+      - {x: -0.43713358, y: -0.5}
+      - {x: 0.4371336, y: -0.50169915}
   m_UseDelaunayMesh: 0
 --- !u!50 &8819196128148496487
 Rigidbody2D:
