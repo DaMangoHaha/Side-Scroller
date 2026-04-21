@@ -71,7 +71,7 @@ MonoBehaviour:
     description: 'A wizard who is still in training, trying to become a wizard like
       his father. Or...before his father went mentally unstable due to his anger.
       He may be a timid child, but as he tries controlling his powers, he''ll one
-      day master them. His skill, Sprouting Sorcery, lets his randomly restore amounts
+      day master them. His skill, Sprouting Sorcery, lets him randomly restore amounts
       of energy.
 
 
@@ -91,7 +91,7 @@ MonoBehaviour:
       When the war concluded, the idea of revenge excited her enough to shatter the
       glacier she was trapped in. Mysteriously, she gained the power to control wind
       and freezing temperatures, and she roams the world for her attacker, not knowing
-      he''s already gone. Her skill, Glaciate, is charged with snowflakes, and lets
+      he was already gone. Her skill, Glaciate, is charged with snowflakes, and lets
       her freeze obstacles in a circle around her.
 
 
@@ -244,7 +244,7 @@ MonoBehaviour:
       Kairi
       Shin - Stayed neutral for too long when fighting began.
 
-      Eiran Glaciel
+      Glace Frost
       - Hoarded supplies and refused to give out any to other towns.
 
       Orin
