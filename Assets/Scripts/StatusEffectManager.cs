@@ -222,6 +222,18 @@ public class StatusEffectManager : MonoBehaviour
         if (prefab == null || activeInstance != null) return;
         activeInstance = Instantiate(prefab, transform.position, Quaternion.identity, transform);
         activeInstance.transform.localPosition = Vector3.zero;
+
+        // Counteract the parent's world scale so the VFX always renders at its
+        // intended size regardless of which character's transform it is parented to.
+        Vector3 ps = transform.lossyScale;
+        if (ps.x != 0f && ps.y != 0f && ps.z != 0f)
+        {
+            activeInstance.transform.localScale = new Vector3(
+                1f / ps.x,
+                1f / ps.y,
+                1f / ps.z
+            );
+        }
     }
 
     private void HideStatusVFX(ref GameObject activeInstance)
