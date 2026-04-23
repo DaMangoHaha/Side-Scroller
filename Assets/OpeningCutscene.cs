@@ -5,6 +5,32 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
+/// <summary>
+/// How a slideshow image should be scaled inside the slideImage RectTransform.
+/// </summary>
+public enum SlideScaleMode
+{
+    /// <summary>Stretch to fill the entire panel (default Unity behavior).</summary>
+    Stretch,
+    /// <summary>Scale uniformly so the whole image fits inside the panel (letterbox / pillarbox).</summary>
+    Fit,
+    /// <summary>Scale uniformly so the image fills the panel, cropping any overflow.</summary>
+    Fill,
+    /// <summary>Display the image at its original pixel size (1:1).</summary>
+    Native
+}
+
+/// <summary>
+/// Pairs a sprite with the scaling mode that should be applied when it is shown.
+/// </summary>
+[System.Serializable]
+public class SlideEntry
+{
+    public Sprite sprite;
+    [Tooltip("How this specific slide should be scaled inside the slide panel.")]
+    public SlideScaleMode scaleMode = SlideScaleMode.Fit;
+}
+
 public class OpeningCutscene : MonoBehaviour
 {
     [Header("UI References")]
@@ -338,21 +364,96 @@ public class OpeningCutscene : MonoBehaviour
         cg.alpha = end;
     }
 
+    // -------------------------------------------------------------------------
+    //  Slideshow helpers
+    // -------------------------------------------------------------------------
+
     /// <summary>
-    /// Displays a sprite in the slideshow Image panel. Pass null to hide.
+    /// Shows a slide using a <see cref="SlideEntry"/>, which carries both the
+    /// sprite and the desired <see cref="SlideScaleMode"/>.
     /// </summary>
-    public void ShowSlideImage(Sprite slide)
+    public void ShowSlideImage(SlideEntry entry)
+    {
+        if (entry == null || entry.sprite == null)
+        {
+            HideSlideImage();
+            return;
+        }
+
+        ShowSlideImage(entry.sprite, entry.scaleMode);
+    }
+
+    /// <summary>
+    /// Shows a slide sprite with an explicit scale mode.
+    /// </summary>
+    public void ShowSlideImage(Sprite slide, SlideScaleMode scaleMode = SlideScaleMode.Fit)
     {
         if (slideImage == null) return;
 
-        if (slide != null)
-        {
-            slideImage.sprite = slide;
-            slideImage.enabled = true;
-        }
-        else
+        if (slide == null)
         {
             slideImage.enabled = false;
+            return;
+        }
+
+        slideImage.sprite = slide;
+        slideImage.enabled = true;
+
+        ApplySlideScaleMode(slide, scaleMode);
+    }
+
+    /// <summary>
+    /// Adjusts the <see cref="slideImage"/> RectTransform so the sprite is
+    /// displayed according to the requested <see cref="SlideScaleMode"/>.
+    /// </summary>
+    private void ApplySlideScaleMode(Sprite sprite, SlideScaleMode mode)
+    {
+        if (slideImage == null || sprite == null) return;
+
+        RectTransform rt = slideImage.rectTransform;
+
+        // Preserve the panel's anchored size for Fit / Fill / Stretch.
+        float panelW = rt.rect.width;
+        float panelH = rt.rect.height;
+
+        float spriteW = sprite.rect.width / sprite.pixelsPerUnit;
+        float spriteH = sprite.rect.height / sprite.pixelsPerUnit;
+
+        // Make sure the Image type is set to Simple for manual sizing.
+        slideImage.type = Image.Type.Simple;
+        slideImage.preserveAspect = false; // we handle it ourselves below
+
+        switch (mode)
+        {
+            case SlideScaleMode.Stretch:
+                // Fill the entire panel, ignoring aspect ratio.
+                rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, panelW);
+                rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, panelH);
+                break;
+
+            case SlideScaleMode.Fit:
+            {
+                // Scale uniformly so the whole image fits (may letterbox/pillarbox).
+                float scale = Mathf.Min(panelW / spriteW, panelH / spriteH);
+                rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, spriteW * scale);
+                rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,   spriteH * scale);
+                break;
+            }
+
+            case SlideScaleMode.Fill:
+            {
+                // Scale uniformly so the image fills the panel (may crop).
+                float scale = Mathf.Max(panelW / spriteW, panelH / spriteH);
+                rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, spriteW * scale);
+                rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,   spriteH * scale);
+                break;
+            }
+
+            case SlideScaleMode.Native:
+                // Display at the sprite's actual pixel dimensions.
+                rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Horizontal, spriteW);
+                rt.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical,   spriteH);
+                break;
         }
     }
 
