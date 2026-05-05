@@ -414,6 +414,9 @@ PlayerSettings:
   - m_BuildTarget: Android
     m_StaticBatching: 1
     m_DynamicBatching: 0
+  - m_BuildTarget: Windows Store Apps
+    m_StaticBatching: 1
+    m_DynamicBatching: 0
   m_BuildTargetShaderSettings: []
   m_BuildTargetGraphicsJobs: []
   m_BuildTargetGraphicsJobMode: []
@@ -732,13 +735,24 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: SideScroller
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: Assets/WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: GCTC
+  metroCertificateIssuer: GCTC
+  metroCertificateNotAfter: 8010e174a7fbdd01
   metroApplicationDescription: Side Scroller
-  wsaImages: {}
+  wsaImages:
+    65636: Assets/50x50 AppIcon.png
+    65661: Assets/63x63 AppIcon.png
+    65686: Assets/75x75 AppIcon.png
+    65736: Assets/100x100 AppIcon.png
+    65936: Assets/200x200 AppIcon.png
+    131272: Assets/1240x600 GCTC.png
+    2031640: Assets/24x24 AppIcon.png
+    2031816: Assets/88x88 AppIcon.png
+    2097352: Assets/142x142 AppIcon.png
+    2162888: Assets/300x300 AppIcon.png
+    2293960: Assets/620x300 AppIcon.png
   metroTileShortName: Side Scroller
   metroTileShowName: 0
   metroMediumTileShowName: 0
