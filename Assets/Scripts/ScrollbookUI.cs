@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
+using System.Collections.Generic;
 
 /// <summary>
 /// Manages the Scrollbook UI on the Main Menu.
@@ -85,6 +87,9 @@ public class ScrollbookUI : MonoBehaviour
     private enum ViewState { Closed, Categories, EntryList, Content }
     private ViewState currentState = ViewState.Closed;
     private ScrollbookEntry[] currentEntries;
+
+    // Keep track of spawned entry buttons so we can re-select after Back
+    private readonly List<Button> spawnedEntryButtons = new List<Button>();
 
     // -------------------------------------------------------
     // Unity Lifecycle
@@ -177,6 +182,10 @@ public class ScrollbookUI : MonoBehaviour
         SetPanelActive(categoryPanel, true);
         SetPanelActive(entryListPanel, false);
         SetPanelActive(contentPanel, false);
+
+        // Give the controller a starting selection on the first category button
+        Button firstCategoryButton = charactersButton;
+        SelectButton(firstCategoryButton);
     }
 
     /// <summary>
@@ -201,28 +210,25 @@ public class ScrollbookUI : MonoBehaviour
         SetPanelActive(contentPanel, false);
 
         // Clear previous buttons
+        spawnedEntryButtons.Clear();
         if (entryListPanel != null)
         {
             foreach (Transform child in entryListPanel.transform)
                 Destroy(child.gameObject);
         }
 
-        // Spawn a button for each entry
         if (entries == null) return;
 
+        // Spawn a button for each entry
         for (int i = 0; i < entries.Length; i++)
         {
             ScrollbookEntry entry = entries[i];
             GameObject btnGO;
 
             if (entryButtonPrefab != null)
-            {
                 btnGO = Instantiate(entryButtonPrefab, entryListPanel.transform);
-            }
             else
-            {
                 btnGO = CreateDefaultEntryButton(entryListPanel.transform);
-            }
 
             // Set the button label
             TextMeshProUGUI label = btnGO.GetComponentInChildren<TextMeshProUGUI>();
@@ -232,8 +238,19 @@ public class ScrollbookUI : MonoBehaviour
             // Wire click
             Button btn = btnGO.GetComponent<Button>();
             if (btn != null)
+            {
                 btn.onClick.AddListener(() => ShowEntry(entry));
+                spawnedEntryButtons.Add(btn);
+            }
         }
+
+        // Build explicit Up/Down navigation so controllers can move between buttons,
+        // and include the Back button at the end of the chain
+        BuildVerticalNavigation(spawnedEntryButtons, backButton);
+
+        // Auto-select the first entry so the controller has a starting point
+        if (spawnedEntryButtons.Count > 0)
+            SelectButton(spawnedEntryButtons[0]);
     }
 
     /// <summary>
@@ -265,6 +282,9 @@ public class ScrollbookUI : MonoBehaviour
                 contentIcon.enabled = false;
             }
         }
+
+        // Give the controller a target (Back button) so it isn't left without selection
+        SelectButton(backButton);
     }
 
     // -------------------------------------------------------
@@ -275,6 +295,57 @@ public class ScrollbookUI : MonoBehaviour
     {
         if (panel != null)
             panel.SetActive(active);
+    }
+
+    /// <summary>
+    /// Selects a button via the EventSystem so controller/keyboard navigation begins there.
+    /// </summary>
+    private static void SelectButton(Button btn)
+    {
+        if (btn == null || EventSystem.current == null) return;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(btn.gameObject);
+    }
+
+    /// <summary>
+    /// Wires explicit Up/Down navigation on a list of buttons so controllers
+    /// can move through them without relying on automatic navigation.
+    /// Optionally links a <paramref name="terminalButton"/> (e.g. Back) at the
+    /// bottom of the chain so it is reachable from the last entry button.
+    /// </summary>
+    private static void BuildVerticalNavigation(List<Button> buttons, Button terminalButton = null)
+    {
+        bool hasTerminal = terminalButton != null;
+
+        for (int i = 0; i < buttons.Count; i++)
+        {
+            Navigation nav = buttons[i].navigation;
+            nav.mode = Navigation.Mode.Explicit;
+
+            // Up: previous button, or wrap to terminal / last button
+            if (i > 0)
+                nav.selectOnUp = buttons[i - 1];
+            else
+                nav.selectOnUp = hasTerminal ? terminalButton : buttons[buttons.Count - 1];
+
+            // Down: next button, or terminal / wrap to first button
+            if (i < buttons.Count - 1)
+                nav.selectOnDown = buttons[i + 1];
+            else
+                nav.selectOnDown = hasTerminal ? terminalButton : buttons[0];
+
+            buttons[i].navigation = nav;
+        }
+
+        // Wire the terminal button so Up returns to the last entry and Down wraps to the first
+        if (hasTerminal && buttons.Count > 0)
+        {
+            Navigation termNav = terminalButton.navigation;
+            termNav.mode        = Navigation.Mode.Explicit;
+            termNav.selectOnUp   = buttons[buttons.Count - 1];
+            termNav.selectOnDown = buttons[0];
+            terminalButton.navigation = termNav;
+        }
     }
 
     /// <summary>
@@ -296,8 +367,8 @@ public class ScrollbookUI : MonoBehaviour
 
         ColorBlock colors = btn.colors;
         colors.highlightedColor = new Color(0.35f, 0.35f, 0.35f, 1f);
-        colors.pressedColor = new Color(0.12f, 0.12f, 0.12f, 1f);
-        colors.selectedColor = new Color(0.35f, 0.35f, 0.35f, 1f);
+        colors.pressedColor     = new Color(0.12f, 0.12f, 0.12f, 1f);
+        colors.selectedColor    = new Color(0.35f, 0.35f, 0.35f, 1f);
         btn.colors = colors;
 
         // Label
@@ -311,9 +382,9 @@ public class ScrollbookUI : MonoBehaviour
         labelRT.offsetMax = new Vector2(-10f, 0f);
 
         TextMeshProUGUI tmp = labelGO.AddComponent<TextMeshProUGUI>();
-        tmp.fontSize = 28;
+        tmp.fontSize  = 28;
         tmp.alignment = TextAlignmentOptions.MidlineLeft;
-        tmp.color = Color.white;
+        tmp.color     = Color.white;
 
         return btnGO;
     }
