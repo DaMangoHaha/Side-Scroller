@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 /// <summary>
@@ -65,12 +66,14 @@ public class NinjaSkillUpgradePanel : MonoBehaviour
     {
         if (panelRoot != null) return;
 
+        if (PauseManager.Instance != null && PauseManager.IsPaused)
+            PauseManager.Instance.DismissPauseMenuOnly();
+
         Canvas canvas = GetOrCreatePopupCanvas();
         int currentTier = 0;
         if (ninjaSkill != null)
             currentTier = ninjaSkill.GetUpgradeTier();
 
-        // --- Dark overlay ---
         panelRoot = new GameObject("NinjaUpgradePanel");
         panelRoot.transform.SetParent(canvas.transform, false);
 
@@ -83,7 +86,6 @@ public class NinjaSkillUpgradePanel : MonoBehaviour
         Image panelBG = panelRoot.AddComponent<Image>();
         panelBG.color = new Color(0f, 0f, 0f, 0.75f);
 
-        // --- Center box ---
         GameObject boxGO = new GameObject("UpgradeBox");
         boxGO.transform.SetParent(panelRoot.transform, false);
 
@@ -96,7 +98,6 @@ public class NinjaSkillUpgradePanel : MonoBehaviour
         Image boxBG = boxGO.AddComponent<Image>();
         boxBG.color = new Color(0.1f, 0.1f, 0.15f, 0.95f);
 
-        // --- Title ---
         GameObject titleGO = new GameObject("Title");
         titleGO.transform.SetParent(boxGO.transform, false);
 
@@ -112,10 +113,11 @@ public class NinjaSkillUpgradePanel : MonoBehaviour
         titleTMP.alignment = TextAlignmentOptions.Center;
         titleTMP.color = Color.yellow;
 
-        // --- Tier Buttons ---
+        Button firstInteractable = null;
+
         for (int i = 0; i < 3; i++)
         {
-            int tierIndex = i; // capture for closure
+            int tierIndex = i;
             int tierNumber = i + 1;
 
             GameObject btnGO = new GameObject("Tier" + tierNumber + "Button");
@@ -134,7 +136,10 @@ public class NinjaSkillUpgradePanel : MonoBehaviour
             btn.targetGraphic = btnBG;
             tierButtons[i] = btn;
 
-            // Button label
+            Navigation nav = btn.navigation;
+            nav.mode = Navigation.Mode.Automatic;
+            btn.navigation = nav;
+
             GameObject labelGO = new GameObject("Text");
             labelGO.transform.SetParent(btnGO.transform, false);
 
@@ -150,31 +155,27 @@ public class NinjaSkillUpgradePanel : MonoBehaviour
             labelTMP.color = Color.white;
             tierTexts[i] = labelTMP;
 
-            // Determine button state
             if (currentTier >= tierNumber)
             {
-                // Already purchased
                 labelTMP.text = tierDescriptions[tierIndex] + "  [OWNED]";
-                btnBG.color = new Color(0.15f, 0.4f, 0.15f, 0.9f); // green-ish
+                btnBG.color = new Color(0.15f, 0.4f, 0.15f, 0.9f);
                 btn.interactable = false;
             }
             else if (currentTier == tierNumber - 1)
             {
-                // Next available tier
                 labelTMP.text = tierDescriptions[tierIndex] + "  [" + upgradeCost + " Coins]";
-                btnBG.color = new Color(0.2f, 0.2f, 0.35f, 0.9f); // blue-ish
+                btnBG.color = new Color(0.2f, 0.2f, 0.35f, 0.9f);
                 btn.interactable = true;
                 btn.onClick.AddListener(() => PurchaseTier(tierNumber));
+                if (firstInteractable == null) firstInteractable = btn;
             }
             else
             {
-                // Locked (must buy previous tiers first)
                 labelTMP.text = tierDescriptions[tierIndex] + "  [LOCKED]";
-                btnBG.color = new Color(0.25f, 0.25f, 0.25f, 0.6f); // grey
+                btnBG.color = new Color(0.25f, 0.25f, 0.25f, 0.6f);
                 btn.interactable = false;
             }
 
-            // Button color block
             ColorBlock colors = btn.colors;
             colors.highlightedColor = new Color(0.35f, 0.35f, 0.55f, 1f);
             colors.pressedColor = new Color(0.15f, 0.15f, 0.25f, 1f);
@@ -183,7 +184,6 @@ public class NinjaSkillUpgradePanel : MonoBehaviour
             btn.colors = colors;
         }
 
-        // --- Close Button ---
         GameObject closeBtnGO = new GameObject("CloseButton");
         closeBtnGO.transform.SetParent(boxGO.transform, false);
 
@@ -200,13 +200,16 @@ public class NinjaSkillUpgradePanel : MonoBehaviour
         closeBtn.targetGraphic = closeBG;
         closeBtn.onClick.AddListener(ClosePanel);
 
+        Navigation closeNav = closeBtn.navigation;
+        closeNav.mode = Navigation.Mode.Automatic;
+        closeBtn.navigation = closeNav;
+
         ColorBlock closeColors = closeBtn.colors;
         closeColors.highlightedColor = new Color(0.7f, 0.2f, 0.2f, 1f);
         closeColors.pressedColor = new Color(0.35f, 0.1f, 0.1f, 1f);
         closeColors.selectedColor = new Color(0.7f, 0.2f, 0.2f, 1f);
         closeBtn.colors = closeColors;
 
-        // Close label
         GameObject closeLabelGO = new GameObject("Text");
         closeLabelGO.transform.SetParent(closeBtnGO.transform, false);
 
@@ -223,6 +226,10 @@ public class NinjaSkillUpgradePanel : MonoBehaviour
         closeLabelTMP.color = Color.white;
 
         isPanelOpen = true;
+
+        Button toSelect = firstInteractable != null ? firstInteractable : closeBtn;
+        if (EventSystem.current != null)
+            EventSystem.current.SetSelectedGameObject(toSelect.gameObject);
     }
 
     /// <summary>
@@ -236,6 +243,9 @@ public class NinjaSkillUpgradePanel : MonoBehaviour
             panelRoot = null;
         }
         isPanelOpen = false;
+
+        if (PauseManager.Instance != null && PauseManager.IsPaused)
+            PauseManager.Instance.ResumeGame();
     }
 
     /// <summary>

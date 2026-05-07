@@ -21,6 +21,9 @@ public class MainMenu : MonoBehaviour
     private float clearDataHoldTime = 0f;
     private bool panelShown = false;
 
+    // Buttons that were interactable before the delete panel opened; restored on close.
+    private System.Collections.Generic.List<Button> disabledForPanel = new System.Collections.Generic.List<Button>();
+
     private void Start()
     {
         LoadVolume();
@@ -162,6 +165,20 @@ public class MainMenu : MonoBehaviour
         button.targetGraphic = buttonImage;
         button.onClick.AddListener(onClick);
 
+        // Enable gamepad navigation
+        Navigation nav = button.navigation;
+        nav.mode = Navigation.Mode.Automatic;
+        button.navigation = nav;
+
+        // Button highlight / selected colors
+        ColorBlock colors = button.colors;
+        colors.highlightedColor = new Color(
+            Mathf.Clamp01(bgColor.r + 0.2f),
+            Mathf.Clamp01(bgColor.g + 0.2f),
+            Mathf.Clamp01(bgColor.b + 0.2f), 1f);
+        colors.selectedColor = colors.highlightedColor;
+        button.colors = colors;
+
         // Button text
         GameObject textObj = new GameObject("Text");
         textObj.transform.SetParent(buttonObj.transform, false);
@@ -271,6 +288,35 @@ public class MainMenu : MonoBehaviour
             clearDataPanel.SetActive(true);
             panelShown = true;
             clearDataHoldTime = 0f;
+
+            // Disable every interactable button that is NOT inside the panel so
+            // gamepad navigation cannot drift out to the main-menu buttons.
+            disabledForPanel.Clear();
+            foreach (Button b in FindObjectsOfType<Button>())
+            {
+                if (b.interactable && !IsChildOf(b.transform, clearDataPanel.transform))
+                {
+                    b.interactable = false;
+                    disabledForPanel.Add(b);
+                }
+            }
+
+            // Auto-select the No button (safe default) for gamepad navigation.
+            if (EventSystem.current != null)
+            {
+                Button toSelect = null;
+                foreach (Button b in clearDataPanel.GetComponentsInChildren<Button>(false))
+                {
+                    if (b.name == "NoButton") { toSelect = b; break; }
+                }
+                if (toSelect == null)
+                {
+                    Button[] panelBtns = clearDataPanel.GetComponentsInChildren<Button>(false);
+                    if (panelBtns.Length > 0) toSelect = panelBtns[0];
+                }
+                if (toSelect != null)
+                    EventSystem.current.SetSelectedGameObject(toSelect.gameObject);
+            }
         }
     }
 
@@ -305,6 +351,46 @@ public class MainMenu : MonoBehaviour
             clearDataPanel.SetActive(false);
         }
         panelShown = false;
+
+        // Restore all buttons that were disabled when the panel opened.
+        foreach (Button b in disabledForPanel)
+        {
+            if (b != null)
+                b.interactable = true;
+        }
+        disabledForPanel.Clear();
+
+        // Re-select the first restored main-menu button so the gamepad has a
+        // valid starting point again (the panel button is now inactive/gone).
+        if (EventSystem.current != null)
+        {
+            // Clear the stale selection first so Unity doesn't try to keep
+            // highlighting the now-inactive panel button.
+            EventSystem.current.SetSelectedGameObject(null);
+
+            // Find the first interactable button in the scene that is NOT inside
+            // the (now hidden) clear-data panel and select it.
+            foreach (Button b in FindObjectsOfType<Button>())
+            {
+                if (b.interactable && !IsChildOf(b.transform, clearDataPanel.transform))
+                {
+                    EventSystem.current.SetSelectedGameObject(b.gameObject);
+                    break;
+                }
+            }
+        }
+    }
+
+    /// <summary>Returns true if <paramref name="child"/> is the same as or a descendant of <paramref name="parent"/>.</summary>
+    private static bool IsChildOf(Transform child, Transform parent)
+    {
+        Transform t = child;
+        while (t != null)
+        {
+            if (t == parent) return true;
+            t = t.parent;
+        }
+        return false;
     }
 
     // Called by Play Button

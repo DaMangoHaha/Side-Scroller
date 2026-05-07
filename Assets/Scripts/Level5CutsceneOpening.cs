@@ -101,10 +101,18 @@ public class Level5CutsceneOpening : MonoBehaviour
     {
         if (advanceAction == null) return;
 
-        if (enabled && !advanceAction.enabled)
-            advanceAction.Enable();
-        else if (!enabled && advanceAction.enabled)
-            advanceAction.Disable();
+        if (enabled)
+        {
+            // Re-subscribe (guard against double-subscribe)
+            advanceAction.performed -= OnAdvancePerformed;
+            advanceAction.performed += OnAdvancePerformed;
+        }
+        else
+        {
+            // Only stop listening — do NOT disable the action so shared
+            // InputActionReference users (e.g. Level5CutsceneSkip) keep working.
+            advanceAction.performed -= OnAdvancePerformed;
+        }
     }
 
     void Start()

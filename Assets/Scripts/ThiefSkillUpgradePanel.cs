@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 /// <summary>
@@ -65,6 +66,9 @@ public class ThiefSkillUpgradePanel : MonoBehaviour
     {
         if (panelRoot != null) return;
 
+        if (PauseManager.Instance != null && PauseManager.IsPaused)
+            PauseManager.Instance.DismissPauseMenuOnly();
+
         Canvas canvas = GetOrCreatePopupCanvas();
         int currentTier = 0;
         if (thiefSkill != null)
@@ -112,10 +116,12 @@ public class ThiefSkillUpgradePanel : MonoBehaviour
         titleTMP.alignment = TextAlignmentOptions.Center;
         titleTMP.color = Color.grey;
 
+        Button firstInteractable = null;
+
         // --- Tier Buttons ---
         for (int i = 0; i < 3; i++)
         {
-            int tierIndex = i; // capture for closure
+            int tierIndex = i;
             int tierNumber = i + 1;
 
             GameObject btnGO = new GameObject("Tier" + tierNumber + "Button");
@@ -134,7 +140,10 @@ public class ThiefSkillUpgradePanel : MonoBehaviour
             btn.targetGraphic = btnBG;
             tierButtons[i] = btn;
 
-            // Button label
+            Navigation nav = btn.navigation;
+            nav.mode = Navigation.Mode.Automatic;
+            btn.navigation = nav;
+
             GameObject labelGO = new GameObject("Text");
             labelGO.transform.SetParent(btnGO.transform, false);
 
@@ -165,6 +174,7 @@ public class ThiefSkillUpgradePanel : MonoBehaviour
                 btnBG.color = new Color(0.2f, 0.2f, 0.35f, 0.9f); // blue-ish
                 btn.interactable = true;
                 btn.onClick.AddListener(() => PurchaseTier(tierNumber));
+                if (firstInteractable == null) firstInteractable = btn;
             }
             else
             {
@@ -200,6 +210,10 @@ public class ThiefSkillUpgradePanel : MonoBehaviour
         closeBtn.targetGraphic = closeBG;
         closeBtn.onClick.AddListener(ClosePanel);
 
+        Navigation closeNav = closeBtn.navigation;
+        closeNav.mode = Navigation.Mode.Automatic;
+        closeBtn.navigation = closeNav;
+
         ColorBlock closeColors = closeBtn.colors;
         closeColors.highlightedColor = new Color(0.7f, 0.2f, 0.2f, 1f);
         closeColors.pressedColor = new Color(0.35f, 0.1f, 0.1f, 1f);
@@ -223,6 +237,10 @@ public class ThiefSkillUpgradePanel : MonoBehaviour
         closeLabelTMP.color = Color.white;
 
         isPanelOpen = true;
+
+        Button toSelect = firstInteractable != null ? firstInteractable : closeBtn;
+        if (EventSystem.current != null)
+            EventSystem.current.SetSelectedGameObject(toSelect.gameObject);
     }
 
     /// <summary>
@@ -236,6 +254,9 @@ public class ThiefSkillUpgradePanel : MonoBehaviour
             panelRoot = null;
         }
         isPanelOpen = false;
+
+        if (PauseManager.Instance != null && PauseManager.IsPaused)
+            PauseManager.Instance.ResumeGame();
     }
 
     /// <summary>

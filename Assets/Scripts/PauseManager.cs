@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 /// <summary>
@@ -80,7 +81,7 @@ public class PauseManager : MonoBehaviour
             pauseAction = null;
         }
 
-        // Ensure time is restored if this object is disabled/destroyed
+        // Ensure time is restored if this object is disabled/destroys
         Time.timeScale = 1f;
         IsPaused = false;
     }
@@ -110,9 +111,19 @@ public class PauseManager : MonoBehaviour
     public void TogglePause()
     {
         if (IsPaused)
+        {
+            // If the pause menu itself is no longer visible, an upgrade panel has
+            // taken over focus. On console the Start button must not unfreeze the
+            // game while that overlay is still open — ignore the input entirely.
+            if (pauseMenuPanel != null && !pauseMenuPanel.activeSelf)
+                return;
+
             ResumeGame();
+        }
         else
+        {
             PauseGame();
+        }
     }
 
     /// <summary>
@@ -125,6 +136,31 @@ public class PauseManager : MonoBehaviour
         IsPaused = true;
         Time.timeScale = 0f;
         pauseMenuPanel.SetActive(true);
+
+        // Select the first interactable button so gamepads can navigate immediately
+        if (EventSystem.current != null)
+        {
+            Button[] buttons = pauseMenuPanel.GetComponentsInChildren<Button>(false);
+            foreach (Button b in buttons)
+            {
+                if (b.interactable)
+                {
+                    EventSystem.current.SetSelectedGameObject(b.gameObject);
+                    break;
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Hides the pause menu panel without restoring time scale or changing
+    /// <see cref="IsPaused"/>. Use this when another overlay (e.g. a skill
+    /// upgrade panel) takes over focus while the game is still frozen.
+    /// </summary>
+    public void DismissPauseMenuOnly()
+    {
+        if (pauseMenuPanel != null)
+            pauseMenuPanel.SetActive(false);
     }
 
     /// <summary>

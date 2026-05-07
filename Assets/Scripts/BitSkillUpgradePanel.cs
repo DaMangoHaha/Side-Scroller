@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 using TMPro;
 
 /// <summary>
@@ -65,6 +66,11 @@ public class BitSkillUpgradePanel : MonoBehaviour
     {
         if (panelRoot != null) return;
 
+        // If the pause menu is open, dismiss it so this panel takes over
+        // focus while the game remains frozen.
+        if (PauseManager.Instance != null && PauseManager.IsPaused)
+            PauseManager.Instance.DismissPauseMenuOnly();
+
         Canvas canvas = GetOrCreatePopupCanvas();
         int currentTier = 0;
         if (bitSkill != null)
@@ -112,6 +118,9 @@ public class BitSkillUpgradePanel : MonoBehaviour
         titleTMP.alignment = TextAlignmentOptions.Center;
         titleTMP.color = Color.cyan;
 
+        // Track the first interactable button for gamepad auto-select
+        Button firstInteractable = null;
+
         // --- Tier Buttons ---
         for (int i = 0; i < 3; i++)
         {
@@ -133,6 +142,11 @@ public class BitSkillUpgradePanel : MonoBehaviour
             Button btn = btnGO.AddComponent<Button>();
             btn.targetGraphic = btnBG;
             tierButtons[i] = btn;
+
+            // Enable gamepad navigation
+            Navigation nav = btn.navigation;
+            nav.mode = Navigation.Mode.Automatic;
+            btn.navigation = nav;
 
             // Button label
             GameObject labelGO = new GameObject("Text");
@@ -165,6 +179,7 @@ public class BitSkillUpgradePanel : MonoBehaviour
                 btnBG.color = new Color(0.2f, 0.2f, 0.35f, 0.9f); // blue-ish
                 btn.interactable = true;
                 btn.onClick.AddListener(() => PurchaseTier(tierNumber));
+                if (firstInteractable == null) firstInteractable = btn;
             }
             else
             {
@@ -200,6 +215,11 @@ public class BitSkillUpgradePanel : MonoBehaviour
         closeBtn.targetGraphic = closeBG;
         closeBtn.onClick.AddListener(ClosePanel);
 
+        // Enable gamepad navigation on close button
+        Navigation closeNav = closeBtn.navigation;
+        closeNav.mode = Navigation.Mode.Automatic;
+        closeBtn.navigation = closeNav;
+
         ColorBlock closeColors = closeBtn.colors;
         closeColors.highlightedColor = new Color(0.7f, 0.2f, 0.2f, 1f);
         closeColors.pressedColor = new Color(0.35f, 0.1f, 0.1f, 1f);
@@ -223,6 +243,12 @@ public class BitSkillUpgradePanel : MonoBehaviour
         closeLabelTMP.color = Color.white;
 
         isPanelOpen = true;
+
+        // Select the first interactable button (or Close if all tiers owned) so the
+        // gamepad can navigate immediately without needing a mouse click.
+        Button toSelect = firstInteractable != null ? firstInteractable : closeBtn;
+        if (EventSystem.current != null)
+            EventSystem.current.SetSelectedGameObject(toSelect.gameObject);
     }
 
     /// <summary>
@@ -236,6 +262,10 @@ public class BitSkillUpgradePanel : MonoBehaviour
             panelRoot = null;
         }
         isPanelOpen = false;
+
+        // If the game is still paused (opened via pause menu), resume now.
+        if (PauseManager.Instance != null && PauseManager.IsPaused)
+            PauseManager.Instance.ResumeGame();
     }
 
     /// <summary>
