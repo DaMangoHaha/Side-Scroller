@@ -97,6 +97,9 @@ public class SaveData
     // --- Cubit Skill Upgrade Tier (0 = none, 1-3 = purchased tiers) ---
     public int cubitSkillUpgradeTier = 0;
 
+    // --- Selene Skill Upgrade Tier (0 = none, 1-3 = purchased tiers) ---
+    public int seleneSkillUpgradeTier = 0;
+
     // --- Serializable ownership lists (replaces Dictionary<string,bool>) ---
     public List<StringBoolPair> ownedCharactersList = new List<StringBoolPair>();
 
@@ -121,7 +124,8 @@ public class SaveData
             new StringBoolPair("Ninja", false),
             new StringBoolPair("WizKid", false),
             new StringBoolPair("Crystal", false),
-            new StringBoolPair("Cubit", false)
+            new StringBoolPair("Cubit", false),
+            new StringBoolPair("Selene", false)
         };
 
         ownedCostumesList = new List<StringBoolPair>();

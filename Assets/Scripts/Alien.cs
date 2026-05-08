@@ -55,6 +55,11 @@ public class Alien : MonoBehaviour
             PlayerEnergy energy = collision.gameObject.GetComponent<PlayerEnergy>();
             if (energy == null) return;
 
+            // Check for Selene's Charm buff first
+            SeleneSkill selene = collision.gameObject.GetComponent<SeleneSkill>();
+            if (selene != null && selene.TryCharmObstacle(gameObject))
+                return; // obstacle charmed — no damage
+
             // Check if player is invulnerable before doing anything
             var invulnerableField = energy.GetType().GetField("isInvulnerable",
                 System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
