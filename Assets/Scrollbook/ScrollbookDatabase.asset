@@ -127,6 +127,26 @@ MonoBehaviour:
       several seconds. During this time, his defense will increase and he''ll take
       less damage from obstacles. Once Protection Protocol ends, he will restore
       his energy depending on how much damage he took during the pause. '
+  - title: Selene
+    icon: {fileID: -3548927263663240677, guid: 519b6c38476af094aab0f8ec23976f86, type: 3}
+    description: 'Selene is a creatively ambitious woman who knows how to channel
+      spiritual energy to get in contact with spirits. She stands out by dressing
+      with a bold color pallette to catch anyone''s eye, and she always carries her
+      good luck crystals around.
+
+
+      Skill Stats:
+
+      Type (of skill) - Passive
+
+      Cooldown
+      - 45s
+
+      Description - After 45s, Selene channels spritual energy from
+      within her mind and drops a red crystal down the center of the screen. The
+      crystal explodes upon touching the ground, and it destroys all obstacles on
+      the screen, then goes back on cooldown. If Selene destroys 20 obstacles, she
+      grants herself the Charm! buff. '
   obstacles:
   - title: Spikes
     icon: {fileID: 7145198348311737387, guid: f73dfe034c22cfc41bd7e8799020a5ac, type: 3}
@@ -182,6 +202,17 @@ MonoBehaviour:
       wind extends Crystal''s max energy by 25%, deplete crystal''s energy 50% slower,
       and takes 20% less damage from all obstacles. Chill Wind will last for 25 seconds,
       and cannot be overlapped with another one.'
+  - title: Charm
+    icon: {fileID: 6276412462295467791, guid: 0618ae7101867ba41add521709167de7, type: 3}
+    description: 'The Charm Buff is a buff exclusive to Selenel only. It can be activated
+      by destroying 20 obstacles with her skill.
+
+
+      Charm - For 10 seconds,
+      when about to take damage, there is a 30% chance obstacles become Charmed.
+      Charmed enemies will turn pink and move in the opposite direction, and will
+      destroy itself and an obstacle when coliding with one. When an obstacle gets
+      Charmed, Selene will not take damage.'
   spritzHistory:
   - title: The World of Spritz
     icon: {fileID: -4851718564733221013, guid: ac5a007d2c6d7a641b294f3c6f24fcbe, type: 3}

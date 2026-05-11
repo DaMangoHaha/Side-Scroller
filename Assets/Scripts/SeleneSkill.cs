@@ -1,11 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 /// <summary>
 /// Selene's "Spiritually Charming" skill.
 /// Every 45 seconds: grants invulnerability, drops a pink crystal that destroys all on-screen obstacles.
-/// After destroying a cumulative threshold of obstacles, the "Charm!" buff activates for 10 seconds �
+/// After destroying a cumulative threshold of obstacles, the "Charm!" buff activates for 10 seconds —
 /// colliding obstacles have a 30% chance to be charmed, reversing direction and destroying the next obstacle they touch.
 /// </summary>
 public class SeleneSkill : MonoBehaviour
@@ -26,6 +26,24 @@ public class SeleneSkill : MonoBehaviour
     public float charmChance = 0.30f;
     public int obstaclesNeededForCharm = 20;       // Tier 3 reduces to 15
 
+    // ── Charm Buff Icon ──
+    [Header("Charm Buff Icon")]
+    [Tooltip("UI Image component for the Charm buff icon")]
+    public Image charmBuffIcon;
+    [Tooltip("Sprite to display for the Charm buff (optional - uses existing Image sprite if not set)")]
+    public Sprite charmBuffSprite;
+
+    [Header("Charm Icon Animation")]
+    [Tooltip("Should the icon pulse/flash while active?")]
+    public bool animateCharmBuffIcon = true;
+    [Tooltip("Speed of the pulse animation")]
+    public float charmBuffPulseSpeed = 2f;
+    [Tooltip("Minimum alpha during pulse")]
+    public float charmBuffPulseMinAlpha = 0.5f;
+
+    // Icon animation coroutine
+    private Coroutine charmBuffIconAnimCoroutine;
+
     [Header("UI")]
     public Image skillIcon;
     private Color inactiveColor;
@@ -33,6 +51,10 @@ public class SeleneSkill : MonoBehaviour
 
     [Header("Cooldown Text")]
     public SkillCooldownUI skillCooldownUI;
+
+    [Header("Obstacle Count UI")]
+    [Tooltip("A second SkillCooldownUI placed to the right of the cooldown text. Shows obstacle progress toward the Charm! buff.")]
+    public SkillCooldownUI obstacleCountUI;
 
     [Header("Skill Dialogue")]
     public SkillDialogueUI skillDialogueUI;
@@ -51,7 +73,7 @@ public class SeleneSkill : MonoBehaviour
     private float tier2InvulnerabilityDuration = 5f;
 
     // Tier 3: fewer obstacles needed to trigger Charm
-    private int tier3ObstaclesNeeded = 15;
+    private int tier3ObstaclesNeeded = 10;
 
     private float baseCooldown;
     private float timer = 0f;
@@ -85,6 +107,9 @@ public class SeleneSkill : MonoBehaviour
             inactiveColor.a = 0.2f;
             skillIcon.color = inactiveColor;
         }
+
+        // Initialize Charm buff icon — hide it at start
+        InitializeCharmBuffIcon();
     }
 
     void Update()
@@ -238,6 +263,24 @@ public class SeleneSkill : MonoBehaviour
             count++;
         }
 
+        foreach (var slime in FindObjectsOfType<SlimeBase>())
+        {
+            Destroy(slime.gameObject);
+            count++;
+        }
+
+        foreach (var bolt in FindObjectsOfType<MagicBolt>())
+        {
+            Destroy(bolt.gameObject);
+            count++;
+        }
+
+        foreach (var twin in FindObjectsOfType<TwinMagicBolt>())
+        {
+            Destroy(twin.gameObject);
+            count++;
+        }
+
         // Tier 1: restore energy for each obstacle destroyed
         if (upgradeTier >= 1 && playerEnergy != null && count > 0)
         {
@@ -260,6 +303,7 @@ public class SeleneSkill : MonoBehaviour
         totalObstaclesDestroyed = 0; // reset for next threshold
 
         Debug.Log("Selene: Charm! buff activated!");
+        ShowCharmBuffIcon();
 
         if (SoundManager.Instance != null)
             SoundManager.Instance.PlaySound2D("MediumBurst");
@@ -267,7 +311,96 @@ public class SeleneSkill : MonoBehaviour
         yield return new WaitForSeconds(charmDuration);
 
         isCharmActive = false;
+        HideCharmBuffIcon();
         Debug.Log("Selene: Charm! buff expired.");
+    }
+
+    // -----------------------------------------------------------------------
+    //  Charm Buff Icon Management
+    // -----------------------------------------------------------------------
+
+    /// <summary>
+    /// Sets up the Charm buff icon with its sprite and hides it initially.
+    /// </summary>
+    private void InitializeCharmBuffIcon()
+    {
+        if (charmBuffIcon != null)
+        {
+            if (charmBuffSprite != null)
+                charmBuffIcon.sprite = charmBuffSprite;
+            charmBuffIcon.gameObject.SetActive(false);
+
+            Debug.Log("SeleneSkill: Charm Buff Icon assigned and hidden at start.");
+        }
+        else
+        {
+            Debug.LogWarning("SeleneSkill: Charm Buff Icon is NOT assigned in the Inspector!");
+        }
+    }
+
+    /// <summary>
+    /// Shows the Charm buff icon and optionally starts the pulse animation.
+    /// </summary>
+    private void ShowCharmBuffIcon()
+    {
+        if (charmBuffIcon == null)
+        {
+            Debug.LogWarning("SeleneSkill: Cannot show Charm Buff Icon — not assigned!");
+            return;
+        }
+
+        charmBuffIcon.gameObject.SetActive(true);
+        Debug.Log("SeleneSkill: Charm Buff Icon shown. Active in hierarchy: " + charmBuffIcon.gameObject.activeInHierarchy);
+
+        // Reset alpha to full
+        Color c = charmBuffIcon.color;
+        c.a = 1f;
+        charmBuffIcon.color = c;
+
+        // Start pulse animation if enabled
+        if (animateCharmBuffIcon)
+        {
+            if (charmBuffIconAnimCoroutine != null)
+                StopCoroutine(charmBuffIconAnimCoroutine);
+            charmBuffIconAnimCoroutine = StartCoroutine(PulseCharmBuffIcon());
+        }
+    }
+
+    /// <summary>
+    /// Hides the Charm buff icon and stops any animation.
+    /// </summary>
+    private void HideCharmBuffIcon()
+    {
+        if (charmBuffIcon == null) return;
+
+        if (charmBuffIconAnimCoroutine != null)
+        {
+            StopCoroutine(charmBuffIconAnimCoroutine);
+            charmBuffIconAnimCoroutine = null;
+        }
+
+        charmBuffIcon.gameObject.SetActive(false);
+    }
+
+    /// <summary>
+    /// Pulse animation for the active Charm buff icon.
+    /// </summary>
+    private IEnumerator PulseCharmBuffIcon()
+    {
+        if (charmBuffIcon == null) yield break;
+
+        while (true)
+        {
+            // Pulse from full alpha down to min alpha and back
+            float t = (Mathf.Sin(Time.time * charmBuffPulseSpeed) + 1f) * 0.5f; // 0 to 1
+            float alpha = Mathf.Lerp(charmBuffPulseMinAlpha, 1f, t);
+
+            Color c = charmBuffIcon.color;
+            c.a = alpha;
+            charmBuffIcon.color = c;
+
+            yield return null;
+        }
     }
 
     // -----------------------------------------------------------------------
@@ -351,5 +484,32 @@ public class SeleneSkill : MonoBehaviour
             skillCooldownUI.ShowReady();
         else
             skillCooldownUI.ShowCooldown(timer);
+
+        UpdateObstacleCountUI();
+    }
+
+    /// <summary>
+    /// Keeps the obstacle-count text up to date every frame.
+    /// Shows "X / N ✦" while building toward Charm, and "Charm!" while the buff is active.
+    /// Hidden entirely while the skill animation is playing.
+    /// </summary>
+    private void UpdateObstacleCountUI()
+    {
+        if (obstacleCountUI == null) return;
+
+        if (isSkillActive)
+        {
+            // Hide the counter while the crystal is falling so only "Using Skill..." shows
+            obstacleCountUI.ShowCustom("");
+        }
+        else if (isCharmActive)
+        {
+            obstacleCountUI.ShowCustom("Charm!");
+        }
+        else
+        {
+            int needed = GetEffectiveObstaclesNeeded();
+            obstacleCountUI.ShowCustom($"{totalObstaclesDestroyed} / {needed}");
+        }
     }
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -1889321017196780700}
   - component: {fileID: 5164738760443409558}
   - component: {fileID: 4178973727152166459}
+  - component: {fileID: 5464222010235132676}
   m_Layer: 0
   m_Name: Twin Magic Bolts
   m_TagString: Untagged
@@ -275,3 +276,16 @@ MonoBehaviour:
   chilledSprite: {fileID: 7744381795521244020, guid: 3ba212f32e498f948bdcf5a8bd5208a1, type: 3}
   driftSpeed: 5
   freezeVFXPrefab: {fileID: 4924508274929071776, guid: 0edef91621bb6b34384ccc9dbb98729c, type: 3}
+--- !u!114 &5464222010235132676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3980509502073283082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c7ce199aa83dd4cb0e127739a522c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharmedObstacle
+  charmedSpeed: 5

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2732214789482432548}
   - component: {fileID: 915710156335765868}
   - component: {fileID: 7729338836471518844}
+  - component: {fileID: 7749547207408650328}
   m_Layer: 0
   m_Name: AlienSpaceship
   m_TagString: Obstacle
@@ -183,6 +184,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &7749547207408650328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226048433471827459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c7ce199aa83dd4cb0e127739a522c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharmedObstacle
+  charmedSpeed: 5
 --- !u!1 &7688279504934624867
 GameObject:
   m_ObjectHideFlags: 0

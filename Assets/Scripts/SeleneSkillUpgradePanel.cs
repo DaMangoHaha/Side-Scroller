@@ -30,7 +30,7 @@ public class SeleneSkillUpgradePanel : MonoBehaviour
     {
         "Tier 1: Restore +2 energy for each obstacle destroyed with her skill",
         "Tier 2: Invulnerability lasts 5 seconds instead of 3",
-        "Tier 3: Only 15 obstacles needed to activate the Charm! buff"
+        "Tier 3: Only 10 obstacles needed to activate the Charm! buff"
     };
 
     void Start()

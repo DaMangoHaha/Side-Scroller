@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3207296418027149015}
   - component: {fileID: 6616538407673417800}
   - component: {fileID: -6194117758631724632}
+  - component: {fileID: -3868269306589168755}
   m_Layer: 8
   m_Name: Green Slime
   m_TagString: Obstacle
@@ -223,3 +224,16 @@ MonoBehaviour:
   chilledSprite: {fileID: 21300000, guid: afdee7b977e3276439e786a2714d529d, type: 3}
   driftSpeed: 5
   freezeVFXPrefab: {fileID: 4924508274929071776, guid: 0edef91621bb6b34384ccc9dbb98729c, type: 3}
+--- !u!114 &-3868269306589168755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 207611155190719905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37c7ce199aa83dd4cb0e127739a522c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CharmedObstacle
+  charmedSpeed: 5

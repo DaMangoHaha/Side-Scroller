@@ -99,6 +99,11 @@ public class SlimeBase : MonoBehaviour
             PlayerEnergy player = collision.gameObject.GetComponent<PlayerEnergy>();
             if (player != null)
             {
+                // Check for Selene's Charm buff first
+                SeleneSkill selene = collision.gameObject.GetComponent<SeleneSkill>();
+                if (selene != null && selene.TryCharmObstacle(gameObject))
+                    return; // obstacle charmed — no damage
+
                 // Use modified damage
                 player.TakeDamage(actualDamage);
                 hasHitPlayer = true;

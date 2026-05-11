@@ -32,6 +32,7 @@ public class CharacterSpawner : MonoBehaviour
 
     [Header("Self-Buff Icons")] // These icons appear in the top-left corner, below the energy bar, when the corresponding buff is active. Crystal is the only character with a self-buff (Chill Wind).
     public GameObject chillWindIcon; // Crystal's Chill Wind buff icon (shown in the top-left corner of the screen when active)
+    public GameObject charmBuffIcon; // Selene's Charm! buff icon (shown in the top-left corner of the screen when active)
 
     [Header("Energy Bars")]
     public GameObject bitsEnergyBar;
@@ -50,6 +51,8 @@ public class CharacterSpawner : MonoBehaviour
     public TextMeshProUGUI crystalCooldownText;
     public TextMeshProUGUI cubitCooldownText;
     public TextMeshProUGUI seleneCooldownText;
+    [Tooltip("Placed to the right of Selene's cooldown text. Shows obstacle-to-Charm progress.")]
+    public TextMeshProUGUI seleneObstacleCountText;
 
     void Awake()
     {
@@ -105,6 +108,11 @@ public class CharacterSpawner : MonoBehaviour
         crystalCooldownText.gameObject.SetActive(equipped == "Crystal");
         cubitCooldownText.gameObject.SetActive(equipped == "Cubit");
         if (seleneCooldownText != null) seleneCooldownText.gameObject.SetActive(equipped == "Selene");
+        if (seleneObstacleCountText != null) seleneObstacleCountText.gameObject.SetActive(equipped == "Selene");
+
+        // --- SELF-BUFF ICONS (always start hidden; each skill script shows them at runtime) ---
+        // Ensure Charm buff icon is hidden on non-Selene characters and at scene start for Selene
+        if (charmBuffIcon != null) charmBuffIcon.SetActive(false);
     }
 }
 
