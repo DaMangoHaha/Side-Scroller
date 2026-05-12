@@ -5712,6 +5712,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476908b767e22694f8895649ae887680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobileTapToJump
+  doubleJump: {fileID: 0}
+  swipeThreshold: 30
 --- !u!1 &723929966
 GameObject:
   m_ObjectHideFlags: 0
@@ -10699,7 +10701,7 @@ MonoBehaviour:
   cubitUpgradeIcon: {fileID: 1629303031}
   seleneUpgradeIcon: {fileID: 1405058742}
   chillWindIcon: {fileID: 640909273}
-  charmBuffIcon: {fileID: 0}
+  charmBuffIcon: {fileID: 1817364979}
   bitsEnergyBar: {fileID: 1610054509109797900}
   thiefEnergyBar: {fileID: 1820852120}
   ninjaEnergyBar: {fileID: 176831890}
@@ -10714,7 +10716,7 @@ MonoBehaviour:
   crystalCooldownText: {fileID: 1160705874}
   cubitCooldownText: {fileID: 1916341612}
   seleneCooldownText: {fileID: 649075362}
-  seleneObstacleCountText: {fileID: 0}
+  seleneObstacleCountText: {fileID: 1913543683}
 --- !u!1 &1582775948
 GameObject:
   m_ObjectHideFlags: 0

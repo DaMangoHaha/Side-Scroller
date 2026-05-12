@@ -13147,38 +13147,38 @@ MonoBehaviour:
   wizKid: {fileID: 1945481296}
   crystal: {fileID: 973079296}
   cubit: {fileID: 611187239}
-  selene: {fileID: 0}
+  selene: {fileID: 80519695}
   bitsIcon: {fileID: 973140365}
   thiefIcon: {fileID: 651012299}
   ninjaIcon: {fileID: 1840482199}
   wizKidIcon: {fileID: 1530612453}
   crystalIcon: {fileID: 699588021}
   cubitIcon: {fileID: 223080356}
-  seleneIcon: {fileID: 0}
+  seleneIcon: {fileID: 457128558}
   bitsUpgradeIcon: {fileID: 1776912592}
   thiefUpgradeIcon: {fileID: 664838840}
   ninjaUpgradeIcon: {fileID: 1389602573}
   wizKidUpgradeIcon: {fileID: 2077635048}
   crystalUpgradeIcon: {fileID: 973298142}
   cubitUpgradeIcon: {fileID: 400534485}
-  seleneUpgradeIcon: {fileID: 0}
+  seleneUpgradeIcon: {fileID: 1178036666}
   chillWindIcon: {fileID: 1138317080}
-  charmBuffIcon: {fileID: 0}
+  charmBuffIcon: {fileID: 1381409419}
   bitsEnergyBar: {fileID: 801522437}
   thiefEnergyBar: {fileID: 1014543468}
   ninjaEnergyBar: {fileID: 2074365446}
   wizKidEnergyBar: {fileID: 853364261}
   crystalEnergyBar: {fileID: 1628595791}
   cubitEnergyBar: {fileID: 1934820661}
-  seleneEnergyBar: {fileID: 0}
+  seleneEnergyBar: {fileID: 1928544292}
   bitsCooldownText: {fileID: 355153151}
   thiefCooldownText: {fileID: 1901422565}
   ninjaCooldownText: {fileID: 342466964}
   wizKidCooldownText: {fileID: 14995727}
   crystalCooldownText: {fileID: 1851871078}
   cubitCooldownText: {fileID: 1442186726}
-  seleneCooldownText: {fileID: 0}
-  seleneObstacleCountText: {fileID: 0}
+  seleneCooldownText: {fileID: 1299614358}
+  seleneObstacleCountText: {fileID: 602619415}
 --- !u!1 &1342115867
 GameObject:
   m_ObjectHideFlags: 0
@@ -14380,6 +14380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476908b767e22694f8895649ae887680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobileTapToJump
+  doubleJump: {fileID: 0}
+  swipeThreshold: 30
 --- !u!1 &1530612453
 GameObject:
   m_ObjectHideFlags: 0

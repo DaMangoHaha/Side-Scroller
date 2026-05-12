@@ -59,6 +59,7 @@ public class LoadingScreen : MonoBehaviour
         "Lore Fact: Kairi Shin, the founder of Ninja Valley and ancestor of Ninja, was a leader of women who valued strength and unity.",
         "Lore Fact: Glace Frost, the founder of Frosty Outpost and ancestor of Crystal, was an elegant yet composed frost spirit who preserved resources in the harsh climate.",
         "Lore Fact: Orin Lux, the founder of Wizardspeak and father of Wiz Kid, was a brilliant inventor who discovered how to harness magic and technology together!",
+        "Selene loves crystals so much that she had a crystal cake for her last birthday!"
     };
 
     // --- Runtime UI references (built in code) ---

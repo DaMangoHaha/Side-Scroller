@@ -1323,7 +1323,7 @@ MonoBehaviour:
   crystalCooldownText: {fileID: 1592563970}
   cubitCooldownText: {fileID: 256867832}
   seleneCooldownText: {fileID: 1751402046}
-  seleneObstacleCountText: {fileID: 0}
+  seleneObstacleCountText: {fileID: 480496118}
 --- !u!1 &283086104
 GameObject:
   m_ObjectHideFlags: 0
@@ -8459,6 +8459,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 476908b767e22694f8895649ae887680, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MobileTapToJump
+  doubleJump: {fileID: 0}
+  swipeThreshold: 30
 --- !u!1 &1145219985
 GameObject:
   m_ObjectHideFlags: 0
