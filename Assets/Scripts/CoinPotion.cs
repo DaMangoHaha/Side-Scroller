@@ -40,7 +40,7 @@ public class CoinPotion : MonoBehaviour
 
             // Play sound
             if (potionPickupSFX != null && audioSource != null)
-                audioSource.PlayOneShot(potionPickupSFX);
+                SoundManager.Instance.PlaySound2D("PotionPickup");
 
             Destroy(gameObject);
         }

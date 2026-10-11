@@ -72,7 +72,7 @@ public class EnergyPotion : MonoBehaviour
 
             // Play sound
             if (potionPickupSFX != null && audioSource != null)
-                audioSource.PlayOneShot(potionPickupSFX);
+                SoundManager.Instance.PlaySound2D("PotionPickup");
 
             Destroy(gameObject);
         }

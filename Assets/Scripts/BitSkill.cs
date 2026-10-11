@@ -216,7 +216,7 @@ public class BitSkill : MonoBehaviour
 
         // Play activation sound
         if (audioSource != null && buffActivateSFX != null)
-            audioSource.PlayOneShot(buffActivateSFX);
+            SoundManager.Instance.PlaySound2D("BitBuffActivate");
     }
 
     /// <summary>
