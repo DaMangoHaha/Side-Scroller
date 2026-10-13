@@ -43,10 +43,10 @@ MonoBehaviour:
       Type (of skill)
       - Active
 
-      Cooldown - 35s
+      Cooldown - 35 Seconds
 
-      Description - After 35 seconds, Thief
-      can activate Sticky Fingers to pull in nearby coins within a circle around
+      Description - After 35 seconds,
+      Thief can activate Sticky Fingers to pull in nearby coins within a circle around
       him. Coins being pulled in with Sticky Fingers are tinted darker. '
   - title: Ninja
     icon: {fileID: 61506194941554554, guid: 500f72fcd9b34894ea6fc359fe580c69, type: 3}
@@ -61,7 +61,7 @@ MonoBehaviour:
 
       Type (of skill) - Active
 
-      Cooldown - 25s
+      Cooldown - 25 seconds
 
       Description
       - After 25 seconds, Ninja can fire her Electric Bolt to destroy obstacles in
@@ -69,22 +69,22 @@ MonoBehaviour:
   - title: Wiz Kid
     icon: {fileID: 694068958173167402, guid: a13018d0373c22e4e9bc72555eebd8a2, type: 3}
     description: 'A wizard who is still in training, trying to become a wizard like
-      his father. Or...before his father went mentally unstable due to his anger.
-      He may be a timid child, but as he tries controlling his powers, he''ll one
-      day master them. His skill, Sprouting Sorcery, lets him randomly restore amounts
-      of energy.
+      his father. He may be a timid child, but as he tries controlling his powers,
+      he''ll one day master them. His skill, Sprouting Sorcery, lets him randomly
+      restore amounts of energy in bursts.
 
 
       Skill Stats:
 
-      Type (of skill) - Passive
+      Type (of skill)
+      - Passive
 
-      Cooldown
-      - 25s
+      Cooldown - 25 seconds
 
-      Description - After 25 seconds of running, Wiz Kid will randomly
-      generate a random interval and a fixed amount of energy to himself. The longer
-      Sprouting Sorcery goes on, the more energy Wiz Kid gets.'
+      Description - After 25 seconds
+      of running, Wiz Kid will randomly generate a random interval and a fixed amount
+      of energy to himself. The longer Sprouting Sorcery goes on, the more energy
+      Wiz Kid gets.'
   - title: Crystal
     icon: {fileID: -8710684726290518427, guid: ad90941f2e2de8e4291e9e7bf289c835, type: 3}
     description: 'A woman who was frozen in frosty outpost during the great war.
@@ -98,14 +98,14 @@ MonoBehaviour:
       Skill Stats:
 
       Type
-      (of skill) -
+      (of skill) - Active
 
-      Cooldown - N/A. Crystal just needs to collect 5 snowflakes.
+      Cooldown - N/A. Crystal just needs to collect 5
+      snowflakes.
 
-      Description
-      - When Crystal collects 5 snowflakes, she can cast Glaciate in a small circle
-      around her, freezing obstacles to make them harmless. Crystal can pass through
-      frozen obstacles.'
+      Description - When Crystal collects 5 snowflakes, she can
+      cast Glaciate in a small circle around her, freezing obstacles to make them
+      harmless. Crystal can pass through frozen obstacles.'
   - title: Cubit
     icon: {fileID: 377528032064278403, guid: 058659ad0ffe58248a063b9eb665c510, type: 3}
     description: 'It''s unknown exactly how cubit made his way onto spritz. All that
@@ -120,13 +120,13 @@ MonoBehaviour:
       Type (of skill) -
       Passive
 
-      Cooldown - 45s after first activation.
+      Cooldown - 45s after activation.
 
-      Description -
-      When Cubit''s energy drops below 30%, he will pause his energy depletion for
-      several seconds. During this time, his defense will increase and he''ll take
-      less damage from obstacles. Once Protection Protocol ends, he will restore
-      his energy depending on how much damage he took during the pause. '
+      Description - When Cubit''s
+      energy drops below 30%, he will pause his energy depletion for several seconds.
+      During this time, his defense will increase and he''ll take less damage from
+      obstacles. Once Protection Protocol ends, he will restore his energy depending
+      on how much damage he took during the pause. '
   - title: Selene
     icon: {fileID: -3548927263663240677, guid: 519b6c38476af094aab0f8ec23976f86, type: 3}
     description: 'Selene is a creatively ambitious woman who knows how to channel
@@ -140,13 +140,13 @@ MonoBehaviour:
       Type (of skill) - Passive
 
       Cooldown
-      - 45s
+      - 45 seconds
 
-      Description - After 45s, Selene channels spritual energy from
-      within her mind and drops a red crystal down the center of the screen. The
-      crystal explodes upon touching the ground, and it destroys all obstacles on
-      the screen, then goes back on cooldown. If Selene destroys 20 obstacles, she
-      grants herself the Charm! buff. '
+      Description - After 45s, Selene channels spritual energy
+      from within her mind and drops a red crystal down the center of the screen.
+      The crystal explodes upon touching the ground, and it destroys all obstacles
+      on the screen, then goes back on cooldown. If Selene destroys 20 obstacles,
+      she grants herself the Charm! buff. '
   obstacles:
   - title: Spikes
     icon: {fileID: 7145198348311737387, guid: f73dfe034c22cfc41bd7e8799020a5ac, type: 3}
@@ -201,7 +201,7 @@ MonoBehaviour:
       using Glaciate, there is a 25% chance Crystal will activate Chill Wind. Chill
       wind extends Crystal''s max energy by 25%, deplete crystal''s energy 50% slower,
       and takes 20% less damage from all obstacles. Chill Wind will last for 25 seconds,
-      and cannot be overlapped with another one.'
+      and cannot stack.'
   - title: Charm
     icon: {fileID: 6276412462295467791, guid: 0618ae7101867ba41add521709167de7, type: 3}
     description: 'The Charm Buff is a buff exclusive to Selenel only. It can be activated
